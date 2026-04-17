@@ -10,29 +10,31 @@ interface Props {
 const { image, name, description, price, imageAlt = name } = Astro.props;
 ---
 
-<div class="group transition-shadow duration-200 hover:shadow-md">
-  <div class="aspect-square w-full overflow-hidden rounded-[4px]">
+<div class="group transition-all duration-300 hover:-translate-y-1">
+  <div class="aspect-square w-full overflow-hidden rounded-sm border border-forest/8">
     <img
       src={image}
       alt={imageAlt}
-      class="w-full h-full aspect-square object-cover"
+      class="w-full h-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
       width="800"
       height="800"
       loading="lazy"
     />
   </div>
 
-  <p class="font-sans text-[13px] font-medium text-forest mt-[10px]">
-    {name}
-  </p>
-
-  {description && (
-    <p class="font-sans text-[11px] text-brown/60 mt-1 line-clamp-2">
-      {description}
+  <div class="pt-4 pb-1">
+    <p class="font-display italic text-[15px] text-forest leading-tight">
+      {name}
     </p>
-  )}
 
-  <p class="font-sans text-[12px] text-brown/50 mt-1">
-    {price}
-  </p>
+    {description && (
+      <p class="font-sans text-[11px] text-brown/55 mt-1.5 line-clamp-2 leading-relaxed">
+        {description}
+      </p>
+    )}
+
+    <p class="font-sans text-[11px] text-gold mt-2 tracking-[0.05em]">
+      {price}
+    </p>
+  </div>
 </div>

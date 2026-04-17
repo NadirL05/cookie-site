@@ -8,8 +8,8 @@ const links = [
 const pathname = Astro.url.pathname;
 ---
 
-<nav class="sticky top-0 z-50 bg-forest" aria-label="Navigation principale">
-  <div class="flex items-center justify-between px-8 py-4">
+<nav id="main-nav" class="sticky top-0 z-50 bg-forest transition-all duration-300" aria-label="Navigation principale">
+  <div class="flex items-center justify-between px-8 py-5">
     <!-- Brand logo -->
     <a href="/" class="font-display italic text-cream text-[22px] leading-none tracking-wide">
       La Maison
@@ -81,4 +81,14 @@ const pathname = Astro.url.pathname;
     }
     toggle.setAttribute('aria-expanded', String(!isOpen));
   });
+
+  // Subtle border-bottom on scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('border-b', 'border-forest-mid');
+    } else {
+      nav?.classList.remove('border-b', 'border-forest-mid');
+    }
+  }, { passive: true });
 </script>

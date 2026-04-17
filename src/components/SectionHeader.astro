@@ -11,10 +11,11 @@ const Tag = `h${level}` as 'h2' | 'h3' | 'h4';
 ---
 
 <div class={centered ? 'text-center' : ''}>
-  <p class="font-sans uppercase text-[10px] tracking-[0.2em] text-forest/50">
+  <p class="font-sans uppercase text-[10px] tracking-[0.25em] text-forest/40 mb-3">
     {label}
   </p>
-  <Tag class="font-display italic text-[28px] font-normal text-forest mt-1">
+  <div class={`w-6 h-px bg-forest/20 mb-3 ${centered ? 'mx-auto' : ''}`}></div>
+  <Tag class="font-display italic text-[32px] md:text-[36px] font-normal text-forest leading-tight">
     {title}
   </Tag>
 </div>

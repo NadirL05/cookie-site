@@ -13,14 +13,14 @@ const externalAttrs = external
   : {};
 
 const baseClasses =
-  'inline-block font-sans uppercase text-[11px] tracking-[0.15em] px-6 py-[10px] transition-all duration-200 cursor-pointer';
+  'inline-block font-sans uppercase text-[10px] tracking-[0.2em] px-7 py-3 transition-all duration-300 cursor-pointer';
 
 const variantClasses =
   variant === 'solid'
-    ? 'bg-forest text-cream hover:opacity-85'
+    ? 'bg-forest text-cream hover:bg-forest-mid'
     : variant === 'inverted'
-    ? 'bg-cream text-forest hover:bg-gold transition-colors'
-    : 'border border-forest text-forest hover:bg-forest hover:text-cream';
+    ? 'bg-cream text-forest hover:bg-gold'
+    : 'border border-forest/60 text-forest hover:border-forest hover:bg-forest hover:text-cream';
 ---
 
 <a
