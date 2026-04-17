@@ -17,13 +17,26 @@ html {
 }
 
 body {
-  background: var(--color-cream);
+  background: transparent;
   color: var(--color-brown);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Sections semi-transparentes pour laisser voir le cookie 3D */
+.bg-cream {
+  background-color: rgba(245, 239, 224, 0.82) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.bg-forest {
+  background-color: rgba(28, 58, 42, 0.90) !important;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 /* Grain texture overlay */

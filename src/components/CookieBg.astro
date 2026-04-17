@@ -1,0 +1,180 @@
+---
+// 3D cookie background — Three.js, fixed, full screen
+---
+
+<canvas id="cookie-canvas" aria-hidden="true"></canvas>
+
+<style>
+  #cookie-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+  }
+</style>
+
+<script>
+  import * as THREE from 'three';
+
+  const canvas = document.getElementById('cookie-canvas') as HTMLCanvasElement;
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+
+  // Scene
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color('#F2E9D8'); // crème légèrement plus chaude
+
+  // Camera
+  const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(0, 3.5, 8);
+  camera.lookAt(0, 0, 0);
+
+  // ── Lights ──────────────────────────────────────────────────
+  const ambient = new THREE.AmbientLight('#fff8f0', 1.4);
+  scene.add(ambient);
+
+  const sun = new THREE.DirectionalLight('#fff3e0', 3.5);
+  sun.position.set(4, 8, 5);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048);
+  sun.shadow.camera.near = 0.1;
+  sun.shadow.camera.far = 40;
+  sun.shadow.camera.left = -8;
+  sun.shadow.camera.right = 8;
+  sun.shadow.camera.top = 8;
+  sun.shadow.camera.bottom = -8;
+  scene.add(sun);
+
+  const fill = new THREE.DirectionalLight('#d4a96a', 0.8);
+  fill.position.set(-3, 2, -2);
+  scene.add(fill);
+
+  // ── Cookie body ─────────────────────────────────────────────
+  const cookieGeo = new THREE.CylinderGeometry(3.6, 3.4, 0.38, 64, 3);
+
+  // Déformer légèrement les vertices pour un aspect fait main
+  const pos = cookieGeo.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i);
+    const y = pos.getY(i);
+    const z = pos.getZ(i);
+    const r = Math.sqrt(x * x + z * z);
+    // Bord ondulé
+    if (r > 3.0) {
+      const angle = Math.atan2(z, x);
+      const wave = Math.sin(angle * 7) * 0.06 + Math.sin(angle * 13) * 0.03;
+      pos.setXYZ(i, x * (1 + wave * 0.04), y + Math.random() * 0.02 - 0.01, z * (1 + wave * 0.04));
+    }
+    // Surface irrégulière
+    if (Math.abs(y) > 0.15) {
+      pos.setY(i, y + (Math.random() * 0.025 - 0.012));
+    }
+  }
+  cookieGeo.computeVertexNormals();
+
+  const cookieMat = new THREE.MeshStandardMaterial({
+    color: new THREE.Color('#C8812A'),
+    roughness: 0.88,
+    metalness: 0.0,
+  });
+
+  const cookie = new THREE.Mesh(cookieGeo, cookieMat);
+  cookie.receiveShadow = true;
+  cookie.castShadow = true;
+  cookie.rotation.x = -0.18; // légère inclinaison pour le voir en 3/4
+  scene.add(cookie);
+
+  // ── Pépites de chocolat ─────────────────────────────────────
+  const chipMat = new THREE.MeshStandardMaterial({
+    color: new THREE.Color('#2A1205'),
+    roughness: 0.6,
+    metalness: 0.1,
+  });
+
+  const chipPositions = [
+    [0.6, 0.9], [-1.1, 0.5], [1.4, -0.3], [-0.3, -1.2], [0.1, 0.2],
+    [1.9, 0.7], [-1.8, -0.6], [0.8, -1.8], [-0.9, 1.5], [2.1, -1.2],
+    [-2.2, 1.0], [1.2, 1.8], [-1.5, -1.9], [0.4, -0.5], [-0.6, 0.7],
+    [2.5, 0.3], [-2.6, -0.2], [1.7, -0.9], [-1.0, -0.9], [0.0, 1.8],
+    [2.0, 1.5], [-2.0, 1.6], [1.5, -2.2], [-1.6, 1.9], [0.3, -2.5],
+    [2.8, -0.9], [-2.7, 0.8], [0.9, 2.4], [-0.4, -2.8],
+  ];
+
+  chipPositions.forEach(([cx, cz]) => {
+    const r = Math.sqrt(cx * cx + cz * cz);
+    if (r > 3.2) return; // hors du cookie
+    const chipGeo = new THREE.SphereGeometry(
+      0.13 + Math.random() * 0.07, 8, 6
+    );
+    const chip = new THREE.Mesh(chipGeo, chipMat);
+    chip.position.set(cx + (Math.random() - 0.5) * 0.12, 0.22, cz + (Math.random() - 0.5) * 0.12);
+    chip.scale.y = 0.55 + Math.random() * 0.2;
+    chip.castShadow = true;
+    cookie.add(chip);
+  });
+
+  // ── Craquelures (lignes sombres sur la surface) ──────────────
+  const crackMat = new THREE.LineBasicMaterial({
+    color: '#9B5E1A',
+    transparent: true,
+    opacity: 0.35,
+  });
+  const crackAngles = [0.3, 1.1, 2.2, 3.5, 4.8, 5.6];
+  crackAngles.forEach(a => {
+    const pts = [];
+    for (let t = 0; t < 1; t += 0.04) {
+      const rad = t * (1.8 + Math.random() * 1.2);
+      const angle = a + (Math.random() - 0.5) * 0.3 * t;
+      pts.push(new THREE.Vector3(
+        Math.cos(angle) * rad,
+        0.2,
+        Math.sin(angle) * rad
+      ));
+    }
+    const crackGeo = new THREE.BufferGeometry().setFromPoints(pts);
+    cookie.add(new THREE.Line(crackGeo, crackMat));
+  });
+
+  // ── Ombre portée (plan invisible) ───────────────────────────
+  const shadowPlane = new THREE.Mesh(
+    new THREE.PlaneGeometry(20, 20),
+    new THREE.ShadowMaterial({ opacity: 0.15 })
+  );
+  shadowPlane.rotation.x = -Math.PI / 2;
+  shadowPlane.position.y = -0.22;
+  shadowPlane.receiveShadow = true;
+  scene.add(shadowPlane);
+
+  // ── Animation ───────────────────────────────────────────────
+  let raf: number;
+  const clock = new THREE.Clock();
+
+  function animate() {
+    raf = requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    // Respiration très lente
+    cookie.rotation.y = Math.sin(t * 0.18) * 0.06;
+    cookie.position.y = Math.sin(t * 0.3) * 0.04;
+
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // ── Resize ──────────────────────────────────────────────────
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }, { passive: true });
+</script>
