@@ -4,6 +4,8 @@ const links = [
   { label: 'Nos Créations', href: '/creations' },
   { label: 'Contact', href: '/contact' },
 ];
+
+const pathname = Astro.url.pathname;
 ---
 
 <nav class="sticky top-0 z-50 bg-forest" aria-label="Navigation principale">
@@ -19,10 +21,8 @@ const links = [
         <li>
           <a
             href={href}
-            class="font-sans uppercase text-cream text-[11px] tracking-[0.15em] relative
-                   after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-px
-                   after:bg-cream after:transition-all after:duration-200
-                   hover:after:w-full"
+            aria-current={pathname === href ? 'page' : undefined}
+            class={`font-sans uppercase tracking-[0.15em] text-[11px] text-cream/80 hover:text-cream transition-colors pb-0.5 ${pathname === href ? 'border-b border-cream text-cream' : ''}`}
           >
             {label}
           </a>
@@ -55,8 +55,8 @@ const links = [
         <li class="border-b border-cream/20">
           <a
             href={href}
-            class="block w-full px-8 py-4 font-sans uppercase text-cream text-[16px] tracking-[0.15em]
-                   hover:bg-cream/10 transition-colors duration-150"
+            aria-current={pathname === href ? 'page' : undefined}
+            class={`block w-full px-8 py-4 font-sans uppercase text-[16px] tracking-[0.15em] hover:bg-cream/10 transition-colors duration-150 ${pathname === href ? 'text-cream font-medium' : 'text-cream/80'}`}
           >
             {label}
           </a>
