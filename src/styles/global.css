@@ -1,0 +1,21 @@
+:root {
+  --color-forest: #1C3A2A;
+  --color-cream: #F5EFE0;
+  --color-gold: #C8A97E;
+  --color-forest-mid: #2E5040;
+  --color-brown: #2C1810;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--color-cream);
+  color: var(--color-brown);
+  margin: 0;
+  padding: 0;
+}
