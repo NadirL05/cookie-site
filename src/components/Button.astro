@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  variant?: 'solid' | 'outline';
+  variant?: 'solid' | 'outline' | 'inverted';
   label: string;
   external?: boolean;
 }
@@ -18,6 +18,8 @@ const baseClasses =
 const variantClasses =
   variant === 'solid'
     ? 'bg-forest text-cream hover:opacity-85'
+    : variant === 'inverted'
+    ? 'bg-cream text-forest hover:bg-gold transition-colors'
     : 'border border-forest text-forest hover:bg-forest hover:text-cream';
 ---
 
