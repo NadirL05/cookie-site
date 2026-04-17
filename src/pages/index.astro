@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-import CookieCard from '../components/CookieCard.astro';
+import CookieCardShadcn from '../components/CookieCardShadcn';
 ---
 
 <Layout title="La Maison — Cookies Artisanaux" description="Cookies artisanaux faits à la main, avec passion.">
@@ -39,20 +39,25 @@ import CookieCard from '../components/CookieCard.astro';
   <section class="bg-cream border-t border-forest/10 py-20 md:py-28 px-8">
     <div class="max-w-5xl mx-auto">
       <SectionHeader label="Nos Incontournables" title="Les créations du moment" centered={true} />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-14">
-        <CookieCard
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
           name="Chocolat Noir & Fleur de Sel"
           price="3,50 €"
           description="Un cookie généreux au chocolat noir intense, relevé d'une pincée de fleur de sel."
+          badge="Signature"
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
           name="Praliné Croustillant"
           price="3,50 €"
           description="Éclats de noisettes caramélisées fondus dans une pâte beurrée dorée à souhait."
+          badge="Best-seller"
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80"
           name="Citron Confit & Pavot"
           price="3,50 €"

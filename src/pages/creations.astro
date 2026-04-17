@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CookieCard from '../components/CookieCard.astro';
+import CookieCardShadcn from '../components/CookieCardShadcn';
 import Button from '../components/Button.astro';
 ---
 
@@ -16,38 +16,47 @@ import Button from '../components/Button.astro';
   <!-- Section 2 — Grille produits -->
   <section class="bg-cream py-16 px-8">
     <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        <CookieCard
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
           name="Chocolat Noir & Fleur de Sel"
           price="3,50 €"
           description="Un cookie généreux au chocolat noir intense, relevé d'une pincée de fleur de sel de Guérande."
+          badge="Signature"
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
           name="Praliné Croustillant"
           price="3,50 €"
           description="Éclats de noisettes caramélisées fondus dans une pâte beurrée dorée à souhait."
+          badge="Best-seller"
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80"
           name="Citron Confit & Pavot"
           price="3,50 €"
           description="La fraîcheur acidulée du citron confit mariée à la douceur d'un cookie moelleux."
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80"
           name="Caramel Beurre Salé"
           price="3,50 €"
           description="Un cookie fondant nappé d'un caramel beurre salé maison, irrésistible à chaque bouchée."
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
           name="Pistache & Framboise"
           price="4,00 €"
           description="La pistache dorée rencontre la framboise acidulée pour un accord fruité et raffiné."
+          badge="Nouveauté"
         />
-        <CookieCard
+        <CookieCardShadcn
+          client:visible
           image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
           name="Spéculoos Maison"
           price="3,00 €"
