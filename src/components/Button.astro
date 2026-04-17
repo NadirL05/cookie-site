@@ -9,7 +9,7 @@ interface Props {
 const { href, variant = 'solid', label, external = false } = Astro.props;
 
 const externalAttrs = external
-  ? { target: '_blank', rel: 'noopener' }
+  ? { target: '_blank', rel: 'noopener noreferrer' }
   : {};
 
 const baseClasses =

@@ -6,7 +6,7 @@ const links = [
 ];
 ---
 
-<nav class="sticky top-0 z-50 bg-forest">
+<nav class="sticky top-0 z-50 bg-forest" aria-label="Navigation principale">
   <div class="flex items-center justify-between px-8 py-4">
     <!-- Brand logo -->
     <a href="/" class="font-display italic text-cream text-[22px] leading-none tracking-wide">
@@ -36,6 +36,7 @@ const links = [
       class="md:hidden flex flex-col gap-[5px] cursor-pointer p-1"
       aria-label="Ouvrir le menu"
       aria-expanded="false"
+      aria-controls="nav-mobile"
     >
       <span class="block w-6 h-px bg-cream"></span>
       <span class="block w-6 h-px bg-cream"></span>
@@ -47,6 +48,7 @@ const links = [
   <div
     id="nav-mobile"
     class="hidden md:hidden bg-forest"
+    aria-hidden="true"
   >
     <ul>
       {links.map(({ label, href }) => (
@@ -70,7 +72,13 @@ const links = [
 
   toggle?.addEventListener('click', () => {
     const isOpen = !menu?.classList.contains('hidden');
-    menu?.classList.toggle('hidden', isOpen);
+    if (isOpen) {
+      menu?.classList.add('hidden');
+      menu?.setAttribute('aria-hidden', 'true');
+    } else {
+      menu?.classList.remove('hidden');
+      menu?.setAttribute('aria-hidden', 'false');
+    }
     toggle.setAttribute('aria-expanded', String(!isOpen));
   });
 </script>

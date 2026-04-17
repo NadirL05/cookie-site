@@ -3,16 +3,18 @@ interface Props {
   label: string;
   title: string;
   centered?: boolean;
+  level?: 2 | 3 | 4;
 }
 
-const { label, title, centered = false } = Astro.props;
+const { label, title, centered = false, level = 2 } = Astro.props;
+const Tag = `h${level}` as 'h2' | 'h3' | 'h4';
 ---
 
 <div class={centered ? 'text-center' : ''}>
   <p class="font-sans uppercase text-[10px] tracking-[0.2em] text-forest/50">
     {label}
   </p>
-  <h2 class="font-display italic text-[28px] font-normal text-forest mt-1">
+  <Tag class="font-display italic text-[28px] font-normal text-forest mt-1">
     {title}
-  </h2>
+  </Tag>
 </div>

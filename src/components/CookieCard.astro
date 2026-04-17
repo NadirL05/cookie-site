@@ -15,7 +15,9 @@ const { image, name, description, price, imageAlt = name } = Astro.props;
     <img
       src={image}
       alt={imageAlt}
-      class="w-full h-full object-cover"
+      class="w-full h-full aspect-square object-cover"
+      width="800"
+      height="800"
       loading="lazy"
     />
   </div>
@@ -25,12 +27,12 @@ const { image, name, description, price, imageAlt = name } = Astro.props;
   </p>
 
   {description && (
-    <p class="font-sans text-[11px] text-[#666] mt-1 line-clamp-2">
+    <p class="font-sans text-[11px] text-brown/60 mt-1 line-clamp-2">
       {description}
     </p>
   )}
 
-  <p class="font-sans text-[12px] text-[#888] mt-1">
+  <p class="font-sans text-[12px] text-brown/50 mt-1">
     {price}
   </p>
 </div>
