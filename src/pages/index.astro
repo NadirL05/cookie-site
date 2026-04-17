@@ -1,9 +1,105 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CookieCard from '../components/CookieCard.astro';
 ---
 
-<Layout title="Cookie Site">
-  <main>
-    <h1>Cookie Site</h1>
-  </main>
+<Layout title="La Maison — Cookies Artisanaux" description="Cookies artisanaux faits à la main, avec passion.">
+
+  <!-- Section 1 — Hero -->
+  <section class="bg-cream py-16 md:py-24 px-8 md:px-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Left column -->
+      <div>
+        <p class="font-sans uppercase text-forest/50 text-[10px] tracking-[0.2em] mb-6">Cookies Artisanaux</p>
+        <h1 class="font-display italic text-4xl md:text-5xl text-forest leading-snug mb-8">
+          Quand la gourmandise<br/>devient un <em>souvenir.</em>
+        </h1>
+        <Button href="/creations" variant="solid" label="Découvrir nos créations →" />
+      </div>
+      <!-- Right column — hidden on mobile -->
+      <div class="hidden md:block">
+        <div class="aspect-[4/3] w-full overflow-hidden rounded-sm">
+          <img
+            src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&q=80"
+            alt="Cookies artisanaux La Maison"
+            class="w-full h-full object-cover"
+            width="800"
+            height="600"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 — Produits vedettes -->
+  <section class="bg-cream border-t border-forest/20 py-16 px-8">
+    <div class="max-w-5xl mx-auto">
+      <SectionHeader label="Nos Incontournables" title="Les créations du moment" centered={true} />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+        <CookieCard
+          image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
+          name="Chocolat Noir & Fleur de Sel"
+          price="3,50 €"
+          description="Un cookie généreux au chocolat noir intense, relevé d'une pincée de fleur de sel."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
+          name="Praliné Croustillant"
+          price="3,50 €"
+          description="Éclats de noisettes caramélisées fondus dans une pâte beurrée dorée à souhait."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80"
+          name="Citron Confit & Pavot"
+          price="3,50 €"
+          description="La fraîcheur acidulée du citron confit mariée à la douceur d'un cookie moelleux."
+        />
+      </div>
+      <div class="text-center mt-10">
+        <Button href="/creations" variant="outline" label="Voir toutes nos créations" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — Bande Histoire -->
+  <section class="bg-forest py-16 px-8 md:px-16">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-10 items-center">
+      <!-- Image -->
+      <div class="flex-shrink-0">
+        <img
+          src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400&q=80"
+          alt="Notre histoire — La Maison"
+          class="w-32 h-32 md:w-48 md:h-48 object-cover rounded-sm"
+          width="192"
+          height="192"
+        />
+      </div>
+      <!-- Text -->
+      <div>
+        <p class="font-sans uppercase text-gold/80 text-[10px] tracking-[0.2em] mb-3">Notre Histoire</p>
+        <blockquote class="font-display italic text-cream text-xl md:text-2xl leading-relaxed mb-4">
+          "Chaque cookie est façonné à la main, avec des ingrédients soigneusement sélectionnés, pour des instants de gourmandise inoubliables."
+        </blockquote>
+        <a
+          href="/histoire"
+          class="font-sans uppercase text-[10px] tracking-[0.15em] text-gold border-b border-gold/50 pb-0.5 hover:border-gold transition-colors"
+        >
+          Lire notre histoire →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 — CTA Contact -->
+  <section class="bg-cream text-center py-16 px-8">
+    <h2 class="font-display italic text-2xl text-forest">Envie de cookies ?</h2>
+    <p class="font-sans text-sm text-forest/60 mt-3">Passez commande directement sur Instagram ou envoyez-nous un message.</p>
+    <div class="flex gap-4 justify-center mt-8">
+      <Button href="https://instagram.com" variant="solid" label="Instagram" external={true} />
+      <Button href="/contact" variant="outline" label="Nous écrire" />
+    </div>
+  </section>
+
 </Layout>

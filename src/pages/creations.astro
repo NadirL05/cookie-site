@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CookieCard from '../components/CookieCard.astro';
+---
+
+<Layout title="Nos Créations — La Maison" description="Découvrez toutes nos créations de cookies artisanaux faits à la main.">
+
+  <!-- Section 1 — Header de page -->
+  <section class="bg-forest text-center py-20 px-8">
+    <p class="font-sans uppercase text-gold/80 text-[10px] tracking-[0.3em] mb-3">Artisanat & Gourmandise</p>
+    <h1 class="font-display italic text-5xl text-cream">Nos Créations</h1>
+    <p class="font-sans text-sm text-cream/60 mt-4">Chaque cookie est fait à la main, avec amour.</p>
+  </section>
+
+  <!-- Section 2 — Grille produits -->
+  <section class="bg-cream py-16 px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <CookieCard
+          image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
+          name="Chocolat Noir & Fleur de Sel"
+          price="3,50 €"
+          description="Un cookie généreux au chocolat noir intense, relevé d'une pincée de fleur de sel de Guérande."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
+          name="Praliné Croustillant"
+          price="3,50 €"
+          description="Éclats de noisettes caramélisées fondus dans une pâte beurrée dorée à souhait."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80"
+          name="Citron Confit & Pavot"
+          price="3,50 €"
+          description="La fraîcheur acidulée du citron confit mariée à la douceur d'un cookie moelleux."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80"
+          name="Caramel Beurre Salé"
+          price="3,50 €"
+          description="Un cookie fondant nappé d'un caramel beurre salé maison, irrésistible à chaque bouchée."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
+          name="Pistache & Framboise"
+          price="4,00 €"
+          description="La pistache dorée rencontre la framboise acidulée pour un accord fruité et raffiné."
+        />
+        <CookieCard
+          image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
+          name="Spéculoos Maison"
+          price="3,00 €"
+          description="La douceur épicée de nos spéculoos maison, croustillants et fondants à la fois."
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — CTA bas -->
+  <section class="bg-forest text-center py-12 px-8">
+    <p class="font-display italic text-cream text-2xl">Vous avez un coup de cœur ?</p>
+    <p class="font-sans text-sm text-cream/60 mt-3">Passez commande sur Instagram ou contactez-nous directement.</p>
+    <div class="flex justify-center gap-4 mt-8">
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-cream text-forest font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-3 hover:bg-gold transition-colors"
+      >
+        Instagram
+      </a>
+      <a
+        href="/contact"
+        class="border border-cream text-cream font-sans text-[11px] tracking-[0.15em] uppercase px-6 py-3 hover:bg-cream hover:text-forest transition-colors"
+      >
+        Nous écrire
+      </a>
+    </div>
+  </section>
+
+</Layout>
