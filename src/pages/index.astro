@@ -1,114 +1,198 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import CookieCardShadcn from '../components/CookieCardShadcn';
+import CookieCardDesign from '../components/CookieCardDesign';
+
+const featured = [
+  {
+    id: 'sarah-b',
+    name: 'Sarah‑B',
+    subtitle: 'Chocolat noir 70%, fleur de sel de Guérande',
+    price: '6€',
+    badge: 'Signature',
+    placeholder: 'p-chocolate',
+    placeholderLabel: 'COOKIE · CHOCOLAT NOIR',
+  },
+  {
+    id: 'matcha-yuzu',
+    name: 'Matcha Yuzu',
+    subtitle: 'Thé matcha d\'Uji, zestes de yuzu confits',
+    price: '7€',
+    badge: 'Nouveauté',
+    placeholder: 'p-matcha',
+    placeholderLabel: 'COOKIE · MATCHA YUZU',
+  },
+  {
+    id: 'framboise-noire',
+    name: 'Framboise Noire',
+    subtitle: 'Framboises confites, chocolat noir, poivre de Timut',
+    price: '7€',
+    badge: 'Best‑seller',
+    placeholder: 'p-framboise',
+    placeholderLabel: 'COOKIE · FRAMBOISE NOIRE',
+  },
+];
+
+const values = [
+  { num: '01', title: 'La fournée unique', text: 'Une seule cuisson par jour, le matin. Ce qui n\'est pas réservé n\'est pas cuit.' },
+  { num: '02', title: 'Matières rares', text: 'Chocolat grand cru, vanille de Madagascar, pistaches de Bronte. Sourcing lent.' },
+  { num: '03', title: 'Fait main', text: 'Chaque cookie est façonné à la main. Aucune machine, aucun surgelé.' },
+];
 ---
 
-<Layout title="La Maison — Cookies Artisanaux" description="Cookies artisanaux faits à la main, avec passion.">
+<Layout
+  title="La Maison — Cookies d'auteur · Paris"
+  description="Une fournée par jour. Cookies artisanaux façonnés à la main, sur commande, au cœur de Paris."
+  current="home"
+  forestTop={true}
+>
 
-  <!-- Section 1 — Hero -->
-  <section class="bg-cream py-20 md:py-32 px-8 md:px-16">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-      <!-- Left column -->
-      <div>
-        <p class="font-sans uppercase text-forest/40 text-[10px] tracking-[0.3em] mb-8">Cookies Artisanaux</p>
-        <h1 class="font-display italic text-5xl md:text-6xl lg:text-7xl text-forest leading-[1.1] mb-10">
-          Quand la<br/>gourmandise<br/>devient un<br/><em>souvenir.</em>
-        </h1>
-        <div class="w-8 h-px bg-forest/20 mb-10"></div>
-        <Button href="/creations" variant="solid" label="Découvrir nos créations →" />
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-img">
+      <div class="placeholder-hero"></div>
+    </div>
+    <span class="hero-meta">N° 01 — Maison</span>
+    <span class="hero-meta-right">Paris · 75004<br/>Atelier de Turenne</span>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow eyebrow">Paris · Depuis MMXV</div>
+      <h1 class="hero-title">
+        Une fournée<br/>
+        <span style="display:inline-block">par jour<span class="ornament"> ✦ </span>rien de plus.</span>
+      </h1>
+      <p class="hero-tagline">
+        « Quand la gourmandise devient un souvenir. »
+      </p>
+      <div class="hero-cta">
+        <a href="/creations" class="btn btn-primary">
+          Voir nos créations <span class="arrow">→</span>
+        </a>
+        <a href="/histoire" class="btn btn-ghost">
+          Notre histoire
+        </a>
       </div>
-      <!-- Right column — hidden on mobile -->
-      <div class="hidden md:block">
-        <div class="aspect-[3/4] w-full overflow-hidden rounded-sm">
-          <img
-            src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&q=80"
-            alt="Cookies artisanaux La Maison"
-            class="w-full h-full object-cover"
-            width="800"
-            height="600"
-            fetchpriority="high"
-          />
+    </div>
+
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- Featured cookies -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#C8A97E">N° 02</span> &nbsp;·&nbsp; Sélection</span>
+          <hr class="hairline" />
+          <h2>
+            Trois créations<br/>emblématiques.
+          </h2>
         </div>
+        <p class="body-text reveal reveal-delay-1">
+          Six recettes, façonnées à la main chaque matin, à partir de matières rares.
+          Voici les trois qui reviennent le plus souvent dans vos commandes.
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- Section 2 — Produits vedettes -->
-  <section class="bg-cream border-t border-forest/10 py-20 md:py-28 px-8">
-    <div class="max-w-5xl mx-auto">
-      <SectionHeader label="Nos Incontournables" title="Les créations du moment" centered={true} />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14">
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
-          name="Chocolat Noir & Fleur de Sel"
-          price="3,50 €"
-          description="Un cookie généreux au chocolat noir intense, relevé d'une pincée de fleur de sel."
-          badge="Signature"
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
-          name="Praliné Croustillant"
-          price="3,50 €"
-          description="Éclats de noisettes caramélisées fondus dans une pâte beurrée dorée à souhait."
-          badge="Best-seller"
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80"
-          name="Citron Confit & Pavot"
-          price="3,50 €"
-          description="La fraîcheur acidulée du citron confit mariée à la douceur d'un cookie moelleux."
-        />
+      <div class="cookie-grid">
+        {featured.map((cookie, i) => (
+          <CookieCardDesign client:visible cookie={cookie} index={i} />
+        ))}
       </div>
-      <div class="text-center mt-12">
-        <Button href="/creations" variant="outline" label="Voir toutes nos créations" />
-      </div>
-    </div>
-  </section>
 
-  <!-- Section 3 — Bande Histoire -->
-  <section class="bg-forest py-20 md:py-28 px-8 md:px-16">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-      <!-- Image -->
-      <div class="flex-shrink-0">
-        <img
-          src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=400&q=80"
-          alt="Notre histoire — La Maison"
-          class="w-40 h-40 md:w-56 md:h-56 object-cover rounded-sm"
-          width="224"
-          height="224"
-        />
-      </div>
-      <!-- Text -->
-      <div>
-        <p class="font-sans uppercase text-gold/70 text-[10px] tracking-[0.3em] mb-4">Notre Histoire</p>
-        <div class="w-6 h-px bg-gold/30 mb-5"></div>
-        <blockquote class="font-display italic text-cream text-2xl md:text-3xl leading-relaxed mb-6">
-          "Chaque cookie est façonné à la main, avec des ingrédients soigneusement sélectionnés, pour des instants de gourmandise inoubliables."
-        </blockquote>
-        <a
-          href="/histoire"
-          class="font-sans uppercase text-[10px] tracking-[0.2em] text-gold border-b border-gold/40 pb-0.5 hover:border-gold transition-colors"
-        >
-          Lire notre histoire →
+      <div class="reveal" style="margin-top:80px;text-align:center">
+        <a href="/creations" class="btn btn-primary">
+          Toutes les créations <span class="arrow">→</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Section 4 — CTA Contact -->
-  <section class="bg-cream text-center py-24 px-8">
-    <p class="font-sans uppercase text-forest/40 text-[10px] tracking-[0.3em] mb-4">Commander</p>
-    <h2 class="font-display italic text-4xl md:text-5xl text-forest mb-6">Envie de cookies ?</h2>
-    <p class="font-sans text-sm text-forest/50 max-w-sm mx-auto leading-relaxed">Passez commande directement sur Instagram ou envoyez-nous un message.</p>
-    <div class="flex gap-4 justify-center mt-10">
-      <Button href="https://instagram.com" variant="solid" label="Instagram" external={true} />
-      <Button href="/contact" variant="outline" label="Nous écrire" />
+  <!-- Histoire band -->
+  <section class="histoire-band">
+    <div class="container">
+      <div class="histoire-grid">
+        <div class="histoire-image reveal">
+          <div class="placeholder-hero"></div>
+          <span class="histoire-image-caption">Atelier · Rue de Turenne · 2025</span>
+        </div>
+        <div class="histoire-text reveal reveal-delay-1">
+          <span class="eyebrow"><span style="color:#C8A97E">N° 03</span> &nbsp;·&nbsp; Notre Histoire</span>
+          <h2>
+            Dix ans à ne rien<br/>presser.
+          </h2>
+          <p class="body-text" style="margin-bottom:20px">
+            Camille a quitté son métier en 2015 pour cuire des cookies. Depuis, rien n'a changé :
+            une fournée par jour, à la main, sur commande. Pas d'e-commerce. Pas de croissance à tout prix.
+          </p>
+          <p class="body-text" style="margin-bottom:36px">
+            Juste la patience d'une recette. Et des clients qui reviennent.
+          </p>
+          <a href="/histoire" class="btn btn-ghost">
+            Lire l'histoire <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#C8A97E">N° 04</span> &nbsp;·&nbsp; La maison</span>
+          <hr class="hairline" />
+          <h2>Trois règles,<br/>jamais enfreintes.</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Le luxe, pour nous, c'est le refus. Refus de la machine, refus de la quantité,
+          refus du surgelé.
+        </p>
+      </div>
+
+      <div class="values reveal">
+        {values.map(v => (
+          <div class="value-cell">
+            <span class="value-num">{v.num}</span>
+            <h3>{v.title}</h3>
+            <p class="body-text">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band bg-forest">
+    <div class="container reveal">
+      <span class="eyebrow" style="color:#C8A97E">N° 05 · Commander</span>
+      <h2>
+        <span class="ornament">✦</span> Écrivez-nous<br/>
+        la veille au soir.
+      </h2>
+      <p class="body-text">
+        Les commandes se prennent par Instagram ou e-mail, 72 heures à l'avance.
+        Retrait à l'atelier du 4ᵉ, du mardi au samedi.
+      </p>
+      <a href="/contact" class="btn btn-primary">
+        Passer commande <span class="arrow">→</span>
+      </a>
     </div>
   </section>
 
 </Layout>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    els.forEach(el => obs.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('is-in'));
+  }
+</script>

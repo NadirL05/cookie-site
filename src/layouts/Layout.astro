@@ -5,15 +5,17 @@ import '@fontsource/cormorant-garamond/400.css';
 import '@fontsource/cormorant-garamond/400-italic.css';
 import '@fontsource/dm-sans/400.css';
 import '@fontsource/dm-sans/500.css';
-import Nav from '../components/Nav.astro';
+import NavIsland from '../components/NavIsland';
 import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  current?: string;
+  forestTop?: boolean;
 }
 
-const { title = 'La Maison — Cookies Artisanaux', description = '' } = Astro.props;
+const { title = 'La Maison — Cookies Artisanaux', description = '', current = 'home', forestTop = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,8 +31,8 @@ const { title = 'La Maison — Cookies Artisanaux', description = '' } = Astro.p
 
     <title>{title}</title>
   </head>
-  <body>
-    <Nav />
+  <body class={forestTop ? 'page-forest-top' : ''}>
+    <NavIsland client:load current={current} />
     <main>
       <slot />
     </main>

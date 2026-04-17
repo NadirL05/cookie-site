@@ -1,79 +1,158 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CookieCardShadcn from '../components/CookieCardShadcn';
-import Button from '../components/Button.astro';
+import CookieCardDesign from '../components/CookieCardDesign';
+
+const cookies = [
+  {
+    id: 'sarah-b',
+    name: 'Sarah‑B',
+    subtitle: 'Chocolat noir 70%, fleur de sel de Guérande',
+    price: '6€',
+    badge: 'Signature',
+    placeholder: 'p-chocolate',
+    placeholderLabel: 'COOKIE · CHOCOLAT NOIR',
+  },
+  {
+    id: 'matcha-yuzu',
+    name: 'Matcha Yuzu',
+    subtitle: 'Thé matcha d\'Uji, zestes de yuzu confits',
+    price: '7€',
+    badge: 'Nouveauté',
+    placeholder: 'p-matcha',
+    placeholderLabel: 'COOKIE · MATCHA YUZU',
+  },
+  {
+    id: 'pistache-rose',
+    name: 'Pistache & Rose',
+    subtitle: 'Pistaches de Bronte, eau de rose de Damas',
+    price: '7€',
+    badge: null,
+    placeholder: 'p-pistache',
+    placeholderLabel: 'COOKIE · PISTACHE ROSE',
+  },
+  {
+    id: 'framboise-noire',
+    name: 'Framboise Noire',
+    subtitle: 'Framboises confites, chocolat noir, poivre de Timut',
+    price: '7€',
+    badge: 'Best‑seller',
+    placeholder: 'p-framboise',
+    placeholderLabel: 'COOKIE · FRAMBOISE NOIRE',
+  },
+  {
+    id: 'caramel-miso',
+    name: 'Caramel Miso',
+    subtitle: 'Caramel à la fleur de sel, miso blanc de Kyoto',
+    price: '6€',
+    badge: null,
+    placeholder: 'p-caramel',
+    placeholderLabel: 'COOKIE · CARAMEL MISO',
+  },
+  {
+    id: 'vanille-tonka',
+    name: 'Vanille Tonka',
+    subtitle: 'Vanille de Madagascar, fève tonka râpée',
+    price: '6€',
+    badge: 'Signature',
+    placeholder: 'p-vanille',
+    placeholderLabel: 'COOKIE · VANILLE TONKA',
+  },
+];
 ---
 
-<Layout title="Nos Créations — La Maison" description="Découvrez toutes nos créations de cookies artisanaux faits à la main.">
+<Layout
+  title="Nos Créations — La Maison"
+  description="Six cookies d'auteur. Une carte courte, volontairement."
+  current="creations"
+  forestTop={true}
+>
 
-  <!-- Section 1 — Header de page -->
-  <section class="bg-forest text-center py-20 px-8">
-    <p class="font-sans uppercase text-gold/80 text-[10px] tracking-[0.3em] mb-3">Artisanat & Gourmandise</p>
-    <h1 class="font-display italic text-5xl text-cream">Nos Créations</h1>
-    <p class="font-sans text-sm text-cream/60 mt-4">Chaque cookie est fait à la main, avec amour.</p>
+  <!-- Banner -->
+  <section class="page-banner">
+    <div class="container page-banner-inner">
+      <div>
+        <div class="breadcrumbs">
+          <a href="/">Maison</a>
+          <span class="ornament" style="font-size:0.9rem">✦</span>
+          <span style="color:#C8A97E">Nos Créations</span>
+        </div>
+        <h1>
+          Six cookies,<br/>chacun une rencontre.
+        </h1>
+      </div>
+      <p>
+        Une carte courte, volontairement. Quatre signatures permanentes, deux saisonnières.
+        Toutes cuites le matin même.
+      </p>
+    </div>
   </section>
 
-  <!-- Section 2 — Grille produits -->
-  <section class="bg-cream py-16 px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
-          name="Chocolat Noir & Fleur de Sel"
-          price="3,50 €"
-          description="Un cookie généreux au chocolat noir intense, relevé d'une pincée de fleur de sel de Guérande."
-          badge="Signature"
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
-          name="Praliné Croustillant"
-          price="3,50 €"
-          description="Éclats de noisettes caramélisées fondus dans une pâte beurrée dorée à souhait."
-          badge="Best-seller"
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=80"
-          name="Citron Confit & Pavot"
-          price="3,50 €"
-          description="La fraîcheur acidulée du citron confit mariée à la douceur d'un cookie moelleux."
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80"
-          name="Caramel Beurre Salé"
-          price="3,50 €"
-          description="Un cookie fondant nappé d'un caramel beurre salé maison, irrésistible à chaque bouchée."
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80"
-          name="Pistache & Framboise"
-          price="4,00 €"
-          description="La pistache dorée rencontre la framboise acidulée pour un accord fruité et raffiné."
-          badge="Nouveauté"
-        />
-        <CookieCardShadcn
-          client:visible
-          image="https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80"
-          name="Spéculoos Maison"
-          price="3,00 €"
-          description="La douceur épicée de nos spéculoos maison, croustillants et fondants à la fois."
-        />
+  <!-- Grid -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#C8A97E">La carte</span> &nbsp;·&nbsp; 2026</span>
+          <hr class="hairline" />
+          <h2>
+            Une recette, une matière<br/>rare, rien d'autre.
+          </h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Chaque création part d'un ingrédient singulier — un grand cru, une pistache de Bronte,
+          une eau de rose de Damas — autour duquel se construit la recette.
+          Les prix s'entendent par cookie ; boîte de six sur demande.
+        </p>
+      </div>
+
+      <div class="cookie-grid">
+        {cookies.map((cookie, i) => (
+          <CookieCardDesign client:visible cookie={cookie} index={i} />
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Section 3 — CTA bas -->
-  <section class="bg-forest text-center py-12 px-8">
-    <p class="font-display italic text-cream text-2xl">Vous avez un coup de cœur ?</p>
-    <p class="font-sans text-sm text-cream/60 mt-3">Passez commande sur Instagram ou contactez-nous directement.</p>
-    <div class="flex justify-center gap-4 mt-8">
-      <Button href="https://instagram.com" variant="inverted" label="Instagram" external={true} />
-      <a href="/contact" class="border border-cream text-cream font-sans uppercase tracking-[0.15em] text-[11px] px-6 py-3 hover:bg-cream hover:text-forest transition-colors inline-block">Nous écrire</a>
+  <!-- Pull quote -->
+  <section class="pull-quote bg-cream">
+    <div class="container reveal">
+      <span class="ornament" style="font-size:2rem;display:block;margin-bottom:32px">✦</span>
+      <blockquote>
+        « Un cookie, c'est une promesse : il doit craquer dehors,<br/>
+        garder l'âme au milieu, et laisser un souvenir. »
+      </blockquote>
+      <cite>Camille B., Chef &amp; Fondatrice</cite>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band bg-forest">
+    <div class="container reveal">
+      <span class="eyebrow" style="color:#C8A97E">Commander</span>
+      <h2>
+        Une fournée par jour.<br/>Écrivez-nous la veille.
+      </h2>
+      <p class="body-text">
+        Commande minimum : 3 cookies. Réservation 72h à l'avance, retrait à l'atelier.
+      </p>
+      <a href="/contact" class="btn btn-primary">
+        Passer commande <span class="arrow">→</span>
+      </a>
     </div>
   </section>
 
 </Layout>
+
+<script>
+  // Reveal on scroll for static elements (non-React)
+  const els = document.querySelectorAll('.reveal:not([data-react])');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); } }),
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    els.forEach(el => obs.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('is-in'));
+  }
+</script>

@@ -1,13 +1,52 @@
 ---
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-forest px-8 py-5">
-  <div class="flex items-center justify-between">
-    <a href="/" class="font-display italic text-cream text-[16px] leading-none tracking-wide">
-      La Maison
-    </a>
-    <span class="font-sans text-cream text-[11px] opacity-60">
-      © {new Date().getFullYear()} — Fait avec ♥
-    </span>
+<footer class="footer-rich">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-wordmark">La Maison</div>
+        <p class="body-text" style="max-width:380px;margin-top:18px;">
+          Cookies d'auteur. Une seule fournée par jour, sur commande, au cœur de Paris.
+        </p>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <span class="eyebrow">Navigation</span>
+          <ul>
+            <li><a href="/" class="link-ul">Maison</a></li>
+            <li><a href="/creations" class="link-ul">Nos Créations</a></li>
+            <li><a href="/histoire" class="link-ul">Notre Histoire</a></li>
+            <li><a href="/contact" class="link-ul">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <span class="eyebrow">Commander</span>
+          <ul>
+            <li><a href="https://instagram.com" class="link-ul" target="_blank" rel="noopener">@lamaison.paris</a></li>
+            <li><a href="mailto:hello@lamaisoncookies.fr" class="link-ul">bonjour@lamaison.paris</a></li>
+            <li><span style="opacity:0.6">Réservation 72h à l'avance</span></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <span class="eyebrow">Atelier</span>
+          <ul>
+            <li>14 rue de Turenne</li>
+            <li>75004 Paris</li>
+            <li>Mar–Sam · 10h → 18h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="hairline-long" style="margin:56px 0 28px" />
+
+    <div class="footer-bottom">
+      <span>© {year} La Maison — Tous droits réservés</span>
+      <span class="ornament">✦</span>
+      <span>« Quand la gourmandise devient un souvenir. »</span>
+    </div>
   </div>
 </footer>
