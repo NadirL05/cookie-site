@@ -1,9 +1,9 @@
 ---
-// 3D cookie — Three.js, fixed full screen, clic = explosion de pépites
+// Scène 3D — plusieurs cookies figés en arrière-plan, Three.js
 ---
 
 <canvas id="cookie-canvas" aria-hidden="true"></canvas>
-<div id="click-hint" aria-hidden="true">Cliquez le cookie !</div>
+<div id="click-hint" aria-hidden="true">Cliquez n'importe où !</div>
 
 <style>
   #cookie-canvas {
@@ -26,20 +26,20 @@
     font-size: 10px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: rgba(28, 58, 42, 0.45);
+    color: rgba(28, 58, 42, 0.4);
     pointer-events: none;
-    transition: opacity 1s ease;
-    animation: hint-pulse 3s ease-in-out infinite;
+    animation: pulse 3s ease-in-out infinite;
+    transition: opacity 0.8s ease;
   }
 
-  @keyframes hint-pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+  #click-hint.hidden {
+    opacity: 0;
+    animation: none;
   }
 
-  .hint-hidden {
-    opacity: 0 !important;
-    animation: none !important;
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
   }
 </style>
 
@@ -47,7 +47,7 @@
   import * as THREE from 'three';
 
   const canvas = document.getElementById('cookie-canvas') as HTMLCanvasElement;
-  const hint = document.getElementById('click-hint') as HTMLDivElement;
+  const hint = document.getElementById('click-hint')!;
 
   // ── Renderer ────────────────────────────────────────────────
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
@@ -56,252 +56,309 @@
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.1;
+  renderer.toneMappingExposure = 0.95;
 
-  // ── Scene ───────────────────────────────────────────────────
+  // ── Scene & fog ─────────────────────────────────────────────
   const scene = new THREE.Scene();
   scene.background = new THREE.Color('#F2E9D8');
+  scene.fog = new THREE.Fog('#F2E9D8', 14, 28);
 
-  // ── Camera ──────────────────────────────────────────────────
-  const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
-  camera.position.set(0, 3.5, 8);
-  camera.lookAt(0, 0, 0);
+  // ── Camera — vue légèrement plongeante ──────────────────────
+  const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 60);
+  camera.position.set(0, 7, 12);
+  camera.lookAt(0, -0.5, 0);
 
-  // ── Lights ──────────────────────────────────────────────────
-  scene.add(new THREE.AmbientLight('#fff8f0', 1.4));
+  // ── Lumières 3 points ───────────────────────────────────────
 
-  const sun = new THREE.DirectionalLight('#fff3e0', 3.5);
-  sun.position.set(4, 8, 5);
-  sun.castShadow = true;
-  sun.shadow.mapSize.set(2048, 2048);
-  sun.shadow.camera.left = -10;
-  sun.shadow.camera.right = 10;
-  sun.shadow.camera.top = 10;
-  sun.shadow.camera.bottom = -10;
-  scene.add(sun);
+  // 1. Lumière principale — chaud, de dessus-gauche
+  const keyLight = new THREE.DirectionalLight('#FFF0D0', 4.0);
+  keyLight.position.set(-5, 10, 6);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.set(2048, 2048);
+  keyLight.shadow.camera.left = -14;
+  keyLight.shadow.camera.right = 14;
+  keyLight.shadow.camera.top = 14;
+  keyLight.shadow.camera.bottom = -14;
+  keyLight.shadow.bias = -0.001;
+  scene.add(keyLight);
 
-  const fill = new THREE.DirectionalLight('#d4a96a', 0.8);
-  fill.position.set(-3, 2, -2);
-  scene.add(fill);
+  // 2. Fill light — doux, de droite
+  const fillLight = new THREE.DirectionalLight('#D4B896', 1.2);
+  fillLight.position.set(7, 3, -2);
+  scene.add(fillLight);
 
-  // ── Cookie body ─────────────────────────────────────────────
-  const cookieGeo = new THREE.CylinderGeometry(3.6, 3.4, 0.38, 64, 3);
-  const pos = cookieGeo.attributes.position;
-  for (let i = 0; i < pos.count; i++) {
-    const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
-    const r = Math.sqrt(x * x + z * z);
-    if (r > 3.0) {
-      const angle = Math.atan2(z, x);
-      const wave = Math.sin(angle * 7) * 0.06 + Math.sin(angle * 13) * 0.03;
-      pos.setXYZ(i, x * (1 + wave * 0.04), y + Math.random() * 0.02 - 0.01, z * (1 + wave * 0.04));
-    }
-    if (Math.abs(y) > 0.15) pos.setY(i, y + Math.random() * 0.025 - 0.012);
-  }
-  cookieGeo.computeVertexNormals();
+  // 3. Rim light — froid-bleuté derrière pour séparer du fond
+  const rimLight = new THREE.DirectionalLight('#C8D8E8', 0.6);
+  rimLight.position.set(0, 4, -10);
+  scene.add(rimLight);
 
-  const cookieMat = new THREE.MeshStandardMaterial({ color: '#C8812A', roughness: 0.88, metalness: 0.0 });
-  const cookie = new THREE.Mesh(cookieGeo, cookieMat);
-  cookie.receiveShadow = true;
-  cookie.castShadow = true;
-  cookie.rotation.x = -0.18;
-  scene.add(cookie);
+  // Ambient chaud
+  scene.add(new THREE.AmbientLight('#FFF5E8', 1.0));
 
-  // ── Pépites permanentes ─────────────────────────────────────
-  const staticChipMat = new THREE.MeshStandardMaterial({ color: '#2A1205', roughness: 0.6, metalness: 0.1 });
-
-  const chipPositions = [
-    [0.6, 0.9], [-1.1, 0.5], [1.4, -0.3], [-0.3, -1.2], [0.1, 0.2],
-    [1.9, 0.7], [-1.8, -0.6], [0.8, -1.8], [-0.9, 1.5], [2.1, -1.2],
-    [-2.2, 1.0], [1.2, 1.8], [-1.5, -1.9], [0.4, -0.5], [-0.6, 0.7],
-    [2.5, 0.3], [-2.6, -0.2], [1.7, -0.9], [-1.0, -0.9], [0.0, 1.8],
-    [2.0, 1.5], [-2.0, 1.6], [1.5, -2.2], [-1.6, 1.9], [0.3, -2.5],
-    [2.8, -0.9], [-2.7, 0.8], [0.9, 2.4], [-0.4, -2.8],
-  ];
-  chipPositions.forEach(([cx, cz]) => {
-    if (Math.sqrt(cx*cx + cz*cz) > 3.2) return;
-    const geo = new THREE.SphereGeometry(0.13 + Math.random() * 0.07, 8, 6);
-    const chip = new THREE.Mesh(geo, staticChipMat);
-    chip.position.set(cx + (Math.random()-0.5)*0.12, 0.22, cz + (Math.random()-0.5)*0.12);
-    chip.scale.y = 0.55 + Math.random() * 0.2;
-    chip.castShadow = true;
-    cookie.add(chip);
-  });
-
-  // ── Craquelures ─────────────────────────────────────────────
-  const crackMat = new THREE.LineBasicMaterial({ color: '#9B5E1A', transparent: true, opacity: 0.35 });
-  [0.3, 1.1, 2.2, 3.5, 4.8, 5.6].forEach(a => {
-    const pts: THREE.Vector3[] = [];
-    for (let t = 0; t < 1; t += 0.04) {
-      const rad = t * (1.8 + Math.random() * 1.2);
-      const angle = a + (Math.random() - 0.5) * 0.3 * t;
-      pts.push(new THREE.Vector3(Math.cos(angle) * rad, 0.2, Math.sin(angle) * rad));
-    }
-    cookie.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), crackMat));
-  });
-
-  // ── Ombre portée ────────────────────────────────────────────
-  const shadowPlane = new THREE.Mesh(
-    new THREE.PlaneGeometry(20, 20),
-    new THREE.ShadowMaterial({ opacity: 0.15 })
+  // ── Plan de sol (ombre portée) ───────────────────────────────
+  const floor = new THREE.Mesh(
+    new THREE.PlaneGeometry(40, 40),
+    new THREE.ShadowMaterial({ opacity: 0.18, color: '#6B3A1A' })
   );
-  shadowPlane.rotation.x = -Math.PI / 2;
-  shadowPlane.position.y = -0.22;
-  shadowPlane.receiveShadow = true;
-  scene.add(shadowPlane);
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = -0.22;
+  floor.receiveShadow = true;
+  scene.add(floor);
 
-  // ── Physique des pépites volantes ───────────────────────────
-  interface FlyingChip {
+  // ── Matériaux partagés ──────────────────────────────────────
+  const chipMat = new THREE.MeshPhysicalMaterial({
+    color: '#1E0C02',
+    roughness: 0.55,
+    metalness: 0.08,
+    clearcoat: 0.3,
+    clearcoatRoughness: 0.5,
+  });
+
+  // ── Fabrique un cookie ──────────────────────────────────────
+  function makeCookie(scale = 1): THREE.Group {
+    const group = new THREE.Group();
+
+    // Corps du cookie — cylindre déformé
+    const r = 1.8 * scale;
+    const geo = new THREE.CylinderGeometry(r, r * 0.94, 0.22 * scale, 72, 4);
+    const pos = geo.attributes.position;
+
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i);
+      const y = pos.getY(i);
+      const z = pos.getZ(i);
+      const rad = Math.sqrt(x * x + z * z);
+      const angle = Math.atan2(z, x);
+
+      // Bord ondulé organique
+      if (rad > r * 0.85) {
+        const bumps =
+          Math.sin(angle * 8 + 0.3) * 0.04 * scale +
+          Math.sin(angle * 15 + 1.1) * 0.02 * scale +
+          Math.cos(angle * 5 - 0.7) * 0.025 * scale;
+        const newR = rad + bumps;
+        pos.setX(i, (x / rad) * newR);
+        pos.setZ(i, (z / rad) * newR);
+      }
+
+      // Surface rugueuse sur le dessus/dessous
+      if (Math.abs(y) > 0.08 * scale) {
+        pos.setY(i, y + (Math.random() * 0.018 - 0.009) * scale);
+        // Légère boursouflure au centre
+        const d = Math.sqrt(x*x + z*z) / r;
+        if (d < 0.5) pos.setY(i, pos.getY(i) + (1 - d * 2) * 0.012 * scale);
+      }
+    }
+    geo.computeVertexNormals();
+
+    // Matériau cookie avec variations de couleur par instance
+    const hue = (Math.random() - 0.5) * 0.03;
+    const cookieMat = new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color().setHSL(0.07 + hue, 0.62, 0.46),
+      roughness: 0.82,
+      metalness: 0.0,
+      clearcoat: 0.06,
+      clearcoatRoughness: 0.9,
+      sheen: 0.15,
+      sheenColor: new THREE.Color('#D4A060'),
+    });
+
+    const body = new THREE.Mesh(geo, cookieMat);
+    body.castShadow = true;
+    body.receiveShadow = true;
+    group.add(body);
+
+    // Pépites de chocolat
+    const nChips = Math.floor(12 + Math.random() * 10);
+    for (let i = 0; i < nChips; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = (0.2 + Math.random() * 0.72) * r;
+      const cx = Math.cos(angle) * dist;
+      const cz = Math.sin(angle) * dist;
+
+      const chipR = (0.055 + Math.random() * 0.055) * scale;
+      const chipGeo = new THREE.SphereGeometry(chipR, 8, 6);
+      const chip = new THREE.Mesh(chipGeo, chipMat);
+      chip.position.set(cx, 0.1 * scale + chipR * 0.4, cz);
+      chip.scale.y = 0.52 + Math.random() * 0.25;
+      chip.castShadow = true;
+      group.add(chip);
+    }
+
+    // Craquelures (lignes sombres)
+    const crackLineMat = new THREE.LineBasicMaterial({
+      color: '#7A4010',
+      transparent: true,
+      opacity: 0.28,
+    });
+    const nCracks = 4 + Math.floor(Math.random() * 4);
+    for (let c = 0; c < nCracks; c++) {
+      const startAngle = Math.random() * Math.PI * 2;
+      const pts: THREE.Vector3[] = [];
+      let cr = 0.05 * scale;
+      let ca = startAngle;
+      while (cr < r * 0.9) {
+        pts.push(new THREE.Vector3(Math.cos(ca) * cr, 0.12 * scale, Math.sin(ca) * cr));
+        cr += (0.08 + Math.random() * 0.12) * scale;
+        ca += (Math.random() - 0.5) * 0.5;
+      }
+      if (pts.length > 1) {
+        group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), crackLineMat));
+      }
+    }
+
+    return group;
+  }
+
+  // ── Disposition des cookies dans la scène ───────────────────
+  // [x, z, scale, rotY, rotX-tilt]
+  const layout = [
+    [  1.2,  0.5, 1.05,  0.4,  -0.12 ],  // centre-droite — le plus grand
+    [ -4.2, -0.3, 0.78, -0.7,  -0.16 ],  // gauche
+    [  5.2, -1.2, 0.62,  1.3,  -0.10 ],  // droite loin
+    [ -6.5,  1.8, 0.58,  2.0,  -0.20 ],  // bord gauche
+    [ -0.8, -3.2, 0.72, -0.3,  -0.08 ],  // haut centre (loin)
+    [  3.8,  2.8, 0.50,  0.9,  -0.22 ],  // avant droite
+    [ -2.5,  3.2, 0.44, -1.6,  -0.18 ],  // avant gauche
+    [  7.0,  0.8, 0.40,  1.8,  -0.14 ],  // bord droit loin
+  ];
+
+  const cookieGroups: THREE.Group[] = [];
+
+  layout.forEach(([x, z, scale, rotY, tilt]) => {
+    const g = makeCookie(scale);
+    g.position.set(x, 0, z);
+    g.rotation.y = rotY;
+    g.rotation.x = tilt; // légère inclinaison pour voir le relief
+    cookieGroups.push(g);
+    scene.add(g);
+  });
+
+  // ── Physique pépites volantes ───────────────────────────────
+  interface Chip {
     mesh: THREE.Mesh;
     vel: THREE.Vector3;
-    angVel: THREE.Euler;
+    spin: THREE.Euler;
     life: number;
     maxLife: number;
   }
 
-  const flyingChips: FlyingChip[] = [];
-  const flyMat = new THREE.MeshStandardMaterial({ color: '#2A1205', roughness: 0.55, metalness: 0.1 });
-  const GRAVITY = -14;
+  const flying: Chip[] = [];
+  const flyMat = new THREE.MeshPhysicalMaterial({
+    color: '#1E0C02',
+    roughness: 0.5,
+    metalness: 0.1,
+  });
+  const GRAVITY = -16;
 
-  function spawnExplosion() {
-    const count = 55;
-    for (let i = 0; i < count; i++) {
-      const geo = new THREE.SphereGeometry(0.1 + Math.random() * 0.12, 7, 5);
-      const mesh = new THREE.Mesh(geo, flyMat.clone());
-      mesh.castShadow = true;
+  function explode() {
+    // Explosion depuis chaque cookie
+    cookieGroups.forEach(g => {
+      const count = 8 + Math.floor(Math.random() * 6);
+      for (let i = 0; i < count; i++) {
+        const geo = new THREE.SphereGeometry(0.06 + Math.random() * 0.09, 7, 5);
+        const mesh = new THREE.Mesh(geo, flyMat.clone());
+        mesh.castShadow = true;
 
-      // Position de départ : surface du cookie (rayon aléatoire)
-      const angle = Math.random() * Math.PI * 2;
-      const rad = Math.random() * 3.2;
-      mesh.position.set(
-        Math.cos(angle) * rad,
-        0.2 + Math.random() * 0.1,
-        Math.sin(angle) * rad
-      );
-      // Convertir en world space
-      mesh.position.applyMatrix4(cookie.matrixWorld);
+        // Position : surface du cookie en world space
+        const angle = Math.random() * Math.PI * 2;
+        const dist = Math.random() * 1.6 * (g.scale.x || 1);
+        const local = new THREE.Vector3(Math.cos(angle) * dist, 0.15, Math.sin(angle) * dist);
+        mesh.position.copy(local).applyMatrix4(g.matrixWorld);
 
-      // Vélocité : explosion vers l'extérieur + vers le haut
-      const speed = 3.5 + Math.random() * 6;
-      const upBias = 4 + Math.random() * 4;
-      const spreadAngle = Math.random() * Math.PI * 2;
-      const spreadR = 0.4 + Math.random() * 0.8;
-      const vel = new THREE.Vector3(
-        Math.cos(spreadAngle) * spreadR * speed,
-        upBias + Math.random() * 3,
-        Math.sin(spreadAngle) * spreadR * speed
-      );
+        const speed = 2.5 + Math.random() * 5.5;
+        const up = 3 + Math.random() * 4;
+        const outAngle = Math.random() * Math.PI * 2;
+        const vel = new THREE.Vector3(Math.cos(outAngle) * speed, up, Math.sin(outAngle) * speed);
 
-      // Rotation angulaire aléatoire
-      const angVel = new THREE.Euler(
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 8,
-        (Math.random() - 0.5) * 8
-      );
+        const spin = new THREE.Euler(
+          (Math.random() - 0.5) * 10,
+          (Math.random() - 0.5) * 10,
+          (Math.random() - 0.5) * 10
+        );
 
-      const maxLife = 1.8 + Math.random() * 1.2;
-      scene.add(mesh);
-      flyingChips.push({ mesh, vel, angVel, life: 0, maxLife });
-    }
+        const maxLife = 1.5 + Math.random() * 1.2;
+        scene.add(mesh);
+        flying.push({ mesh, vel, spin, life: 0, maxLife });
+      }
+    });
   }
 
-  function updateChips(dt: number) {
-    for (let i = flyingChips.length - 1; i >= 0; i--) {
-      const c = flyingChips[i];
+  function updateFlying(dt: number) {
+    for (let i = flying.length - 1; i >= 0; i--) {
+      const c = flying[i];
       c.life += dt;
-      const t = c.life / c.maxLife;
 
-      // Gravité
       c.vel.y += GRAVITY * dt;
-
-      // Déplacement
       c.mesh.position.x += c.vel.x * dt;
       c.mesh.position.y += c.vel.y * dt;
       c.mesh.position.z += c.vel.z * dt;
 
-      // Rotation
-      c.mesh.rotation.x += c.angVel.x * dt;
-      c.mesh.rotation.y += c.angVel.y * dt;
-      c.mesh.rotation.z += c.angVel.z * dt;
+      c.mesh.rotation.x += c.spin.x * dt;
+      c.mesh.rotation.y += c.spin.y * dt;
+      c.mesh.rotation.z += c.spin.z * dt;
 
-      // Ralentissement de l'air
-      c.vel.x *= 1 - dt * 1.2;
-      c.vel.z *= 1 - dt * 1.2;
+      c.vel.x *= 1 - dt * 1.5;
+      c.vel.z *= 1 - dt * 1.5;
 
-      // Rebond léger sur le sol
-      if (c.mesh.position.y < -0.2) {
-        c.mesh.position.y = -0.2;
-        c.vel.y *= -0.35;
-        c.vel.x *= 0.7;
-        c.vel.z *= 0.7;
+      if (c.mesh.position.y < -0.18) {
+        c.mesh.position.y = -0.18;
+        c.vel.y *= -0.3;
+        c.vel.x *= 0.65;
+        c.vel.z *= 0.65;
       }
 
-      // Fade out
-      const mat = c.mesh.material as THREE.MeshStandardMaterial;
+      const mat = c.mesh.material as THREE.MeshPhysicalMaterial;
       mat.transparent = true;
-      mat.opacity = Math.max(0, 1 - Math.pow(t, 1.5));
+      mat.opacity = Math.max(0, 1 - Math.pow(c.life / c.maxLife, 1.6));
 
-      // Suppression
       if (c.life >= c.maxLife) {
         scene.remove(c.mesh);
         c.mesh.geometry.dispose();
-        flyingChips.splice(i, 1);
+        flying.splice(i, 1);
       }
     }
   }
 
-  // ── Shake du cookie ─────────────────────────────────────────
-  let shakeTime = 0;
-  let isShaking = false;
+  // ── Shake ───────────────────────────────────────────────────
+  let shakeT = 0;
+  let shaking = false;
 
-  function triggerShake() {
-    shakeTime = 0;
-    isShaking = true;
-  }
-
-  // ── Click handler (sur document — canvas reste pointer-events: none) ──
-  let hasClicked = false;
+  // ── Click ───────────────────────────────────────────────────
+  let clicked = false;
   document.addEventListener('click', (e) => {
-    // Ignorer les clics sur les liens/boutons
-    const target = e.target as HTMLElement;
-    if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a, button, input, textarea')) return;
-
-    spawnExplosion();
-    triggerShake();
-
-    if (!hasClicked) {
-      hasClicked = true;
-      hint.classList.add('hint-hidden');
-    }
+    const t = e.target as HTMLElement;
+    if (t.closest('a, button, input, textarea, select')) return;
+    explode();
+    shakeT = 0; shaking = true;
+    if (!clicked) { clicked = true; hint.classList.add('hidden'); }
   });
 
-  // ── Animation loop ───────────────────────────────────────────
+  // ── Render loop ─────────────────────────────────────────────
   const clock = new THREE.Clock();
 
-  function animate() {
+  (function animate() {
     requestAnimationFrame(animate);
-    const dt = Math.min(clock.getDelta(), 0.05); // cap dt
+    const dt = Math.min(clock.getDelta(), 0.05);
     const t = clock.elapsedTime;
 
-    // Respiration douce
-    let baseY = Math.sin(t * 0.3) * 0.04;
-    let baseRotY = Math.sin(t * 0.18) * 0.06;
+    // Les cookies sont figés — juste un micro-respiration (optionnel)
+    cookieGroups.forEach((g, i) => {
+      g.position.y = Math.sin(t * 0.22 + i * 1.3) * 0.018;
+    });
 
-    // Shake sur clic
-    if (isShaking) {
-      shakeTime += dt;
-      const intensity = Math.max(0, 1 - shakeTime / 0.5);
-      baseY += Math.sin(shakeTime * 60) * 0.12 * intensity;
-      baseRotY += Math.sin(shakeTime * 80) * 0.08 * intensity;
-      if (shakeTime >= 0.5) isShaking = false;
+    if (shaking) {
+      shakeT += dt;
+      const str = Math.max(0, 1 - shakeT / 0.45);
+      cookieGroups.forEach((g, i) => {
+        g.position.y += Math.sin(shakeT * 55 + i) * 0.07 * str;
+      });
+      if (shakeT >= 0.45) shaking = false;
     }
 
-    cookie.position.y = baseY;
-    cookie.rotation.y = baseRotY;
-
-    updateChips(dt);
+    updateFlying(dt);
     renderer.render(scene, camera);
-  }
-  animate();
+  })();
 
   // ── Resize ──────────────────────────────────────────────────
   window.addEventListener('resize', () => {
