@@ -1,0 +1,18 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  centered?: boolean;
+}
+
+const { label, title, centered = false } = Astro.props;
+---
+
+<div class={centered ? 'text-center' : ''}>
+  <p class="font-sans uppercase text-[10px] tracking-[0.2em] text-forest/50">
+    {label}
+  </p>
+  <h2 class="font-display italic text-[28px] font-normal text-forest mt-1">
+    {title}
+  </h2>
+</div>
