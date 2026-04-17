@@ -7,7 +7,6 @@ import '@fontsource/dm-sans/400.css';
 import '@fontsource/dm-sans/500.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import CookieBg from '../components/CookieBg.astro';
 
 interface Props {
   title?: string;
@@ -31,13 +30,10 @@ const { title = 'La Maison — Cookies Artisanaux', description = '' } = Astro.p
     <title>{title}</title>
   </head>
   <body>
-    <CookieBg />
-    <div class="relative z-10">
-      <Nav />
-      <main>
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
