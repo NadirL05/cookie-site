@@ -6,6 +6,7 @@ interface Cookie {
   subtitle: string;
   price: string;
   badge?: string | null;
+  image?: string;
   placeholder: string;
   placeholderLabel: string;
 }
@@ -45,9 +46,13 @@ export default function CookieCardDesign({ cookie, index }: Props) {
   return (
     <article ref={ref} className={`cookie-card reveal ${delayClass}`}>
       <div className="cookie-image-wrap">
-        <div className={`placeholder ${cookie.placeholder}`}>
-          <span className="placeholder-label">{cookie.placeholderLabel}</span>
-        </div>
+        {cookie.image ? (
+          <div className="cookie-photo" style={{ backgroundImage: `url(${cookie.image})` }} role="img" aria-label={cookie.name} />
+        ) : (
+          <div className={`placeholder ${cookie.placeholder}`}>
+            <span className="placeholder-label">{cookie.placeholderLabel}</span>
+          </div>
+        )}
         {cookie.badge && (
           <span className="cookie-badge" title={cookie.badge}>
             <span className="cookie-badge-inner">{cookie.badge}</span>

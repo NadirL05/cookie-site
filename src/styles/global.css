@@ -562,6 +562,94 @@ body::after {
 }
 
 /* ============================================
+   Real photo layers
+   ============================================ */
+
+/* Cookie card photo */
+.cookie-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center; background-color: #2c1810;
+  transition: transform 1.4s var(--ease-out), filter 0.6s var(--ease-out);
+  filter: saturate(0.92) contrast(1.02);
+}
+.cookie-card:hover .cookie-photo { transform: scale(1.05); filter: saturate(1) contrast(1.05); }
+
+/* Hero photo stack */
+.hero-photo-stack { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
+.hero-photo-bg {
+  position: absolute; inset: -5%;
+  background-size: cover; background-position: center;
+  filter: brightness(0.45) saturate(0.9);
+  transform: scale(1.05);
+  animation: hero-kenburns 24s ease-in-out infinite alternate;
+}
+@keyframes hero-kenburns {
+  from { transform: scale(1.05) translate(0, 0); }
+  to   { transform: scale(1.12) translate(-1.5%, -1%); }
+}
+.hero-photo-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, transparent 0%, rgba(20,41,30,0.55) 70%, rgba(10,20,15,0.95) 100%),
+    linear-gradient(180deg, rgba(20,41,30,0.45) 0%, rgba(20,41,30,0.35) 45%, rgba(14,28,20,0.85) 100%);
+}
+
+/* Floating real cookie photos */
+.hero-cookie-float {
+  position: absolute; z-index: 2; pointer-events: none;
+  filter: drop-shadow(0 40px 60px rgba(0,0,0,0.55));
+  animation: cookie-float-bob 7s ease-in-out infinite;
+}
+.hero-cookie-float-right {
+  right: -6%; top: 52%; transform: translateY(-50%);
+  width: 46vw; max-width: 640px; aspect-ratio: 1; animation-delay: 0s;
+}
+.hero-cookie-float-left {
+  left: -10%; top: 22%;
+  width: 30vw; max-width: 360px; aspect-ratio: 1;
+  opacity: 0.55;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.6)) blur(1px);
+  animation-delay: -3s;
+}
+.hero-cookie-float::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: inherit; background-size: cover; background-position: center;
+  border-radius: 50%;
+  box-shadow: inset 0 -20px 50px rgba(0,0,0,0.55), inset 0 12px 30px rgba(255,220,180,0.15), 0 60px 80px -30px rgba(0,0,0,0.55);
+}
+@keyframes cookie-float-bob {
+  0%,100% { translate: 0 0; }
+  50%     { translate: 0 -18px; }
+}
+@media (max-width: 900px) {
+  .hero-cookie-float-left { display: none; }
+  .hero-cookie-float-right { right: -30%; opacity: 0.5; }
+}
+
+/* hide hero-scroll in this design */
+.hero-scroll { display: none !important; }
+
+/* Depth layers — floating cookie photos in sections */
+.depth-layer {
+  position: absolute; border-radius: 50%;
+  background-size: cover; background-position: center;
+  pointer-events: none; filter: drop-shadow(0 40px 60px rgba(0,0,0,0.45));
+}
+
+/* Real photo for histoire */
+.histoire-image .real-photo {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 1.2s var(--ease-out);
+}
+.histoire-image:hover .real-photo { transform: scale(1.03); }
+.histoire-image::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(20,41,30,0.65) 100%);
+  pointer-events: none; z-index: 1;
+}
+
+/* ============================================
    Cookie 3D — CSS stacked discs
    ============================================ */
 .cookie3d {

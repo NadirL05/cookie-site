@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CookieCardDesign from '../components/CookieCardDesign';
-import { Cookie3D, FloatingOrnaments } from '../components/Cookie3D';
+import { FloatingOrnaments } from '../components/Cookie3D';
 
 const featured = [
   {
@@ -10,6 +10,7 @@ const featured = [
     subtitle: 'Chocolat noir 70%, fleur de sel de Guérande',
     price: '6€',
     badge: 'Signature',
+    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop',
     placeholder: 'p-chocolate',
     placeholderLabel: 'COOKIE · CHOCOLAT NOIR',
   },
@@ -19,6 +20,7 @@ const featured = [
     subtitle: 'Thé matcha d\'Uji, zestes de yuzu confits',
     price: '7€',
     badge: 'Nouveauté',
+    image: 'https://images.unsplash.com/photo-1587080413959-06b859fb107d?w=900&q=80&auto=format&fit=crop',
     placeholder: 'p-matcha',
     placeholderLabel: 'COOKIE · MATCHA YUZU',
   },
@@ -28,6 +30,7 @@ const featured = [
     subtitle: 'Framboises confites, chocolat noir, poivre de Timut',
     price: '7€',
     badge: 'Best‑seller',
+    image: 'https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=900&q=80&auto=format&fit=crop',
     placeholder: 'p-framboise',
     placeholderLabel: 'COOKIE · FRAMBOISE NOIRE',
   },
@@ -47,19 +50,24 @@ const values = [
   forestTop={true}
 >
 
-  <!-- Hero -->
+  <!-- Hero — real photo background + floating cookie photos -->
   <section class="hero">
-    <div class="hero-img">
-      <div class="placeholder-hero"></div>
+    <div class="hero-photo-stack">
+      <div
+        class="hero-photo-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=2200&q=85&auto=format&fit=crop')"
+      ></div>
+      <div class="hero-photo-overlay"></div>
     </div>
 
-    <!-- 3D cookies -->
-    <div class="hero-3d-left">
-      <Cookie3D client:load size={240} tilt={-28} spin={false} />
-    </div>
-    <div class="hero-3d">
-      <Cookie3D client:load size={380} tilt={-20} spin={false} />
-    </div>
+    <div
+      class="hero-cookie-float hero-cookie-float-left"
+      style="background-image:url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=900&q=85&auto=format&fit=crop')"
+    ></div>
+    <div
+      class="hero-cookie-float hero-cookie-float-right"
+      style="background-image:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1200&q=85&auto=format&fit=crop')"
+    ></div>
 
     <span class="hero-meta">N° 01 — Maison</span>
     <span class="hero-meta-right">Paris · 75004<br/>Atelier de Turenne</span>
@@ -82,20 +90,16 @@ const values = [
         </a>
       </div>
     </div>
-
-    <div class="hero-scroll">Scroll</div>
   </section>
 
-  <!-- Featured -->
+  <!-- Featured cookies -->
   <section class="section bg-cream">
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
           <span class="eyebrow"><span style="color:#C8A97E">N° 02</span> &nbsp;·&nbsp; Sélection</span>
           <hr class="hairline" />
-          <h2>
-            Trois créations<br/>emblématiques.
-          </h2>
+          <h2>Trois créations<br/>emblématiques.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
           Six recettes, façonnées à la main chaque matin, à partir de matières rares.
@@ -117,22 +121,20 @@ const values = [
     </div>
   </section>
 
-  <!-- Histoire band -->
+  <!-- Histoire band — real photo -->
   <section class="histoire-band">
-    <div class="band-3d-deco" style="top:-80px;right:-120px">
-      <Cookie3D client:visible size={340} tilt={-25} spin={true} />
-    </div>
     <div class="container">
       <div class="histoire-grid">
         <div class="histoire-image reveal">
-          <div class="placeholder-hero"></div>
+          <div
+            class="real-photo"
+            style="background-image:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1400&q=85&auto=format&fit=crop')"
+          ></div>
           <span class="histoire-image-caption">Atelier · Rue de Turenne · 2025</span>
         </div>
         <div class="histoire-text reveal reveal-delay-1">
           <span class="eyebrow"><span style="color:#C8A97E">N° 03</span> &nbsp;·&nbsp; Notre Histoire</span>
-          <h2>
-            Dix ans à ne rien<br/>presser.
-          </h2>
+          <h2>Dix ans à ne rien<br/>presser.</h2>
           <p class="body-text" style="margin-bottom:20px">
             Camille a quitté son métier en 2015 pour cuire des cookies. Depuis, rien n'a changé :
             une fournée par jour, à la main, sur commande. Pas d'e-commerce. Pas de croissance à tout prix.
@@ -158,11 +160,9 @@ const values = [
           <h2>Trois règles,<br/>jamais enfreintes.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
-          Le luxe, pour nous, c'est le refus. Refus de la machine, refus de la quantité,
-          refus du surgelé.
+          Le luxe, pour nous, c'est le refus. Refus de la machine, refus de la quantité, refus du surgelé.
         </p>
       </div>
-
       <div class="values reveal">
         {values.map(v => (
           <div class="value-cell">
@@ -175,11 +175,16 @@ const values = [
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA — floating cookie photo layers + ornaments -->
   <section class="cta-band bg-forest">
-    <div class="cta-3d-deco" style="bottom:-120px;left:-80px">
-      <Cookie3D client:visible size={280} tilt={-32} spin={false} />
-    </div>
+    <div
+      class="depth-layer"
+      style="bottom:-140px;left:-100px;width:380px;height:380px;background-image:url('https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=900&q=85&auto=format&fit=crop');opacity:0.35;animation:cookie-float-bob 8s ease-in-out infinite"
+    ></div>
+    <div
+      class="depth-layer"
+      style="top:-60px;right:-80px;width:260px;height:260px;background-image:url('https://images.unsplash.com/photo-1590080874088-eec64895b423?w=900&q=85&auto=format&fit=crop');opacity:0.22;animation:cookie-float-bob 10s ease-in-out infinite"
+    ></div>
     <FloatingOrnaments
       client:visible
       items={[
