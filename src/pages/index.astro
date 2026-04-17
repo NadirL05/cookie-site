@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CookieCardDesign from '../components/CookieCardDesign';
+import { Cookie3D, FloatingOrnaments } from '../components/Cookie3D';
 
 const featured = [
   {
@@ -51,6 +52,15 @@ const values = [
     <div class="hero-img">
       <div class="placeholder-hero"></div>
     </div>
+
+    <!-- 3D cookies -->
+    <div class="hero-3d-left">
+      <Cookie3D client:load size={240} tilt={-28} spin={false} />
+    </div>
+    <div class="hero-3d">
+      <Cookie3D client:load size={380} tilt={-20} spin={false} />
+    </div>
+
     <span class="hero-meta">N° 01 — Maison</span>
     <span class="hero-meta-right">Paris · 75004<br/>Atelier de Turenne</span>
 
@@ -76,7 +86,7 @@ const values = [
     <div class="hero-scroll">Scroll</div>
   </section>
 
-  <!-- Featured cookies -->
+  <!-- Featured -->
   <section class="section bg-cream">
     <div class="container">
       <div class="section-head">
@@ -109,6 +119,9 @@ const values = [
 
   <!-- Histoire band -->
   <section class="histoire-band">
+    <div class="band-3d-deco" style="top:-80px;right:-120px">
+      <Cookie3D client:visible size={340} tilt={-25} spin={true} />
+    </div>
     <div class="container">
       <div class="histoire-grid">
         <div class="histoire-image reveal">
@@ -164,6 +177,17 @@ const values = [
 
   <!-- CTA -->
   <section class="cta-band bg-forest">
+    <div class="cta-3d-deco" style="bottom:-120px;left:-80px">
+      <Cookie3D client:visible size={280} tilt={-32} spin={false} />
+    </div>
+    <FloatingOrnaments
+      client:visible
+      items={[
+        { kind: 'coin', size: 56, top: '20%', right: '12%' },
+        { kind: 'coin', size: 36, top: '70%', right: '28%' },
+        { kind: 'bean', size: 70, top: '35%', left: '8%' },
+      ]}
+    />
     <div class="container reveal">
       <span class="eyebrow" style="color:#C8A97E">N° 05 · Commander</span>
       <h2>
