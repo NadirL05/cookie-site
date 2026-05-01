@@ -6,6 +6,8 @@ interface Props {
 
 const links = [
   { id: "home", label: "Maison", href: "/" },
+  { id: "traiteur", label: "Traiteur", href: "/traiteur" },
+  { id: "bar-mobile", label: "Bar Mobile", href: "/bar-mobile" },
   { id: "creations", label: "Nos Créations", href: "/creations" },
   { id: "histoire", label: "Notre Histoire", href: "/histoire" },
   { id: "contact", label: "Contact", href: "/contact" },

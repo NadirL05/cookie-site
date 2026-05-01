@@ -1,0 +1,608 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const savoryBoxes = [
+  {
+    title: 'Mini burgers',
+    description: 'Des mini burgers gourmands, parfaits pour un cocktail ou un buffet convivial.',
+    price: 'À partir de XX€',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Mini sandwichs',
+    description: 'Des formats pratiques et raffinés, à décliner selon vos envies.',
+    price: 'À partir de XX€',
+    image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Box poulet',
+    description: 'Une sélection généreuse autour du poulet, idéale pour partager.',
+    price: 'À partir de XX€',
+    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Box salée personnalisée',
+    description: 'Composez une box adaptée à votre événement et au nombre d\'invités.',
+    price: 'Sur devis',
+    image: null,
+  },
+];
+
+const savoryPlanches = [
+  {
+    title: 'Planche apéritive',
+    description: 'Une sélection conviviale à partager pour lancer votre événement.',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Planche fromages',
+    description: 'Un assortiment généreux et raffiné pour vos buffets et cocktails.',
+    image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Planche mixte',
+    description: 'Une planche complète mêlant saveurs salées, fromages et accompagnements.',
+    image: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=900&q=80&auto=format&fit=crop',
+  },
+];
+
+const savoryUnits = [
+  { label: 'Pièce salée 1', price: 'Prix à définir' },
+  { label: 'Pièce salée 2', price: 'Prix à définir' },
+  { label: 'Pièce salée 3', price: 'Prix à définir' },
+];
+
+const sweetBoxes = [
+  {
+    title: 'Box cookies',
+    description: 'Des cookies généreux et gourmands, parfaits pour une pause sucrée.',
+    price: 'À partir de XX€',
+    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Box brownies',
+    description: 'Des brownies fondants à partager lors de vos événements.',
+    price: 'À partir de XX€',
+    image: 'https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Box mignardises',
+    description: 'Une sélection de petites douceurs raffinées pour vos buffets.',
+    price: 'À partir de XX€',
+    image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Box sucrée personnalisée',
+    description: 'Composez une box adaptée à vos envies et à votre événement.',
+    price: 'Sur devis',
+    image: null,
+  },
+];
+
+const sweetPlateaux = [
+  {
+    title: 'Plateau de mignardises',
+    description: 'Une sélection élégante de petites pièces sucrées.',
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Plateau gourmand',
+    description: 'Un assortiment généreux de créations sucrées à partager.',
+    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Plateau événementiel',
+    description: 'Une composition personnalisée selon votre thème et le nombre d\'invités.',
+    image: null,
+  },
+];
+
+const sweetUnits = [
+  { label: 'Pièce sucrée 1', price: 'Prix à définir' },
+  { label: 'Pièce sucrée 2', price: 'Prix à définir' },
+  { label: 'Pièce sucrée 3', price: 'Prix à définir' },
+];
+
+const brunchFormules = [
+  {
+    title: 'Brunch classique',
+    description: 'Une formule équilibrée avec douceurs, pièces salées et boissons.',
+    price: 'À partir de XX€ / personne',
+    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Brunch premium',
+    description: 'Une sélection plus généreuse pour une expérience complète et raffinée.',
+    price: 'À partir de XX€ / personne',
+    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=900&q=80&auto=format&fit=crop',
+  },
+  {
+    title: 'Brunch sur mesure',
+    description: 'Une formule personnalisée selon votre événement, votre lieu et vos invités.',
+    price: 'Sur devis',
+    image: null,
+  },
+];
+
+const brunchOptions = [
+  'Viennoiseries',
+  'Fruits frais',
+  'Pancakes',
+  'Mini sandwichs',
+  'Boissons fraîches',
+  'Boissons chaudes',
+];
+---
+
+<Layout
+  title="Traiteur événementiel — La Maison"
+  description="Découvrez les créations traiteur La Maison : salé, sucré, brunch, box, planches et offres sur mesure pour vos événements."
+  current="traiteur"
+  forestTop={true}
+>
+
+  <!-- Page banner -->
+  <section class="page-banner">
+    <div class="container page-banner-inner">
+      <div>
+        <div class="breadcrumbs">
+          <a href="/">Maison</a>
+          <span class="ornament" style="font-size:0.9rem">✦</span>
+          <span style="color:#C8A97E">Traiteur</span>
+        </div>
+        <h1>Des créations<br/>pour chaque<br/>occasion.</h1>
+      </div>
+      <p>
+        Découvrez nos créations traiteur pensées pour accompagner vos réceptions, cocktails,
+        séminaires, brunchs, anniversaires et événements privés.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sous-navigation -->
+  <nav class="subnav" aria-label="Sections traiteur">
+    <div class="container subnav-inner">
+      <a href="#sale" class="subnav-link">Salé</a>
+      <span class="subnav-sep">✦</span>
+      <a href="#sucre" class="subnav-link">Sucré</a>
+      <span class="subnav-sep">✦</span>
+      <a href="#brunch" class="subnav-link">Brunch</a>
+    </div>
+  </nav>
+
+  <!-- ========================
+       SECTION SALÉ
+       ======================== -->
+  <section id="sale" class="section bg-cream" style="scroll-margin-top:80px">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#C8A97E">Salé</span></span>
+          <hr class="hairline" />
+          <h2>Bouchées élégantes,<br/>faites pour partager.</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Des bouchées élégantes, généreuses et faciles à partager, pensées pour vos cocktails,
+          réunions, réceptions et événements privés.
+        </p>
+      </div>
+
+      <!-- Nos box -->
+      <div class="subsection-title reveal">
+        <span class="eyebrow" style="color:#C8A97E">Nos box</span>
+      </div>
+      <div class="product-grid">
+        {savoryBoxes.map((box, i) => (
+          <article class={`product-card reveal reveal-delay-${Math.min(i, 4)}`}>
+            <div class="product-img-wrap">
+              {box.image
+                ? <div class="product-img" style={`background-image:url('${box.image}')`} role="img" aria-label={box.title}></div>
+                : <div class="product-img-placeholder"><span>{box.title}</span></div>
+              }
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">{box.title}</h3>
+              <p class="product-desc">{box.description}</p>
+              <span class="product-price">{box.price}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Nos planches -->
+      <div class="subsection-title reveal" style="margin-top:80px">
+        <span class="eyebrow" style="color:#C8A97E">Nos planches</span>
+      </div>
+      <div class="product-grid product-grid-3">
+        {savoryPlanches.map((planche, i) => (
+          <article class={`product-card reveal reveal-delay-${i}`}>
+            <div class="product-img-wrap">
+              {planche.image
+                ? <div class="product-img" style={`background-image:url('${planche.image}')`} role="img" aria-label={planche.title}></div>
+                : <div class="product-img-placeholder"><span>{planche.title}</span></div>
+              }
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">{planche.title}</h3>
+              <p class="product-desc">{planche.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Salé à l'unité -->
+      <div class="unit-section reveal" style="margin-top:80px">
+        <div class="subsection-title">
+          <span class="eyebrow" style="color:#C8A97E">Salé à l'unité</span>
+        </div>
+        <div class="unit-list">
+          {savoryUnits.map(u => (
+            <div class="unit-row">
+              <span class="unit-label">{u.label}</span>
+              <span class="unit-dots"></span>
+              <span class="unit-price">{u.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       SECTION SUCRÉ
+       ======================== -->
+  <section id="sucre" class="section" style="background:#FAF5EA;scroll-margin-top:80px">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#C8A97E">Sucré</span></span>
+          <hr class="hairline" />
+          <h2>Des douceurs<br/>gourmandes et raffinées.</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Des douceurs gourmandes et raffinées pour accompagner vos pauses, buffets, anniversaires,
+          brunchs ou événements d'entreprise.
+        </p>
+      </div>
+
+      <!-- Nos box sucrées -->
+      <div class="subsection-title reveal">
+        <span class="eyebrow" style="color:#C8A97E">Nos box sucrées</span>
+      </div>
+      <div class="product-grid">
+        {sweetBoxes.map((box, i) => (
+          <article class={`product-card reveal reveal-delay-${Math.min(i, 4)}`}>
+            <div class="product-img-wrap">
+              {box.image
+                ? <div class="product-img" style={`background-image:url('${box.image}')`} role="img" aria-label={box.title}></div>
+                : <div class="product-img-placeholder"><span>{box.title}</span></div>
+              }
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">{box.title}</h3>
+              <p class="product-desc">{box.description}</p>
+              <span class="product-price">{box.price}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Nos plateaux sucrés -->
+      <div class="subsection-title reveal" style="margin-top:80px">
+        <span class="eyebrow" style="color:#C8A97E">Nos plateaux sucrés</span>
+      </div>
+      <div class="product-grid product-grid-3">
+        {sweetPlateaux.map((plateau, i) => (
+          <article class={`product-card reveal reveal-delay-${i}`}>
+            <div class="product-img-wrap">
+              {plateau.image
+                ? <div class="product-img" style={`background-image:url('${plateau.image}')`} role="img" aria-label={plateau.title}></div>
+                : <div class="product-img-placeholder"><span>{plateau.title}</span></div>
+              }
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">{plateau.title}</h3>
+              <p class="product-desc">{plateau.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Sucré à l'unité -->
+      <div class="unit-section reveal" style="margin-top:80px">
+        <div class="subsection-title">
+          <span class="eyebrow" style="color:#C8A97E">Sucré à l'unité</span>
+        </div>
+        <div class="unit-list">
+          {sweetUnits.map(u => (
+            <div class="unit-row">
+              <span class="unit-label">{u.label}</span>
+              <span class="unit-dots"></span>
+              <span class="unit-price">{u.price}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       SECTION BRUNCH
+       ======================== -->
+  <section id="brunch" class="section bg-cream" style="scroll-margin-top:80px">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#C8A97E">Brunch</span></span>
+          <hr class="hairline" />
+          <h2>Une offre généreuse,<br/>pour vos matins.</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Une offre généreuse et conviviale, idéale pour vos événements du matin,
+          lendemains de fête, réunions d'équipe ou moments privés.
+        </p>
+      </div>
+
+      <!-- Formules -->
+      <div class="subsection-title reveal">
+        <span class="eyebrow" style="color:#C8A97E">Formules brunch</span>
+      </div>
+      <div class="product-grid product-grid-3">
+        {brunchFormules.map((formule, i) => (
+          <article class={`product-card reveal reveal-delay-${i}`}>
+            <div class="product-img-wrap">
+              {formule.image
+                ? <div class="product-img" style={`background-image:url('${formule.image}')`} role="img" aria-label={formule.title}></div>
+                : <div class="product-img-placeholder"><span>{formule.title}</span></div>
+              }
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">{formule.title}</h3>
+              <p class="product-desc">{formule.description}</p>
+              <span class="product-price">{formule.price}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Options -->
+      <div class="reveal" style="margin-top:80px">
+        <div class="subsection-title">
+          <span class="eyebrow" style="color:#C8A97E">Options à ajouter</span>
+        </div>
+        <div class="options-grid">
+          {brunchOptions.map(opt => (
+            <div class="option-pill">
+              <span class="ornament" style="font-size:0.8rem">✦</span>
+              {opt}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="cta-band bg-forest">
+    <div class="container reveal">
+      <span class="eyebrow" style="color:#C8A97E">Commander</span>
+      <h2>
+        Vous souhaitez composer<br/>un brunch sur mesure ?
+      </h2>
+      <p class="body-text">
+        Notre équipe étudie chaque projet pour proposer une offre adaptée à vos envies,
+        à votre lieu et à votre nombre d'invités.
+      </p>
+      <a href="/contact" class="btn btn-primary">
+        Demander un devis <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* Sous-navigation */
+  .subnav {
+    position: sticky;
+    top: 64px;
+    z-index: 40;
+    background: #F5EFE0;
+    border-bottom: 1px solid rgba(28,58,42,0.12);
+    box-shadow: 0 2px 16px rgba(28,58,42,0.06);
+  }
+  .subnav-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 56px;
+  }
+  .subnav-link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #2C1810;
+    text-decoration: none;
+    opacity: 0.65;
+    padding: 6px 0;
+    position: relative;
+    transition: opacity 0.3s;
+  }
+  .subnav-link:hover { opacity: 1; }
+  .subnav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: #C8A97E;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .subnav-link:hover::after { right: 0; }
+  .subnav-sep {
+    font-family: 'Cormorant Garamond', serif;
+    color: #C8A97E;
+    font-size: 0.75rem;
+    opacity: 0.6;
+  }
+
+  /* Subsection titles */
+  .subsection-title {
+    margin-bottom: 36px;
+  }
+
+  /* Product grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px 24px;
+  }
+  .product-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1100px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .product-grid { grid-template-columns: 1fr; }
+    .product-grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 601px) and (max-width: 900px) {
+    .product-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Product card */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-img-wrap {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 0.2rem;
+    background: #EDE5CC;
+  }
+  .product-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: saturate(0.88) contrast(1.02);
+  }
+  .product-card:hover .product-img { transform: scale(1.04); }
+  .product-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E8DFCA 0%, #D9C9A8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-img-placeholder span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(44,24,16,0.4);
+    text-align: center;
+    padding: 0 16px;
+  }
+  .product-body {
+    padding: 18px 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: #2C1810;
+  }
+  .product-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #5C4030;
+    margin: 0;
+  }
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #C8A97E;
+    margin-top: 4px;
+  }
+
+  /* Unit list */
+  .unit-section { max-width: 640px; }
+  .unit-list { display: flex; flex-direction: column; gap: 0; }
+  .unit-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(28,58,42,0.1);
+  }
+  .unit-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #2C1810;
+    white-space: nowrap;
+  }
+  .unit-dots {
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, rgba(28,58,42,0.2) 0, rgba(28,58,42,0.2) 3px, transparent 3px, transparent 8px);
+    position: relative;
+    top: -3px;
+    min-width: 24px;
+  }
+  .unit-price {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: #5C4030;
+    white-space: nowrap;
+  }
+
+  /* Options pills */
+  .options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .option-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #2C1810;
+    border: 1px solid rgba(28,58,42,0.2);
+    padding: 10px 20px;
+    border-radius: 0.2rem;
+    background: rgba(245,239,224,0.7);
+  }
+</style>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); } }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach(el => obs.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('is-in'));
+  }
+</script>
