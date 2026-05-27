@@ -1,146 +1,202 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CookieCardDesign from '../components/CookieCardDesign';
-import { FloatingOrnaments } from '../components/Cookie3D';
-
-const featured = [
-  {
-    id: 'sarah-b',
-    name: 'Sarah‑B',
-    subtitle: 'Chocolat noir 70%, fleur de sel de Guérande',
-    price: '6€',
-    badge: 'Signature',
-    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-chocolate',
-    placeholderLabel: 'COOKIE · CHOCOLAT NOIR',
-  },
-  {
-    id: 'matcha-yuzu',
-    name: 'Matcha Yuzu',
-    subtitle: 'Thé matcha d\'Uji, zestes de yuzu confits',
-    price: '7€',
-    badge: 'Nouveauté',
-    image: 'https://images.unsplash.com/photo-1587080413959-06b859fb107d?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-matcha',
-    placeholderLabel: 'COOKIE · MATCHA YUZU',
-  },
-  {
-    id: 'framboise-noire',
-    name: 'Framboise Noire',
-    subtitle: 'Framboises confites, chocolat noir, poivre de Timut',
-    price: '7€',
-    badge: 'Best‑seller',
-    image: 'https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-framboise',
-    placeholderLabel: 'COOKIE · FRAMBOISE NOIRE',
-  },
-];
-
-const values = [
-  { num: '01', title: 'La fournée unique', text: 'Une seule cuisson par jour, le matin. Ce qui n\'est pas réservé n\'est pas cuit.' },
-  { num: '02', title: 'Matières rares', text: 'Chocolat grand cru, vanille de Madagascar, pistaches de Bronte. Sourcing lent.' },
-  { num: '03', title: 'Fait main', text: 'Chaque cookie est façonné à la main. Aucune machine, aucun surgelé.' },
-];
 ---
 
 <Layout
-  title="Cooksbrad — Cookies d'auteur · Paris"
-  description="Une fournée par jour. Cookies artisanaux façonnés à la main, sur commande, au cœur de Paris."
+  title="Cooksbrad — Atelier Culinaire & Bar Mobile · Paris"
+  description="CooksBrad réinvente la gastronomie événementielle. Traiteur artisanal et bar mobile haut de gamme pour vos événements sur mesure."
   current="home"
-  forestTop={true}
 >
 
-  <!-- Hero — real photo background + floating cookie photos -->
+  <!-- Hero — full bleed photo -->
   <section class="hero">
     <div class="hero-photo-stack">
       <div
         class="hero-photo-bg"
-        style="background-image:url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=2200&q=85&auto=format&fit=crop')"
+        style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=2200&q=85&auto=format&fit=crop')"
       ></div>
       <div class="hero-photo-overlay"></div>
     </div>
 
-    <div
-      class="hero-cookie-float hero-cookie-float-left"
-      style="background-image:url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=900&q=85&auto=format&fit=crop')"
-    ></div>
-    <div
-      class="hero-cookie-float hero-cookie-float-right"
-      style="background-image:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1200&q=85&auto=format&fit=crop')"
-    ></div>
-
-    <span class="hero-meta">N° 01 — Maison</span>
-    <span class="hero-meta-right">Paris · 75004<br/>Atelier de Turenne</span>
+    <span class="hero-meta">Atelier Culinaire · Paris</span>
 
     <div class="hero-content">
-      <div class="hero-eyebrow eyebrow">Paris · Depuis MMXV</div>
+      <div class="hero-eyebrow">Atelier Culinaire &amp; Bar Mobile</div>
       <h1 class="hero-title">
-        Une fournée<br/>
-        <span style="display:inline-block">par jour<span class="ornament"> ✦ </span>rien de plus.</span>
+        CooksBrad
       </h1>
       <p class="hero-tagline">
-        « Quand la gourmandise devient un souvenir. »
+        De l'intimité d'un atelier privé à l'effervescence d'un grand événement —<br/>
+        une gastronomie événementielle d'exception.
       </p>
       <div class="hero-cta">
-        <a href="/creations" class="btn btn-primary">
-          Voir nos créations <span class="arrow">→</span>
+        <a href="/traiteur" class="btn btn-primary">
+          Découvrir nos services <span class="arrow">→</span>
         </a>
-        <a href="/histoire" class="btn btn-ghost">
-          Notre histoire
+        <a href="/contact" class="btn btn-ghost">
+          Réserver
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Featured cookies -->
-  <section class="section bg-cream">
+  <!-- Intro -->
+  <section class="section bg-cream" style="text-align:center">
     <div class="container">
-      <div class="section-head">
-        <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#9C8870">N° 02</span> &nbsp;·&nbsp; Sélection</span>
-          <hr class="hairline" />
-          <h2>Trois créations<br/>emblématiques.</h2>
-        </div>
-        <p class="body-text reveal reveal-delay-1">
-          Six recettes, façonnées à la main chaque matin, à partir de matières rares.
-          Voici les trois qui reviennent le plus souvent dans vos commandes.
+      <div style="max-width:680px;margin:0 auto" class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:16px">L'Art de Recevoir</span>
+        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3.2vw,2.8rem);color:#002f21;letter-spacing:-0.02em;line-height:1.15;margin-bottom:24px">
+          Une Expérience Gastronomique<br/>sur Mesure
+        </h2>
+        <p class="body-text" style="margin:0 auto 32px">
+          Nous marions la précision culinaire française à l'audace d'un service mobile haut de gamme
+          pour créer des souvenirs impérissables — du cocktail dînatoire au bar de nuit.
         </p>
-      </div>
-
-      <div class="cookie-grid">
-        {featured.map((cookie, i) => (
-          <CookieCardDesign client:visible cookie={cookie} index={i} />
-        ))}
-      </div>
-
-      <div class="reveal" style="margin-top:80px;text-align:center">
-        <a href="/creations" class="btn btn-primary">
-          Toutes les créations <span class="arrow">→</span>
-        </a>
+        <div style="width:48px;height:1px;background:#D4AF37;margin:0 auto"></div>
       </div>
     </div>
   </section>
 
-  <!-- Histoire band — real photo -->
+  <!-- Dual service feature — asymmetric layout -->
+  <section class="section bg-cream" style="padding-top:0">
+    <div class="container">
+      <div class="dual-service-grid">
+        <!-- Image left with float card -->
+        <div class="dual-service-img reveal">
+          <div class="dual-service-photo">
+            <div
+              style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1400&q=85&auto=format&fit=crop');background-size:cover;background-position:center;transition:transform 0.8s cubic-bezier(0.16,1,0.3,1)"
+              class="dual-photo-inner"
+            ></div>
+          </div>
+          <!-- Float card -->
+          <div class="dual-float-card">
+            <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-size:1.35rem;font-weight:500;color:#fcf9f8;margin:0 0 8px">Mixologie Mobile</h3>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:rgba(252,249,248,0.72);line-height:1.6;margin:0;font-style:italic">
+              Cocktails signature élaborés pour vos soirées les plus prestigieuses.
+            </p>
+          </div>
+        </div>
+
+        <!-- Content right -->
+        <div class="dual-service-text reveal reveal-delay-1">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+            <span style="width:28px;height:1px;background:#D4AF37;display:block"></span>
+            <span class="eyebrow">Signature CooksBrad</span>
+          </div>
+          <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.6rem);color:#002f21;letter-spacing:-0.02em;line-height:1.1;margin-bottom:20px">
+            L'Atelier Culinaire
+          </h3>
+          <p class="body-text" style="margin-bottom:24px">
+            Notre chef orchestre une symphonie de saveurs directement sur le lieu de votre événement.
+            Une cuisine vivante, sourcée localement et présentée avec une esthétique digne des plus grands ateliers.
+          </p>
+          <ul class="dual-checklist">
+            <li>Produits frais et saisonniers</li>
+            <li>Dressage artistique minute</li>
+            <li>Service discret et professionnel</li>
+          </ul>
+          <a href="/traiteur" class="dual-link">
+            Consulter nos offres traiteur <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento grid — Nos Prestations -->
+  <section class="section bg-forest-low">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:52px" class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:12px">Nos Prestations</span>
+        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#002f21;letter-spacing:-0.02em">
+          Ce que nous créons pour vous
+        </h2>
+      </div>
+      <div class="bento-grid reveal reveal-delay-1">
+        <!-- Large card: Traiteur -->
+        <div class="bento-card bento-large gh-card">
+          <div class="bento-img">
+            <img
+              src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80&auto=format&fit=crop"
+              alt="Traiteur artisanal"
+              loading="lazy"
+              style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);filter:grayscale(0.2)"
+            />
+            <div style="position:absolute;top:16px;left:16px">
+              <span style="background:#002f21;color:#fcf9f8;padding:4px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Traiteur</span>
+            </div>
+          </div>
+          <div style="padding:28px">
+            <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#002f21;margin:0 0 10px">Cocktail Dînatoire</h4>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;color:#404944;line-height:1.65;margin:0">
+              Des bouchées créatives pour favoriser l'échange lors de vos événements corporate ou privés.
+            </p>
+          </div>
+        </div>
+
+        <!-- Dark card: Bar Mobile -->
+        <div class="bento-card bento-dark" style="background:#002f21;padding:36px;display:flex;flex-direction:column;justify-content:space-between">
+          <div>
+            <div style="font-size:2rem;margin-bottom:16px">🍸</div>
+            <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#fcf9f8;margin:0 0 12px">Bar Mobile Premium</h4>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:rgba(252,249,248,0.65);line-height:1.65;margin:0">
+              Un bar itinérant élégant avec barmans professionnels et verrerie en cristal.
+            </p>
+          </div>
+          <a href="/bar-mobile" style="display:block;margin-top:28px;border:1px solid rgba(212,175,55,0.5);color:#D4AF37;text-align:center;padding:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s,color 0.25s">
+            En savoir plus
+          </a>
+        </div>
+
+        <!-- Small card: Dîner privé -->
+        <div class="bento-card gh-card" style="padding:28px">
+          <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#002f21;margin:0 0 12px">Dîner Privé</h4>
+          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0 0 20px">
+            L'excellence de la table chez vous. Un menu dégustation en 5 ou 7 temps.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span class="gh-tag">Menu Sur Mesure</span>
+            <span class="gh-tag">Chef à Domicile</span>
+          </div>
+        </div>
+
+        <!-- Wide card: Mariages -->
+        <div class="bento-card bento-gold" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);padding:32px;display:flex;align-items:center;gap:32px">
+          <div style="flex:1">
+            <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.3rem;color:#6e5d04;margin:0 0 10px">Mariages &amp; Célébrations</h4>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0">
+              Nous accompagnons le plus beau jour de votre vie avec une offre complète : vin d'honneur, banquet et bar de nuit.
+            </p>
+          </div>
+          <div style="flex-shrink:0;width:72px;height:72px;border-radius:50%;background:rgba(0,71,52,0.06);display:flex;align-items:center;justify-content:center;font-size:2rem">
+            ♡
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Histoire band -->
   <section class="histoire-band">
     <div class="container">
       <div class="histoire-grid">
         <div class="histoire-image reveal">
           <div
             class="real-photo"
-            style="background-image:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1400&q=85&auto=format&fit=crop')"
+            style="background-image:url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1400&q=85&auto=format&fit=crop')"
           ></div>
-          <span class="histoire-image-caption">Atelier · Rue de Turenne · 2025</span>
+          <span class="histoire-image-caption">Atelier · Paris · depuis 2015</span>
         </div>
         <div class="histoire-text reveal reveal-delay-1">
-          <span class="eyebrow"><span style="color:#9C8870">N° 03</span> &nbsp;·&nbsp; Notre Histoire</span>
+          <span class="eyebrow" style="color:rgba(252,249,248,0.5)">Notre Histoire</span>
           <h2>Dix ans à ne rien<br/>presser.</h2>
-          <p class="body-text" style="margin-bottom:20px">
-            Camille a quitté son métier en 2015 pour cuire des cookies. Depuis, rien n'a changé :
-            une fournée par jour, à la main, sur commande. Pas d'e-commerce. Pas de croissance à tout prix.
+          <p class="body-text" style="margin-bottom:18px">
+            Tout a commencé dans une petite cuisine, avec une envie simple : créer des expériences gourmandes qui racontent quelque chose.
+            Pas une industrie événementielle, mais un vrai savoir-faire artisanal.
           </p>
           <p class="body-text" style="margin-bottom:36px">
-            Juste la patience d'une recette. Et des clients qui reviennent.
+            Aujourd'hui, nos ateliers traiteur et nos bars mobiles voyagent dans toute la région pour apporter l'excellence de notre cuisine à vos événements.
           </p>
           <a href="/histoire" class="btn btn-ghost">
             Lire l'histoire <span class="arrow">→</span>
@@ -150,66 +206,141 @@ const values = [
     </div>
   </section>
 
-  <!-- Values -->
+  <!-- Valeurs -->
   <section class="section bg-cream">
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#9C8870">N° 04</span> &nbsp;·&nbsp; La maison</span>
+          <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; La Maison</span>
           <hr class="hairline" />
           <h2>Trois règles,<br/>jamais enfreintes.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
-          Le luxe, pour nous, c'est le refus. Refus de la machine, refus de la quantité, refus du surgelé.
+          Le luxe, pour nous, c'est le refus. Refus de l'approximation, refus de la quantité, refus du standardisé.
         </p>
       </div>
       <div class="values reveal">
-        {values.map(v => (
-          <div class="value-cell">
-            <span class="value-num">{v.num}</span>
-            <h3>{v.title}</h3>
-            <p class="body-text">{v.text}</p>
-          </div>
-        ))}
+        <div class="value-cell">
+          <span class="value-num">01</span>
+          <h3>Sourcing Local</h3>
+          <p class="body-text">Produits frais issus de circuits courts et de producteurs passionnés de notre région.</p>
+        </div>
+        <div class="value-cell">
+          <span class="value-num">02</span>
+          <h3>Fait Maison</h3>
+          <p class="body-text">Chaque bouchée est préparée avec soin dans notre atelier. Aucun surgelé, aucun compromis.</p>
+        </div>
+        <div class="value-cell">
+          <span class="value-num">03</span>
+          <h3>Sur Mesure</h3>
+          <p class="body-text">Chaque événement est unique. Nous adaptons chaque détail à vos envies et à votre lieu.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA — floating cookie photo layers + ornaments -->
+  <!-- CTA final -->
   <section class="cta-band bg-forest">
-    <div
-      class="depth-layer"
-      style="bottom:-140px;left:-100px;width:380px;height:380px;background-image:url('https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=900&q=85&auto=format&fit=crop');opacity:0.35;animation:cookie-float-bob 8s ease-in-out infinite"
-    ></div>
-    <div
-      class="depth-layer"
-      style="top:-60px;right:-80px;width:260px;height:260px;background-image:url('https://images.unsplash.com/photo-1590080874088-eec64895b423?w=900&q=85&auto=format&fit=crop');opacity:0.22;animation:cookie-float-bob 10s ease-in-out infinite"
-    ></div>
-    <FloatingOrnaments
-      client:visible
-      items={[
-        { kind: 'coin', size: 56, top: '20%', right: '12%' },
-        { kind: 'coin', size: 36, top: '70%', right: '28%' },
-        { kind: 'bean', size: 70, top: '35%', left: '8%' },
-      ]}
-    />
     <div class="container reveal">
-      <span class="eyebrow" style="color:#9C8870">N° 05 · Commander</span>
-      <h2>
-        <span class="ornament">✦</span> Écrivez-nous<br/>
-        la veille au soir.
-      </h2>
+      <span class="eyebrow" style="color:#D4AF37;display:block;margin-bottom:8px">Votre Événement</span>
+      <h2>Prêt à sublimer<br/>votre événement ?</h2>
       <p class="body-text">
-        Les commandes se prennent par Instagram ou e-mail, 72 heures à l'avance.
-        Retrait à l'atelier du 4ᵉ, du mardi au samedi.
+        Notre équipe étudie chaque projet pour vous proposer une expérience gastronomique sur mesure,
+        adaptée à vos envies, à votre lieu et à vos invités.
       </p>
       <a href="/contact" class="btn btn-primary">
-        Passer commande <span class="arrow">→</span>
+        Planifier mon événement <span class="arrow">→</span>
       </a>
     </div>
   </section>
 
 </Layout>
+
+<style>
+  /* Dual service layout */
+  .dual-service-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .dual-service-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .dual-service-img {
+    position: relative;
+  }
+  .dual-service-photo {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 6px;
+    position: relative;
+  }
+  .dual-service-photo > div {
+    position: absolute; inset: 6px;
+  }
+  .dual-service-img:hover .dual-photo-inner { transform: scale(1.04) !important; }
+  .dual-float-card {
+    position: absolute;
+    bottom: -24px; right: -24px;
+    background: #002f21;
+    padding: 24px 28px;
+    max-width: 240px;
+    box-shadow: 0 16px 40px rgba(0,47,33,0.3);
+  }
+  @media (max-width: 900px) {
+    .dual-float-card { right: 0; bottom: -16px; max-width: 200px; padding: 18px 20px; }
+  }
+  .dual-service-text { padding-left: 12px; }
+  @media (max-width: 900px) { .dual-service-text { padding-left: 0; padding-top: 40px; } }
+  .dual-checklist {
+    list-style: none; padding: 0; margin: 0 0 28px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .dual-checklist li {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: #1b1c1c;
+  }
+  .dual-checklist li::before {
+    content: '✓';
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(212,175,55,0.15); color: #6e5d04;
+    font-size: 0.65rem; font-weight: 700;
+  }
+  .dual-link {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
+    color: #002f21; display: inline-flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid rgba(0,47,33,0.2); padding-bottom: 4px;
+    transition: border-color 0.25s, color 0.25s;
+  }
+  .dual-link:hover { color: #6e5d04; border-color: #D4AF37; }
+
+  /* Bento grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+  @media (max-width: 900px) {
+    .bento-grid { grid-template-columns: 1fr; }
+  }
+  .bento-card { border-radius: 0.25rem; overflow: hidden; }
+  .bento-large { grid-row: span 1; }
+  .bento-dark { grid-column: 2; grid-row: 1 / 3; }
+  .bento-gold { grid-column: 1; grid-row: 2; }
+  @media (max-width: 900px) {
+    .bento-dark  { grid-column: 1; grid-row: auto; }
+    .bento-gold  { grid-column: 1; grid-row: auto; }
+  }
+  .bento-img {
+    height: 220px; overflow: hidden; position: relative;
+  }
+  .bento-img:hover img { transform: scale(1.06) !important; }
+</style>
 
 <script>
   const els = document.querySelectorAll('.reveal');
@@ -218,7 +349,7 @@ const values = [
       (entries) => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
       }),
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
     els.forEach(el => obs.observe(el));
   } else {

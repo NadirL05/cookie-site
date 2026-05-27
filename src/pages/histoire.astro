@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 
 const values = [
-  { num: '01', title: 'Fait Main', text: 'Chaque cookie est façonné à la main, avec attention et précision. Aucune machine, aucun surgelé.' },
-  { num: '02', title: 'Ingrédients Locaux', text: 'La farine du moulin voisin, le beurre d\'origine contrôlée, le chocolat chez de petits producteurs.' },
+  { num: '01', title: 'Fait Main', text: 'Chaque pièce est façonnée à la main, avec attention et précision. Aucune machine, aucun surgelé.' },
+  { num: '02', title: 'Ingrédients Locaux', text: 'La farine du moulin voisin, le beurre d\'origine contrôlée, les produits choisis chez de petits producteurs.' },
   { num: '03', title: 'Sans Compromis', text: 'La qualité ne se négocie pas. Chaque fournée est testée avant d\'être servie.' },
 ];
 ---
@@ -12,7 +12,6 @@ const values = [
   title="Notre Histoire — Cooksbrad"
   description="Dix ans à faire une seule chose, et à la faire bien."
   current="histoire"
-  forestTop={true}
 >
 
   <!-- Page banner -->
@@ -21,13 +20,13 @@ const values = [
       <div>
         <div class="breadcrumbs">
           <a href="/">Maison</a>
-          <span class="ornament" style="font-size:0.9rem">✦</span>
-          <span style="color:#9C8870">Notre Histoire</span>
+          <span style="color:#D4AF37;font-family:'Noto Serif',serif">✦</span>
+          <span style="color:#D4AF37">Notre Histoire</span>
         </div>
         <h1>Dix ans à ne rien<br/>presser.</h1>
       </div>
       <p>
-        Camille a quitté son métier en 2015 pour cuire des cookies.
+        Camille a quitté son métier en 2015 pour créer des expériences gourmandes.
         Depuis, rien n'a changé — une fournée par jour, à la main, sur commande.
       </p>
     </div>
@@ -42,21 +41,23 @@ const values = [
             class="real-photo"
             style="background-image:url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1400&q=85&auto=format&fit=crop')"
           ></div>
-          <span class="histoire-image-caption">Atelier · Rue de Turenne · 2025</span>
+          <span class="histoire-image-caption">Atelier · Paris · 2025</span>
         </div>
         <div class="histoire-text reveal reveal-delay-1">
-          <span class="eyebrow"><span style="color:#9C8870">N° 01</span> &nbsp;·&nbsp; Les Origines</span>
-          <div class="timeline-dot-3d"></div>
+          <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; Les Origines</span>
+          <div class="histoire-timeline-dot"></div>
           <p class="body-text" style="margin-bottom:18px">
-            Tout a commencé dans une petite cuisine, avec une envie simple : créer des cookies qui racontent quelque chose.
-            Pas des biscuits industriels, mais de vraies gourmandises, façonnées à la main, avec des ingrédients choisis avec soin.
+            Tout a commencé dans une petite cuisine, avec une envie simple : créer des gourmandises
+            qui racontent quelque chose. Pas des biscuits industriels, mais de vraies créations
+            façonnées à la main, avec des ingrédients choisis avec soin.
           </p>
           <p class="body-text" style="margin-bottom:18px">
-            Chaque recette est le fruit de nombreux essais, d'ajustements minutieux, d'un respect profond pour les saveurs.
-            La farine vient du moulin voisin, le beurre est d'origine contrôlée, le chocolat est sélectionné chez de petits producteurs.
+            Chaque recette est le fruit de nombreux essais, d'ajustements minutieux, d'un respect
+            profond pour les saveurs. La farine vient du moulin voisin, le beurre est d'origine
+            contrôlée, les produits sont sélectionnés chez de petits producteurs.
           </p>
           <p class="body-text">
-            Aujourd'hui, notre passion se traduit en chaque cookie qui sort du four.
+            Aujourd'hui, cette passion se traduit dans chaque événement que nous accompagnons.
             Nous croyons que la gourmandise bien faite mérite du temps, de l'attention et beaucoup d'amour.
           </p>
         </div>
@@ -69,9 +70,9 @@ const values = [
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow" style="color:rgba(245,239,224,0.55)"><span style="color:#9C8870">N° 02</span> &nbsp;·&nbsp; Nos Valeurs</span>
+          <span class="eyebrow"><span style="color:#D4AF37">N° 02</span> &nbsp;·&nbsp; Nos Valeurs</span>
           <hr class="hairline" />
-          <h2 style="color:#F5EFE0">Trois règles,<br/>jamais enfreintes.</h2>
+          <h2>Trois règles,<br/>jamais enfreintes.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
           Le luxe, pour nous, c'est le refus. Refus de la machine, refus de la quantité, refus du surgelé.
@@ -92,7 +93,7 @@ const values = [
   <!-- Citation -->
   <section class="pull-quote bg-cream">
     <div class="container reveal">
-      <span class="ornament" style="font-size:1.8rem;display:block;margin-bottom:24px">✦</span>
+      <span style="font-family:'Noto Serif',serif;font-style:italic;color:#D4AF37;font-size:1.8rem;display:block;margin-bottom:20px">✦</span>
       <blockquote>
         « La gourmandise, quand elle est bien faite,<br/>
         devient un art de vivre. »
@@ -102,20 +103,39 @@ const values = [
   </section>
 
   <!-- CTA -->
-  <section class="cta-band bg-cream" style="border-top:1px solid rgba(28,58,42,0.1)">
+  <section class="cta-band bg-cream" style="border-top:1px solid rgba(0,71,52,0.08)">
     <div class="container reveal">
-      <span class="eyebrow" style="color:#9C8870">Nos Créations</span>
-      <h2>Découvrez ce qui sort<br/>du four chaque matin.</h2>
+      <span class="eyebrow" style="color:#6e5d04;display:block;margin-bottom:8px">Votre Événement</span>
+      <h2>Découvrez ce que nous<br/>créons pour vous.</h2>
       <p class="body-text">
-        Six recettes façonnées à la main, à partir de matières rares.
+        Traiteur artisanal et bar mobile événementiel — des expériences sur mesure,
+        à partir de matières soigneusement choisies.
       </p>
-      <a href="/creations" class="btn btn-primary">
-        Voir nos créations <span class="arrow">→</span>
-      </a>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="/traiteur" class="btn btn-primary">
+          Voir le traiteur <span class="arrow">→</span>
+        </a>
+        <a href="/bar-mobile" class="btn btn-ghost">
+          Bar Mobile
+        </a>
+      </div>
     </div>
   </section>
 
 </Layout>
+
+<style>
+  .histoire-timeline-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #D4AF37; margin: 28px 0 32px;
+    box-shadow: 0 4px 10px rgba(212,175,55,0.35);
+    position: relative;
+  }
+  .histoire-timeline-dot::before {
+    content: ''; position: absolute; inset: -8px;
+    border: 1px solid rgba(212,175,55,0.25); border-radius: 50%;
+  }
+</style>
 
 <script>
   const els = document.querySelectorAll('.reveal');

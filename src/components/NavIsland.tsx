@@ -5,10 +5,10 @@ interface Props {
 }
 
 const links = [
-  { id: "home", label: "Maison", href: "/" },
-  { id: "creations", label: "Nos Créations", href: "/creations" },
-  { id: "histoire", label: "Notre Histoire", href: "/histoire" },
-  { id: "contact", label: "Contact", href: "/contact" },
+  { id: "home",      label: "Maison",       href: "/" },
+  { id: "traiteur",  label: "Traiteur",      href: "/traiteur" },
+  { id: "bar-mobile",label: "Bar Mobile",    href: "/bar-mobile" },
+  { id: "contact",   label: "Contact",       href: "/contact" },
 ];
 
 export default function NavIsland({ current = "home" }: Props) {
@@ -16,48 +16,66 @@ export default function NavIsland({ current = "home" }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <nav className={`nav ${scrolled ? "nav-scrolled" : ""}`}>
-      <div className="nav-inner container">
-        <a href="/" className="nav-logo">
-          <span className="nav-logo-mark">LM</span>
-          <span className="nav-logo-word">
-            <span className="display" style={{ fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}>
-              Cooksbrad
-            </span>
-            <span className="nav-logo-sub">Paris · depuis 2015</span>
-          </span>
+    <nav className={`nav-gh${scrolled ? " nav-gh-scrolled" : ""}`}>
+      <div className="nav-gh-inner">
+        {/* Logo */}
+        <a href="/" className="nav-gh-logo">
+          CooksBrad
         </a>
 
-        <ul className="nav-links">
+        {/* Desktop links */}
+        <ul className="nav-gh-links">
           {links.map((l) => (
             <li key={l.id}>
-              <a href={l.href} className={`nav-link ${current === l.id ? "is-current" : ""}`}>
+              <a
+                href={l.href}
+                className={`nav-gh-link${current === l.id ? " nav-gh-link-active" : ""}`}
+              >
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
-          <span></span>
-          <span></span>
+        {/* Réserver button */}
+        <a href="/contact" className="nav-gh-cta">
+          Réserver
+        </a>
+
+        {/* Hamburger */}
+        <button
+          className="nav-gh-burger"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          <span className={open ? "open" : ""}></span>
+          <span className={open ? "open" : ""}></span>
         </button>
       </div>
 
+      {/* Mobile menu */}
       {open && (
-        <div className="nav-mobile">
+        <div className="nav-gh-mobile">
           {links.map((l) => (
-            <a key={l.id} href={l.href} className="nav-mobile-link" onClick={() => setOpen(false)}>
+            <a
+              key={l.id}
+              href={l.href}
+              className={`nav-gh-mobile-link${current === l.id ? " active" : ""}`}
+              onClick={() => setOpen(false)}
+            >
               {l.label}
             </a>
           ))}
+          <a href="/contact" className="nav-gh-mobile-cta" onClick={() => setOpen(false)}>
+            Réserver
+          </a>
         </div>
       )}
     </nav>

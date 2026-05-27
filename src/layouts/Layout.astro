@@ -1,10 +1,5 @@
 ---
 import '../styles/global.css';
-import '@fontsource/cormorant-garamond/300.css';
-import '@fontsource/cormorant-garamond/400.css';
-import '@fontsource/cormorant-garamond/400-italic.css';
-import '@fontsource/dm-sans/400.css';
-import '@fontsource/dm-sans/500.css';
 import NavIsland from '../components/NavIsland';
 import Footer from '../components/Footer.astro';
 
@@ -15,7 +10,7 @@ interface Props {
   forestTop?: boolean;
 }
 
-const { title = 'Cooksbrad — Cookies Artisanaux', description = '', current = 'home', forestTop = false } = Astro.props;
+const { title = 'Cooksbrad — Atelier Culinaire & Bar Mobile', description = '', current = 'home', forestTop = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,10 +20,12 @@ const { title = 'Cooksbrad — Cookies Artisanaux', description = '', current = 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
-    <meta name="theme-color" content="#1C3A2A" />
+    <meta name="theme-color" content="#004734" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
   <body class={forestTop ? 'page-forest-top' : ''}>
