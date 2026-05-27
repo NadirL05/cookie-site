@@ -29,7 +29,7 @@ export default function NavIsland({ current = "home" }: Props) {
           <span className="nav-logo-mark">LM</span>
           <span className="nav-logo-word">
             <span className="display" style={{ fontFamily: "Cormorant Garamond, serif", fontStyle: "italic" }}>
-              La Maison
+              Cooksbrad
             </span>
             <span className="nav-logo-sub">Paris · depuis 2015</span>
           </span>

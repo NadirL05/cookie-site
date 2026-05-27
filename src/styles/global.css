@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Palette La Maison */
+  /* Palette Cooksbrad */
   --color-forest:     #1C3A2A;
   --color-cream:      #F5EFE0;
   --color-gold:       #9C8870;
@@ -16,7 +16,7 @@
   --font-sans:    "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
 
-  /* shadcn vars → palette La Maison */
+  /* shadcn vars → palette Cooksbrad */
   --color-background:        #F5EFE0;
   --color-foreground:        #2C1810;
   --color-card:              #FAF5EA;
@@ -99,7 +99,7 @@ body::after {
 }
 
 /* ============================================
-   Design system — La Maison (Claude Design)
+   Design system — Cooksbrad (Claude Design)
    ============================================ */
 
 :root {
