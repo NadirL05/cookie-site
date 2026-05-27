@@ -18,18 +18,29 @@ import Layout from '../layouts/Layout.astro';
       <div class="hero-photo-overlay"></div>
     </div>
 
-    <span class="hero-meta">Atelier Culinaire · Paris</span>
+    <!-- Floating ornaments -->
+    <div class="hero-orns" aria-hidden="true">
+      <span class="hero-orn" style="--fs:1.5rem;--op:0.20;--dur:8s;--delay:0s;--travel:-20px;--rot:14deg;--scale:1.12;top:16%;left:7%">✦</span>
+      <span class="hero-orn" style="--fs:0.85rem;--op:0.16;--dur:6.5s;--delay:1.3s;--travel:-13px;--rot:-9deg;--scale:1.08;top:22%;right:9%">✦</span>
+      <span class="hero-orn" style="--fs:2rem;--op:0.12;--dur:10s;--delay:2.8s;--travel:-24px;--rot:6deg;--scale:1.05;top:62%;right:5%">✦</span>
+      <span class="hero-orn" style="--fs:0.75rem;--op:0.18;--dur:7.5s;--delay:0.6s;--travel:-11px;--rot:-16deg;--scale:1.1;bottom:22%;left:11%">✦</span>
+      <span class="hero-orn" style="--fs:1.1rem;--op:0.10;--dur:12s;--delay:3.5s;--travel:-18px;--rot:8deg;--scale:1.06;top:42%;left:3%">✦</span>
+    </div>
+
+    <span class="hero-meta hero-animate hero-animate-4">Atelier Culinaire · Paris</span>
 
     <div class="hero-content">
-      <div class="hero-eyebrow">Atelier Culinaire &amp; Bar Mobile</div>
-      <h1 class="hero-title">
-        CooksBrad
-      </h1>
-      <p class="hero-tagline">
+      <div class="hero-eyebrow hero-animate hero-animate-0">Atelier Culinaire &amp; Bar Mobile</div>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">
+          CooksBrad
+        </h1>
+      </div>
+      <p class="hero-tagline hero-animate hero-animate-2">
         De l'intimité d'un atelier privé à l'effervescence d'un grand événement —<br/>
         une gastronomie événementielle d'exception.
       </p>
-      <div class="hero-cta">
+      <div class="hero-cta hero-animate hero-animate-3">
         <a href="/traiteur" class="btn btn-primary">
           Découvrir nos services <span class="arrow">→</span>
         </a>
@@ -115,7 +126,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="bento-grid reveal reveal-delay-1">
         <!-- Large card: Traiteur -->
-        <div class="bento-card bento-large gh-card">
+        <div class="bento-card bento-large gh-card tilt-card">
           <div class="bento-img">
             <img
               src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80&auto=format&fit=crop"
@@ -136,7 +147,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- Dark card: Bar Mobile -->
-        <div class="bento-card bento-dark" style="background:#002f21;padding:36px;display:flex;flex-direction:column;justify-content:space-between">
+        <div class="bento-card bento-dark tilt-card" style="background:#002f21;padding:36px;display:flex;flex-direction:column;justify-content:space-between">
           <div>
             <div style="font-size:2rem;margin-bottom:16px">🍸</div>
             <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#fcf9f8;margin:0 0 12px">Bar Mobile Premium</h4>
@@ -150,7 +161,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- Small card: Dîner privé -->
-        <div class="bento-card gh-card" style="padding:28px">
+        <div class="bento-card gh-card tilt-card" style="padding:28px">
           <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#002f21;margin:0 0 12px">Dîner Privé</h4>
           <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0 0 20px">
             L'excellence de la table chez vous. Un menu dégustation en 5 ou 7 temps.
@@ -162,7 +173,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <!-- Wide card: Mariages -->
-        <div class="bento-card bento-gold" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);padding:32px;display:flex;align-items:center;gap:32px">
+        <div class="bento-card bento-gold tilt-card" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);padding:32px;display:flex;align-items:center;gap:32px">
           <div style="flex:1">
             <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.3rem;color:#6e5d04;margin:0 0 10px">Mariages &amp; Célébrations</h4>
             <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0">
@@ -181,7 +192,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="histoire-band">
     <div class="container">
       <div class="histoire-grid">
-        <div class="histoire-image reveal">
+        <div class="histoire-image reveal reveal-scale">
           <div
             class="real-photo"
             style="background-image:url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1400&q=85&auto=format&fit=crop')"

@@ -79,13 +79,25 @@ const events = [
       loading="eager"
     />
     <div class="bar-hero-overlay"></div>
+
+    <!-- Floating ornaments -->
+    <div class="hero-orns" aria-hidden="true">
+      <span class="hero-orn" style="--fs:1.3rem;--op:0.18;--dur:9s;--delay:0s;--travel:-16px;--rot:12deg;--scale:1.1;top:18%;left:8%">✦</span>
+      <span class="hero-orn" style="--fs:0.8rem;--op:0.14;--dur:7s;--delay:1.5s;--travel:-12px;--rot:-8deg;--scale:1.07;top:28%;right:10%">✦</span>
+      <span class="hero-orn" style="--fs:1.7rem;--op:0.10;--dur:11s;--delay:3s;--travel:-22px;--rot:7deg;--scale:1.04;bottom:25%;right:6%">✦</span>
+    </div>
+
     <div class="bar-hero-content">
-      <span class="bar-hero-label">CooksBrad Atelier</span>
-      <h1 class="bar-hero-title">Bar Mobile</h1>
-      <p class="bar-hero-sub">Chic, Événementiel, Gourmand</p>
-      <a href="/contact" class="btn btn-primary" style="margin-top:32px">
-        Demander un devis <span class="arrow">→</span>
-      </a>
+      <span class="bar-hero-label hero-animate hero-animate-0">CooksBrad Atelier</span>
+      <div class="hero-title-wrap">
+        <h1 class="bar-hero-title" style="animation: titleSlideUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.32s forwards; opacity:0; transform:translateY(105%)">Bar Mobile</h1>
+      </div>
+      <p class="bar-hero-sub hero-animate hero-animate-2">Chic, Événementiel, Gourmand</p>
+      <div class="hero-animate hero-animate-3" style="margin-top:32px">
+        <a href="/contact" class="btn btn-primary">
+          Demander un devis <span class="arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
