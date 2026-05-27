@@ -148,7 +148,7 @@ const brunchOptions = [
         <div class="breadcrumbs">
           <a href="/">Maison</a>
           <span class="ornament" style="font-size:0.9rem">✦</span>
-          <span style="color:#C8A97E">Traiteur</span>
+          <span style="color:#9C8870">Traiteur</span>
         </div>
         <h1>Des créations<br/>pour chaque<br/>occasion.</h1>
       </div>
@@ -177,7 +177,7 @@ const brunchOptions = [
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#C8A97E">Salé</span></span>
+          <span class="eyebrow"><span style="color:#9C8870">Salé</span></span>
           <hr class="hairline" />
           <h2>Bouchées élégantes,<br/>faites pour partager.</h2>
         </div>
@@ -189,7 +189,7 @@ const brunchOptions = [
 
       <!-- Nos box -->
       <div class="subsection-title reveal">
-        <span class="eyebrow" style="color:#C8A97E">Nos box</span>
+        <span class="eyebrow" style="color:#9C8870">Nos box</span>
       </div>
       <div class="product-grid">
         {savoryBoxes.map((box, i) => (
@@ -211,7 +211,7 @@ const brunchOptions = [
 
       <!-- Nos planches -->
       <div class="subsection-title reveal" style="margin-top:80px">
-        <span class="eyebrow" style="color:#C8A97E">Nos planches</span>
+        <span class="eyebrow" style="color:#9C8870">Nos planches</span>
       </div>
       <div class="product-grid product-grid-3">
         {savoryPlanches.map((planche, i) => (
@@ -233,7 +233,7 @@ const brunchOptions = [
       <!-- Salé à l'unité -->
       <div class="unit-section reveal" style="margin-top:80px">
         <div class="subsection-title">
-          <span class="eyebrow" style="color:#C8A97E">Salé à l'unité</span>
+          <span class="eyebrow" style="color:#9C8870">Salé à l'unité</span>
         </div>
         <div class="unit-list">
           {savoryUnits.map(u => (
@@ -255,7 +255,7 @@ const brunchOptions = [
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#C8A97E">Sucré</span></span>
+          <span class="eyebrow"><span style="color:#9C8870">Sucré</span></span>
           <hr class="hairline" />
           <h2>Des douceurs<br/>gourmandes et raffinées.</h2>
         </div>
@@ -267,7 +267,7 @@ const brunchOptions = [
 
       <!-- Nos box sucrées -->
       <div class="subsection-title reveal">
-        <span class="eyebrow" style="color:#C8A97E">Nos box sucrées</span>
+        <span class="eyebrow" style="color:#9C8870">Nos box sucrées</span>
       </div>
       <div class="product-grid">
         {sweetBoxes.map((box, i) => (
@@ -289,7 +289,7 @@ const brunchOptions = [
 
       <!-- Nos plateaux sucrés -->
       <div class="subsection-title reveal" style="margin-top:80px">
-        <span class="eyebrow" style="color:#C8A97E">Nos plateaux sucrés</span>
+        <span class="eyebrow" style="color:#9C8870">Nos plateaux sucrés</span>
       </div>
       <div class="product-grid product-grid-3">
         {sweetPlateaux.map((plateau, i) => (
@@ -311,7 +311,7 @@ const brunchOptions = [
       <!-- Sucré à l'unité -->
       <div class="unit-section reveal" style="margin-top:80px">
         <div class="subsection-title">
-          <span class="eyebrow" style="color:#C8A97E">Sucré à l'unité</span>
+          <span class="eyebrow" style="color:#9C8870">Sucré à l'unité</span>
         </div>
         <div class="unit-list">
           {sweetUnits.map(u => (
@@ -333,7 +333,7 @@ const brunchOptions = [
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#C8A97E">Brunch</span></span>
+          <span class="eyebrow"><span style="color:#9C8870">Brunch</span></span>
           <hr class="hairline" />
           <h2>Une offre généreuse,<br/>pour vos matins.</h2>
         </div>
@@ -345,7 +345,7 @@ const brunchOptions = [
 
       <!-- Formules -->
       <div class="subsection-title reveal">
-        <span class="eyebrow" style="color:#C8A97E">Formules brunch</span>
+        <span class="eyebrow" style="color:#9C8870">Formules brunch</span>
       </div>
       <div class="product-grid product-grid-3">
         {brunchFormules.map((formule, i) => (
@@ -365,16 +365,17 @@ const brunchOptions = [
         ))}
       </div>
 
-      <!-- Options -->
-      <div class="reveal" style="margin-top:80px">
+      <!-- Options à l'unité -->
+      <div class="unit-section reveal" style="margin-top:64px">
         <div class="subsection-title">
-          <span class="eyebrow" style="color:#C8A97E">Options à ajouter</span>
+          <span class="eyebrow" style="color:#9C8870">Options à l'unité</span>
         </div>
-        <div class="options-grid">
+        <div class="unit-list">
           {brunchOptions.map(opt => (
-            <div class="option-pill">
-              <span class="ornament" style="font-size:0.8rem">✦</span>
-              {opt}
+            <div class="unit-row">
+              <span class="unit-label">{opt}</span>
+              <span class="unit-dots"></span>
+              <span class="unit-price">Sur devis</span>
             </div>
           ))}
         </div>
@@ -385,7 +386,7 @@ const brunchOptions = [
   <!-- CTA final -->
   <section class="cta-band bg-forest">
     <div class="container reveal">
-      <span class="eyebrow" style="color:#C8A97E">Commander</span>
+      <span class="eyebrow" style="color:#9C8870">Commander</span>
       <h2>
         Vous souhaitez composer<br/>un brunch sur mesure ?
       </h2>
@@ -405,7 +406,7 @@ const brunchOptions = [
   /* Sous-navigation */
   .subnav {
     position: sticky;
-    top: 64px;
+    top: 76px;
     z-index: 40;
     background: #F5EFE0;
     border-bottom: 1px solid rgba(28,58,42,0.12);
@@ -437,13 +438,13 @@ const brunchOptions = [
     left: 0; right: 100%;
     bottom: 0;
     height: 1px;
-    background: #C8A97E;
+    background: #9C8870;
     transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .subnav-link:hover::after { right: 0; }
   .subnav-sep {
     font-family: 'Cormorant Garamond', serif;
-    color: #C8A97E;
+    color: #9C8870;
     font-size: 0.75rem;
     opacity: 0.6;
   }
@@ -535,7 +536,7 @@ const brunchOptions = [
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 1rem;
-    color: #C8A97E;
+    color: #9C8870;
     margin-top: 4px;
   }
 

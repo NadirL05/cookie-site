@@ -52,7 +52,7 @@ export default function CookieCardShadcn({
           </p>
         )}
 
-        <p className="mt-2 text-[11px] tracking-[0.05em] text-[#C8A97E]">
+        <p className="mt-2 text-[11px] tracking-[0.05em] text-[#9C8870]">
           {price}
         </p>
       </CardContent>

@@ -52,7 +52,7 @@ const barTypes = [
         <div class="breadcrumbs">
           <a href="/">Maison</a>
           <span class="ornament" style="font-size:0.9rem">✦</span>
-          <span style="color:#C8A97E">Bar Mobile</span>
+          <span style="color:#9C8870">Bar Mobile</span>
         </div>
         <h1>Un bar en action<br/>pour chaque<br/>moment unique.</h1>
       </div>
@@ -75,7 +75,7 @@ const barTypes = [
     <div class="container">
       <div class="bar-action-grid">
         <div class="bar-action-text reveal">
-          <span class="eyebrow"><span style="color:#C8A97E">N° 01</span> &nbsp;·&nbsp; Le Bar</span>
+          <span class="eyebrow"><span style="color:#9C8870">N° 01</span> &nbsp;·&nbsp; Le Bar</span>
           <hr class="hairline" style="margin:20px 0" />
           <h2>Bar en action.</h2>
           <p class="body-text" style="margin-top:24px">
@@ -101,11 +101,11 @@ const barTypes = [
   </section>
 
   <!-- Pour chaque moment unique -->
-  <section class="section bg-forest">
+  <section class="section bg-cream">
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#C8A97E">N° 02</span> &nbsp;·&nbsp; Événements</span>
+          <span class="eyebrow"><span style="color:#9C8870">N° 02</span> &nbsp;·&nbsp; Événements</span>
           <hr class="hairline" />
           <h2>Pour chaque<br/>moment unique.</h2>
         </div>
@@ -115,20 +115,20 @@ const barTypes = [
         </p>
       </div>
 
-      <div class="moments-grid">
+      <div class="moments-editorial">
         {moments.map((m, i) => (
-          <article class={`moment-card reveal reveal-delay-${i}`}>
-            <div class="moment-img-wrap">
+          <article class={`moment-editorial-card reveal reveal-delay-${i}`}>
+            <div class="moment-editorial-img">
               <div
-                class="moment-img"
+                class="moment-editorial-photo"
                 style={`background-image:url('${m.image}')`}
                 role="img"
                 aria-label={m.title}
               ></div>
-              <div class="moment-overlay"></div>
-              <h3 class="moment-title">{m.title}</h3>
             </div>
-            <div class="moment-body">
+            <div class="moment-editorial-body">
+              <span class="moment-editorial-num">0{i + 1}</span>
+              <h3 class="moment-editorial-title">{m.title}</h3>
               <p class="body-text">{m.description}</p>
             </div>
           </article>
@@ -138,13 +138,13 @@ const barTypes = [
   </section>
 
   <!-- Nos bars sur mesure -->
-  <section class="section bg-cream">
+  <section class="section bg-forest">
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#C8A97E">N° 03</span> &nbsp;·&nbsp; Offres</span>
+          <span class="eyebrow" style="color:rgba(245,239,224,0.55)"><span style="color:#9C8870">N° 03</span> &nbsp;·&nbsp; Offres</span>
           <hr class="hairline" />
-          <h2>Nos bars<br/>sur mesure.</h2>
+          <h2 style="color:#F5EFE0">Nos bars<br/>sur mesure.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
           Trois formules pensées pour s'adapter à tous les événements, toutes les ambiances
@@ -167,7 +167,7 @@ const barTypes = [
   <!-- CTA final -->
   <section class="cta-band bg-forest">
     <div class="container reveal">
-      <span class="eyebrow" style="color:#C8A97E">Votre événement</span>
+      <span class="eyebrow" style="color:#9C8870">Votre événement</span>
       <h2>
         Prêt à personnaliser<br/>votre événement ?
       </h2>
@@ -238,68 +238,65 @@ const barTypes = [
     z-index: 2;
   }
 
-  /* Moments grid */
-  .moments-grid {
+  /* Moments editorial (nouvelle présentation claire) */
+  .moments-editorial {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
+    gap: 1px;
+    background: rgba(28,58,42,0.12);
+    border: 1px solid rgba(28,58,42,0.12);
   }
   @media (max-width: 900px) {
-    .moments-grid { grid-template-columns: 1fr; }
+    .moments-editorial { grid-template-columns: 1fr; }
   }
   @media (min-width: 600px) and (max-width: 900px) {
-    .moments-grid { grid-template-columns: repeat(2, 1fr); }
+    .moments-editorial { grid-template-columns: repeat(2, 1fr); }
   }
 
-  .moment-card {
+  .moment-editorial-card {
+    background: #F5EFE0;
     display: flex;
     flex-direction: column;
-    background: rgba(245,239,224,0.04);
   }
-  .moment-img-wrap {
-    position: relative;
-    aspect-ratio: 3 / 4;
+  .moment-editorial-img {
+    aspect-ratio: 4 / 3;
     overflow: hidden;
+    position: relative;
   }
-  .moment-img {
+  .moment-editorial-photo {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    filter: saturate(0.75) brightness(0.75);
+    filter: saturate(0.82) contrast(1.02);
   }
-  .moment-card:hover .moment-img {
-    transform: scale(1.04);
-    filter: saturate(0.85) brightness(0.82);
+  .moment-editorial-card:hover .moment-editorial-photo { transform: scale(1.04); }
+  .moment-editorial-body {
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
   }
-  .moment-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 45%, rgba(14,28,20,0.85) 100%);
-    z-index: 1;
+  .moment-editorial-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #9C8870;
+    line-height: 1;
   }
-  .moment-title {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
-    z-index: 2;
+  .moment-editorial-title {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 1.8rem;
-    color: #F5EFE0;
+    font-size: 1.5rem;
+    color: #2C1810;
     margin: 0;
   }
-  .moment-body {
-    padding: 24px;
-    background: rgba(245,239,224,0.05);
-    border-top: 1px solid rgba(245,239,224,0.1);
-  }
-  .moment-body .body-text {
-    color: rgba(245,239,224,0.7);
-    font-size: 0.9rem;
+  .moment-editorial-body .body-text {
+    font-size: 0.88rem;
+    line-height: 1.65;
   }
 </style>
 

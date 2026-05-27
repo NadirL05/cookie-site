@@ -3,62 +3,123 @@ import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm';
 ---
 
-<Layout title="Contact — La Maison" description="Contactez-nous pour passer commande ou en savoir plus sur nos cookies artisanaux.">
+<Layout
+  title="Contact — La Maison"
+  description="Pour commander, poser une question ou proposer un événement."
+  current="contact"
+  forestTop={true}
+>
 
-  <!-- Section 1 — Header -->
-  <section class="bg-forest text-center py-20 px-8">
-    <p class="font-sans uppercase text-gold/80 text-[10px] tracking-[0.3em]">Restons en Contact</p>
-    <h1 class="font-display italic text-5xl text-cream mt-3">Contact</h1>
-    <p class="font-sans text-sm text-cream/60 mt-4">Pour commander, poser une question ou proposer un événement.</p>
-  </section>
-
-  <!-- Section 2 — Content (2 columns) -->
-  <section class="bg-cream py-16 px-8">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-
-      <!-- Colonne gauche — Formulaire -->
+  <!-- Page banner -->
+  <section class="page-banner">
+    <div class="container page-banner-inner">
       <div>
-        <h2 class="font-display italic text-2xl text-forest mb-8">Envoyez-nous un message</h2>
-        <ContactForm client:load />
-      </div>
-
-      <!-- Colonne droite — Infos -->
-      <div>
-        <h2 class="font-display italic text-2xl text-forest mb-8">Retrouvez-nous</h2>
-        <div class="space-y-6">
-          <div>
-            <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-forest/50 mb-1">Instagram</p>
-            <a href="https://instagram.com/lamaisoncookies" target="_blank" rel="noopener noreferrer" class="font-sans text-sm text-brown hover:text-forest transition-colors">@lamaisoncookies</a>
-          </div>
-          <div>
-            <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-forest/50 mb-1">Email</p>
-            <a href="mailto:hello@lamaisoncookies.fr" class="font-sans text-sm text-brown hover:text-forest transition-colors">hello@lamaisoncookies.fr</a>
-          </div>
-          <div>
-            <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-forest/50 mb-1">Localisation</p>
-            <p class="font-sans text-sm text-brown">Paris, France</p>
-          </div>
-          <div>
-            <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-forest/50 mb-1">Commande</p>
-            <p class="font-sans text-sm text-brown">Via Instagram ou email — réponse sous 24h.</p>
-          </div>
+        <div class="breadcrumbs">
+          <a href="/">Maison</a>
+          <span class="ornament" style="font-size:0.9rem">✦</span>
+          <span style="color:#9C8870">Contact</span>
         </div>
+        <h1>Écrivez-nous<br/>la veille au soir.</h1>
       </div>
-
+      <p>
+        Pour commander, poser une question ou proposer un événement.
+        Réponse sous 24h par e-mail ou Instagram.
+      </p>
     </div>
   </section>
 
-  <!-- Section 3 — Instagram CTA -->
-  <section class="bg-forest text-center py-12 px-8">
-    <p class="font-display italic text-cream text-2xl">Suivez nos créations sur Instagram</p>
-    <a
-      href="https://instagram.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-block mt-6 border border-cream text-cream font-sans uppercase tracking-[0.15em] text-[11px] px-8 py-3 hover:bg-cream hover:text-forest transition-colors"
-    >
-      @lamaisoncookies →
-    </a>
+  <!-- Contenu principal -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Formulaire -->
+        <div class="reveal">
+          <span class="eyebrow" style="color:#9C8870;display:block;margin-bottom:24px">N° 01 &nbsp;·&nbsp; Formulaire</span>
+          <ContactForm client:load />
+        </div>
+
+        <!-- Infos -->
+        <div class="contact-info reveal reveal-delay-1">
+          <span class="eyebrow" style="color:#9C8870;display:block;margin-bottom:24px">N° 02 &nbsp;·&nbsp; Retrouvez-nous</span>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <span class="contact-info-label">Instagram</span>
+              <a href="https://instagram.com/lamaisoncookies" target="_blank" rel="noopener noreferrer" class="contact-info-value link-ul">@lamaisoncookies</a>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-label">E-mail</span>
+              <a href="mailto:hello@lamaisoncookies.fr" class="contact-info-value link-ul">hello@lamaisoncookies.fr</a>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-label">Localisation</span>
+              <span class="contact-info-value">Paris, 4ᵉ arrondissement</span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-label">Commandes</span>
+              <span class="contact-info-value">Via Instagram ou e-mail — 72h à l'avance, retrait à l'atelier.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
 </Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  .contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(28,58,42,0.1);
+  }
+  .contact-info-item:first-child { padding-top: 0; }
+  .contact-info-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(44,24,16,0.45);
+  }
+  .contact-info-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #2C1810;
+    text-decoration: none;
+  }
+  a.contact-info-value:hover { color: #1C3A2A; }
+</style>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+      }),
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    els.forEach(el => obs.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('is-in'));
+  }
+</script>

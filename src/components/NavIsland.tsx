@@ -6,8 +6,6 @@ interface Props {
 
 const links = [
   { id: "home", label: "Maison", href: "/" },
-  { id: "traiteur", label: "Traiteur", href: "/traiteur" },
-  { id: "bar-mobile", label: "Bar Mobile", href: "/bar-mobile" },
   { id: "creations", label: "Nos Créations", href: "/creations" },
   { id: "histoire", label: "Notre Histoire", href: "/histoire" },
   { id: "contact", label: "Contact", href: "/contact" },
@@ -47,11 +45,6 @@ export default function NavIsland({ current = "home" }: Props) {
           ))}
         </ul>
 
-        <a href="/contact" className="nav-cta">
-          <span>Commander</span>
-          <span className="arrow">→</span>
-        </a>
-
         <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
           <span></span>
           <span></span>
@@ -65,9 +58,6 @@ export default function NavIsland({ current = "home" }: Props) {
               {l.label}
             </a>
           ))}
-          <a href="/contact" className="btn btn-primary" onClick={() => setOpen(false)}>
-            Commander <span className="arrow">→</span>
-          </a>
         </div>
       )}
     </nav>
