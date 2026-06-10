@@ -1233,6 +1233,56 @@ body::after {
   top: 1px;
 }
 
+/* ── 3b. PULL QUOTE interlude ────────────────────────────── */
+.bk-pull {
+  background: #004734;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.bk-pull::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(212,175,55,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.bk-pull-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.bk-pull-mark {
+  display: block;
+  font-family: 'Alex Brush', cursive;
+  font-size: clamp(4rem, 8vw, 7rem);
+  color: #D4AF37;
+  line-height: 0.6;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+.bk-pull-quote {
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  color: #F7F5EF;
+  line-height: 1.25;
+  margin: 0 0 28px;
+  letter-spacing: 0.01em;
+}
+.bk-pull-cite {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(212,175,55,0.65);
+  font-style: normal;
+}
+
 /* ── 4. BRAND STORY 50/50 ────────────────────────────────── */
 .bk-story {
   display: grid;
