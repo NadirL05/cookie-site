@@ -8,25 +8,25 @@
   /* Palette Gourmet Heritage */
   --color-forest:     #004734;
   --color-forest-deep:#002f21;
-  --color-cream:      #fcf9f8;
+  --color-cream:      #F7F5EF;
   --color-gold:       #D4AF37;
   --color-gold-muted: #6e5d04;
   --color-text:       #1b1c1c;
   --color-text-muted: #404944;
 
   /* Typographie */
-  --font-sans:    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Noto Serif", Georgia, serif;
+  --font-sans:    "Playfair Display", Georgia, serif;
+  --font-display: "Alex Brush", cursive;
 
   /* shadcn vars */
-  --color-background:        #fcf9f8;
+  --color-background:        #F7F5EF;
   --color-foreground:        #1b1c1c;
   --color-card:              #ffffff;
   --color-card-foreground:   #1b1c1c;
   --color-popover:           #ffffff;
   --color-popover-foreground: #1b1c1c;
   --color-primary:           #004734;
-  --color-primary-foreground: #fcf9f8;
+  --color-primary-foreground: #F7F5EF;
   --color-secondary:         #f0eded;
   --color-secondary-foreground: #1b1c1c;
   --color-muted:             #eae7e7;
@@ -47,14 +47,14 @@
 }
 
 :root {
-  --background:    #fcf9f8;
+  --background:    #F7F5EF;
   --foreground:    #1b1c1c;
   --card:          #ffffff;
   --card-foreground: #1b1c1c;
   --popover:       #ffffff;
   --popover-foreground: #1b1c1c;
   --primary:       #004734;
-  --primary-foreground: #fcf9f8;
+  --primary-foreground: #F7F5EF;
   --secondary:     #f0eded;
   --secondary-foreground: #1b1c1c;
   --muted:         #eae7e7;
@@ -71,11 +71,11 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #fcf9f8;
+  background: #F7F5EF;
   color: #1b1c1c;
   margin: 0;
   padding: 0;
-  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Playfair Display", Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -92,7 +92,7 @@ body::after {
   background-size: 200px 200px;
 }
 
-::selection { background: #004734; color: #fcf9f8; }
+::selection { background: #004734; color: #F7F5EF; }
 :focus-visible { outline: 2px solid #D4AF37; outline-offset: 3px; }
 
 @layer base {
@@ -110,7 +110,7 @@ body::after {
   --gold: #D4AF37;
   --forest: #004734;
   --forest-deep: #002f21;
-  --cream: #fcf9f8;
+  --cream: #F7F5EF;
   --border-forest: rgba(0, 71, 52, 0.12);
   --border-gold: rgba(212, 175, 55, 0.3);
   --border-cream: rgba(252, 249, 248, 0.18);
@@ -136,8 +136,8 @@ body::after {
 .reveal-delay-3 { transition-delay: 0.24s; }
 
 /* Background helpers */
-.bg-cream  { background: #fcf9f8; }
-.bg-forest { background: #004734; color: #fcf9f8; }
+.bg-cream  { background: #F7F5EF; }
+.bg-forest { background: #004734; color: #F7F5EF; }
 .bg-forest-low { background: #f6f3f2; }
 .bg-surface { background: #f0eded; }
 
@@ -146,7 +146,7 @@ body::after {
    ============================================ */
 .nav-gh {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  background: #fcf9f8;
+  background: #F7F5EF;
   border-bottom: 1px solid rgba(0, 71, 52, 0.10);
   transition: box-shadow 0.4s var(--ease);
 }
@@ -168,18 +168,18 @@ body::after {
   width: 44px; height: 44px; border-radius: 50%;
   border: 1px solid rgba(0, 47, 33, 0.22);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Noto Serif', serif; font-style: italic; font-size: 0.95rem;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-size: 1.4rem;
   color: #002f21; flex-shrink: 0;
   transition: border-color 0.25s var(--ease);
 }
 .nav-logo:hover .nav-logo-mono { border-color: #D4AF37; }
 .nav-logo-text { display: flex; flex-direction: column; gap: 1px; }
 .nav-logo-brand {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
-  font-size: 1.15rem; color: #002f21; line-height: 1; letter-spacing: -0.01em;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400;
+  font-size: 1.7rem; color: #002f21; line-height: 1; letter-spacing: 0.01em;
 }
 .nav-logo-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.55rem;
+  font-family: 'Playfair Display', serif; font-size: 0.55rem;
   letter-spacing: 0.22em; text-transform: uppercase; color: rgba(0, 47, 33, 0.42);
 }
 
@@ -188,7 +188,7 @@ body::after {
   display: flex; gap: 36px; list-style: none; margin: 0; padding: 0;
 }
 .nav-gh-link {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 600;
+  font-family: 'Playfair Display', serif; font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: rgba(0, 47, 33, 0.65); text-decoration: none;
   padding: 6px 0; position: relative;
@@ -204,9 +204,9 @@ body::after {
 /* CTA button */
 .nav-gh-cta {
   display: inline-flex; align-items: center;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.65rem; font-weight: 700;
+  font-family: 'Playfair Display', serif; font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  background: #004734; color: #fcf9f8; text-decoration: none;
+  background: #004734; color: #F7F5EF; text-decoration: none;
   padding: 10px 28px; border: none; cursor: pointer;
   border-radius: 0.125rem;
   transition: opacity 0.2s, transform 0.15s;
@@ -234,7 +234,7 @@ body::after {
 /* Mobile dropdown */
 .nav-gh-mobile {
   position: fixed; top: 76px; left: 0; right: 0;
-  background: #fcf9f8; border-top: 1px solid rgba(0,71,52,0.08);
+  background: #F7F5EF; border-top: 1px solid rgba(0,71,52,0.08);
   border-bottom: 1px solid rgba(0,71,52,0.08);
   padding: 32px 24px 40px;
   display: flex; flex-direction: column; gap: 8px;
@@ -242,7 +242,7 @@ body::after {
   box-shadow: 0 8px 32px rgba(0,47,33,0.10);
 }
 .nav-gh-mobile-link {
-  font-family: 'Noto Serif', serif; font-style: italic; font-size: 2rem;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 2rem;
   color: rgba(0, 47, 33, 0.80); text-decoration: none;
   padding: 8px 0; border-bottom: 1px solid rgba(0,71,52,0.08);
   transition: color 0.2s;
@@ -251,8 +251,8 @@ body::after {
 .nav-gh-mobile-link.active { color: #002f21; }
 .nav-gh-mobile-cta {
   display: inline-block; margin-top: 20px; align-self: flex-start;
-  background: #004734; color: #fcf9f8;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
+  background: #004734; color: #F7F5EF;
+  font-family: 'Playfair Display', serif; font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
   padding: 14px 32px; border-radius: 0.125rem;
 }
@@ -262,7 +262,7 @@ body::after {
    ============================================ */
 .btn {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem;
+  font-family: 'Playfair Display', serif; font-size: 0.7rem;
   font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
   padding: 16px 36px; border-radius: 0.125rem;
   text-decoration: none; cursor: pointer; border: 1px solid transparent;
@@ -272,7 +272,7 @@ body::after {
 .btn-primary:hover { opacity: 0.88; }
 .btn-ghost { color: inherit; border-color: currentColor; opacity: 0.9; }
 .btn-ghost:hover { opacity: 1; background: rgba(0,0,0,0.04); }
-.bg-forest .btn-ghost { color: #fcf9f8; border-color: rgba(212,175,55,0.5); }
+.bg-forest .btn-ghost { color: #F7F5EF; border-color: rgba(212,175,55,0.5); }
 .bg-forest .btn-ghost:hover { background: rgba(212,175,55,0.08); border-color: #D4AF37; }
 .btn .arrow { display: inline-block; transition: transform 0.3s var(--ease); }
 .btn:hover .arrow { transform: translateX(4px); }
@@ -280,11 +280,11 @@ body::after {
 /* ============================================
    Typography helpers
    ============================================ */
-.serif { font-family: 'Noto Serif', serif; }
-.serif-italic { font-family: 'Noto Serif', serif; font-style: italic; }
+.serif { font-family: 'Playfair Display', Georgia, serif; }
+.serif-italic { font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
 
 .eyebrow {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 0.68rem; font-weight: 600;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: #6e5d04;
@@ -292,7 +292,7 @@ body::after {
 .bg-forest .eyebrow { color: rgba(252, 249, 248, 0.55); }
 
 .body-text {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 400; font-size: 1rem; line-height: 1.75;
   color: #404944;
 }
@@ -323,7 +323,7 @@ body::after {
    ============================================ */
 .page-banner {
   padding: 140px 0 72px; background: #004734;
-  color: #fcf9f8; position: relative; overflow: hidden;
+  color: #F7F5EF; position: relative; overflow: hidden;
   margin-top: 76px;
 }
 .page-banner::after {
@@ -337,20 +337,20 @@ body::after {
 }
 @media (max-width: 800px) { .page-banner-inner { grid-template-columns: 1fr; gap: 24px; } }
 .page-banner h1 {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
-  font-size: clamp(2.4rem, 4.8vw, 4.4rem); letter-spacing: -0.02em;
-  margin: 14px 0 0; color: #fcf9f8; line-height: 1.1;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400;
+  font-size: clamp(3.5rem, 6.5vw, 6rem); letter-spacing: 0.01em;
+  margin: 14px 0 0; color: #F7F5EF; line-height: 1.1;
 }
 .page-banner .breadcrumbs {
   font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: rgba(252,249,248,0.5); display: flex; gap: 12px; align-items: center;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 .page-banner .breadcrumbs a { color: inherit; text-decoration: none; }
 .page-banner .breadcrumbs a:hover { color: #D4AF37; }
 .page-banner p {
   color: rgba(252,249,248,0.78);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem; line-height: 1.7; max-width: 380px;
 }
 
@@ -367,11 +367,11 @@ body::after {
 @media (max-width: 900px) { .section-head { grid-template-columns: 1fr; gap: 20px; } }
 .section-head-left { display: flex; flex-direction: column; gap: 8px; }
 .section-head h2 {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
-  font-size: clamp(1.9rem, 3.4vw, 3rem); letter-spacing: -0.02em; line-height: 1.1;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400;
+  font-size: clamp(2.8rem, 5vw, 4.2rem); letter-spacing: 0.01em; line-height: 1.1;
   color: #002f21;
 }
-.bg-forest .section-head h2 { color: #fcf9f8; }
+.bg-forest .section-head h2 { color: #F7F5EF; }
 .section-head p { max-width: 500px; margin-left: auto; }
 
 /* ============================================
@@ -390,7 +390,7 @@ body::after {
   position: absolute; top: 14px; right: 14px; z-index: 4;
   padding: 4px 12px; border-radius: 999px;
   background: #D4AF37; color: #004734;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem;
+  font-family: 'Playfair Display', serif; font-size: 0.6rem;
   font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
   box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
@@ -408,15 +408,15 @@ body::after {
   gap: 12px; margin-bottom: 6px;
 }
 .cookie-name {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 600;
   font-size: 1.4rem; letter-spacing: -0.01em; color: #002f21;
 }
 .cookie-price {
-  font-family: 'Noto Serif', serif; font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic;
   color: #6e5d04; font-size: 1rem;
 }
 .cookie-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400;
+  font-family: 'Playfair Display', serif; font-weight: 400;
   font-size: 0.85rem; color: #404944; line-height: 1.6;
 }
 
@@ -425,12 +425,12 @@ body::after {
    ============================================ */
 .pull-quote { text-align: center; padding: 72px 0; }
 .pull-quote blockquote {
-  font-family: 'Noto Serif', serif; font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic;
   font-size: clamp(1.4rem, 2.2vw, 2rem); max-width: 720px;
   margin: 0 auto; line-height: 1.45; color: #002f21;
 }
 .pull-quote cite {
-  display: block; margin-top: 28px; font-family: 'Plus Jakarta Sans', sans-serif;
+  display: block; margin-top: 28px; font-family: 'Playfair Display', serif;
   font-style: normal; font-size: 0.65rem; letter-spacing: 0.22em;
   text-transform: uppercase; color: #6e5d04;
 }
@@ -440,12 +440,12 @@ body::after {
    ============================================ */
 .cta-band { padding: 80px 0; text-align: center; }
 .cta-band h2 {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
-  font-size: clamp(1.8rem, 3.6vw, 3.2rem); max-width: 720px;
-  margin: 16px auto 12px; letter-spacing: -0.02em; line-height: 1.15;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400;
+  font-size: clamp(2.8rem, 5vw, 4.8rem); max-width: 720px;
+  margin: 16px auto 12px; letter-spacing: 0.01em; line-height: 1.15;
   color: #002f21;
 }
-.bg-forest .cta-band h2 { color: #fcf9f8; }
+.bg-forest .cta-band h2 { color: #F7F5EF; }
 .cta-band p { max-width: 480px; margin: 0 auto 36px; }
 
 /* ============================================
@@ -458,25 +458,25 @@ body::after {
 }
 @media (max-width: 800px) { .values { grid-template-columns: 1fr; } }
 .value-cell {
-  background: #fcf9f8; padding: 40px 32px;
+  background: #F7F5EF; padding: 40px 32px;
   display: flex; flex-direction: column; gap: 14px;
 }
 .bg-forest .value-cell { background: rgba(255,255,255,0.04); }
 .value-num {
-  font-family: 'Noto Serif', serif; font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic;
   color: #D4AF37; font-size: 1.8rem; line-height: 1;
 }
 .value-cell h3 {
-  font-family: 'Noto Serif', serif; font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic;
   font-weight: 500; font-size: 1.5rem; color: #002f21;
 }
-.bg-forest .value-cell h3 { color: #fcf9f8; }
+.bg-forest .value-cell h3 { color: #F7F5EF; }
 
 /* ============================================
    Histoire layout
    ============================================ */
 .histoire-band {
-  padding: 92px 0; background: #004734; color: #fcf9f8; position: relative; overflow: hidden;
+  padding: 92px 0; background: #004734; color: #F7F5EF; position: relative; overflow: hidden;
 }
 .histoire-band .container { position: relative; z-index: 2; }
 .histoire-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; }
@@ -488,12 +488,12 @@ body::after {
   position: absolute; left: 20px; bottom: 20px;
   font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: rgba(252,249,248,0.5); z-index: 2;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 .histoire-text h2 {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
-  font-size: clamp(2rem, 4vw, 3.6rem); margin: 18px 0 24px;
-  letter-spacing: -0.02em; color: #fcf9f8;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400;
+  font-size: clamp(3rem, 5.5vw, 5.2rem); margin: 18px 0 24px;
+  letter-spacing: 0.01em; color: #F7F5EF;
 }
 .real-photo {
   position: absolute; inset: 0;
@@ -513,7 +513,7 @@ body::after {
 .hero {
   position: relative; min-height: calc(100vh - 76px);
   display: flex; align-items: flex-start; justify-content: center;
-  overflow: hidden; color: #fcf9f8; margin-top: 76px;
+  overflow: hidden; color: #F7F5EF; margin-top: 76px;
 }
 .hero-photo-stack { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
 .hero-photo-bg {
@@ -539,7 +539,7 @@ body::after {
 .hero-eyebrow {
   color: #D4AF37; margin-bottom: 32px;
   display: inline-flex; align-items: center; gap: 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem;
+  font-family: 'Playfair Display', serif; font-size: 0.68rem;
   letter-spacing: 0.3em; text-transform: uppercase;
 }
 .hero-eyebrow::before, .hero-eyebrow::after {
@@ -547,12 +547,12 @@ body::after {
   width: 28px; height: 1px; background: #D4AF37;
 }
 .hero-title {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 700;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 700;
   font-size: clamp(3rem, 8vw, 7rem); letter-spacing: -0.03em;
-  color: #fcf9f8; line-height: 1.05;
+  color: #F7F5EF; line-height: 1.05;
 }
 .hero-tagline {
-  font-family: 'Noto Serif', serif; font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic;
   font-size: clamp(1.1rem, 1.5vw, 1.35rem); color: rgba(252,249,248,0.85);
   margin-top: 28px; letter-spacing: 0.01em; line-height: 1.5;
 }
@@ -561,18 +561,18 @@ body::after {
   position: absolute; left: 48px; bottom: 48px; z-index: 3;
   color: rgba(252,249,248,0.6); font-size: 0.65rem;
   letter-spacing: 0.22em; text-transform: uppercase;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 @media (max-width: 768px) { .hero-meta { display: none; } }
 
 /* ============================================
    Footer
    ============================================ */
-.footer-rich { padding: 80px 0 40px; background: #004734; color: #fcf9f8; }
+.footer-rich { padding: 80px 0 40px; background: #004734; color: #F7F5EF; }
 .footer-top { display: grid; grid-template-columns: 1.2fr 2fr; gap: 80px; }
 @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 48px; } }
 .footer-wordmark {
-  font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600; font-size: 2.6rem;
+  font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400; font-size: 3.8rem;
   color: #D4AF37;
 }
 .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
@@ -580,7 +580,7 @@ body::after {
 .footer-col .eyebrow { margin-bottom: 16px; display: block; color: #D4AF37; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col a, .footer-col li {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem;
+  font-family: 'Playfair Display', serif; font-size: 0.9rem;
   color: rgba(252,249,248,0.75); text-decoration: none;
 }
 .footer-col a:hover { color: #D4AF37; }
@@ -588,7 +588,7 @@ body::after {
   display: flex; justify-content: space-between; align-items: center;
   gap: 24px; font-size: 0.65rem; letter-spacing: 0.2em;
   text-transform: uppercase; color: rgba(252,249,248,0.5);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   border-top: 1px solid rgba(212,175,55,0.15); margin-top: 56px; padding-top: 28px;
 }
 @media (max-width: 700px) { .footer-bottom { flex-direction: column; text-align: center; } }
@@ -603,7 +603,7 @@ body::after {
 }
 .placeholder-label {
   position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 2;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em;
+  font-family: 'Playfair Display', serif; font-size: 0.6rem; letter-spacing: 0.2em;
   text-transform: uppercase; color: rgba(44,24,16,0.55); font-weight: 500;
 }
 .p-chocolate { background: linear-gradient(135deg, #6B4423 0%, #3E2613 100%); }
@@ -621,14 +621,14 @@ body::after {
    ============================================ */
 .contact-form-input {
   width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(0,71,52,0.18);
-  padding: 12px 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem;
+  padding: 12px 0; font-family: 'Playfair Display', serif; font-size: 1rem;
   color: #1b1c1c; outline: none;
   transition: border-color 0.25s var(--ease);
 }
 .contact-form-input:focus { border-bottom-color: #D4AF37; }
 .contact-form-input::placeholder { color: rgba(0,71,52,0.35); }
 .contact-form-label {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem;
+  font-family: 'Playfair Display', serif; font-size: 0.62rem;
   font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
   color: #6e5d04;
 }
@@ -648,7 +648,7 @@ body::after {
 .gh-tag {
   display: inline-flex; align-items: center;
   padding: 4px 12px; border: 1px solid #D4AF37;
-  border-radius: 999px; font-family: 'Plus Jakarta Sans', sans-serif;
+  border-radius: 999px; font-family: 'Playfair Display', serif;
   font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase; color: #6e5d04;
 }
@@ -658,7 +658,7 @@ body::after {
    ============================================ */
 .ornament {
   display: inline-block;
-  font-family: 'Noto Serif', serif; font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic;
   color: #D4AF37; font-size: 1.2rem; line-height: 1;
 }
 
@@ -690,7 +690,7 @@ body::after {
 .ornament3d { position: absolute; width: var(--size); height: var(--size); perspective: 800px; transform-style: preserve-3d; }
 .ornament3d-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
 .ornaments3d { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
-.ornament3d-coin .coin-face { position: absolute; inset: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 30%, #f4d79e 0%, #c8a97e 55%, #8c6a3d 100%); color: #004734; font-family: 'Noto Serif', serif; font-style: italic; }
+.ornament3d-coin .coin-face { position: absolute; inset: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 35% 30%, #f4d79e 0%, #c8a97e 55%, #8c6a3d 100%); color: #004734; font-family: 'Playfair Display', Georgia, serif; font-style: italic; }
 .ornament3d-coin .coin-edge { position: absolute; inset: 0; border-radius: 50%; background: #a07e4d; transform: translateZ(-2px); }
 .ornament3d-bean .bean-body { position: absolute; inset: 0; border-radius: 50% / 10%; background: linear-gradient(90deg, #3a2416 0%, #1c0f08 50%, #3a2416 100%); }
 .band-3d-deco, .cta-3d-deco { position: absolute; opacity: 0.4; pointer-events: none; z-index: 0; }
@@ -713,11 +713,11 @@ body::after {
 .bg-forest .unit-row { border-bottom-color: rgba(212,175,55,0.12); }
 .bg-forest .unit-row:first-child { border-top-color: rgba(212,175,55,0.12); }
 .unit-name {
-  font-family: 'Noto Serif', serif; font-style: italic; font-size: 1.05rem; color: #002f21;
+  font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #002f21;
 }
-.bg-forest .unit-name { color: #fcf9f8; }
+.bg-forest .unit-name { color: #F7F5EF; }
 .unit-price {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 600;
+  font-family: 'Playfair Display', serif; font-size: 0.7rem; font-weight: 600;
   letter-spacing: 0.1em; color: #6e5d04; white-space: nowrap;
 }
 .bg-forest .unit-price { color: #D4AF37; }
@@ -777,7 +777,7 @@ body::after {
 }
 .hero-orn {
   position: absolute;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   color: #D4AF37;
   user-select: none;
   animation: ornFloat var(--dur, 7s) ease-in-out infinite;
@@ -862,7 +862,7 @@ body::after {
 
 /* ═══════════════════════════════════════════════════════════
    BROOKI-STRUCTURE SECTIONS (index.astro)
-   Colors: cream #fcf9f8, forest #004734, deep #002f21, gold #b8963e
+   Colors: cream #F7F5EF, forest #004734, deep #002f21, gold #b8963e
    ═══════════════════════════════════════════════════════════ */
 
 /* ── 1. HERO ──────────────────────────────────────────────── */
@@ -895,7 +895,7 @@ body::after {
     transparent 100%);
 }
 .bk-hero-eyebrow {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -903,24 +903,24 @@ body::after {
   margin: 0 0 20px;
 }
 .bk-hero-title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(3.8rem, 9.5vw, 10rem);
-  color: #fcf9f8;
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(5rem, 12vw, 13rem);
+  color: #F7F5EF;
   line-height: 0.9;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.01em;
   margin: 0 0 44px;
   max-width: 750px;
 }
 .bk-hero-btn {
   display: inline-block;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fcf9f8;
+  color: #F7F5EF;
   border: 1.5px solid rgba(252,249,248,0.55);
   padding: 14px 30px;
   text-decoration: none;
@@ -928,15 +928,15 @@ body::after {
   width: fit-content;
 }
 .bk-hero-btn:hover {
-  background: #fcf9f8;
+  background: #F7F5EF;
   color: #004734;
-  border-color: #fcf9f8;
+  border-color: #F7F5EF;
 }
 
 /* ── 2. REVIEWS ───────────────────────────────────────────── */
 .bk-reviews {
   padding: clamp(4rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
-  background: #fcf9f8;
+  background: #F7F5EF;
   overflow: hidden;
 }
 .bk-reviews-head {
@@ -944,10 +944,10 @@ body::after {
   margin-bottom: 48px;
 }
 .bk-reviews-title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
   color: #002f21;
   line-height: 1.08;
   letter-spacing: -0.025em;
@@ -993,7 +993,7 @@ body::after {
   gap: 24px;
 }
 .bk-review-quote {
-  font-family: 'Noto Serif', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-size: 0.98rem;
   color: #002f21;
@@ -1009,7 +1009,7 @@ body::after {
   padding-top: 20px;
 }
 .bk-review-name {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 0.88rem;
   color: #002f21;
@@ -1030,7 +1030,7 @@ body::after {
 /* ── 3. ATELIERS TABS ────────────────────────────────────── */
 .bk-ateliers {
   padding: clamp(4rem,8vw,7rem) 0;
-  background: #fcf9f8;
+  background: #F7F5EF;
   border-top: 1px solid rgba(0,71,52,0.07);
 }
 .bk-ateliers-wrap { position: relative; }
@@ -1046,7 +1046,7 @@ body::after {
 }
 .bk-tab-nav::-webkit-scrollbar { display: none; }
 .bk-tab-lbl {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
   font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   color: rgba(0,47,33,0.38);
@@ -1094,9 +1094,9 @@ body::after {
 }
 .bk-panel-fig:hover .bk-panel-img { transform: scale(1.04); }
 .bk-panel-title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 600;
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   color: #002f21;
   letter-spacing: -0.02em;
@@ -1152,10 +1152,10 @@ body::after {
   display: block;
 }
 .bk-story-title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(4rem, 7vw, 6.5rem);
   color: #002f21;
   letter-spacing: -0.03em;
   margin: 0 0 24px;
@@ -1172,7 +1172,7 @@ body::after {
 .bk-events {
   display: grid;
   grid-template-columns: 1fr 1.2fr 1fr;
-  background: #fcf9f8;
+  background: #F7F5EF;
   border-top: 1px solid rgba(0,71,52,0.07);
   min-height: clamp(380px, 50vw, 640px);
 }
@@ -1189,10 +1189,10 @@ body::after {
   justify-content: center;
 }
 .bk-events-title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
   color: #002f21;
   letter-spacing: -0.025em;
   line-height: 1.05;
@@ -1230,7 +1230,7 @@ body::after {
   align-items: center;
   padding: 20px 0;
   cursor: pointer;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
   font-size: 1rem;
   color: #002f21;
@@ -1259,7 +1259,7 @@ body::after {
 .bk-accord-icon::after  { width: 1.5px; height: 10px; transition: opacity 200ms; }
 details[open] .bk-accord-icon { background: #004734; border-color: #004734; }
 details[open] .bk-accord-icon::before,
-details[open] .bk-accord-icon::after { background: #fcf9f8; }
+details[open] .bk-accord-icon::after { background: #F7F5EF; }
 details[open] .bk-accord-icon::after { opacity: 0; }
 
 .bk-accord-body {
@@ -1275,11 +1275,11 @@ details[open] .bk-accord-icon::after { opacity: 0; }
   padding: clamp(5rem,10vw,9rem) 0;
 }
 .bk-cta-title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(2rem, 4.5vw, 3.8rem);
-  color: #fcf9f8;
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: #F7F5EF;
   letter-spacing: -0.02em;
   margin: 0 0 16px;
   line-height: 1.1;
