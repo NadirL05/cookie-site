@@ -41,7 +41,7 @@ const services = [
     tag: "L'Italie à l'honneur",
     badge: null,
     href: "/bar-mobile",
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=900&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&auto=format&fit=crop",
   },
   {
     name: "Le Bar Cart",
@@ -55,7 +55,7 @@ const services = [
     tag: "Sur mesure · Excellence",
     badge: null,
     href: "/traiteur",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -87,7 +87,7 @@ const events = [
   <section class="bk-hero">
     <div class="bk-hero-media">
       <img
-        src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=1800&q=80&auto=format&fit=crop"
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format&fit=crop"
         alt="CooksBrad bar mobile événementiel Paris"
         class="bk-hero-img"
         fetchpriority="high"
@@ -154,8 +154,7 @@ const events = [
       <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Animation en direct</span>
       <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Produits artisanaux</span>
       <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Île-de-France</span>
-      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> 100 % sur mesure</span>
-      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Depuis 2015</span>
+      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Sur mesure</span>
     </div>
   </div>
 
@@ -220,6 +219,7 @@ const events = [
           <a href={s.href} class="bk-prod-card">
             <figure class="bk-prod-photo">
               {s.badge && <span class="bk-prod-badge">{s.badge}</span>}
+              <span class="bk-prod-arrow" aria-hidden="true">→</span>
               <img src={s.image} alt={s.name} loading="lazy" />
             </figure>
             <div class="bk-prod-info">
@@ -270,7 +270,7 @@ const events = [
     </div>
     <div class="bk-story-right">
       <img
-        src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80&auto=format&fit=crop"
+        src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=900&q=80&auto=format&fit=crop"
         alt="CooksBrad en action"
         class="bk-story-img"
         loading="lazy"

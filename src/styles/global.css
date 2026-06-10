@@ -943,23 +943,23 @@ body::after {
 
 /* ── 2. REVIEWS ───────────────────────────────────────────── */
 .bk-reviews {
-  padding: clamp(4rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
+  padding: clamp(3rem,6vw,5rem) 0 clamp(2.5rem,5vw,4rem);
   background: #F7F5EF;
   overflow: hidden;
 }
 .bk-reviews-head {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 .bk-reviews-title {
   font-family: 'Alex Brush', cursive;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   color: #002f21;
   line-height: 1.08;
   letter-spacing: -0.025em;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
 }
 .bk-reviews-meta {
   font-size: 1rem;
@@ -977,29 +977,41 @@ body::after {
 }
 .bk-stars-gold { color: #b8963e; letter-spacing: 1px; }
 
-.bk-carousel-outer { width: 100%; overflow: hidden; }
+.bk-carousel-outer { width: 100%; }
 .bk-carousel {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 0 max(24px, calc(50vw - 580px)) 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  cursor: grab;
+  padding: 0 max(24px, calc(50vw - 640px));
 }
-.bk-carousel::-webkit-scrollbar { display: none; }
 .bk-review-card {
-  flex: 0 0 min(340px, 80vw);
-  background: transparent;
+  background: #fff;
   border: none;
-  border-left: 2px solid rgba(0,71,52,0.12);
-  padding: 8px 28px;
-  scroll-snap-align: start;
+  border-radius: 2px;
+  box-shadow: 0 2px 18px rgba(0,47,33,0.07), 0 0 0 1px rgba(0,47,33,0.04);
+  padding: 28px 26px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 18px;
+}
+@media (max-width: 860px) {
+  .bk-carousel-outer { overflow: hidden; }
+  .bk-carousel {
+    display: flex;
+    grid-template-columns: unset;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    padding: 0 24px 16px;
+  }
+  .bk-carousel::-webkit-scrollbar { display: none; }
+  .bk-review-card {
+    flex: 0 0 min(300px, 80vw);
+    scroll-snap-align: start;
+  }
 }
 .bk-review-quote {
   font-family: 'Playfair Display', Georgia, serif;
@@ -1086,6 +1098,29 @@ body::after {
 }
 .bk-prod-card:hover .bk-prod-photo img {
   transform: scale(1.06);
+}
+.bk-prod-arrow {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #004734;
+  color: #F7F5EF;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.7) translateY(6px);
+  transition: opacity 240ms cubic-bezier(0.16,1,0.3,1), transform 240ms cubic-bezier(0.16,1,0.3,1);
+  pointer-events: none;
+}
+.bk-prod-card:hover .bk-prod-arrow {
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 .bk-prod-badge {
   position: absolute;
@@ -1524,31 +1559,33 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 }
 .bk-usp-inner {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 10px;
-  max-width: 860px;
-  margin: 0 auto;
 }
 .bk-usp-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: 'Playfair Display', serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: #004734;
   background: transparent;
   border: 1px solid rgba(0,71,52,0.18);
   border-radius: 100px;
-  padding: 9px 20px;
+  padding: 9px 18px;
   transition: background 200ms, border-color 200ms;
 }
 .bk-usp-badge:hover {
   background: rgba(0,71,52,0.05);
   border-color: rgba(0,71,52,0.3);
+}
+@media (max-width: 640px) {
+  .bk-usp-inner { flex-wrap: wrap; }
 }
 .bk-usp-dot {
   color: #D4AF37;
@@ -1581,15 +1618,15 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 }
 .bk-press-pub {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: rgba(0,47,33,0.16);
+  color: rgba(0,47,33,0.28);
   padding: 0 clamp(18px, 3vw, 36px);
   text-transform: uppercase;
   transition: color 250ms;
 }
-.bk-press-pub:hover { color: rgba(0,47,33,0.4); }
+.bk-press-pub:hover { color: rgba(0,47,33,0.55); }
 .bk-press-sep {
   color: rgba(0,71,52,0.12);
   font-size: 1.4rem;
