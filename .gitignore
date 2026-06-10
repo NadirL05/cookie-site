@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # brainstorming artifacts
 .superpowers/
+.aider*

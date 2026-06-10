@@ -1,17 +1,10 @@
 import { useState, useEffect } from "react";
 
-interface Props {
-  current?: string;
-}
-
 const links = [
-  { id: "home",      label: "Maison",       href: "/" },
-  { id: "traiteur",  label: "Traiteur",      href: "/traiteur" },
-  { id: "bar-mobile",label: "Bar Mobile",    href: "/bar-mobile" },
-  { id: "contact",   label: "Contact",       href: "/contact" },
+  { id: "bar-mobile", label: "Bar Mobile", href: "/bar-mobile" },
 ];
 
-export default function NavIsland({ current = "home" }: Props) {
+export default function NavIsland({ current = "home" }: { current?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -25,12 +18,14 @@ export default function NavIsland({ current = "home" }: Props) {
   return (
     <nav className={`nav-gh${scrolled ? " nav-gh-scrolled" : ""}`}>
       <div className="nav-gh-inner">
-        {/* Logo */}
-        <a href="/" className="nav-gh-logo">
-          CooksBrad
+        <a href="/" className="nav-logo">
+          <span className="nav-logo-mono">CB</span>
+          <div className="nav-logo-text">
+            <span className="nav-logo-brand">CooksBrad</span>
+            <span className="nav-logo-sub">Paris · Depuis 2015</span>
+          </div>
         </a>
 
-        {/* Desktop links */}
         <ul className="nav-gh-links">
           {links.map((l) => (
             <li key={l.id}>
@@ -44,12 +39,8 @@ export default function NavIsland({ current = "home" }: Props) {
           ))}
         </ul>
 
-        {/* Réserver button */}
-        <a href="/contact" className="nav-gh-cta">
-          Réserver
-        </a>
+        <a href="/contact" className="nav-gh-cta">Réserver</a>
 
-        {/* Hamburger */}
         <button
           className="nav-gh-burger"
           onClick={() => setOpen(!open)}
@@ -60,7 +51,6 @@ export default function NavIsland({ current = "home" }: Props) {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="nav-gh-mobile">
           {links.map((l) => (

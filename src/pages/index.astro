@@ -1,369 +1,255 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const reviews = [
+  {
+    quote: "Un bar à crêpes absolument magique pour notre mariage. Les invités en parlent encore ! Le service était impeccable.",
+    name: "Sophie M.",
+    event: "Mariage · Région Parisienne",
+    product: "Bar à Crêpes",
+  },
+  {
+    quote: "Le bar à tiramisu a été un vrai succès — originalité, goût et élégance au rendez-vous. Nos collaborateurs ont adoré.",
+    name: "Thomas & Julie",
+    event: "Soirée corporate · Paris 8e",
+    product: "Bar à Tiramisu",
+  },
+  {
+    quote: "CooksBrad a su créer une ambiance unique, à la fois conviviale et haut de gamme. Je recommande sans hésiter.",
+    name: "Camille R.",
+    event: "Anniversaire privé · Neuilly",
+    product: "Bar à Crêpes",
+  },
+  {
+    quote: "Service irréprochable du début à la fin. Le bar cart a transformé notre séminaire en vrai moment de partage.",
+    name: "Marc D.",
+    event: "Corporate · La Défense",
+    product: "Le Bar Cart",
+  },
+];
+
+const ateliers = [
+  {
+    id: "crepes",
+    label: "Bar à Crêpes",
+    subtitle: "La tradition réinventée",
+    desc: "Farine de blé noir bio, garnitures maison et show-cooking en direct devant vos invités. Une animation conviviale qui sublime le patrimoine avec une touche contemporaine.",
+    features: ["Caramel au beurre salé maison", "Fruits frais de saison", "Chocolat artisanal", "Show-cooking inclus"],
+    image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    id: "tiramisu",
+    label: "Bar à Tiramisu",
+    subtitle: "L'Italie à l'honneur",
+    desc: "Personnalisation en direct : choisissez votre biscuit, votre crème et vos toppings pour un dessert sur-mesure qui marquera les esprits de tous vos invités.",
+    features: ["Mascarpone artisanal", "Biscuits signature", "Toppings au choix", "Version végane disponible"],
+    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    id: "barcart",
+    label: "Le Bar Cart",
+    subtitle: "L'élégance mobile",
+    desc: "Pour vos cocktails et boissons fines. Un bar sur roues habillé avec soin, verrerie cristal incluse. L'option parfaite pour les réceptions les plus sophistiquées.",
+    features: ["Verrerie cristal incluse", "Mise en scène élégante", "Cocktails signature", "Sans alcool disponible"],
+    image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=900&q=80&auto=format&fit=crop",
+  },
+];
+
+const events = [
+  {
+    title: "Mariages",
+    body: "Bar à crêpes ou tiramisu pour votre vin d'honneur ou soirée dansante. Une touche de magie et de gourmandise pour ce jour inoubliable.",
+  },
+  {
+    title: "Corporate",
+    body: "Séminaires, team buildings, lancements produit — une animation culinaire prestige pour fédérer vos équipes autour d'une expérience mémorable.",
+  },
+  {
+    title: "Soirées Privées",
+    body: "Anniversaires, garden parties, réceptions intimes — l'excellence CooksBrad directement chez vous, partout en Île-de-France.",
+  },
+  {
+    title: "Sur Mesure",
+    body: "Un projet unique ? Nous créons le bar de vos rêves, adapté à votre lieu, votre univers et votre nombre d'invités.",
+  },
+];
 ---
 
-<Layout
-  title="Cooksbrad — Atelier Culinaire & Bar Mobile · Paris"
-  description="CooksBrad réinvente la gastronomie événementielle. Traiteur artisanal et bar mobile haut de gamme pour vos événements sur mesure."
-  current="home"
->
+<Layout title="CooksBrad — Bar Mobile Événementiel · Paris">
 
-  <!-- Hero — full bleed photo -->
-  <section class="hero">
-    <div class="hero-photo-stack">
-      <div
-        class="hero-photo-bg"
-        style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=2200&q=85&auto=format&fit=crop')"
-      ></div>
-      <div class="hero-photo-overlay"></div>
+  <!-- ══════════════════════════════════════
+       1. HERO — texte bas-gauche (Brooki)
+       ══════════════════════════════════════ -->
+  <section class="bk-hero">
+    <div class="bk-hero-media">
+      <img
+        src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=1800&q=80&auto=format&fit=crop"
+        alt="CooksBrad bar mobile événementiel Paris"
+        class="bk-hero-img"
+        fetchpriority="high"
+        loading="eager"
+      />
     </div>
-
-    <!-- Floating ornaments -->
-    <div class="hero-orns" aria-hidden="true">
-      <span class="hero-orn" style="--fs:1.5rem;--op:0.20;--dur:8s;--delay:0s;--travel:-20px;--rot:14deg;--scale:1.12;top:16%;left:7%">✦</span>
-      <span class="hero-orn" style="--fs:0.85rem;--op:0.16;--dur:6.5s;--delay:1.3s;--travel:-13px;--rot:-9deg;--scale:1.08;top:22%;right:9%">✦</span>
-      <span class="hero-orn" style="--fs:2rem;--op:0.12;--dur:10s;--delay:2.8s;--travel:-24px;--rot:6deg;--scale:1.05;top:62%;right:5%">✦</span>
-      <span class="hero-orn" style="--fs:0.75rem;--op:0.18;--dur:7.5s;--delay:0.6s;--travel:-11px;--rot:-16deg;--scale:1.1;bottom:22%;left:11%">✦</span>
-      <span class="hero-orn" style="--fs:1.1rem;--op:0.10;--dur:12s;--delay:3.5s;--travel:-18px;--rot:8deg;--scale:1.06;top:42%;left:3%">✦</span>
+    <div class="bk-hero-body">
+      <p class="bk-hero-eyebrow">— Paris · Depuis MMXV —</p>
+      <h1 class="bk-hero-title">
+        le bar<br/>
+        qui fait<br/>
+        l'événement.
+      </h1>
+      <a href="/contact" class="bk-hero-btn">Réserver mon atelier →</a>
     </div>
+  </section>
 
-    <span class="hero-meta hero-animate hero-animate-4">Atelier Culinaire · Paris</span>
-
-    <div class="hero-content">
-      <div class="hero-eyebrow hero-animate hero-animate-0">Atelier Culinaire &amp; Bar Mobile</div>
-      <div class="hero-title-wrap">
-        <h1 class="hero-title">
-          CooksBrad
-        </h1>
-      </div>
-      <p class="hero-tagline hero-animate hero-animate-2">
-        De l'intimité d'un atelier privé à l'effervescence d'un grand événement —<br/>
-        une gastronomie événementielle d'exception.
+  <!-- ══════════════════════════════════════
+       2. AVIS — heading centré + carousel
+       ══════════════════════════════════════ -->
+  <section class="bk-reviews">
+    <div class="container bk-reviews-head">
+      <h2 class="bk-reviews-title">Le bar mobile<br/>préféré de Paris</h2>
+      <p class="bk-reviews-meta">
+        <span class="bk-stars-gold">★★★★★</span>
+        <strong>4,9</strong>
+        <span class="bk-reviews-count">(200+ événements)</span>
       </p>
-      <div class="hero-cta hero-animate hero-animate-3">
-        <a href="/traiteur" class="btn btn-primary">
-          Découvrir nos services <span class="arrow">→</span>
-        </a>
-        <a href="/contact" class="btn btn-ghost">
-          Réserver
-        </a>
+    </div>
+    <div class="bk-carousel-outer">
+      <div class="bk-carousel" role="list">
+        {reviews.map(r => (
+          <article class="bk-review-card" role="listitem">
+            <p class="bk-review-quote">« {r.quote} »</p>
+            <footer class="bk-review-footer">
+              <span class="bk-stars-gold" style="font-size:0.85rem">★★★★★</span>
+              <strong class="bk-review-name">{r.name}</strong>
+              <span class="bk-review-event">{r.event}</span>
+              <span class="bk-review-product">{r.product}</span>
+            </footer>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Intro -->
-  <section class="section bg-cream" style="text-align:center">
-    <div class="container">
-      <div style="max-width:680px;margin:0 auto" class="reveal">
-        <span class="eyebrow" style="display:block;margin-bottom:16px">L'Art de Recevoir</span>
-        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3.2vw,2.8rem);color:#002f21;letter-spacing:-0.02em;line-height:1.15;margin-bottom:24px">
-          Une Expérience Gastronomique<br/>sur Mesure
-        </h2>
-        <p class="body-text" style="margin:0 auto 32px">
-          Nous marions la précision culinaire française à l'audace d'un service mobile haut de gamme
-          pour créer des souvenirs impérissables — du cocktail dînatoire au bar de nuit.
-        </p>
-        <div style="width:48px;height:1px;background:#D4AF37;margin:0 auto"></div>
-      </div>
-    </div>
-  </section>
+  <!-- ══════════════════════════════════════
+       3. ATELIERS — tabs CSS (Brooki)
+       ══════════════════════════════════════ -->
+  <section class="bk-ateliers">
+    <div class="container bk-ateliers-wrap">
+      <input type="radio" name="atelier" id="tab-crepes"   class="bk-tab-radio" checked />
+      <input type="radio" name="atelier" id="tab-tiramisu" class="bk-tab-radio" />
+      <input type="radio" name="atelier" id="tab-barcart"  class="bk-tab-radio" />
 
-  <!-- Dual service feature — asymmetric layout -->
-  <section class="section bg-cream" style="padding-top:0">
-    <div class="container">
-      <div class="dual-service-grid">
-        <!-- Image left with float card -->
-        <div class="dual-service-img reveal">
-          <div class="dual-service-photo">
-            <div
-              style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1400&q=85&auto=format&fit=crop');background-size:cover;background-position:center;transition:transform 0.8s cubic-bezier(0.16,1,0.3,1)"
-              class="dual-photo-inner"
-            ></div>
-          </div>
-          <!-- Float card -->
-          <div class="dual-float-card">
-            <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-size:1.35rem;font-weight:500;color:#fcf9f8;margin:0 0 8px">Mixologie Mobile</h3>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:rgba(252,249,248,0.72);line-height:1.6;margin:0;font-style:italic">
-              Cocktails signature élaborés pour vos soirées les plus prestigieuses.
-            </p>
-          </div>
-        </div>
+      <nav class="bk-tab-nav" aria-label="Nos ateliers">
+        <label for="tab-crepes"   class="bk-tab-lbl">Bar à Crêpes</label>
+        <label for="tab-tiramisu" class="bk-tab-lbl">Bar à Tiramisu</label>
+        <label for="tab-barcart"  class="bk-tab-lbl">Le Bar Cart</label>
+      </nav>
 
-        <!-- Content right -->
-        <div class="dual-service-text reveal reveal-delay-1">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
-            <span style="width:28px;height:1px;background:#D4AF37;display:block"></span>
-            <span class="eyebrow">Signature CooksBrad</span>
-          </div>
-          <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.6rem);color:#002f21;letter-spacing:-0.02em;line-height:1.1;margin-bottom:20px">
-            L'Atelier Culinaire
-          </h3>
-          <p class="body-text" style="margin-bottom:24px">
-            Notre chef orchestre une symphonie de saveurs directement sur le lieu de votre événement.
-            Une cuisine vivante, sourcée localement et présentée avec une esthétique digne des plus grands ateliers.
-          </p>
-          <ul class="dual-checklist">
-            <li>Produits frais et saisonniers</li>
-            <li>Dressage artistique minute</li>
-            <li>Service discret et professionnel</li>
-          </ul>
-          <a href="/traiteur" class="dual-link">
-            Consulter nos offres traiteur <span>→</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bento grid — Nos Prestations -->
-  <section class="section bg-forest-low">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:52px" class="reveal">
-        <span class="eyebrow" style="display:block;margin-bottom:12px">Nos Prestations</span>
-        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#002f21;letter-spacing:-0.02em">
-          Ce que nous créons pour vous
-        </h2>
-      </div>
-      <div class="bento-grid reveal reveal-delay-1">
-        <!-- Large card: Traiteur -->
-        <div class="bento-card bento-large gh-card tilt-card">
-          <div class="bento-img">
-            <img
-              src="https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80&auto=format&fit=crop"
-              alt="Traiteur artisanal"
-              loading="lazy"
-              style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);filter:grayscale(0.2)"
-            />
-            <div style="position:absolute;top:16px;left:16px">
-              <span style="background:#002f21;color:#fcf9f8;padding:4px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase">Traiteur</span>
+      <div class="bk-panels">
+        {ateliers.map(a => (
+          <div class={`bk-panel bk-panel-${a.id}`}>
+            <div class="bk-panel-grid">
+              <figure class="bk-panel-fig">
+                <img src={a.image} alt={a.label} class="bk-panel-img" loading="lazy" />
+              </figure>
+              <div class="bk-panel-text">
+                <span class="eyebrow" style="display:block;margin-bottom:14px">{a.label}</span>
+                <h3 class="bk-panel-title">{a.subtitle}</h3>
+                <p class="body-text" style="margin-bottom:20px">{a.desc}</p>
+                <ul class="bk-feat-list">
+                  {a.features.map(f => <li>{f}</li>)}
+                </ul>
+                <a href="/contact" class="btn btn-primary" style="margin-top:36px;display:inline-block">
+                  Réserver cet atelier →
+                </a>
+              </div>
             </div>
           </div>
-          <div style="padding:28px">
-            <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#002f21;margin:0 0 10px">Cocktail Dînatoire</h4>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;color:#404944;line-height:1.65;margin:0">
-              Des bouchées créatives pour favoriser l'échange lors de vos événements corporate ou privés.
-            </p>
-          </div>
-        </div>
-
-        <!-- Dark card: Bar Mobile -->
-        <div class="bento-card bento-dark tilt-card" style="background:#002f21;padding:36px;display:flex;flex-direction:column;justify-content:space-between">
-          <div>
-            <div style="font-size:2rem;margin-bottom:16px">🍸</div>
-            <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.35rem;color:#fcf9f8;margin:0 0 12px">Bar Mobile Premium</h4>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:rgba(252,249,248,0.65);line-height:1.65;margin:0">
-              Un bar itinérant élégant avec barmans professionnels et verrerie en cristal.
-            </p>
-          </div>
-          <a href="/bar-mobile" style="display:block;margin-top:28px;border:1px solid rgba(212,175,55,0.5);color:#D4AF37;text-align:center;padding:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s,color 0.25s">
-            En savoir plus
-          </a>
-        </div>
-
-        <!-- Small card: Dîner privé -->
-        <div class="bento-card gh-card tilt-card" style="padding:28px">
-          <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#002f21;margin:0 0 12px">Dîner Privé</h4>
-          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0 0 20px">
-            L'excellence de la table chez vous. Un menu dégustation en 5 ou 7 temps.
-          </p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <span class="gh-tag">Menu Sur Mesure</span>
-            <span class="gh-tag">Chef à Domicile</span>
-          </div>
-        </div>
-
-        <!-- Wide card: Mariages -->
-        <div class="bento-card bento-gold tilt-card" style="background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);padding:32px;display:flex;align-items:center;gap:32px">
-          <div style="flex:1">
-            <h4 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.3rem;color:#6e5d04;margin:0 0 10px">Mariages &amp; Célébrations</h4>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0">
-              Nous accompagnons le plus beau jour de votre vie avec une offre complète : vin d'honneur, banquet et bar de nuit.
-            </p>
-          </div>
-          <div style="flex-shrink:0;width:72px;height:72px;border-radius:50%;background:rgba(0,71,52,0.06);display:flex;align-items:center;justify-content:center;font-size:2rem">
-            ♡
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Histoire band -->
-  <section class="histoire-band">
-    <div class="container">
-      <div class="histoire-grid">
-        <div class="histoire-image reveal reveal-scale">
-          <div
-            class="real-photo"
-            style="background-image:url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1400&q=85&auto=format&fit=crop')"
-          ></div>
-          <span class="histoire-image-caption">Atelier · Paris · depuis 2015</span>
-        </div>
-        <div class="histoire-text reveal reveal-delay-1">
-          <span class="eyebrow" style="color:rgba(252,249,248,0.5)">Notre Histoire</span>
-          <h2>Dix ans à ne rien<br/>presser.</h2>
-          <p class="body-text" style="margin-bottom:18px">
-            Tout a commencé dans une petite cuisine, avec une envie simple : créer des expériences gourmandes qui racontent quelque chose.
-            Pas une industrie événementielle, mais un vrai savoir-faire artisanal.
-          </p>
-          <p class="body-text" style="margin-bottom:36px">
-            Aujourd'hui, nos ateliers traiteur et nos bars mobiles voyagent dans toute la région pour apporter l'excellence de notre cuisine à vos événements.
-          </p>
-          <a href="/histoire" class="btn btn-ghost">
-            Lire l'histoire <span class="arrow">→</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Valeurs -->
-  <section class="section bg-cream">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; La Maison</span>
-          <hr class="hairline" />
-          <h2>Trois règles,<br/>jamais enfreintes.</h2>
-        </div>
-        <p class="body-text reveal reveal-delay-1">
-          Le luxe, pour nous, c'est le refus. Refus de l'approximation, refus de la quantité, refus du standardisé.
-        </p>
-      </div>
-      <div class="values reveal">
-        <div class="value-cell">
-          <span class="value-num">01</span>
-          <h3>Sourcing Local</h3>
-          <p class="body-text">Produits frais issus de circuits courts et de producteurs passionnés de notre région.</p>
-        </div>
-        <div class="value-cell">
-          <span class="value-num">02</span>
-          <h3>Fait Maison</h3>
-          <p class="body-text">Chaque bouchée est préparée avec soin dans notre atelier. Aucun surgelé, aucun compromis.</p>
-        </div>
-        <div class="value-cell">
-          <span class="value-num">03</span>
-          <h3>Sur Mesure</h3>
-          <p class="body-text">Chaque événement est unique. Nous adaptons chaque détail à vos envies et à votre lieu.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA final -->
-  <section class="cta-band bg-forest">
-    <div class="container reveal">
-      <span class="eyebrow" style="color:#D4AF37;display:block;margin-bottom:8px">Votre Événement</span>
-      <h2>Prêt à sublimer<br/>votre événement ?</h2>
-      <p class="body-text">
-        Notre équipe étudie chaque projet pour vous proposer une expérience gastronomique sur mesure,
-        adaptée à vos envies, à votre lieu et à vos invités.
+  <!-- ══════════════════════════════════════
+       4. BRAND STORY — 50/50 split (Brooki)
+       ══════════════════════════════════════ -->
+  <section class="bk-story">
+    <div class="bk-story-left">
+      <span class="eyebrow" style="display:block;margin-bottom:18px">Notre Histoire</span>
+      <h2 class="bk-story-title">CooksBrad</h2>
+      <p class="bk-story-body">
+        Depuis 2015, Brad sillonne Paris et la région pour apporter une expérience
+        culinaire unique à vos événements. Une passion pour l'artisanat, un œil pour le
+        détail, et l'obsession de créer des moments inoubliables.
       </p>
-      <a href="/contact" class="btn btn-primary">
-        Planifier mon événement <span class="arrow">→</span>
+      <p class="bk-story-body">
+        Chaque atelier est pensé comme une performance — show-cooking en direct,
+        mise en scène élégante, produits sourcés avec soin.
+      </p>
+      <a href="/bar-mobile" class="dual-link" style="margin-top:36px;display:inline-flex;align-items:center;gap:8px">
+        Découvrir nos ateliers →
+      </a>
+    </div>
+    <div class="bk-story-right">
+      <img
+        src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80&auto=format&fit=crop"
+        alt="CooksBrad en action"
+        class="bk-story-img"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       5. ÉVÉNEMENTS — heading + photo + accordion (Brooki "Visit our stores")
+       ══════════════════════════════════════ -->
+  <section class="bk-events">
+    <div class="bk-events-left">
+      <h2 class="bk-events-title">Vos<br/>célébrations</h2>
+      <p class="bk-events-sub">
+        Chaque événement est unique.<br/>Nous nous adaptons à votre univers.
+      </p>
+      <a href="/contact" class="dual-link" style="margin-top:32px;display:inline-flex;align-items:center;gap:8px">
+        Planifier mon événement →
+      </a>
+    </div>
+    <div class="bk-events-center">
+      <img
+        src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop"
+        alt="Mariage CooksBrad"
+        class="bk-events-photo"
+        loading="lazy"
+      />
+    </div>
+    <div class="bk-events-right">
+      {events.map((ev, i) => (
+        <details class="bk-accord" open={i === 0}>
+          <summary class="bk-accord-sum">
+            <span>{ev.title}</span>
+            <span class="bk-accord-icon"></span>
+          </summary>
+          <p class="bk-accord-body">{ev.body}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       6. CTA FINAL
+       ══════════════════════════════════════ -->
+  <section class="bk-cta bg-forest">
+    <div class="container" style="text-align:center">
+      <span class="eyebrow" style="color:rgba(252,249,248,0.45);display:block;margin-bottom:16px">Planifier</span>
+      <h2 class="bk-cta-title">
+        Votre événement mérite<br/>mieux que l'ordinaire.
+      </h2>
+      <p class="bk-cta-sub">
+        Notre équipe étudie chaque projet pour vous proposer une expérience sur mesure.
+      </p>
+      <a href="/contact" class="btn btn-gold">
+        Planifier mon événement →
       </a>
     </div>
   </section>
 
 </Layout>
-
-<style>
-  /* Dual service layout */
-  .dual-service-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  @media (max-width: 900px) {
-    .dual-service-grid { grid-template-columns: 1fr; gap: 48px; }
-  }
-  .dual-service-img {
-    position: relative;
-  }
-  .dual-service-photo {
-    aspect-ratio: 4/5;
-    overflow: hidden;
-    border: 1px solid rgba(212,175,55,0.2);
-    padding: 6px;
-    position: relative;
-  }
-  .dual-service-photo > div {
-    position: absolute; inset: 6px;
-  }
-  .dual-service-img:hover .dual-photo-inner { transform: scale(1.04) !important; }
-  .dual-float-card {
-    position: absolute;
-    bottom: -24px; right: -24px;
-    background: #002f21;
-    padding: 24px 28px;
-    max-width: 240px;
-    box-shadow: 0 16px 40px rgba(0,47,33,0.3);
-  }
-  @media (max-width: 900px) {
-    .dual-float-card { right: 0; bottom: -16px; max-width: 200px; padding: 18px 20px; }
-  }
-  .dual-service-text { padding-left: 12px; }
-  @media (max-width: 900px) { .dual-service-text { padding-left: 0; padding-top: 40px; } }
-  .dual-checklist {
-    list-style: none; padding: 0; margin: 0 0 28px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .dual-checklist li {
-    display: flex; align-items: center; gap: 10px;
-    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: #1b1c1c;
-  }
-  .dual-checklist li::before {
-    content: '✓';
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
-    background: rgba(212,175,55,0.15); color: #6e5d04;
-    font-size: 0.65rem; font-weight: 700;
-  }
-  .dual-link {
-    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
-    color: #002f21; display: inline-flex; align-items: center; gap: 8px;
-    border-bottom: 1px solid rgba(0,47,33,0.2); padding-bottom: 4px;
-    transition: border-color 0.25s, color 0.25s;
-  }
-  .dual-link:hover { color: #6e5d04; border-color: #D4AF37; }
-
-  /* Bento grid */
-  .bento-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 16px;
-  }
-  @media (max-width: 900px) {
-    .bento-grid { grid-template-columns: 1fr; }
-  }
-  .bento-card { border-radius: 0.25rem; overflow: hidden; }
-  .bento-large { grid-row: span 1; }
-  .bento-dark { grid-column: 2; grid-row: 1 / 3; }
-  .bento-gold { grid-column: 1; grid-row: 2; }
-  @media (max-width: 900px) {
-    .bento-dark  { grid-column: 1; grid-row: auto; }
-    .bento-gold  { grid-column: 1; grid-row: auto; }
-  }
-  .bento-img {
-    height: 220px; overflow: hidden; position: relative;
-  }
-  .bento-img:hover img { transform: scale(1.06) !important; }
-</style>
-
-<script>
-  const els = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
-      }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    els.forEach(el => obs.observe(el));
-  } else {
-    els.forEach(el => el.classList.add('is-in'));
-  }
-</script>
