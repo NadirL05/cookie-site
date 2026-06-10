@@ -1516,6 +1516,86 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 }
 
 
+/* ── USP Feature Badges ───────────────────────────────────── */
+.bk-usp-strip {
+  background: #F7F5EF;
+  padding: 24px clamp(1.5rem, 4vw, 4rem);
+  border-bottom: 1px solid rgba(0,71,52,0.07);
+}
+.bk-usp-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.bk-usp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #004734;
+  background: transparent;
+  border: 1px solid rgba(0,71,52,0.18);
+  border-radius: 100px;
+  padding: 9px 20px;
+  transition: background 200ms, border-color 200ms;
+}
+.bk-usp-badge:hover {
+  background: rgba(0,71,52,0.05);
+  border-color: rgba(0,71,52,0.3);
+}
+.bk-usp-dot {
+  color: #D4AF37;
+  font-size: 0.45rem;
+  line-height: 1;
+}
+
+/* ── Press / Media Strip ─────────────────────────────────── */
+.bk-press {
+  background: #F7F5EF;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 4rem);
+  text-align: center;
+  border-top: 1px solid rgba(0,71,52,0.07);
+  border-bottom: 1px solid rgba(0,71,52,0.07);
+}
+.bk-press-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(0,71,52,0.3);
+  margin: 0 0 28px;
+}
+.bk-press-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.bk-press-pub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(0,47,33,0.16);
+  padding: 0 clamp(18px, 3vw, 36px);
+  text-transform: uppercase;
+  transition: color 250ms;
+}
+.bk-press-pub:hover { color: rgba(0,47,33,0.4); }
+.bk-press-sep {
+  color: rgba(0,71,52,0.12);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
 /* ── Responsive tweaks ───────────────────────────────────── */
 @media (max-width: 900px) {
   .bk-prod-grid { grid-template-columns: repeat(2, 1fr); }
