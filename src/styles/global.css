@@ -1398,6 +1398,103 @@ details[open] .bk-accord-icon::after { opacity: 0; }
   line-height: 1.65;
 }
 
+/* ── dual-link — editorial underline CTA ────────────────── */
+.dual-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #004734;
+  text-decoration: none;
+  border-bottom: 1.5px solid #004734;
+  padding-bottom: 3px;
+  transition: opacity 200ms;
+}
+.dual-link:hover { opacity: 0.55; }
+.bg-forest .dual-link { color: #F7F5EF; border-bottom-color: rgba(247,245,239,0.5); }
+.bg-forest .dual-link:hover { opacity: 0.7; }
+
+/* ── btn-gold ────────────────────────────────────────────── */
+.btn-gold {
+  background: #D4AF37;
+  color: #004734;
+  border-color: #D4AF37;
+  font-weight: 700;
+}
+.btn-gold:hover { opacity: 0.88; }
+
+/* ── Marquee strip ───────────────────────────────────────── */
+.bk-marquee {
+  background: #004734;
+  overflow: hidden;
+  padding: 0;
+  border-top: 1px solid rgba(212,175,55,0.18);
+  border-bottom: 1px solid rgba(212,175,55,0.18);
+}
+.bk-marquee-track {
+  display: inline-flex;
+  gap: 0;
+  animation: bkMarquee 36s linear infinite;
+  padding: 16px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bk-marquee-track { animation: none; }
+}
+@keyframes bkMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.bk-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(247,245,239,0.78);
+  white-space: nowrap;
+  padding: 0 32px;
+}
+.bk-marquee-sep {
+  color: #D4AF37;
+  font-size: 0.55rem;
+  padding: 0 32px;
+  opacity: 0.7;
+}
+
+/* ── Review cards — editorial, no white box ──────────────── */
+.bk-review-card {
+  flex: 0 0 min(340px, 80vw);
+  background: transparent;
+  border: none;
+  border-left: 2px solid rgba(0,71,52,0.12);
+  padding: 8px 28px 8px 28px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.bk-review-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.02rem;
+  color: #002f21;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+.bk-review-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 16px;
+  border-top: none;
+}
+
 /* ── Responsive tweaks ───────────────────────────────────── */
 @media (max-width: 900px) {
   .bk-prod-grid { grid-template-columns: repeat(2, 1fr); }
