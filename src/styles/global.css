@@ -990,31 +990,31 @@ body::after {
 }
 .bk-carousel::-webkit-scrollbar { display: none; }
 .bk-review-card {
-  flex: 0 0 min(320px, 78vw);
-  background: #fff;
-  border: 1px solid rgba(0,71,52,0.09);
-  padding: 32px 28px;
+  flex: 0 0 min(340px, 80vw);
+  background: transparent;
+  border: none;
+  border-left: 2px solid rgba(0,71,52,0.12);
+  padding: 8px 28px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
 }
 .bk-review-quote {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-size: 0.98rem;
+  font-size: 1.02rem;
   color: #002f21;
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
   flex: 1;
 }
 .bk-review-footer {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  border-top: 1px solid rgba(0,71,52,0.08);
-  padding-top: 20px;
+  gap: 3px;
+  padding-top: 16px;
 }
 .bk-review-name {
   font-family: 'Playfair Display', serif;
@@ -1465,35 +1465,6 @@ details[open] .bk-accord-icon::after { opacity: 0; }
   opacity: 0.7;
 }
 
-/* ── Review cards — editorial, no white box ──────────────── */
-.bk-review-card {
-  flex: 0 0 min(340px, 80vw);
-  background: transparent;
-  border: none;
-  border-left: 2px solid rgba(0,71,52,0.12);
-  padding: 8px 28px 8px 28px;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-}
-.bk-review-quote {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: 1.02rem;
-  color: #002f21;
-  line-height: 1.7;
-  margin: 0;
-  flex: 1;
-}
-.bk-review-footer {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding-top: 16px;
-  border-top: none;
-}
 
 /* ── Responsive tweaks ───────────────────────────────────── */
 @media (max-width: 900px) {
