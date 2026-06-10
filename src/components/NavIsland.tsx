@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { id: "bar-mobile", label: "Bar Mobile", href: "/bar-mobile" },
+  { id: "bar-mobile",  label: "Bar Mobile",     href: "/bar-mobile" },
+  { id: "creations",   label: "Nos Créations",   href: "/creations" },
+  { id: "traiteur",    label: "Traiteur",         href: "/traiteur" },
+  { id: "histoire",    label: "Notre Histoire",   href: "/histoire" },
 ];
 
 export default function NavIsland({ current = "home" }: { current?: string }) {
