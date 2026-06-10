@@ -888,7 +888,8 @@ body::after {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: clamp(2rem,6vw,5rem) clamp(1.5rem,6vw,5rem) clamp(3rem,8vw,7rem);
+  /* padding-top clears the fixed nav (≈72px) with extra breathing room */
+  padding: clamp(5rem,10vw,7rem) clamp(1.5rem,6vw,5rem) clamp(3rem,8vw,7rem);
   background:
     linear-gradient(to top,
       rgba(0,20,10,0.94) 0%,
@@ -912,9 +913,9 @@ body::after {
   font-family: 'Alex Brush', cursive;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(5rem, 12vw, 13rem);
+  font-size: clamp(3.5rem, 8vw, 8.5rem);
   color: #F7F5EF;
-  line-height: 0.9;
+  line-height: 1.0;
   letter-spacing: 0.01em;
   margin: 0 0 44px;
   max-width: 750px;
@@ -1033,6 +1034,104 @@ body::after {
   color: rgba(0,47,33,0.38);
   margin-top: 4px;
 }
+
+/* ── 3. SERVICES GRID (Brooki-style) ─────────────────────── */
+.bk-services {
+  padding: clamp(4rem,8vw,7rem) 0;
+  background: #F7F5EF;
+}
+.bk-services-head {
+  text-align: center;
+  margin-bottom: clamp(2.5rem,5vw,4rem);
+}
+.bk-services-title {
+  font-family: 'Alex Brush', cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(3rem,6vw,5.5rem);
+  color: #004734;
+  line-height: 1;
+  margin: 0 0 14px;
+}
+.bk-services-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: rgba(0,71,52,0.55);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+.bk-prod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px,2vw,20px);
+}
+.bk-prod-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.bk-prod-photo {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: rgba(0,71,52,0.06);
+  margin: 0 0 14px;
+}
+.bk-prod-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16,1,0.3,1);
+  display: block;
+}
+.bk-prod-card:hover .bk-prod-photo img {
+  transform: scale(1.06);
+}
+.bk-prod-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F7F5EF;
+  background: #004734;
+  padding: 5px 10px;
+}
+.bk-prod-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem,1.5vw,1.15rem);
+  font-weight: 600;
+  color: #004734;
+  margin: 0 0 5px;
+}
+.bk-prod-tag {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  color: rgba(0,71,52,0.5);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+.bk-services-cta {
+  text-align: center;
+  margin-top: clamp(2rem,4vw,3rem);
+}
+.bk-services-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #004734;
+  text-decoration: none;
+  border-bottom: 1.5px solid #004734;
+  padding-bottom: 3px;
+  transition: opacity 200ms;
+}
+.bk-services-link:hover { opacity: 0.6; }
 
 /* ── 3. ATELIERS TABS ────────────────────────────────────── */
 .bk-ateliers {
@@ -1300,8 +1399,17 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 }
 
 /* ── Responsive tweaks ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .bk-prod-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 640px) {
-  .bk-hero-title { font-size: clamp(3rem, 14vw, 5rem); }
-  .bk-ateliers-wrap { padding-left: 20px; padding-right: 20px; }
+  .bk-hero-title { font-size: clamp(2.5rem, 13vw, 4.5rem); line-height: 1.05; }
+  .bk-prod-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .bk-events-right { border-left: none; border-top: 1px solid rgba(0,71,52,0.08); }
+}
+
+/* Short viewports (DevTools open, laptop with toolbar) */
+@media (max-height: 720px) {
+  .bk-hero-title { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 1.0; }
+  .bk-hero-body { padding-bottom: clamp(1.5rem, 5vw, 4rem); }
 }

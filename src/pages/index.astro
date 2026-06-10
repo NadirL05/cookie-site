@@ -28,30 +28,34 @@ const reviews = [
   },
 ];
 
-const ateliers = [
+const services = [
   {
-    id: "crepes",
-    label: "Bar à Crêpes",
-    subtitle: "La tradition réinventée",
-    desc: "Farine de blé noir bio, garnitures maison et show-cooking en direct devant vos invités. Une animation conviviale qui sublime le patrimoine avec une touche contemporaine.",
-    features: ["Caramel au beurre salé maison", "Fruits frais de saison", "Chocolat artisanal", "Show-cooking inclus"],
-    image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fit=crop",
+    name: "Bar à Crêpes",
+    tag: "Animation · Gourmand",
+    badge: "Signature",
+    href: "/bar-mobile",
+    image: "https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=900&q=80&auto=format&fit=crop",
   },
   {
-    id: "tiramisu",
-    label: "Bar à Tiramisu",
-    subtitle: "L'Italie à l'honneur",
-    desc: "Personnalisation en direct : choisissez votre biscuit, votre crème et vos toppings pour un dessert sur-mesure qui marquera les esprits de tous vos invités.",
-    features: ["Mascarpone artisanal", "Biscuits signature", "Toppings au choix", "Version végane disponible"],
+    name: "Bar à Tiramisu",
+    tag: "L'Italie à l'honneur",
+    badge: null,
+    href: "/bar-mobile",
     image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=900&q=80&auto=format&fit=crop",
   },
   {
-    id: "barcart",
-    label: "Le Bar Cart",
-    subtitle: "L'élégance mobile",
-    desc: "Pour vos cocktails et boissons fines. Un bar sur roues habillé avec soin, verrerie cristal incluse. L'option parfaite pour les réceptions les plus sophistiquées.",
-    features: ["Verrerie cristal incluse", "Mise en scène élégante", "Cocktails signature", "Sans alcool disponible"],
+    name: "Le Bar Cart",
+    tag: "Cocktails · Élégance",
+    badge: "Bestseller",
+    href: "/bar-mobile",
     image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Service Traiteur",
+    tag: "Sur mesure · Excellence",
+    badge: null,
+    href: "/traiteur",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -131,41 +135,30 @@ const events = [
   </section>
 
   <!-- ══════════════════════════════════════
-       3. ATELIERS — tabs CSS (Brooki)
+       3. NOS CRÉATIONS — photo grid (Brooki-style)
        ══════════════════════════════════════ -->
-  <section class="bk-ateliers">
-    <div class="container bk-ateliers-wrap">
-      <input type="radio" name="atelier" id="tab-crepes"   class="bk-tab-radio" checked />
-      <input type="radio" name="atelier" id="tab-tiramisu" class="bk-tab-radio" />
-      <input type="radio" name="atelier" id="tab-barcart"  class="bk-tab-radio" />
-
-      <nav class="bk-tab-nav" aria-label="Nos ateliers">
-        <label for="tab-crepes"   class="bk-tab-lbl">Bar à Crêpes</label>
-        <label for="tab-tiramisu" class="bk-tab-lbl">Bar à Tiramisu</label>
-        <label for="tab-barcart"  class="bk-tab-lbl">Le Bar Cart</label>
-      </nav>
-
-      <div class="bk-panels">
-        {ateliers.map(a => (
-          <div class={`bk-panel bk-panel-${a.id}`}>
-            <div class="bk-panel-grid">
-              <figure class="bk-panel-fig">
-                <img src={a.image} alt={a.label} class="bk-panel-img" loading="lazy" />
-              </figure>
-              <div class="bk-panel-text">
-                <span class="eyebrow" style="display:block;margin-bottom:14px">{a.label}</span>
-                <h3 class="bk-panel-title">{a.subtitle}</h3>
-                <p class="body-text" style="margin-bottom:20px">{a.desc}</p>
-                <ul class="bk-feat-list">
-                  {a.features.map(f => <li>{f}</li>)}
-                </ul>
-                <a href="/contact" class="btn btn-primary" style="margin-top:36px;display:inline-block">
-                  Réserver cet atelier →
-                </a>
-              </div>
+  <section class="bk-services">
+    <div class="container">
+      <div class="bk-services-head">
+        <h2 class="bk-services-title">Nos créations</h2>
+        <p class="bk-services-sub">Des expériences culinaires uniques pour chaque événement</p>
+      </div>
+      <div class="bk-prod-grid">
+        {services.map(s => (
+          <a href={s.href} class="bk-prod-card">
+            <figure class="bk-prod-photo">
+              {s.badge && <span class="bk-prod-badge">{s.badge}</span>}
+              <img src={s.image} alt={s.name} loading="lazy" />
+            </figure>
+            <div class="bk-prod-info">
+              <h3 class="bk-prod-name">{s.name}</h3>
+              <p class="bk-prod-tag">{s.tag}</p>
             </div>
-          </div>
+          </a>
         ))}
+      </div>
+      <div class="bk-services-cta">
+        <a href="/bar-mobile" class="bk-services-link">Voir tous nos ateliers →</a>
       </div>
     </div>
   </section>
