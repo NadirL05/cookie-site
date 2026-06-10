@@ -50,6 +50,7 @@
   const parallaxTargets = [
     { el: null, selector: '.hero-photo-bg', speed: 0.30, type: 'bg'     },
     { el: null, selector: '.bar-hero-img',  speed: 0.20, type: 'object' },
+    { el: null, selector: '.bk-hero-img',   speed: 0.18, type: 'object' },
   ];
 
   function resolveParallax() {
@@ -118,6 +119,7 @@
       '.bento-grid',
       '.collections-grid',
       '.values-process',
+      '.bk-prod-grid',
     ];
 
     selectors.forEach(function (sel) {
