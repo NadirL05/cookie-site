@@ -30,32 +30,25 @@ const reviews = [
 
 const services = [
   {
-    name: "Bar à Crêpes",
-    tag: "Animation · Gourmand",
+    name: "Sucré",
+    tag: "Cookies & Pâtisseries Artisanales",
     badge: "Signature",
-    href: "/bar-mobile",
-    image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=900&q=80&auto=format&fit=crop",
+    href: "/creations",
+    image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop",
   },
   {
-    name: "Bar à Tiramisu",
-    tag: "L'Italie à l'honneur",
-    badge: null,
-    href: "/bar-mobile",
-    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&auto=format&fit=crop",
-  },
-  {
-    name: "Le Bar Cart",
-    tag: "Cocktails · Élégance",
-    badge: "Bestseller",
-    href: "/bar-mobile",
-    image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=900&q=80&auto=format&fit=crop",
-  },
-  {
-    name: "Service Traiteur",
-    tag: "Sur mesure · Excellence",
+    name: "Salé",
+    tag: "Traiteur Événementiel Sur Mesure",
     badge: null,
     href: "/traiteur",
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Bar Mobile",
+    tag: "Animation · Crêpes · Tiramisu",
+    badge: "Bestseller",
+    href: "/bar-mobile",
+    image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -211,10 +204,10 @@ const events = [
   <section class="bk-services">
     <div class="container">
       <div class="bk-services-head reveal-up">
-        <h2 class="bk-services-title">Nos créations</h2>
-        <p class="bk-services-sub">Des expériences culinaires uniques pour chaque événement</p>
+        <h2 class="bk-services-title">Nos univers</h2>
+        <p class="bk-services-sub">Sucré · Salé · Bar Mobile — tout pour sublimer votre événement</p>
       </div>
-      <div class="bk-prod-grid">
+      <div class="bk-prod-grid" style="grid-template-columns: repeat(3, 1fr)">
         {services.map(s => (
           <a href={s.href} class="bk-prod-card">
             <figure class="bk-prod-photo">
@@ -230,7 +223,7 @@ const events = [
         ))}
       </div>
       <div class="bk-services-cta">
-        <a href="/bar-mobile" class="bk-services-link">Voir tous nos ateliers →</a>
+        <a href="/creations" class="bk-services-link">Voir toutes nos créations →</a>
       </div>
     </div>
   </section>

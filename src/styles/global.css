@@ -322,7 +322,7 @@ body::after {
    Page Banner (internal pages header)
    ============================================ */
 .page-banner {
-  padding: 140px 0 72px; background: #004734;
+  padding: 96px 0 64px; background: #004734;
   color: #F7F5EF; position: relative; overflow: hidden;
   margin-top: 76px;
 }
@@ -338,8 +338,8 @@ body::after {
 @media (max-width: 800px) { .page-banner-inner { grid-template-columns: 1fr; gap: 24px; } }
 .page-banner h1 {
   font-family: 'Alex Brush', cursive; font-style: normal; font-weight: 400;
-  font-size: clamp(3.5rem, 6.5vw, 6rem); letter-spacing: 0.01em;
-  margin: 14px 0 0; color: #F7F5EF; line-height: 1.1;
+  font-size: clamp(2.8rem, 5vw, 4.8rem); letter-spacing: 0.01em;
+  margin: 12px 0 0; color: #F7F5EF; line-height: 1.1;
 }
 .page-banner .breadcrumbs {
   font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -913,12 +913,12 @@ body::after {
   font-family: 'Alex Brush', cursive;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(3.5rem, 8vw, 8.5rem);
+  font-size: clamp(3rem, 6.5vw, 6.5rem);
   color: #F7F5EF;
-  line-height: 1.0;
+  line-height: 1.05;
   letter-spacing: 0.01em;
-  margin: 0 0 44px;
-  max-width: 750px;
+  margin: 0 0 36px;
+  max-width: 620px;
   text-shadow: 0 2px 24px rgba(0,0,0,0.55), 0 1px 6px rgba(0,0,0,0.4);
 }
 .bk-hero-btn {

@@ -18,7 +18,9 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch("https://formspree.io/f/REPLACE_ME", {
+      /* ⚙️ Pour activer le formulaire : créer un compte sur formspree.io
+         et remplacer VOTRE_ID_FORMSPREE par l'ID du formulaire (ex : xoqkjeyo) */
+      const res = await fetch("https://formspree.io/f/VOTRE_ID_FORMSPREE", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
