@@ -3,160 +3,166 @@ import Layout from '../layouts/Layout.astro';
 
 const reviews = [
   {
-    quote: "Un bar à crêpes absolument magique pour notre mariage. Les invités en parlent encore ! Le service était impeccable.",
+    quote: "Une animation exceptionnelle qui a fait l'unanimité auprès de nos invités. Le bar à crêpes était un vrai succès !",
     name: "Sophie M.",
-    event: "Mariage · Région Parisienne",
+    event: "Mariage · Région PACA",
     product: "Bar à Crêpes",
   },
   {
-    quote: "Le bar à tiramisu a été un vrai succès — originalité, goût et élégance au rendez-vous. Nos collaborateurs ont adoré.",
+    quote: "Le bar à tiramisu a été une vraie révélation — originalité, goût et élégance. Nos collaborateurs en parlent encore.",
     name: "Thomas & Julie",
-    event: "Soirée corporate · Paris 8e",
+    event: "Soirée corporate · Marseille",
     product: "Bar à Tiramisu",
   },
   {
     quote: "CooksBrad a su créer une ambiance unique, à la fois conviviale et haut de gamme. Je recommande sans hésiter.",
     name: "Camille R.",
-    event: "Anniversaire privé · Neuilly",
-    product: "Bar à Crêpes",
+    event: "Anniversaire privé · Aix-en-Provence",
+    product: "Bar à Gaufres",
   },
   {
-    quote: "Service irréprochable du début à la fin. Le bar cart a transformé notre séminaire en vrai moment de partage.",
+    quote: "Service irréprochable du début à la fin. Une équipe professionnelle et souriante qui a tout géré parfaitement.",
     name: "Marc D.",
-    event: "Corporate · La Défense",
-    product: "Le Bar Cart",
+    event: "EVJF · Nice",
+    product: "Bar à Crêpes",
   },
 ];
 
 const services = [
   {
-    name: "Sucré",
-    tag: "Cookies & Pâtisseries Artisanales",
-    badge: "Signature",
-    href: "/creations",
-    image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop",
-  },
-  {
-    name: "Salé",
-    tag: "Traiteur Événementiel Sur Mesure",
-    badge: null,
-    href: "/traiteur",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&auto=format&fit=crop",
-  },
-  {
-    name: "Bar Mobile",
-    tag: "Animation · Crêpes · Tiramisu",
+    name: "Bar à Crêpes",
+    tag: "Garnitures au choix · Préparées à la minute",
     badge: "Bestseller",
-    href: "/bar-mobile",
-    image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=900&q=80&auto=format&fit=crop",
+    href: "/contact",
+    image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Bar à Gaufres",
+    tag: "Moelleuses · Croustillantes · Servies chaudes",
+    badge: null,
+    href: "/contact",
+    image: "https://images.unsplash.com/photo-1481070414801-51fd732d7184?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Bar à Tiramisu",
+    tag: "Animation originale · Composition sur place",
+    badge: "Signature",
+    href: "/contact",
+    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=900&q=80&auto=format&fit=crop",
+  },
+  {
+    name: "Sur Mesure",
+    tag: "Concept personnalisé · Adapté à votre budget",
+    badge: null,
+    href: "/contact",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=900&q=80&auto=format&fit=crop",
   },
 ];
 
 const events = [
   {
     title: "Mariages",
-    body: "Bar à crêpes ou tiramisu pour votre vin d'honneur ou soirée dansante. Une touche de magie et de gourmandise pour ce jour inoubliable.",
+    body: "Une animation gourmande qui ravira petits et grands. Bar à crêpes ou tiramisu pour votre vin d'honneur ou soirée dansante.",
   },
   {
-    title: "Corporate",
-    body: "Séminaires, team buildings, lancements produit — une animation culinaire prestige pour fédérer vos équipes autour d'une expérience mémorable.",
+    title: "Anniversaires",
+    body: "Pour célébrer vos moments importants avec originalité. Une expérience mémorable et conviviale pour tous vos invités.",
   },
   {
-    title: "Soirées Privées",
-    body: "Anniversaires, garden parties, réceptions intimes — l'excellence CooksBrad directement chez vous, partout en Île-de-France.",
+    title: "Entreprises",
+    body: "Séminaires, inaugurations, soirées d'entreprise, journées clients — une animation culinaire prestige pour fédérer vos équipes.",
   },
   {
-    title: "Sur Mesure",
-    body: "Un projet unique ? Nous créons le bar de vos rêves, adapté à votre lieu, votre univers et votre nombre d'invités.",
+    title: "Événements Privés",
+    body: "Baptêmes, baby showers, EVJF, fêtes familiales — nous nous déplaçons sur votre lieu de réception en région PACA.",
   },
 ];
 ---
 
-<Layout title="CooksBrad — Bar Mobile Événementiel · Paris">
+<Layout title="CooksBrad — Bar Mobile Événementiel · PACA">
 
   <!-- ══════════════════════════════════════
-       1. HERO — texte bas-gauche (Brooki)
+       HERO
        ══════════════════════════════════════ -->
   <section class="bk-hero">
     <div class="bk-hero-media">
       <img
         src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format&fit=crop"
-        alt="CooksBrad bar mobile événementiel Paris"
+        alt="CooksBrad bar mobile événementiel PACA"
         class="bk-hero-img"
         fetchpriority="high"
         loading="eager"
       />
     </div>
     <div class="bk-hero-body">
-      <p class="bk-hero-eyebrow">— Paris · Depuis MMXV —</p>
+      <p class="bk-hero-eyebrow">— PACA · Depuis 2015 —</p>
       <h1 class="bk-hero-title">
-        le bar<br/>
-        qui fait<br/>
-        l'événement.
+        l'animation<br/>
+        gourmande qui<br/>
+        sublime vos événements.
       </h1>
-      <a href="/contact" class="bk-hero-btn">Réserver mon atelier →</a>
+      <a href="/contact" class="bk-hero-btn">Demander un devis →</a>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       1b. MARQUEE — brand strip défilant
+       MARQUEE
        ══════════════════════════════════════ -->
   <div class="bk-marquee" aria-hidden="true">
     <div class="bk-marquee-track">
-      <span class="bk-marquee-item">Bar Mobile Paris</span>
+      <span class="bk-marquee-item">Bar Mobile PACA</span>
       <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Show-cooking en direct</span>
+      <span class="bk-marquee-item">Crêpes en direct</span>
       <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Île-de-France</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Depuis 2015</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">200+ Événements</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Sur Mesure</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Bar à Crêpes</span>
+      <span class="bk-marquee-item">Bar à Gaufres</span>
       <span class="bk-marquee-sep">✦</span>
       <span class="bk-marquee-item">Bar à Tiramisu</span>
       <span class="bk-marquee-sep">✦</span>
-      <!-- clone for seamless loop -->
-      <span class="bk-marquee-item">Bar Mobile Paris</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Show-cooking en direct</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Île-de-France</span>
-      <span class="bk-marquee-sep">✦</span>
       <span class="bk-marquee-item">Depuis 2015</span>
-      <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">200+ Événements</span>
       <span class="bk-marquee-sep">✦</span>
       <span class="bk-marquee-item">Sur Mesure</span>
       <span class="bk-marquee-sep">✦</span>
-      <span class="bk-marquee-item">Bar à Crêpes</span>
+      <span class="bk-marquee-item">Mariages &amp; Événements</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Produits Artisanaux</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Bar Mobile PACA</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Crêpes en direct</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Bar à Gaufres</span>
       <span class="bk-marquee-sep">✦</span>
       <span class="bk-marquee-item">Bar à Tiramisu</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Depuis 2015</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Sur Mesure</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Mariages &amp; Événements</span>
+      <span class="bk-marquee-sep">✦</span>
+      <span class="bk-marquee-item">Produits Artisanaux</span>
       <span class="bk-marquee-sep">✦</span>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════
-       1c. USP BADGES — feature trust strip
+       USP STRIP
        ══════════════════════════════════════ -->
   <div class="bk-usp-strip" aria-label="Nos engagements">
     <div class="bk-usp-inner">
-      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Animation en direct</span>
-      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Produits artisanaux</span>
-      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Île-de-France</span>
+      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Préparés sur place</span>
+      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Ingrédients sélectionnés</span>
+      <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Région PACA</span>
       <span class="bk-usp-badge"><span class="bk-usp-dot">✦</span> Sur mesure</span>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════
-       2. AVIS — heading centré + carousel
+       AVIS
        ══════════════════════════════════════ -->
   <section class="bk-reviews">
     <div class="container bk-reviews-head reveal-up">
-      <h2 class="bk-reviews-title">Le bar mobile<br/>préféré de Paris</h2>
+      <h2 class="bk-reviews-title">Ils nous ont<br/>fait confiance</h2>
       <p class="bk-reviews-meta">
         <span class="bk-stars-gold">★★★★★</span>
         <strong>4,9</strong>
@@ -181,33 +187,15 @@ const events = [
   </section>
 
   <!-- ══════════════════════════════════════
-       2b. PRESSE — media credibility strip
-       ══════════════════════════════════════ -->
-  <div class="bk-press">
-    <p class="bk-press-label">Ils parlent de nous</p>
-    <div class="bk-press-logos">
-      <span class="bk-press-pub">Le Parisien</span>
-      <span class="bk-press-sep">·</span>
-      <span class="bk-press-pub">Mariages</span>
-      <span class="bk-press-sep">·</span>
-      <span class="bk-press-pub">Time Out Paris</span>
-      <span class="bk-press-sep">·</span>
-      <span class="bk-press-pub">L'Express Style</span>
-      <span class="bk-press-sep">·</span>
-      <span class="bk-press-pub">Elle France</span>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════
-       3. NOS CRÉATIONS — photo grid (Brooki-style)
+       NOS PRESTATIONS
        ══════════════════════════════════════ -->
   <section class="bk-services">
     <div class="container">
       <div class="bk-services-head reveal-up">
-        <h2 class="bk-services-title">Nos univers</h2>
-        <p class="bk-services-sub">Sucré · Salé · Bar Mobile — tout pour sublimer votre événement</p>
+        <h2 class="bk-services-title">Nos prestations</h2>
+        <p class="bk-services-sub">Crêpes · Gaufres · Tiramisu · Sur mesure — tout pour sublimer votre événement</p>
       </div>
-      <div class="bk-prod-grid" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="bk-prod-grid" style="grid-template-columns: repeat(2, 1fr)">
         {services.map(s => (
           <a href={s.href} class="bk-prod-card">
             <figure class="bk-prod-photo">
@@ -223,42 +211,43 @@ const events = [
         ))}
       </div>
       <div class="bk-services-cta">
-        <a href="/creations" class="bk-services-link">Voir toutes nos créations →</a>
+        <a href="/contact" class="bk-services-link">Demander un devis gratuit →</a>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       3b. PULL QUOTE — editorial interlude
+       PULL QUOTE
        ══════════════════════════════════════ -->
   <div class="bk-pull">
     <div class="bk-pull-inner reveal-up">
       <span class="bk-pull-mark">"</span>
       <blockquote class="bk-pull-quote">
-        Chaque atelier est une scène.<br/>Chaque événement, un souvenir.
+        Chaque événement mérite<br/>un moment gourmand partagé.
       </blockquote>
-      <cite class="bk-pull-cite">— Brad, fondateur CooksBrad</cite>
+      <cite class="bk-pull-cite">— CooksBrad</cite>
     </div>
   </div>
 
   <!-- ══════════════════════════════════════
-       4. BRAND STORY — 50/50 split (Brooki)
+       QUI SOMMES-NOUS
        ══════════════════════════════════════ -->
   <section class="bk-story">
     <div class="bk-story-left">
-      <span class="eyebrow" style="display:block;margin-bottom:18px">Notre Histoire</span>
+      <span class="eyebrow" style="display:block;margin-bottom:18px">Qui sommes-nous ?</span>
       <h2 class="bk-story-title">CooksBrad</h2>
       <p class="bk-story-body">
-        Depuis 2015, Brad sillonne Paris et la région pour apporter une expérience
-        culinaire unique à vos événements. Une passion pour l'artisanat, un œil pour le
-        détail, et l'obsession de créer des moments inoubliables.
+        Chez CooksBrad, nous transformons chaque événement en un moment gourmand et convivial.
+        Notre concept de bar mobile permet à vos invités de profiter de desserts préparés sur place
+        et personnalisés selon leurs envies.
       </p>
       <p class="bk-story-body">
-        Chaque atelier est pensé comme une performance — show-cooking en direct,
-        mise en scène élégante, produits sourcés avec soin.
+        Mariages, anniversaires, baptêmes, baby showers, événements professionnels ou soirées privées :
+        nous nous déplaçons directement sur votre lieu de réception pour offrir une expérience unique.
+        Notre objectif est simple : créer des souvenirs autour de la gourmandise.
       </p>
-      <a href="/bar-mobile" class="dual-link" style="margin-top:36px;display:inline-flex;align-items:center;gap:8px">
-        Découvrir nos ateliers →
+      <a href="/histoire" class="dual-link" style="margin-top:36px;display:inline-flex;align-items:center;gap:8px">
+        Découvrir notre histoire →
       </a>
     </div>
     <div class="bk-story-right">
@@ -272,11 +261,44 @@ const events = [
   </section>
 
   <!-- ══════════════════════════════════════
-       5. ÉVÉNEMENTS — heading + photo + accordion (Brooki "Visit our stores")
+       POURQUOI NOUS CHOISIR
+       ══════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#D4AF37">Nos engagements</span></span>
+          <hr class="hairline" />
+          <h2>Pourquoi choisir<br/>CooksBrad ?</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Un service clé en main, professionnel et personnalisé, pour que vous puissiez profiter pleinement de votre événement.
+        </p>
+      </div>
+      <div class="why-grid">
+        {[
+          "Produits préparés sur place",
+          "Ingrédients sélectionnés avec soin",
+          "Service professionnel et convivial",
+          "Installation rapide",
+          "Prestation personnalisable",
+          "Déplacement sur votre lieu de réception",
+        ].map(item => (
+          <div class="why-item">
+            <span class="why-dot">✦</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       POUR QUELS ÉVÉNEMENTS
        ══════════════════════════════════════ -->
   <section class="bk-events">
     <div class="bk-events-left">
-      <h2 class="bk-events-title">Vos<br/>célébrations</h2>
+      <h2 class="bk-events-title">Pour quels<br/>événements ?</h2>
       <p class="bk-events-sub">
         Chaque événement est unique.<br/>Nous nous adaptons à votre univers.
       </p>
@@ -287,7 +309,7 @@ const events = [
     <div class="bk-events-center">
       <img
         src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop"
-        alt="Mariage CooksBrad"
+        alt="Événement CooksBrad"
         class="bk-events-photo"
         loading="lazy"
       />
@@ -306,21 +328,53 @@ const events = [
   </section>
 
   <!-- ══════════════════════════════════════
-       6. CTA FINAL
+       CTA FINAL
        ══════════════════════════════════════ -->
   <section class="bk-cta bg-forest">
     <div class="container" style="text-align:center">
-      <span class="eyebrow" style="color:rgba(252,249,248,0.45);display:block;margin-bottom:16px">Planifier</span>
+      <span class="eyebrow" style="color:rgba(252,249,248,0.45);display:block;margin-bottom:16px">Organisons votre événement</span>
       <h2 class="bk-cta-title">
-        Votre événement mérite<br/>mieux que l'ordinaire.
+        Votre événement mérite<br/>une animation mémorable.
       </h2>
       <p class="bk-cta-sub">
-        Notre équipe étudie chaque projet pour vous proposer une expérience sur mesure.
+        Contactez-nous pour obtenir un devis gratuit adapté à votre projet.
       </p>
       <a href="/contact" class="btn btn-gold" style="border-radius:0.125rem">
-        Planifier mon événement →
+        Recevoir mon devis gratuit →
       </a>
     </div>
   </section>
 
 </Layout>
+
+<style>
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  @media (max-width: 760px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+  .why-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.875rem;
+    color: #004734;
+    padding: 18px 20px;
+    background: rgba(0,71,52,0.04);
+    border-left: 2px solid #D4AF37;
+    line-height: 1.5;
+  }
+  .why-dot {
+    color: #D4AF37;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+</style>

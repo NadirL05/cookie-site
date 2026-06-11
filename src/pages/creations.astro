@@ -1,156 +1,286 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CookieCardDesign from '../components/CookieCardDesign';
 
-const cookies = [
+const incontournables = [
   {
-    id: 'sarah-b',
-    name: 'Sarah‑B',
-    subtitle: 'Chocolat noir 70%, fleur de sel de Guérande',
-    price: '6€',
-    badge: 'Signature',
-    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-chocolate',
-    placeholderLabel: 'COOKIE · CHOCOLAT NOIR',
+    emoji: "🍪",
+    name: "Cookie Triple Chocolat",
+    desc: "Un cookie généreux fondant à cœur, garni de pépites de chocolat noir, au lait et blanc.",
   },
   {
-    id: 'matcha-yuzu',
-    name: 'Matcha Yuzu',
-    subtitle: 'Thé matcha d\'Uji, zestes de yuzu confits',
-    price: '7€',
-    badge: 'Nouveauté',
-    image: 'https://images.unsplash.com/photo-1587080413959-06b859fb107d?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-matcha',
-    placeholderLabel: 'COOKIE · MATCHA YUZU',
+    emoji: "🍪",
+    name: "Cookie Caramel Beurre Salé",
+    desc: "La douceur du caramel maison rencontre le croustillant d'une pincée de fleur de sel. Un classique indémodable.",
   },
   {
-    id: 'pistache-rose',
-    name: 'Pistache & Rose',
-    subtitle: 'Pistaches de Bronte, eau de rose de Damas',
-    price: '7€',
-    badge: null,
-    image: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-pistache',
-    placeholderLabel: 'COOKIE · PISTACHE ROSE',
+    emoji: "🍪",
+    name: "Cookie Spéculoos",
+    desc: "L'arôme envoûtant des épices de Noël dans un cookie moelleux qui plaît à tous les palais.",
   },
-  {
-    id: 'framboise-noire',
-    name: 'Framboise Noire',
-    subtitle: 'Framboises confites, chocolat noir, poivre de Timut',
-    price: '7€',
-    badge: 'Best‑seller',
-    image: 'https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-framboise',
-    placeholderLabel: 'COOKIE · FRAMBOISE NOIRE',
-  },
-  {
-    id: 'caramel-miso',
-    name: 'Caramel Miso',
-    subtitle: 'Caramel à la fleur de sel, miso blanc de Kyoto',
-    price: '6€',
-    badge: null,
-    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-caramel',
-    placeholderLabel: 'COOKIE · CARAMEL MISO',
-  },
-  {
-    id: 'vanille-tonka',
-    name: 'Vanille Tonka',
-    subtitle: 'Vanille de Madagascar, fève tonka râpée',
-    price: '6€',
-    badge: 'Signature',
-    image: 'https://images.unsplash.com/photo-1590080874088-eec64895b423?w=900&q=80&auto=format&fit=crop',
-    placeholder: 'p-vanille',
-    placeholderLabel: 'COOKIE · VANILLE TONKA',
-  },
+];
+
+const collections = [
+  { emoji: "🎄", label: "Collection de Noël" },
+  { emoji: "❤️", label: "Collection Saint-Valentin" },
+  { emoji: "🐣", label: "Collection de Pâques" },
+  { emoji: "🎃", label: "Collection Halloween" },
+  { emoji: "☀️", label: "Éditions spéciales été" },
+];
+
+const commandes = [
+  { emoji: "🎉", label: "Anniversaires" },
+  { emoji: "💍", label: "Mariages" },
+  { emoji: "🏢", label: "Événements professionnels" },
+  { emoji: "🎁", label: "Cadeaux gourmands" },
+  { emoji: "👨‍👩‍👧‍👦", label: "Réunions familiales" },
 ];
 ---
 
 <Layout
-  title="Nos Créations — Cooksbrad"
-  description="Six cookies d'auteur. Une carte courte, volontairement."
+  title="Nos Cookies — Cooksbrad"
+  description="Découvrez nos cookies artisanaux : incontournables, collections saisonnières et commandes personnalisées."
   current="creations"
 >
 
-  <!-- Banner -->
+  <!-- Page banner -->
   <section class="page-banner">
     <div class="container page-banner-inner">
       <div>
         <div class="breadcrumbs">
           <a href="/">Maison</a>
-          <span class="ornament" style="font-size:0.9rem">✦</span>
-          <span style="color:#D4AF37">Nos Créations</span>
+          <span style="color:#D4AF37;font-family:'Noto Serif',serif">✦</span>
+          <span style="color:#D4AF37">Nos cookies</span>
         </div>
-        <h1>
-          Six cookies,<br/>chacun une rencontre.
-        </h1>
+        <h1>Des créations<br/>gourmandes.</h1>
       </div>
       <p>
-        Une carte courte, volontairement. Quatre signatures permanentes, deux saisonnières.
-        Toutes cuites le matin même.
+        Chez CooksBrad, nous imaginons des créations gourmandes qui allient
+        simplicité, qualité et générosité.
       </p>
     </div>
   </section>
 
-  <!-- Grid -->
+  <!-- Nos incontournables -->
   <section class="section bg-cream">
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#D4AF37">La carte</span> &nbsp;·&nbsp; 2026</span>
+          <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; Nos Incontournables</span>
           <hr class="hairline" />
-          <h2>
-            Une recette, une matière<br/>rare, rien d'autre.
-          </h2>
+          <h2>Nos cookies<br/>classiques.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
-          Chaque création part d'un ingrédient singulier — un grand cru, une pistache de Bronte,
-          une eau de rose de Damas — autour duquel se construit la recette.
-          Les prix s'entendent par cookie ; boîte de six sur demande.
+          Préparés de manière artisanale, nos cookies sont généreux, moelleux à cœur
+          et légèrement croustillants à l'extérieur. Des recettes gourmandes qui plaisent
+          aussi bien aux petits qu'aux grands.
         </p>
       </div>
 
-      <div class="cookie-grid">
-        {cookies.map((cookie, i) => (
-          <CookieCardDesign client:visible cookie={cookie} index={i} />
+      <div class="cookie-cards">
+        {incontournables.map((c, i) => (
+          <div class={`cookie-card reveal${i > 0 ? " reveal-delay-" + i : ""}`}>
+            <span class="cookie-card-emoji">{c.emoji}</span>
+            <h3 class="cookie-card-name">{c.name}</h3>
+            <p class="cookie-card-desc body-text">{c.desc}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Pull quote -->
-  <section class="pull-quote bg-cream">
+  <!-- Collections saisonnières -->
+  <section class="section bg-forest">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#D4AF37">N° 02</span> &nbsp;·&nbsp; Éditions Limitées</span>
+          <hr class="hairline" style="background:#D4AF37;opacity:0.4" />
+          <h2 style="color:#F7F5EF">Les cookies<br/>des fêtes.</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1" style="color:rgba(247,245,239,0.75)">
+          Parce que chaque saison mérite sa gourmandise, nous proposons des collections
+          éphémères tout au long de l'année — avec des saveurs, décorations et
+          présentations exclusives.
+        </p>
+      </div>
+
+      <div class="collections-grid">
+        {collections.map((c, i) => (
+          <div class={`collection-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
+            <span class="collection-emoji">{c.emoji}</span>
+            <span class="collection-label">{c.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Vente sur commande -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#D4AF37">N° 03</span> &nbsp;·&nbsp; Commandes Personnalisées</span>
+          <hr class="hairline" />
+          <h2>Vente sur<br/>commande.</h2>
+        </div>
+        <p class="body-text reveal reveal-delay-1">
+          Vous souhaitez offrir ou partager nos cookies lors d'un événement particulier ?
+          Nos cookies peuvent être adaptés selon vos envies, le nombre de personnes
+          et le thème de votre événement.
+        </p>
+      </div>
+
+      <div class="commandes-grid">
+        {commandes.map((c, i) => (
+          <div class={`commande-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
+            <span class="commande-emoji">{c.emoji}</span>
+            <span class="commande-label">{c.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fabrication artisanale -->
+  <section class="pull-quote bg-cream" style="border-top:1px solid rgba(0,71,52,0.08)">
     <div class="container reveal">
-      <span class="ornament" style="font-size:2rem;display:block;margin-bottom:32px">✦</span>
+      <span style="font-family:'Noto Serif',serif;font-style:italic;color:#D4AF37;font-size:1.8rem;display:block;margin-bottom:20px">✦</span>
       <blockquote>
-        « Un cookie, c'est une promesse : il doit craquer dehors,<br/>
-        garder l'âme au milieu, et laisser un souvenir. »
+        « Une fabrication artisanale, des ingrédients sélectionnés,<br/>
+        et une seule ambition : créer des moments de plaisir et de partage. »
       </blockquote>
-      <cite>Brad, Chef Fondateur</cite>
+      <cite>— CooksBrad</cite>
+    </div>
+  </section>
+
+  <!-- Retrouvez-nous -->
+  <section class="section bg-cream" style="padding-top:0">
+    <div class="container">
+      <div class="cookie-presence reveal">
+        <h3>Retrouvez-nous</h3>
+        <p class="body-text">
+          Nos cookies sont disponibles sur les marchés, lors d'événements privés et
+          professionnels, au sein de notre bar mobile gourmand ainsi que sur commande
+          tout au long de l'année.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-band bg-cream" style="border-top:1px solid rgba(28,58,42,0.1)">
+  <section class="cta-band bg-cream" style="border-top:1px solid rgba(0,71,52,0.08)">
     <div class="container reveal">
-      <span class="eyebrow" style="color:#6e5d04">Commander</span>
-      <h2>
-        Une fournée par jour.<br/>Écrivez-nous la veille.
-      </h2>
+      <span class="eyebrow" style="color:#6e5d04;display:block;margin-bottom:8px">Commander</span>
+      <h2>Passez votre commande.</h2>
       <p class="body-text">
-        Commande minimum : 3 cookies. Réservation 72h à l'avance, retrait à l'atelier.
+        Commande personnalisée, devis événementiel ou renseignement : contactez-nous.
       </p>
       <a href="/contact" class="btn btn-primary">
-        Passer commande <span class="arrow">→</span>
+        Nous contacter <span class="arrow">→</span>
       </a>
     </div>
   </section>
 
 </Layout>
 
+<style>
+  /* Incontournables */
+  .cookie-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  @media (max-width: 760px) { .cookie-cards { grid-template-columns: 1fr; } }
+
+  .cookie-card {
+    padding: 36px 32px;
+    border: 1px solid rgba(0,71,52,0.1);
+    background: #ffffff;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.3s;
+  }
+  .cookie-card:hover { box-shadow: 0 8px 32px rgba(0,71,52,0.08); }
+  .cookie-card-emoji { font-size: 2rem; display: block; margin-bottom: 20px; }
+  .cookie-card-name {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #002f21;
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+  .cookie-card-desc { margin: 0; }
+
+  /* Collections */
+  .collections-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .collection-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(247,245,239,0.08);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 0.25rem;
+    flex: 1 1 180px;
+  }
+  .collection-emoji { font-size: 1.4rem; }
+  .collection-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #F7F5EF;
+    font-weight: 500;
+  }
+
+  /* Commandes */
+  .commandes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .commande-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(0,71,52,0.04);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 0.25rem;
+    flex: 1 1 180px;
+  }
+  .commande-emoji { font-size: 1.4rem; }
+  .commande-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #004734;
+    font-weight: 500;
+  }
+
+  /* Présence */
+  .cookie-presence {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 48px 0;
+  }
+  .cookie-presence h3 {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #002f21;
+    margin: 0 0 16px;
+  }
+</style>
+
 <script>
-  // Reveal on scroll for static elements (non-React)
-  const els = document.querySelectorAll('.reveal:not([data-react])');
+  const els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const obs = new IntersectionObserver(
       (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); } }),

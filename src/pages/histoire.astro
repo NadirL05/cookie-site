@@ -1,16 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const values = [
-  { num: '01', title: 'Fait Main', text: 'Chaque pièce est façonnée à la main, avec attention et précision. Aucune machine, aucun surgelé.' },
-  { num: '02', title: 'Ingrédients Locaux', text: 'La farine du moulin voisin, le beurre d\'origine contrôlée, les produits choisis chez de petits producteurs.' },
-  { num: '03', title: 'Sans Compromis', text: 'La qualité ne se négocie pas. Chaque fournée est testée avant d\'être servie.' },
-];
 ---
 
 <Layout
   title="Notre Histoire — Cooksbrad"
-  description="Dix ans à faire une seule chose, et à la faire bien."
+  description="L'aventure CooksBrad, née d'une amitié et d'une Braderie de Lille."
   current="histoire"
 >
 
@@ -23,69 +17,113 @@ const values = [
           <span style="color:#D4AF37;font-family:'Noto Serif',serif">✦</span>
           <span style="color:#D4AF37">Notre Histoire</span>
         </div>
-        <h1>Dix ans à ne rien<br/>presser.</h1>
+        <h1>Nés d'une amitié<br/>et d'une Braderie.</h1>
       </div>
       <p>
-        Brad a quitté son métier en 2015 pour créer des expériences gourmandes.
-        Depuis, rien n'a changé — une fournée par jour, à la main, sur commande.
+        L'aventure CooksBrad est née d'une amitié, d'une passion commune pour
+        la gourmandise et d'une belle dose d'audace.
       </p>
     </div>
   </section>
 
-  <!-- Histoire — texte + photo -->
+  <!-- Origine -->
   <section class="section bg-cream">
     <div class="container">
       <div class="histoire-grid">
+
         <div class="histoire-image reveal">
           <div
             class="real-photo"
             style="background-image:url('https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1400&q=85&auto=format&fit=crop')"
           ></div>
-          <span class="histoire-image-caption">Atelier · Paris · 2025</span>
+          <span class="histoire-image-caption">Braderie de Lille · 2015</span>
         </div>
+
         <div class="histoire-text reveal reveal-delay-1">
           <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; Les Origines</span>
           <div class="histoire-timeline-dot"></div>
+
           <p class="body-text" style="margin-bottom:18px">
-            Tout a commencé dans une petite cuisine, avec une envie simple : créer des gourmandises
-            qui racontent quelque chose. Pas des biscuits industriels, mais de vraies créations
-            façonnées à la main, avec des ingrédients choisis avec soin.
+            Tout a commencé à Lille, alors que nous étions toutes les deux étudiantes
+            en première année de Master et colocataires. Chaque année, la célèbre Braderie
+            de Lille anime la ville et attire des milliers de visiteurs.
           </p>
           <p class="body-text" style="margin-bottom:18px">
-            Chaque recette est le fruit de nombreux essais, d'ajustements minutieux, d'un respect
-            profond pour les saveurs. La farine vient du moulin voisin, le beurre est d'origine
-            contrôlée, les produits sont sélectionnés chez de petits producteurs.
+            À cette période, Zoé, qui rêvait depuis longtemps de vendre ses propres cookies,
+            partageait souvent cette idée avec moi. Un jour, à l'approche de la Braderie,
+            je me suis tournée vers elle et je lui ai lancé :
           </p>
-          <p class="body-text">
-            Aujourd'hui, cette passion se traduit dans chaque événement que nous accompagnons.
-            Nous croyons que la gourmandise bien faite mérite du temps, de l'attention et beaucoup d'amour.
+          <blockquote class="histoire-quote">
+            « Et si cette année, on vendait des cookies ? »
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Le nom -->
+  <section class="section bg-forest">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head-left reveal">
+          <span class="eyebrow"><span style="color:#D4AF37">N° 02</span> &nbsp;·&nbsp; Notre Nom</span>
+          <hr class="hairline" style="background:#D4AF37;opacity:0.4" />
+          <h2 style="color:#F7F5EF">Cookies + Braderie<br/>= CooksBrad.</h2>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="body-text" style="color:rgba(247,245,239,0.8);margin-bottom:18px">
+            Après plusieurs recherches, nous avons découvert que tous les emplacements officiels
+            étaient complets. Beaucoup auraient abandonné à ce moment-là. Pas nous.
+          </p>
+          <p class="body-text" style="color:rgba(247,245,239,0.8);margin-bottom:18px">
+            Nous avons décidé de nous adapter et de vendre nos cookies directement aux brocanteurs
+            présents tout au long de l'événement. Armées de notre motivation, de nos recettes
+            et de nos boîtes de cookies, nous avons parcouru les allées de la Braderie.
+          </p>
+          <p class="body-text" style="color:rgba(247,245,239,0.8)">
+            C'est d'ailleurs de cette aventure qu'est né notre nom :
+            <strong style="color:#D4AF37">CooksBrad</strong>, une combinaison entre
+            les cookies qui nous ont réunies et la Braderie de Lille qui a marqué
+            le début de notre histoire.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Valeurs -->
-  <section class="section bg-forest">
+  <!-- La suite -->
+  <section class="section bg-cream">
     <div class="container">
-      <div class="section-head">
-        <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#D4AF37">N° 02</span> &nbsp;·&nbsp; Nos Valeurs</span>
-          <hr class="hairline" />
-          <h2>Trois règles,<br/>jamais enfreintes.</h2>
+      <div class="histoire-grid" style="direction:rtl">
+        <div class="histoire-image reveal" style="direction:ltr">
+          <div
+            class="real-photo"
+            style="background-image:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1400&q=85&auto=format&fit=crop')"
+          ></div>
+          <span class="histoire-image-caption">Atelier CooksBrad · Aujourd'hui</span>
         </div>
-        <p class="body-text reveal reveal-delay-1">
-          Le luxe, pour nous, c'est le refus. Refus de la machine, refus de la quantité, refus du surgelé.
-        </p>
-      </div>
-      <div class="values reveal">
-        {values.map(v => (
-          <div class="value-cell">
-            <span class="value-num">{v.num}</span>
-            <h3>{v.title}</h3>
-            <p class="body-text">{v.text}</p>
-          </div>
-        ))}
+
+        <div class="histoire-text reveal reveal-delay-1" style="direction:ltr">
+          <span class="eyebrow"><span style="color:#D4AF37">N° 03</span> &nbsp;·&nbsp; Aujourd'hui</span>
+          <div class="histoire-timeline-dot"></div>
+
+          <p class="body-text" style="margin-bottom:18px">
+            Cette première expérience nous a permis de découvrir le plaisir de créer,
+            de rencontrer des clients et de donner vie à une idée qui nous tenait à cœur.
+            Quelques mois plus tard, ce projet est même devenu le sujet d'un exposé en cours
+            et a rapidement fait parler de lui auprès de nos camarades.
+          </p>
+          <p class="body-text" style="margin-bottom:18px">
+            Nous avons alors décidé d'unir nos passions et nos compétences pour créer CooksBrad :
+            un univers gourmand mêlant cookies artisanaux, créations sucrées et prestations
+            événementielles.
+          </p>
+          <p class="body-text">
+            Aujourd'hui, notre ambition est de continuer à faire grandir cette aventure
+            en proposant des produits généreux, des animations gourmandes et des moments
+            de convivialité qui rassemblent. Et ce n'est que le début de l'histoire.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -95,10 +133,10 @@ const values = [
     <div class="container reveal">
       <span style="font-family:'Noto Serif',serif;font-style:italic;color:#D4AF37;font-size:1.8rem;display:block;margin-bottom:20px">✦</span>
       <blockquote>
-        « La gourmandise, quand elle est bien faite,<br/>
-        devient un art de vivre. »
+        « Cette expérience nous a donné envie d'aller plus loin.<br/>
+        Et ce n'est que le début de l'histoire. »
       </blockquote>
-      <cite>— Cooksbrad</cite>
+      <cite>— L'équipe CooksBrad</cite>
     </div>
   </section>
 
@@ -106,25 +144,30 @@ const values = [
   <section class="cta-band bg-cream" style="border-top:1px solid rgba(0,71,52,0.08)">
     <div class="container reveal">
       <span class="eyebrow" style="color:#6e5d04;display:block;margin-bottom:8px">Votre Événement</span>
-      <h2>Découvrez ce que nous<br/>créons pour vous.</h2>
+      <h2>Vivez l'expérience<br/>CooksBrad.</h2>
       <p class="body-text">
-        Traiteur artisanal et bar mobile événementiel — des expériences sur mesure,
-        à partir de matières soigneusement choisies.
+        Bar mobile, cookies sur commande, animations gourmandes — contactez-nous pour votre prochain événement.
       </p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <a href="/traiteur" class="btn btn-primary">
-          Voir le traiteur <span class="arrow">→</span>
-        </a>
-        <a href="/bar-mobile" class="btn btn-ghost">
-          Bar Mobile
-        </a>
-      </div>
+      <a href="/contact" class="btn btn-primary">
+        Demander un devis <span class="arrow">→</span>
+      </a>
     </div>
   </section>
 
 </Layout>
 
 <style>
+  .histoire-quote {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #004734;
+    border-left: 3px solid #D4AF37;
+    padding: 16px 24px;
+    margin: 24px 0 0;
+    background: rgba(212,175,55,0.06);
+  }
+
   .histoire-timeline-dot {
     width: 14px; height: 14px; border-radius: 50%;
     background: #D4AF37; margin: 28px 0 32px;
