@@ -47,19 +47,19 @@ const events = [
     title: 'Mariages',
     desc: 'Une touche de magie et de gourmandise pour votre vin d\'honneur ou votre soirée dansante.',
     icon: '♡',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop',
+    image: '/bar-cart.jpeg',
   },
   {
     title: 'Corporate',
     desc: 'Fédérez vos équipes autour d\'une animation culinaire prestige lors de vos séminaires et lancements.',
     icon: '◈',
-    image: 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=900&q=80&auto=format&fit=crop',
+    image: '/mini-pancakes-box.jpeg',
   },
   {
     title: 'Soirées Privées',
     desc: 'Anniversaires, garden parties ou réceptions intimes : l\'excellence CooksBrad chez vous.',
     icon: '✦',
-    image: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=900&q=80&auto=format&fit=crop',
+    image: '/mini-pancakes-plancha.jpeg',
   },
 ];
 ---
@@ -74,9 +74,10 @@ const events = [
   <section class="bar-hero">
     <img
       class="bar-hero-img"
-      src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=2000&q=85&auto=format&fit=crop"
-      alt="Bar mobile CooksBrad — crêpes et douceurs"
+      src="/bar-cart.jpeg"
+      alt="Bar Cart CooksBrad — bar mobile événementiel"
       loading="eager"
+      fetchpriority="high"
     />
     <div class="bar-hero-overlay"></div>
 
@@ -118,7 +119,7 @@ const events = [
           <div style="display:flex;gap:24px;flex-wrap:wrap">
             <div style="display:flex;align-items:center;gap:8px">
               <span style="color:#6e5d04;font-size:1rem">★</span>
-              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#002f21">Maître Artisan</span>
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#002f21">Artisan depuis 2015</span>
             </div>
             <div style="display:flex;align-items:center;gap:8px">
               <span style="color:#6e5d04;font-size:1rem">🍸</span>
@@ -129,16 +130,16 @@ const events = [
         <div class="bar-concept-photos reveal reveal-delay-1">
           <div class="bar-concept-photo-a">
             <img
-              src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?w=900&q=80&auto=format&fit=crop"
-              alt="Bar à gaufres CooksBrad"
+              src="/mini-pancakes-plancha.jpeg"
+              alt="Plancha mini pancakes CooksBrad"
               loading="lazy"
             />
             <div class="bar-concept-photo-label">Le Cart</div>
           </div>
           <div class="bar-concept-photo-b">
             <img
-              src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=900&q=80&auto=format&fit=crop"
-              alt="Bar à tiramisu CooksBrad"
+              src="/mini-pancakes-box.jpeg"
+              alt="Box garnitures mini pancakes CooksBrad"
               loading="lazy"
             />
             <div class="bar-concept-photo-label">Le Buffet</div>
@@ -165,8 +166,8 @@ const events = [
         <div class="atelier-card atelier-large">
           <img
             class="atelier-bg-img"
-            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&q=80&auto=format&fit=crop"
-            alt="Bar à Crêpes CooksBrad"
+            src="/mini-pancakes-plancha.jpeg"
+            alt="Mini pancakes CooksBrad en direct"
             loading="lazy"
           />
           <div class="atelier-content">
@@ -260,7 +261,7 @@ const events = [
       <h2 style="color:#002f21">Prêt à sublimer<br/>votre événement ?</h2>
       <p class="body-text">
         Nos équipes étudient chaque projet pour vous proposer une expérience sur mesure,
-        adaptée à vos envies et à votre lieu.
+        adaptée à vos envies et à votre lieu, partout en région PACA.
       </p>
       <a href="/contact" class="btn btn-primary">
         Planifier mon événement <span class="arrow">→</span>

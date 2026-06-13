@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm';
 
 const categories = [
   {
     id: 'sucrees',
     label: 'Box Sucrées',
     badge: 'Artisanal',
-    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=80&auto=format&fit=crop',
+    image: '/cookies-kitkat.jpeg',
     tags: ['Fruits', 'Cookies & Brownies', 'Verrines'],
     price: 'À partir de 45€',
     note: 'Personnalisable sur devis',
@@ -15,7 +16,7 @@ const categories = [
     id: 'salees',
     label: 'Box Salées',
     badge: 'Signature',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&auto=format&fit=crop',
+    image: '/mini-pancakes-box.jpeg',
     tags: ['Chaude', 'Froide', 'Mixte'],
     price: 'À partir de 55€',
     note: 'Personnalisable sur devis',
@@ -24,7 +25,7 @@ const categories = [
     id: 'planches',
     label: 'Nos Planches',
     badge: 'Terroir',
-    image: 'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=900&q=80&auto=format&fit=crop',
+    image: '/cookies-pecan.jpeg',
     tags: ['Fromage', 'Charcuterie', 'Crudités'],
     price: 'À partir de 65€',
     note: 'Personnalisable sur devis',
@@ -87,6 +88,8 @@ const brunchOptions = [
       <a href="#brunch" class="subnav-gh-link">Brunch</a>
       <span style="color:#D4AF37;opacity:0.4">·</span>
       <a href="#sur-mesure" class="subnav-gh-link">Sur Mesure</a>
+      <span style="color:#D4AF37;opacity:0.4">·</span>
+      <a href="#devis" class="subnav-gh-link">Devis</a>
     </div>
   </nav>
 
@@ -158,7 +161,7 @@ const brunchOptions = [
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
           <a href="/contact" class="btn btn-primary">Demander un devis</a>
-          <a href="/contact" class="btn btn-ghost">Consulter la carte</a>
+          <a href="/contact" class="btn btn-ghost">Nous contacter</a>
         </div>
       </div>
     </div>
@@ -183,8 +186,8 @@ const brunchOptions = [
       <div class="brunch-layout reveal">
         <div class="brunch-photo">
           <img
-            src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=80&auto=format&fit=crop"
-            alt="Brunch Cooksbrad"
+            src="/mini-pancakes-plancha.jpeg"
+            alt="Brunch CooksBrad — mini pancakes sur plancha"
             loading="lazy"
           />
         </div>
@@ -202,6 +205,27 @@ const brunchOptions = [
           <a href="/contact" class="btn btn-primary" style="margin-top:32px">
             Réserver mon brunch <span class="arrow">→</span>
           </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulaire devis inline -->
+  <section id="devis" class="section bg-cream" style="scroll-margin-top:76px">
+    <div class="container">
+      <div style="max-width:680px;margin:0 auto">
+        <div style="text-align:center;margin-bottom:48px" class="reveal">
+          <span class="eyebrow" style="display:block;margin-bottom:12px">Devis Gratuit</span>
+          <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#002f21;letter-spacing:-0.02em">
+            Composez votre menu
+          </h2>
+          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;color:#404944;margin:12px 0 0">
+            Réponse sous 24h · Sans engagement
+          </p>
+          <div style="width:48px;height:1px;background:#D4AF37;margin:16px auto 0"></div>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(0,71,52,0.1);padding:40px;border-radius:0.25rem">
+          <ContactForm client:load />
         </div>
       </div>
     </div>

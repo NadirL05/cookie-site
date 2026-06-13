@@ -30,32 +30,32 @@ const reviews = [
 
 const services = [
   {
-    name: "Bar à Crêpes",
-    tag: "Garnitures au choix · Préparées à la minute",
+    name: "Mini Pancakes",
+    tag: "Garnitures au choix · Préparés à la minute",
     badge: "Bestseller",
     href: "/contact",
-    image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=900&q=80&auto=format&fit=crop",
+    image: "/mini-pancakes-plancha.jpeg",
   },
   {
-    name: "Bar à Gaufres",
-    tag: "Moelleuses · Croustillantes · Servies chaudes",
+    name: "Box Garnitures",
+    tag: "Oreo · Caramel · M&Ms · Marshmallow",
     badge: null,
     href: "/contact",
-    image: "https://images.unsplash.com/photo-1481070414801-51fd732d7184?w=900&q=80&auto=format&fit=crop",
+    image: "/mini-pancakes-box.jpeg",
   },
   {
-    name: "Bar à Tiramisu",
-    tag: "Animation originale · Composition sur place",
+    name: "Cookies Artisanaux",
+    tag: "Chocolat · Caramel · Pécan · Éditions limitées",
     badge: "Signature",
-    href: "/contact",
-    image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=900&q=80&auto=format&fit=crop",
+    href: "/creations",
+    image: "/cookies-hero.jpeg",
   },
   {
-    name: "Sur Mesure",
-    tag: "Concept personnalisé · Adapté à votre budget",
+    name: "Bar Cart Mobile",
+    tag: "Concept clé en main · Déplacement PACA",
     badge: null,
-    href: "/contact",
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=900&q=80&auto=format&fit=crop",
+    href: "/bar-mobile",
+    image: "/bar-cart.jpeg",
   },
 ];
 
@@ -79,7 +79,10 @@ const events = [
 ];
 ---
 
-<Layout title="CooksBrad — Bar Mobile Événementiel · PACA">
+<Layout
+  title="CooksBrad — Bar Mobile Événementiel · PACA"
+  description="Bar mobile événementiel en région PACA : cookies artisanaux, bar à crêpes, bar à tiramisu — animations gourmandes pour mariages, corporate et soirées privées."
+>
 
   <!-- ══════════════════════════════════════
        HERO
@@ -87,8 +90,8 @@ const events = [
   <section class="bk-hero">
     <div class="bk-hero-media">
       <img
-        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format&fit=crop"
-        alt="CooksBrad bar mobile événementiel PACA"
+        src="/cookies-hero.jpeg"
+        alt="CooksBrad cookies artisanaux"
         class="bk-hero-img"
         fetchpriority="high"
         loading="eager"
@@ -166,8 +169,9 @@ const events = [
       <p class="bk-reviews-meta">
         <span class="bk-stars-gold">★★★★★</span>
         <strong>4,9</strong>
-        <span class="bk-reviews-count">(200+ événements)</span>
+        <span class="bk-reviews-count">· 200+ événements</span>
       </p>
+      <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(0,71,52,0.45);margin:6px 0 0">Satisfaction clients</p>
     </div>
     <div class="bk-carousel-outer">
       <div class="bk-carousel" role="list">
@@ -252,8 +256,8 @@ const events = [
     </div>
     <div class="bk-story-right">
       <img
-        src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=900&q=80&auto=format&fit=crop"
-        alt="CooksBrad en action"
+        src="/cookies-grilles.jpeg"
+        alt="CooksBrad cookies artisanaux en production"
         class="bk-story-img"
         loading="lazy"
       />
@@ -308,8 +312,8 @@ const events = [
     </div>
     <div class="bk-events-center">
       <img
-        src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80&auto=format&fit=crop"
-        alt="Événement CooksBrad"
+        src="/bar-cart.jpeg"
+        alt="Bar Cart CooksBrad"
         class="bk-events-photo"
         loading="lazy"
       />

@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 const inputClass =
-  "rounded-none border-forest/20 bg-transparent h-12 font-sans text-sm text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50";
+  "rounded-none border-forest/20 bg-transparent h-12 font-sans text-base text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50";
 const labelClass =
   "text-[10px] uppercase tracking-[0.2em] text-forest/60 font-normal font-sans";
 const selectClass =
@@ -20,9 +20,7 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      /* ⚙️ Pour activer le formulaire : créer un compte sur formspree.io
-         et remplacer VOTRE_ID_FORMSPREE par l'ID du formulaire (ex : xoqkjeyo) */
-      const res = await fetch("https://formspree.io/f/VOTRE_ID_FORMSPREE", {
+      const res = await fetch(`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_ID}`, {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
@@ -40,7 +38,7 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="flex flex-col items-center justify-center py-16 border border-forest/15 bg-forest/[0.03]">
+      <div role="status" className="flex flex-col items-center justify-center py-16 border border-forest/15 bg-forest/[0.03]">
         <div className="w-8 h-px bg-gold mb-6" />
         <p className="font-display italic text-forest text-2xl">Demande envoyée !</p>
         <p className="font-sans text-xs text-forest/50 mt-2 tracking-wide">Nous vous répondrons sous 24h.</p>
@@ -159,7 +157,7 @@ export default function ContactForm() {
           name="message"
           rows={4}
           placeholder="Décrivez votre projet, vos attentes, toute information utile…"
-          className="rounded-none border-forest/20 bg-transparent resize-none font-sans text-sm text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50"
+          className="rounded-none border-forest/20 bg-transparent resize-none font-sans text-base text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50"
         />
       </div>
 
@@ -174,7 +172,7 @@ export default function ContactForm() {
       </Button>
 
       {status === "error" && (
-        <p className="text-center font-sans text-xs text-red-700">
+        <p role="alert" className="text-center font-sans text-xs text-red-700">
           Une erreur est survenue. Merci de réessayer ou de nous écrire directement à{" "}
           <a href="mailto:contact@cooksbrad.fr" className="underline">contact@cooksbrad.fr</a>.
         </p>
