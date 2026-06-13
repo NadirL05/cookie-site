@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 const links = [
   { id: "bar-mobile",  label: "Bar Mobile",     href: "/bar-mobile" },
+  { id: "traiteur",    label: "Traiteur",        href: "/traiteur" },
   { id: "creations",   label: "Nos cookies",    href: "/creations" },
   { id: "histoire",    label: "Notre Histoire", href: "/histoire" },
 ];

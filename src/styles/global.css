@@ -1465,7 +1465,7 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 
 /* ── 6. CTA FINAL ────────────────────────────────────────── */
 .bk-cta {
-  padding: clamp(5rem,10vw,9rem) 0;
+  padding: clamp(4rem,7vw,6rem) 0 clamp(3rem,5vw,4.5rem);
 }
 .bk-cta-title {
   font-family: 'Alex Brush', cursive;
