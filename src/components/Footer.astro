@@ -7,37 +7,62 @@ const year = new Date().getFullYear();
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-wordmark">CooksBrad</div>
-        <p class="body-text" style="max-width:340px;margin-top:16px;color:rgba(252,249,248,0.6);">
-          Atelier culinaire & bar mobile événementiel. Des créations artisanales pour vos moments les plus précieux.
+        <p class="body-text footer-brand-desc">
+          Atelier culinaire &amp; bar mobile événementiel. Des créations artisanales pour vos moments les plus précieux.
         </p>
       </div>
 
+      <!-- 3 colonnes desktop → 1 colonne mobile via CSS grid -->
       <div class="footer-cols">
         <div class="footer-col">
           <span class="eyebrow">Navigation</span>
-          <ul>
-            <li><a href="/" class="link-ul">Maison</a></li>
-            <li><a href="/bar-mobile" class="link-ul">Bar Mobile</a></li>
-            <li><a href="/creations" class="link-ul">Nos Créations</a></li>
-            <li><a href="/histoire" class="link-ul">Notre Histoire</a></li>
-            <li><a href="/contact" class="link-ul">Contact</a></li>
+          <ul class="footer-link-list">
+            <li><a href="/" class="link-ul footer-link">Maison</a></li>
+            <li><a href="/bar-mobile" class="link-ul footer-link">Bar Mobile</a></li>
+            <li><a href="/creations" class="link-ul footer-link">Nos Créations</a></li>
+            <li><a href="/histoire" class="link-ul footer-link">Notre Histoire</a></li>
+            <li><a href="/contact" class="link-ul footer-link">Contact</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <span class="eyebrow">Réservation</span>
-          <ul>
-            <li><a href="https://instagram.com/cooksbrad_atelier" class="link-ul" target="_blank" rel="noopener">@cooksbrad_atelier</a></li>
-            <li><a href="https://www.tiktok.com/@cooksbrad" class="link-ul" target="_blank" rel="noopener">TikTok : @cooksbrad</a></li>
-            <li><a href="mailto:cooksbrad.pro@gmail.com" class="link-ul">cooksbrad.pro@gmail.com</a></li>
-            <li><span style="opacity:0.6">Réservation 72h à l'avance</span></li>
+          <ul class="footer-link-list">
+            <li>
+              <a
+                href="https://instagram.com/cooksbrad_atelier"
+                class="link-ul footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @cooksbrad_atelier
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@cooksbrad"
+                class="link-ul footer-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TikTok&nbsp;: @cooksbrad
+              </a>
+            </li>
+            <li>
+              <a href="mailto:cooksbrad.pro@gmail.com" class="link-ul footer-link">
+                cooksbrad.pro@gmail.com
+              </a>
+            </li>
+            <li><span class="footer-note">Réservation 72h à l'avance</span></li>
           </ul>
         </div>
+
         <div class="footer-col">
           <span class="eyebrow">Zone d'intervention</span>
-          <ul>
-            <li>Région PACA</li>
-            <li>Déplacements sur toute la région</li>
-            <li><a href="/contact" class="link-ul">Nous contacter</a></li>
+          <ul class="footer-link-list">
+            <li><span class="footer-note">Région PACA</span></li>
+            <li><span class="footer-note">Déplacements sur toute la région</span></li>
+            <li><a href="/contact" class="link-ul footer-link">Nous contacter</a></li>
           </ul>
         </div>
       </div>
@@ -45,7 +70,107 @@ const year = new Date().getFullYear();
 
     <div class="footer-bottom">
       <span>© {year} CooksBrad Atelier Culinaire · Tous droits réservés</span>
-      <span style="color:#D4AF37;font-family:'Noto Serif',serif;font-style:italic">✦</span>
+      <span class="footer-ornament" aria-hidden="true">✦</span>
     </div>
   </div>
 </footer>
+
+<style>
+  /* ── Touch targets ≥ 44px pour tous les liens du footer ── */
+  .footer-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 2px;
+  }
+
+  /* ── Liste sans puce, espacement cohérent ── */
+  .footer-link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-link-list li {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Texte non-cliquable dans le footer */
+  .footer-note {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Description de la marque */
+  .footer-brand-desc {
+    max-width: 340px;
+    margin-top: 16px;
+    color: rgba(252, 249, 248, 0.6);
+  }
+
+  /* ── Layout footer-top : brand + 3 colonnes ── */
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* ── 3 colonnes desktop → 1 colonne mobile ── */
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* ── Copyright centré sur mobile ── */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .footer-ornament {
+    color: #D4AF37;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+  }
+
+  /* ── Tablet : 2 colonnes ── */
+  @media (min-width: 640px) {
+    .footer-cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ── Desktop : layout horizontal brand + 3 colonnes ── */
+  @media (min-width: 1024px) {
+    .footer-top {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+
+    .footer-brand {
+      flex-shrink: 0;
+    }
+
+    .footer-cols {
+      grid-template-columns: repeat(3, 1fr);
+      flex: 1;
+      gap: 2.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>

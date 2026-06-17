@@ -182,7 +182,7 @@ const events = [
         <h2 class="bk-services-title">Nos prestations</h2>
         <p class="bk-services-sub">Crêpes · Gaufres · Tiramisu · Sur mesure, tout pour sublimer votre événement</p>
       </div>
-      <div class="bk-prod-grid" style="grid-template-columns: repeat(2, 1fr)">
+      <div class="bk-prod-grid bk-prod-grid--duo">
         {services.map(s => (
           <a href={s.href} class="bk-prod-card">
             <figure class="bk-prod-photo">
@@ -335,6 +335,7 @@ const events = [
 </Layout>
 
 <style>
+  /* ── Why grid ─────────────────────────────────────────────── */
   .why-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -363,5 +364,206 @@ const events = [
     color: #D4AF37;
     font-size: 0.8rem;
     flex-shrink: 0;
+  }
+
+  /* ── bk-prod-grid duo variant (2 cards) ───────────────────── */
+  .bk-prod-grid--duo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     MOBILE FIXES — iPhone (≤ 640px)
+     ══════════════════════════════════════════════════════════ */
+  @media (max-width: 640px) {
+
+    /* Prevent horizontal scroll from any overflowing child */
+    html, body {
+      overflow-x: hidden;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    .bk-hero-body {
+      /* Reduce lateral padding so title doesn't crowd the edges */
+      padding: 5rem 1.25rem 2.5rem;
+    }
+    .bk-hero-eyebrow {
+      /* Cap eyebrow so it doesn't look oversized at small sizes */
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 14px;
+    }
+    .bk-hero-title {
+      /* Comfortable readable size on 390px — 13vw ≈ 50px (fine),
+         but clamp floor raised to ensure minimum readability */
+      font-size: clamp(2.6rem, 13vw, 4rem);
+      line-height: 1.08;
+      margin-bottom: 28px;
+      max-width: 100%;
+    }
+    .bk-hero-btn {
+      /* Touch target: ensure at least 44px height */
+      min-height: 44px;
+      padding: 13px 24px;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* ── Marquee — prevent horizontal bleed ────────────────── */
+    .bk-marquee {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    /* ── USP strip — wrap badges on small screens ──────────── */
+    .bk-usp-strip {
+      padding: 18px 1rem;
+    }
+    .bk-usp-inner {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .bk-usp-badge {
+      font-size: 0.62rem;
+      padding: 8px 12px;
+    }
+
+    /* ── Reviews carousel ──────────────────────────────────── */
+    .bk-reviews {
+      padding: 2.5rem 0 2rem;
+    }
+    .bk-reviews-head {
+      padding: 0 1.25rem;
+    }
+    .bk-reviews-title {
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
+    .bk-carousel {
+      /* Ensure cards don't overflow — 85vw gives a peek of next card */
+      padding: 0 1.25rem 14px;
+    }
+    .bk-review-card {
+      flex: 0 0 min(280px, 85vw);
+      padding: 22px 20px 18px;
+    }
+    .bk-review-quote {
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* ── Services grid — 1 column for 2-card layout ───────── */
+    .bk-prod-grid--duo {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    /* Standard prod-grid also goes 1-col on very small */
+    .bk-prod-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px;
+    }
+    .bk-services-title {
+      font-size: clamp(2.4rem, 12vw, 3.5rem);
+    }
+    .bk-services-sub {
+      font-size: 0.9rem;
+      padding: 0 0.5rem;
+    }
+    .bk-services-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding-bottom: 4px;
+    }
+
+    /* ── Pull quote ────────────────────────────────────────── */
+    .bk-pull {
+      padding: 3rem 1.25rem;
+    }
+    .bk-pull-quote {
+      font-size: clamp(1.9rem, 9vw, 3rem);
+    }
+    .bk-pull-mark {
+      font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    /* ── Brand story ───────────────────────────────────────── */
+    .bk-story {
+      grid-template-columns: 1fr;
+    }
+    .bk-story-left {
+      padding: 2.5rem 1.25rem;
+    }
+    .bk-story-title {
+      font-size: clamp(3rem, 16vw, 5rem);
+    }
+    .bk-story-body {
+      font-size: 0.9rem;
+    }
+
+    /* ── Why / engagements section ─────────────────────────── */
+    .section {
+      padding: 3rem 0;
+    }
+    .section-head {
+      margin-bottom: 32px;
+      gap: 14px;
+    }
+
+    /* ── Events accordion ──────────────────────────────────── */
+    .bk-events {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .bk-events-left {
+      /* Reduce side padding drastically on 390px */
+      padding: 2.5rem 1.25rem 1.5rem;
+    }
+    .bk-events-title {
+      font-size: clamp(2.6rem, 13vw, 4rem);
+    }
+    .bk-events-sub {
+      font-size: 0.88rem;
+    }
+    .bk-events-center {
+      min-height: 220px;
+    }
+    .bk-events-right {
+      padding: 1.5rem 1.25rem;
+      border-left: none;
+      border-top: 1px solid rgba(0,71,52,0.08);
+    }
+    .bk-accord-sum {
+      padding: 16px 0;
+      font-size: 0.95rem;
+    }
+    .bk-accord-body {
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+
+    /* ── CTA final ─────────────────────────────────────────── */
+    .bk-cta {
+      padding: 3rem 0 2.5rem;
+    }
+    .bk-cta-title {
+      font-size: clamp(2.4rem, 11vw, 4rem);
+    }
+    .bk-cta-sub {
+      font-size: 0.9rem;
+      padding: 0 1rem;
+    }
+    /* .btn / .btn-gold touch target */
+    .btn {
+      min-height: 44px;
+      padding: 13px 28px;
+      font-size: 0.68rem;
+    }
+  }
+
+  /* ── Slightly wider phones (641–768px): 2 columns preserved ─ */
+  @media (min-width: 641px) and (max-width: 900px) {
+    .bk-prod-grid--duo {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>

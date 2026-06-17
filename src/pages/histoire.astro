@@ -29,26 +29,23 @@ import Layout from '../layouts/Layout.astro';
   <!-- Origine -->
   <section class="section bg-cream">
     <div class="container">
-      <div class="histoire-grid">
+      <div class="histoire-text-solo reveal reveal-delay-1">
+        <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; Les Origines</span>
+        <div class="histoire-timeline-dot"></div>
 
-<div class="histoire-text reveal reveal-delay-1">
-          <span class="eyebrow"><span style="color:#D4AF37">N° 01</span> &nbsp;·&nbsp; Les Origines</span>
-          <div class="histoire-timeline-dot"></div>
-
-          <p class="body-text" style="margin-bottom:18px">
-            Tout a commencé à Lille, alors que nous étions toutes les deux étudiantes
-            en première année de Master et colocataires. Chaque année, la célèbre Braderie
-            de Lille anime la ville et attire des milliers de visiteurs.
-          </p>
-          <p class="body-text" style="margin-bottom:18px">
-            À cette période, Zoé, qui rêvait depuis longtemps de vendre ses propres cookies,
-            partageait souvent cette idée avec moi. Un jour, à l'approche de la Braderie,
-            je me suis tournée vers elle et je lui ai lancé :
-          </p>
-          <blockquote class="histoire-quote">
-            « Et si cette année, on vendait des cookies ? »
-          </blockquote>
-        </div>
+        <p class="body-text" style="margin-bottom:18px">
+          Tout a commencé à Lille, alors que nous étions toutes les deux étudiantes
+          en première année de Master et colocataires. Chaque année, la célèbre Braderie
+          de Lille anime la ville et attire des milliers de visiteurs.
+        </p>
+        <p class="body-text" style="margin-bottom:18px">
+          À cette période, Zoé, qui rêvait depuis longtemps de vendre ses propres cookies,
+          partageait souvent cette idée avec moi. Un jour, à l'approche de la Braderie,
+          je me suis tournée vers elle et je lui ai lancé :
+        </p>
+        <blockquote class="histoire-quote">
+          « Et si cette année, on vendait des cookies ? »
+        </blockquote>
       </div>
     </div>
   </section>
@@ -86,28 +83,26 @@ import Layout from '../layouts/Layout.astro';
   <!-- La suite -->
   <section class="section bg-cream">
     <div class="container">
-      <div class="histoire-grid" style="direction:rtl">
-<div class="histoire-text reveal reveal-delay-1" style="direction:ltr">
-          <span class="eyebrow"><span style="color:#D4AF37">N° 03</span> &nbsp;·&nbsp; Aujourd'hui</span>
-          <div class="histoire-timeline-dot"></div>
+      <div class="histoire-text-solo reveal reveal-delay-1">
+        <span class="eyebrow"><span style="color:#D4AF37">N° 03</span> &nbsp;·&nbsp; Aujourd'hui</span>
+        <div class="histoire-timeline-dot"></div>
 
-          <p class="body-text" style="margin-bottom:18px">
-            Cette première expérience nous a permis de découvrir le plaisir de créer,
-            de rencontrer des clients et de donner vie à une idée qui nous tenait à cœur.
-            Quelques mois plus tard, ce projet est même devenu le sujet d'un exposé en cours
-            et a rapidement fait parler de lui auprès de nos camarades.
-          </p>
-          <p class="body-text" style="margin-bottom:18px">
-            Nous avons alors décidé d'unir nos passions et nos compétences pour créer CooksBrad :
-            un univers gourmand mêlant cookies artisanaux, créations sucrées et prestations
-            événementielles.
-          </p>
-          <p class="body-text">
-            Aujourd'hui, notre ambition est de continuer à faire grandir cette aventure
-            en proposant des produits généreux, des animations gourmandes et des moments
-            de convivialité qui rassemblent. Et ce n'est que le début de l'histoire.
-          </p>
-        </div>
+        <p class="body-text" style="margin-bottom:18px">
+          Cette première expérience nous a permis de découvrir le plaisir de créer,
+          de rencontrer des clients et de donner vie à une idée qui nous tenait à cœur.
+          Quelques mois plus tard, ce projet est même devenu le sujet d'un exposé en cours
+          et a rapidement fait parler de lui auprès de nos camarades.
+        </p>
+        <p class="body-text" style="margin-bottom:18px">
+          Nous avons alors décidé d'unir nos passions et nos compétences pour créer CooksBrad :
+          un univers gourmand mêlant cookies artisanaux, créations sucrées et prestations
+          événementielles.
+        </p>
+        <p class="body-text">
+          Aujourd'hui, notre ambition est de continuer à faire grandir cette aventure
+          en proposant des produits généreux, des animations gourmandes et des moments
+          de convivialité qui rassemblent. Et ce n'est que le début de l'histoire.
+        </p>
       </div>
     </div>
   </section>
@@ -141,26 +136,129 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  /* ── Bloc texte solo (sans image) ─────────────────────────── */
+  .histoire-text-solo {
+    max-width: 680px;
+  }
+
+  /* ── Quote inline ──────────────────────────────────────────── */
   .histoire-quote {
     font-family: 'Noto Serif', serif;
     font-style: italic;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: #004734;
     border-left: 3px solid #D4AF37;
     padding: 16px 24px;
     margin: 24px 0 0;
     background: rgba(212,175,55,0.06);
+    line-height: 1.65;
   }
 
+  /* ── Timeline dot ──────────────────────────────────────────── */
   .histoire-timeline-dot {
-    width: 14px; height: 14px; border-radius: 50%;
-    background: #D4AF37; margin: 28px 0 32px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #D4AF37;
+    margin: 28px 0 32px;
     box-shadow: 0 4px 10px rgba(212,175,55,0.35);
     position: relative;
   }
   .histoire-timeline-dot::before {
-    content: ''; position: absolute; inset: -8px;
-    border: 1px solid rgba(212,175,55,0.25); border-radius: 50%;
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 50%;
+  }
+
+  /* ── Mobile (≤ 480px — iPhone SE/14/15 Pro) ───────────────── */
+  @media (max-width: 480px) {
+
+    /* Section "Notre Nom" : section-head passe à colonne unique,
+       s'assurer que le margin-bottom ne laisse pas trop d'espace */
+    .section-head {
+      margin-bottom: 32px;
+    }
+
+    /* h2 dans section-head : la taille clamp() de global.css
+       (clamp(2.8rem, 5vw, 4.2rem)) reste grande sur 390px.
+       On la surcharge avec une valeur plus douce. */
+    .section-head h2 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.15;
+    }
+
+    /* h2 du CTA band */
+    .cta-band h2 {
+      font-size: clamp(2rem, 9vw, 3rem);
+      line-height: 1.15;
+      margin-top: 12px;
+    }
+
+    /* body-text : line-height légèrement réduit pour confort lecture */
+    .body-text {
+      font-size: 0.975rem;
+      line-height: 1.7;
+    }
+
+    /* Quote : padding réduit pour éviter l'étouffement sur 390px */
+    .histoire-quote {
+      font-size: 1.05rem;
+      padding: 12px 16px;
+      margin: 20px 0 0;
+    }
+
+    /* Pull quote : padding vertical réduit + font adapté */
+    .pull-quote {
+      padding: 48px 0;
+    }
+    .pull-quote blockquote {
+      font-size: clamp(1.15rem, 5vw, 1.5rem);
+      line-height: 1.5;
+      padding: 0 4px; /* évite le flush contre le container */
+    }
+
+    /* CTA band : padding vertical réduit */
+    .cta-band {
+      padding: 52px 0;
+    }
+
+    /* Bouton : pleine largeur sur petit écran pour cible tactile */
+    .cta-band .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+      font-size: 0.65rem;
+    }
+
+    /* Timeline dot : réduire l'espacement */
+    .histoire-timeline-dot {
+      margin: 20px 0 24px;
+    }
+
+    /* Breadcrumbs : font-size lisible */
+    .page-banner .breadcrumbs {
+      font-size: 0.6rem;
+      gap: 8px;
+    }
+
+    /* page-banner h1 : la taille clamp gère déjà le cas mobile,
+       mais on s'assure d'un line-height propre */
+    .page-banner h1 {
+      line-height: 1.15;
+    }
+
+    /* page-banner : réduire le padding pour respirer */
+    .page-banner {
+      padding: 72px 0 48px;
+    }
+
+    /* Sections : padding vertical réduit (global.css en a déjà un à 768px,
+       on affine à 480px) */
+    .section {
+      padding: 48px 0;
+    }
   }
 </style>
 

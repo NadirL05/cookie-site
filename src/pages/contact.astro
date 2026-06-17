@@ -125,26 +125,37 @@ import ContactForm from '../components/ContactForm';
 </Layout>
 
 <style>
+  /* ── Contact layout : 2 colonnes desktop, info d'abord sur mobile ── */
   .contact-layout {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 80px;
     align-items: start;
   }
+
   @media (max-width: 860px) {
-    .contact-layout { grid-template-columns: 1fr; gap: 52px; }
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    /* Coordonnées (2e col dans le DOM) affichées en 1er sur mobile */
+    .contact-info-col  { order: 1; }
+    .contact-form-col  { order: 2; }
   }
 
-  /* Form box */
+  /* ── Form box ── */
   .contact-form-box {
     background: #ffffff;
     border: 1px solid rgba(0,71,52,0.1);
     padding: 40px;
     border-radius: 0.25rem;
   }
-  @media (max-width: 560px) { .contact-form-box { padding: 24px; } }
 
-  /* Coordinates card */
+  @media (max-width: 560px) {
+    .contact-form-box { padding: 20px 16px; }
+  }
+
+  /* ── Coordinates card ── */
   .contact-coords {
     background: #ffffff;
     border: 1px solid rgba(0,71,52,0.1);
@@ -152,40 +163,98 @@ import ContactForm from '../components/ContactForm';
     border-radius: 0.25rem;
     margin-bottom: 16px;
   }
+
+  @media (max-width: 560px) {
+    .contact-coords { padding: 20px 16px; }
+  }
+
   .contact-coords-list {
-    list-style: none; padding: 0; margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
+
   .contact-coord-item {
-    display: flex; flex-direction: column; gap: 4px;
-    padding: 14px 0; border-bottom: 1px solid rgba(0,71,52,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* min 44px touch target via padding vertical */
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,71,52,0.08);
+    min-height: 44px;
+    justify-content: center;
   }
-  .contact-coords-list li:last-child .contact-coord-item { border-bottom: none; padding-bottom: 0; }
-  .contact-coords-list li:first-child .contact-coord-item { padding-top: 0; }
+
+  .contact-coords-list li:last-child .contact-coord-item {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .contact-coords-list li:first-child .contact-coord-item {
+    padding-top: 0;
+  }
+
   .contact-coord-label {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em;
-    text-transform: uppercase; color: #6e5d04;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6e5d04;
   }
+
   .contact-coord-value {
-    font-family: 'Noto Serif', serif; font-style: italic;
-    font-size: 1.05rem; color: #002f21; text-decoration: none;
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #002f21;
+    text-decoration: none;
+    /* liens cliquables : zone tactile étendue */
+    display: inline-block;
   }
+
+  a.contact-coord-value {
+    padding: 2px 0;
+  }
+
   a.contact-coord-value:hover { color: #6e5d04; }
 
-  /* Philosophy section */
+  /* ── Philosophy section ── */
   .contact-philosophy {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 64px; align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
     padding-top: 52px;
   }
-  @media (max-width: 760px) { .contact-philosophy { grid-template-columns: 1fr; gap: 32px; } }
 
-  /* Map */
+  @media (max-width: 760px) {
+    .contact-philosophy {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding-top: 36px;
+    }
+  }
+
+  /* ── Map ── */
   .contact-map {
     overflow: hidden;
     border-radius: 0.25rem;
     border: 1px solid rgba(212,175,55,0.2);
     margin-top: 0;
+  }
+
+  @media (max-width: 560px) {
+    .contact-map iframe {
+      height: 260px !important;
+    }
+  }
+
+  /* ── Hero banner mobile ── */
+  @media (max-width: 560px) {
+    .page-banner { padding-top: 48px; padding-bottom: 48px; }
+    .page-banner-inner { gap: 16px; }
+    .page-banner h1 { font-size: clamp(1.75rem, 7vw, 2.8rem); }
   }
 </style>
 

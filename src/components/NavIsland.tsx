@@ -6,7 +6,11 @@ const links = [
   { id: "histoire",    label: "Notre Histoire",  href: "/histoire" },
 ];
 
-export default function NavIsland({ current = "home" }: { current?: string }) {
+type NavIslandProps = {
+  current?: string;
+};
+
+export default function NavIsland({ current = "home" }: NavIslandProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -17,10 +21,19 @@ export default function NavIsland({ current = "home" }: { current?: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  const handleClose = () => setOpen(false);
+
   return (
     <nav className={`nav-gh${scrolled ? " nav-gh-scrolled" : ""}`}>
       <div className="nav-gh-inner">
-        <a href="/" className="nav-logo">
+        {/* Logo — taille contrôlée via CSS, compact sur mobile */}
+        <a href="/" className="nav-logo" aria-label="CooksBrad — retour à l'accueil">
           <span className="nav-logo-mono">CB</span>
           <div className="nav-logo-text">
             <span className="nav-logo-brand">CooksBrad</span>
@@ -28,7 +41,8 @@ export default function NavIsland({ current = "home" }: { current?: string }) {
           </div>
         </a>
 
-        <ul className="nav-gh-links">
+        {/* Liens desktop : cachés sur mobile */}
+        <ul className="nav-gh-links" role="list">
           {links.map((l) => (
             <li key={l.id}>
               <a
@@ -41,33 +55,50 @@ export default function NavIsland({ current = "home" }: { current?: string }) {
           ))}
         </ul>
 
+        {/* CTA desktop : caché sur mobile */}
         <a href="/contact" className="nav-gh-cta">Réserver</a>
 
+        {/* Bouton hamburger : visible uniquement sur mobile */}
         <button
           className="nav-gh-burger"
           onClick={() => setOpen(!open)}
-          aria-label="Menu"
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
+          aria-controls="nav-mobile-menu"
         >
           <span className={open ? "open" : ""}></span>
           <span className={open ? "open" : ""}></span>
         </button>
       </div>
 
+      {/* Overlay mobile — plein écran avec scroll interne si nécessaire */}
       {open && (
-        <div className="nav-gh-mobile">
-          {links.map((l) => (
+        <div
+          id="nav-mobile-menu"
+          className="nav-gh-mobile"
+          role="dialog"
+          aria-label="Menu de navigation"
+        >
+          <nav className="nav-gh-mobile-inner">
+            {links.map((l) => (
+              <a
+                key={l.id}
+                href={l.href}
+                className={`nav-gh-mobile-link${current === l.id ? " active" : ""}`}
+                onClick={handleClose}
+              >
+                {l.label}
+              </a>
+            ))}
+            {/* Bouton Réserver bien visible dans le menu mobile */}
             <a
-              key={l.id}
-              href={l.href}
-              className={`nav-gh-mobile-link${current === l.id ? " active" : ""}`}
-              onClick={() => setOpen(false)}
+              href="/contact"
+              className="nav-gh-mobile-cta"
+              onClick={handleClose}
             >
-              {l.label}
+              Réserver
             </a>
-          ))}
-          <a href="/contact" className="nav-gh-mobile-cta" onClick={() => setOpen(false)}>
-            Réserver
-          </a>
+          </nav>
         </div>
       )}
     </nav>
