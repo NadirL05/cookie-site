@@ -37,7 +37,7 @@ const commandes = [
 ---
 
 <Layout
-  title="Nos Cookies — Cooksbrad"
+  title="Nos Créations — Cooksbrad"
   description="Découvrez nos cookies artisanaux : incontournables, collections saisonnières et commandes personnalisées."
   current="creations"
 >
@@ -49,7 +49,7 @@ const commandes = [
         <div class="breadcrumbs">
           <a href="/">Maison</a>
           <span style="color:#D4AF37;font-family:'Noto Serif',serif">✦</span>
-          <span style="color:#D4AF37">Nos cookies</span>
+          <span style="color:#D4AF37">Nos Créations</span>
         </div>
         <h1>Des créations<br/>gourmandes.</h1>
       </div>
@@ -176,7 +176,7 @@ const commandes = [
         « Une fabrication artisanale, des ingrédients sélectionnés,<br/>
         et une seule ambition : créer des moments de plaisir et de partage. »
       </blockquote>
-      <cite>— CooksBrad</cite>
+      <cite>CooksBrad</cite>
     </div>
   </section>
 
@@ -194,6 +194,72 @@ const commandes = [
     </div>
   </section>
 
+  <!-- Box Collections -->
+  <section class="section bg-cream" style="padding-top:0;border-top:1px solid rgba(0,71,52,0.08)">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px" class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:12px"><span style="color:#D4AF37">N° 04</span> &nbsp;·&nbsp; Nos Box</span>
+        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#002f21;letter-spacing:-0.02em">
+          Créations pour tous vos événements
+        </h2>
+        <div style="width:48px;height:1px;background:#D4AF37;margin:16px auto 0"></div>
+      </div>
+      <div class="box-collections-grid reveal reveal-delay-1">
+        <div class="box-card">
+          <div class="box-card-img">
+            <img src="/cookies-kitkat.jpeg" alt="Box Sucrées CooksBrad" loading="lazy" />
+            <div class="box-card-badge">Artisanal</div>
+          </div>
+          <div class="box-card-body">
+            <h3 class="box-card-title">Box Sucrées</h3>
+            <div class="box-card-tags">
+              <span class="box-tag">Fruits</span>
+              <span class="box-tag">Cookies et Brownies</span>
+              <span class="box-tag">Verrines</span>
+            </div>
+            <div class="box-card-price">A partir de 45 euros</div>
+            <div class="box-card-note">Personnalisable sur devis</div>
+          </div>
+        </div>
+        <div class="box-card">
+          <div class="box-card-img">
+            <img src="/mini-pancakes-box.jpeg" alt="Box Salées CooksBrad" loading="lazy" />
+            <div class="box-card-badge">Signature</div>
+          </div>
+          <div class="box-card-body">
+            <h3 class="box-card-title">Box Salées</h3>
+            <div class="box-card-tags">
+              <span class="box-tag">Chaude</span>
+              <span class="box-tag">Froide</span>
+              <span class="box-tag">Mixte</span>
+            </div>
+            <div class="box-card-price">A partir de 55 euros</div>
+            <div class="box-card-note">Personnalisable sur devis</div>
+          </div>
+        </div>
+        <div class="box-card">
+          <div class="box-card-img">
+            <img src="/cookies-pecan.jpeg" alt="Nos Planches CooksBrad" loading="lazy" />
+            <div class="box-card-badge">Terroir</div>
+          </div>
+          <div class="box-card-body">
+            <h3 class="box-card-title">Nos Planches</h3>
+            <div class="box-card-tags">
+              <span class="box-tag">Fromage</span>
+              <span class="box-tag">Charcuterie</span>
+              <span class="box-tag">Crudités</span>
+            </div>
+            <div class="box-card-price">A partir de 65 euros</div>
+            <div class="box-card-note">Personnalisable sur devis</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px" class="reveal">
+        <a href="/contact" class="btn btn-primary">Demander un devis <span class="arrow">&#x2192;</span></a>
+      </div>
+    </div>
+  </section>
+
   <!-- Avis clients -->
   <section class="section bg-forest" style="padding-top:56px;padding-bottom:56px">
     <div class="container">
@@ -201,10 +267,10 @@ const commandes = [
         <span class="eyebrow" style="color:rgba(212,175,55,0.6);display:block;margin-bottom:8px">Ils nous font confiance</span>
         <span class="bk-stars-gold" style="font-size:0.95rem">★★★★★</span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="reveal reveal-delay-1">
+      <div class="reviews-grid reveal reveal-delay-1">
         <article style="padding:32px;background:rgba(255,255,255,0.05);border-left:2px solid rgba(212,175,55,0.35)">
           <p style="font-family:'Noto Serif',serif;font-style:italic;font-size:1rem;color:rgba(252,249,248,0.85);line-height:1.75;margin:0 0 20px">
-            « Des cookies à la fois généreux et raffinés — le caramel beurre salé était une vraie révélation. Nos invités ont tout dévoré en moins d'une heure. »
+            « Des cookies à la fois généreux et raffinés, le caramel beurre salé était une vraie révélation. Nos invités ont tout dévoré en moins d'une heure. »
           </p>
           <footer style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#D4AF37">
             Isabelle T. &nbsp;·&nbsp; <span style="color:rgba(252,249,248,0.45);font-weight:400;text-transform:none;letter-spacing:0">Mariage · Nice</span>
@@ -358,6 +424,55 @@ const commandes = [
     font-size: 1.8rem;
     color: #002f21;
     margin: 0 0 16px;
+  }
+
+  /* Reviews horizontal scroll on mobile */
+  .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 640px) {
+    .reviews-grid { display: flex !important; flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+    .reviews-grid article { min-width: 82vw; scroll-snap-align: start; flex-shrink: 0; }
+  }
+
+  /* Box collections */
+  .box-collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 760px) { .box-collections-grid { grid-template-columns: 1fr; } }
+  .box-card {
+    background: #fff;
+    border: 1px solid rgba(0,71,52,0.1);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+  .box-card:hover { box-shadow: 0 8px 32px rgba(0,71,52,0.1); }
+  .box-card-img { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+  .box-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+  .box-card:hover .box-card-img img { transform: scale(1.05); }
+  .box-card-badge {
+    position: absolute; top: 12px; left: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #002f21; background: #D4AF37; padding: 4px 10px; border-radius: 2px;
+  }
+  .box-card-body { padding: 24px; }
+  .box-card-title {
+    font-family: 'Noto Serif', serif; font-style: italic; font-weight: 600;
+    font-size: 1.3rem; color: #002f21; margin: 0 0 12px;
+  }
+  .box-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .box-tag {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 500;
+    color: #004734; background: rgba(0,71,52,0.07); border-radius: 2px; padding: 3px 8px;
+  }
+  .box-card-price {
+    font-family: 'Noto Serif', serif; font-style: italic; font-size: 1.05rem; color: #002f21; font-weight: 600;
+  }
+  .box-card-note {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8rem; color: rgba(0,47,33,0.5);
+    margin-top: 4px;
   }
 </style>
 

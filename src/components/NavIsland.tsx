@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { id: "bar-mobile",  label: "Bar Mobile",     href: "/bar-mobile" },
-  { id: "traiteur",    label: "Traiteur",        href: "/traiteur" },
-  { id: "creations",   label: "Nos cookies",    href: "/creations" },
-  { id: "histoire",    label: "Notre Histoire", href: "/histoire" },
+  { id: "bar-mobile",  label: "Bar Mobile",      href: "/bar-mobile" },
+  { id: "creations",   label: "Nos Créations",   href: "/creations" },
+  { id: "histoire",    label: "Notre Histoire",  href: "/histoire" },
 ];
 
 export default function NavIsland({ current = "home" }: { current?: string }) {
@@ -25,7 +24,7 @@ export default function NavIsland({ current = "home" }: { current?: string }) {
           <span className="nav-logo-mono">CB</span>
           <div className="nav-logo-text">
             <span className="nav-logo-brand">CooksBrad</span>
-            <span className="nav-logo-sub">PACA · Depuis 2015</span>
+            <span className="nav-logo-sub">PACA</span>
           </div>
         </a>
 
