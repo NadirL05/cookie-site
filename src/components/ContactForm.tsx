@@ -5,11 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 const inputClass =
-  "rounded-none border-forest/20 bg-transparent h-12 font-sans text-base text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50";
+  "rounded-none border-forest/20 bg-transparent h-12 w-full font-sans text-base text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50 [font-size:16px]";
 const labelClass =
   "text-[10px] uppercase tracking-[0.2em] text-forest/60 font-normal font-sans";
 const selectClass =
-  "rounded-none border border-forest/20 bg-transparent h-12 w-full px-3 font-sans text-sm text-[#2C1810] focus:outline-none focus:ring-1 focus:ring-forest/30 focus:border-forest/50 cursor-pointer";
+  "rounded-none border border-forest/20 bg-transparent h-12 w-full px-3 font-sans text-[#2C1810] focus:outline-none focus:ring-1 focus:ring-forest/30 focus:border-forest/50 cursor-pointer [font-size:16px]";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -157,7 +157,7 @@ export default function ContactForm() {
           name="message"
           rows={4}
           placeholder="Décrivez votre projet, vos attentes, toute information utile…"
-          className="rounded-none border-forest/20 bg-transparent resize-none font-sans text-base text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50"
+          className="rounded-none border-forest/20 bg-transparent resize-none w-full font-sans text-base text-[#2C1810] placeholder:text-[#2C1810]/30 focus-visible:ring-1 focus-visible:ring-forest/30 focus-visible:border-forest/50 [font-size:16px]"
         />
       </div>
 

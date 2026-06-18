@@ -214,11 +214,7 @@ body::after {
 .nav-gh-cta:hover { opacity: 0.85; }
 .nav-gh-cta:active { transform: scale(0.97); }
 
-/* Hamburger */
-.nav-gh-burger {
-  display: none; background: transparent; border: none;
-  flex-direction: column; gap: 5px; cursor: pointer; padding: 8px;
-}
+/* Hamburger spans */
 .nav-gh-burger span {
   display: block; width: 22px; height: 1.5px; background: rgba(0, 47, 33, 0.65);
   transition: transform 0.3s, opacity 0.3s;
@@ -231,30 +227,74 @@ body::after {
   .nav-gh-burger { display: flex; }
 }
 
-/* Mobile dropdown */
+/* Mobile menu overlay — couvre tout l'écran sous la nav, scroll interne si besoin */
 .nav-gh-mobile {
-  position: fixed; top: 76px; left: 0; right: 0;
-  background: #F7F5EF; border-top: 1px solid rgba(0,71,52,0.08);
-  border-bottom: 1px solid rgba(0,71,52,0.08);
-  padding: 32px 24px 40px;
-  display: flex; flex-direction: column; gap: 8px;
+  position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
+  background: #F7F5EF;
+  border-top: 1px solid rgba(0,71,52,0.08);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   z-index: 49;
   box-shadow: 0 8px 32px rgba(0,47,33,0.10);
 }
+/* Conteneur interne centré avec padding */
+.nav-gh-mobile-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 24px 24px 48px;
+}
+/* Liens principaux — touch target ≥ 44px */
 .nav-gh-mobile-link {
-  font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 2rem;
-  color: rgba(0, 47, 33, 0.80); text-decoration: none;
-  padding: 8px 0; border-bottom: 1px solid rgba(0,71,52,0.08);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: rgba(0, 47, 33, 0.80);
+  text-decoration: none;
+  /* touch target : min-height 44px garantie + padding confortable */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,71,52,0.08);
   transition: color 0.2s;
 }
 .nav-gh-mobile-link:hover,
 .nav-gh-mobile-link.active { color: #002f21; }
+/* Bouton Réserver dans le menu mobile — pleinement visible + touch target ≥ 44px */
 .nav-gh-mobile-cta {
-  display: inline-block; margin-top: 20px; align-self: flex-start;
-  background: #004734; color: #F7F5EF;
-  font-family: 'Playfair Display', serif; font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
-  padding: 14px 32px; border-radius: 0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  min-height: 44px;
+  align-self: flex-start;
+  background: #004734;
+  color: #F7F5EF;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 36px;
+  border-radius: 0.125rem;
+  transition: opacity 0.2s;
+}
+.nav-gh-mobile-cta:hover { opacity: 0.85; }
+/* Burger : touch target ≥ 44px */
+.nav-gh-burger {
+  min-width: 44px;
+  min-height: 44px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 11px 8px;
 }
 
 /* ============================================
@@ -579,11 +619,18 @@ body::after {
 }
 .footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 @media (max-width: 700px) { .footer-cols { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } }
 .footer-col .eyebrow { margin-bottom: 16px; display: block; color: #D4AF37; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col a, .footer-col li {
   font-family: 'Playfair Display', serif; font-size: 0.9rem;
   color: rgba(252,249,248,0.75); text-decoration: none;
+}
+/* Touch targets ≥ 44px pour les liens footer */
+.footer-col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 .footer-col a:hover { color: #D4AF37; }
 .footer-bottom {
