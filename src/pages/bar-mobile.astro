@@ -7,27 +7,27 @@ const ateliers = [
     span: 'large',
     label: 'Tradition & Modernité',
     title: 'Bar à Crêpes',
-    desc: 'Farine de blé noir bio, garnitures maison et show-cooking. Une animation conviviale qui sublime le patrimoine avec une touche contemporaine.',
+    desc: 'Ingrédients soigneusement sélectionnés, garnitures maison et show-cooking. Une animation conviviale et gourmande préparée devant vos invités.',
     items: ['Caramel au beurre salé maison', 'Fruits frais de saison', 'Chocolat artisanal'],
     image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&q=80&auto=format&fit=crop',
   },
   {
-    id: 'tiramisu',
+    id: 'focaccia',
     span: 'small',
     label: 'L\'Italie à l\'Honneur',
-    title: 'Bar à Tiramisu',
-    desc: 'Personnalisation en direct : choisissez votre biscuit, votre crème et vos toppings pour un dessert sur-mesure.',
-    items: [],
+    title: 'Bar à focaccia',
+    desc: 'Inspiré de l\'art de vivre italien, notre bar à focaccia propose une expérience sur mesure autour de pains artisanaux généreux et de garnitures soigneusement sélectionnées. Une animation élégante qui transforme chaque réception en un véritable voyage gourmand.',
+    items: ['Burrata crémeuse', 'Bresaola de bœuf', 'Pesto maison et légumes marinés'],
     gold: true,
     image: null,
   },
   {
-    id: 'cart',
+    id: 'refraichissant',
     span: 'small',
-    label: 'Bar Mobile',
-    title: 'Le bar mobile',
-    desc: 'L\'élégance mobile pour vos cocktails et boissons fines. Verrerie cristal incluse.',
-    items: [],
+    label: 'Bar Rafraîchissant',
+    title: 'Bar rafraîchissant',
+    desc: 'Une expérience élégante autour de boissons préparées à la minute, imaginées pour offrir à vos invités un moment de fraîcheur et de partage.',
+    items: ['Fruits frais sélectionnés', 'Herbes aromatiques et garnitures raffinées', 'Créations personnalisées selon votre événement'],
     image: null,
   },
   {
@@ -66,7 +66,7 @@ const events = [
 
 <Layout
   title="Bar mobile événementiel — Cooksbrad"
-  description="Bar mobile événementiel CooksBrad : bars à crêpes, tiramisu, cocktails et animations sur mesure pour mariages, corporate et soirées privées."
+  description="Bar mobile événementiel CooksBrad : bars à crêpes, focaccia, cocktails et animations sur mesure pour mariages, corporate et soirées privées."
   current="bar-mobile"
 >
 
@@ -113,7 +113,7 @@ const events = [
           </h2>
           <p class="body-text" style="margin-bottom:28px">
             CooksBrad réinvente l'animation de vos événements avec une solution mobile haut de gamme.
-            Du bar à crêpes artisanal au bar à tiramisu sophistiqué, notre atelier se déplace pour créer
+            Du bar à crêpes artisanal au bar à focaccia sophistiqué, notre atelier se déplace pour créer
             une expérience visuelle et gustative inoubliable.
           </p>
           <div style="display:flex;gap:24px;flex-wrap:wrap">
@@ -166,7 +166,7 @@ const events = [
             <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6e5d04;display:block;margin-bottom:12px">Tradition & Modernité</span>
             <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:1.75rem;color:#1b1c1c;margin:0 0 12px">Bar à Crêpes</h3>
             <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;color:rgba(27, 28, 28,0.6);line-height:1.65;max-width:420px">
-              Farine de blé noir bio, garnitures maison et show-cooking. Une animation conviviale qui sublime le patrimoine breton avec une touche contemporaine.
+              Ingrédients soigneusement sélectionnés, garnitures maison et show-cooking. Une animation conviviale et gourmande préparée devant vos invités.
             </p>
             <ul class="atelier-list">
               <li>Caramel au beurre salé maison</li>
@@ -176,22 +176,32 @@ const events = [
           </div>
         </div>
 
-        <!-- Bar à Tiramisu — light -->
+        <!-- Bar à focaccia — light -->
         <div class="atelier-card atelier-gold">
           <div class="atelier-content">
             <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#6e5d04;display:block;margin-bottom:12px">L'Italie à l'Honneur</span>
-            <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:1.5rem;color:#1b1c1c;margin:0 0 12px">Bar à Tiramisu</h3>
+            <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:1.5rem;color:#1b1c1c;margin:0 0 12px">Bar à focaccia</h3>
             <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:rgba(27, 28, 28,0.6);line-height:1.65">
-              Personnalisation en direct : choisissez votre biscuit, votre crème et vos toppings pour un dessert sur-mesure.
+              Inspiré de l'art de vivre italien, notre bar à focaccia propose une expérience sur mesure autour de pains artisanaux généreux et de garnitures soigneusement sélectionnées. Une animation élégante qui transforme chaque réception en un véritable voyage gourmand.
             </p>
+            <ul class="atelier-list">
+              <li>Burrata crémeuse</li>
+              <li>Bresaola de bœuf</li>
+              <li>Pesto maison et légumes marinés</li>
+            </ul>
           </div>
         </div>
 
         <!-- Le Bar Mobile — small light -->
         <div class="atelier-card atelier-small-dark">
           <div class="atelier-content">
-            <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#1b1c1c;margin:0 0 8px">Le bar mobile</h3>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;color:rgba(27, 28, 28,0.6);line-height:1.6;margin:0">L'élégance mobile pour vos cocktails et boissons fines.</p>
+            <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#1b1c1c;margin:0 0 8px">Bar rafraîchissant</h3>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;color:rgba(27, 28, 28,0.6);line-height:1.6;margin:0 0 12px">Une expérience élégante autour de boissons préparées à la minute, imaginées pour offrir à vos invités un moment de fraîcheur et de partage.</p>
+            <ul class="atelier-list">
+              <li>Fruits frais sélectionnés</li>
+              <li>Herbes aromatiques et garnitures raffinées</li>
+              <li>Créations personnalisées selon votre événement</li>
+            </ul>
           </div>
         </div>
 

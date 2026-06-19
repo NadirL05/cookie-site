@@ -71,18 +71,6 @@ const commandes = [
       <div class="gallery-item gallery-large">
         <img src="/cookies-hero.jpeg" alt="Cookies caramel CooksBrad" loading="eager" />
       </div>
-      <div class="gallery-item">
-        <img src="/cookies-kitkat.jpeg" alt="Cookies KitKat CooksBrad" loading="lazy" />
-      </div>
-      <div class="gallery-item">
-        <img src="/cookies-varietes.jpeg" alt="Variétés de cookies CooksBrad" loading="lazy" />
-      </div>
-      <div class="gallery-item gallery-mid">
-        <img src="/cookies-grilles.jpeg" alt="Cookies en production CooksBrad" loading="lazy" />
-      </div>
-      <div class="gallery-item gallery-wide">
-        <img src="/cookies-pecan.jpeg" alt="Cookies pécan CooksBrad" loading="lazy" />
-      </div>
     </div>
   </section>
 
@@ -311,14 +299,11 @@ const commandes = [
   .cookie-gallery { background: #F7F5EF; padding: 0 0 8px; }
   .cookie-gallery-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 300px 260px;
+    grid-template-columns: 1fr;
+    grid-template-rows: clamp(320px, 50vw, 560px);
     gap: 4px;
   }
   .gallery-item { overflow: hidden; }
-  .gallery-large { grid-column: 1; grid-row: 1 / 3; }
-  .gallery-mid  { grid-column: 2; grid-row: 2; }
-  .gallery-wide { grid-column: 3; grid-row: 2; }
   .gallery-item img {
     width: 100%; height: 100%;
     object-fit: cover;
@@ -326,24 +311,18 @@ const commandes = [
   }
   .gallery-item:hover img { transform: scale(1.05); }
 
-  /* Galerie — 2 colonnes sur tablette */
+  /* Galerie — hauteur réduite sur tablette */
   @media (max-width: 760px) {
     .cookie-gallery-grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 220px 180px 180px;
+      grid-template-rows: clamp(260px, 60vw, 420px);
     }
-    .gallery-large { grid-column: 1 / -1; grid-row: auto; }
-    .gallery-mid   { grid-column: auto; grid-row: auto; }
-    .gallery-wide  { display: none; }
   }
 
-  /* Galerie — 1 colonne sur petits mobiles */
+  /* Galerie — hauteur réduite sur petits mobiles */
   @media (max-width: 430px) {
     .cookie-gallery-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: 220px 180px 180px;
+      grid-template-rows: 260px;
     }
-    .gallery-large { grid-column: 1; }
   }
 
   /* ============================================================

@@ -66,8 +66,12 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
           aria-expanded={open}
           aria-controls="nav-mobile-menu"
         >
-          <span className={open ? "open" : ""}></span>
-          <span className={open ? "open" : ""}></span>
+          <span className="nav-gh-burger-bars">
+            <span className={open ? "open" : ""}></span>
+            <span className={open ? "open" : ""}></span>
+            <span className={open ? "open" : ""}></span>
+          </span>
+          <span className="nav-gh-burger-label">{open ? "Fermer" : "Menu"}</span>
         </button>
       </div>
 

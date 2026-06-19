@@ -215,12 +215,21 @@ body::after {
 .nav-gh-cta:active { transform: scale(0.97); }
 
 /* Hamburger spans */
+.nav-gh-burger-bars {
+  display: flex; flex-direction: column; gap: 5px;
+}
 .nav-gh-burger span {
-  display: block; width: 22px; height: 1.5px; background: rgba(27, 28, 28, 0.65);
+  display: block; width: 24px; height: 2px; background: #1b1c1c;
+  border-radius: 2px;
   transition: transform 0.3s, opacity 0.3s;
 }
-.nav-gh-burger span.open:first-child { transform: rotate(45deg) translate(4px, 4px); }
-.nav-gh-burger span.open:last-child  { transform: rotate(-45deg) translate(4px, -4px); }
+.nav-gh-burger-label {
+  font-family: 'Playfair Display', serif; font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #1b1c1c;
+}
+.nav-gh-burger span.open:first-child { transform: rotate(45deg) translate(5px, 5px); }
+.nav-gh-burger span.open:nth-child(2) { opacity: 0; }
+.nav-gh-burger span.open:last-child  { transform: rotate(-45deg) translate(5px, -5px); }
 
 @media (max-width: 900px) {
   .nav-gh-links, .nav-gh-cta { display: none; }
@@ -289,13 +298,16 @@ body::after {
   display: none;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   background: transparent;
-  border: none;
-  flex-direction: column;
-  gap: 5px;
+  border: 1px solid rgba(27, 28, 28, 0.22);
+  border-radius: 0.2rem;
+  flex-direction: row;
   cursor: pointer;
-  padding: 11px 8px;
+  padding: 8px 14px;
+  transition: border-color 0.2s, background 0.2s;
 }
+.nav-gh-burger:hover { border-color: #D4AF37; }
 
 /* ============================================
    Buttons
