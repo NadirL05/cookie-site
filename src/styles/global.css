@@ -167,7 +167,7 @@ body::after {
   gap: 32px; max-width: 1320px; margin: 0 auto;
   padding: 0 48px; height: 76px;
 }
-@media (max-width: 768px) { .nav-gh-inner { padding: 0 24px; } }
+@media (max-width: 768px) { .nav-gh-inner { padding: 0 20px; gap: 16px; } }
 
 /* Logo monogram — ancien site style */
 .nav-logo {
@@ -239,6 +239,7 @@ body::after {
 .nav-gh-burger-label {
   font-family: 'Playfair Display', serif; font-size: 0.6rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase; color: #F7F5EF;
+  white-space: nowrap;
 }
 /* Transformation propre en croix « Fermer » */
 .nav-gh-burger span.open { width: 18px; }
@@ -308,18 +309,18 @@ body::after {
 .nav-gh-mobile-cta:hover { opacity: 0.85; }
 /* Burger : touch target ≥ 44px */
 .nav-gh-burger {
-  min-width: 44px;
   min-height: 44px;
+  flex-shrink: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  gap: 11px;
+  gap: 10px;
   background: #2a2724;
   border: 1px solid rgba(247, 245, 239, 0.12);
   border-radius: 999px;
   flex-direction: row;
   cursor: pointer;
-  padding: 9px 20px 9px 18px;
+  padding: 9px 18px;
   box-shadow: 0 1px 6px rgba(27, 28, 28, 0.18);
   transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.15s var(--ease);
 }
