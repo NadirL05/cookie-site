@@ -281,40 +281,6 @@ const events = [
   </section>
 
   <!-- ══════════════════════════════════════
-       POUR QUELS ÉVÉNEMENTS
-       ══════════════════════════════════════ -->
-  <section class="bk-events">
-    <div class="bk-events-left">
-      <h2 class="bk-events-title">Pour quels<br/>événements ?</h2>
-      <p class="bk-events-sub">
-        Chaque événement est unique.<br/>Nous nous adaptons à votre univers.
-      </p>
-      <a href="/contact" class="dual-link" style="margin-top:32px;display:inline-flex;align-items:center;gap:8px">
-        Planifier mon événement →
-      </a>
-    </div>
-    <div class="bk-events-center">
-      <img
-        src="/bar-cart.jpeg"
-        alt="Bar Mobile CooksBrad"
-        class="bk-events-photo"
-        loading="lazy"
-      />
-    </div>
-    <div class="bk-events-right">
-      {events.map((ev, i) => (
-        <details class="bk-accord" open={i === 0}>
-          <summary class="bk-accord-sum">
-            <span>{ev.title}</span>
-            <span class="bk-accord-icon"></span>
-          </summary>
-          <p class="bk-accord-body">{ev.body}</p>
-        </details>
-      ))}
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
        CTA FINAL
        ══════════════════════════════════════ -->
   <section class="bk-cta bg-forest">
