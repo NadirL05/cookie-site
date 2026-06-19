@@ -1,0 +1,33 @@
+/* ─────────────────────────────────────────────────────
+   Polices auto-hébergées (Fontsource) — RGPD-friendly
+   Aucune requête vers Google Fonts (pas de fuite d'IP
+   vers un tiers hors UE). Sous-ensemble latin uniquement.
+───────────────────────────────────────────────────── */
+
+/* Playfair Display — serif principale */
+@import "@fontsource/playfair-display/latin-400.css";
+@import "@fontsource/playfair-display/latin-500.css";
+@import "@fontsource/playfair-display/latin-600.css";
+@import "@fontsource/playfair-display/latin-700.css";
+@import "@fontsource/playfair-display/latin-400-italic.css";
+@import "@fontsource/playfair-display/latin-500-italic.css";
+@import "@fontsource/playfair-display/latin-600-italic.css";
+
+/* Noto Serif — serif de support */
+@import "@fontsource/noto-serif/latin-300.css";
+@import "@fontsource/noto-serif/latin-400.css";
+@import "@fontsource/noto-serif/latin-500.css";
+@import "@fontsource/noto-serif/latin-600.css";
+@import "@fontsource/noto-serif/latin-700.css";
+@import "@fontsource/noto-serif/latin-400-italic.css";
+@import "@fontsource/noto-serif/latin-500-italic.css";
+
+/* Plus Jakarta Sans — sans-serif UI */
+@import "@fontsource/plus-jakarta-sans/latin-300.css";
+@import "@fontsource/plus-jakarta-sans/latin-400.css";
+@import "@fontsource/plus-jakarta-sans/latin-500.css";
+@import "@fontsource/plus-jakarta-sans/latin-600.css";
+@import "@fontsource/plus-jakarta-sans/latin-700.css";
+
+/* Alex Brush — script décorative */
+@import "@fontsource/alex-brush/latin-400.css";

@@ -13,9 +13,11 @@ const selectClass =
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [consent, setConsent] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!consent) return;
     setStatus("sending");
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -163,9 +165,29 @@ export default function ContactForm() {
 
       <input type="text" name="_gotcha" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
+      {/* Consentement RGPD (art. 6 & 7 RGPD) */}
+      <div className="flex items-start gap-3 pt-2">
+        <input
+          id="contact-consent"
+          name="consent"
+          type="checkbox"
+          required
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-forest border-forest/30"
+        />
+        <label htmlFor="contact-consent" className="font-sans text-xs leading-relaxed text-forest/70 cursor-pointer">
+          J'accepte que les informations saisies soient utilisées par CooksBrad pour
+          traiter ma demande de devis et me recontacter. Conformément au RGPD, vous
+          disposez d'un droit d'accès, de rectification et de suppression de vos données.
+          Pour en savoir plus, consultez notre{" "}
+          <a href="/confidentialite" className="underline hover:text-forest">politique de confidentialité</a>.
+        </label>
+      </div>
+
       <Button
         type="submit"
-        disabled={status === "sending"}
+        disabled={status === "sending" || !consent}
         className="w-full mt-2 rounded-none bg-forest text-cream hover:bg-[#383430] uppercase tracking-[0.18em] text-[10px] h-12 font-normal disabled:opacity-50 transition-colors duration-200"
       >
         {status === "sending" ? "Envoi en cours…" : "Recevoir mon devis gratuit →"}
@@ -174,7 +196,7 @@ export default function ContactForm() {
       {status === "error" && (
         <p role="alert" className="text-center font-sans text-xs text-red-700">
           Une erreur est survenue. Merci de réessayer ou de nous écrire directement à{" "}
-          <a href="mailto:contact@cooksbrad.fr" className="underline">contact@cooksbrad.fr</a>.
+          <a href="mailto:cooksbrad.pro@gmail.com" className="underline">cooksbrad.pro@gmail.com</a>.
         </p>
       )}
     </form>

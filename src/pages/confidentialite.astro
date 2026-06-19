@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const updated = '17 juin 2026';
+---
+
+<Layout
+  title="Politique de confidentialité — CooksBrad"
+  description="Politique de confidentialité et de protection des données personnelles de CooksBrad, conforme au RGPD."
+  current=""
+>
+  <section class="page-banner">
+    <div class="container page-banner-inner">
+      <div>
+        <div class="breadcrumbs">
+          <a href="/">Maison</a>
+          <span style="color:#D4AF37;font-family:'Noto Serif',serif">✦</span>
+          <span style="color:#D4AF37">Confidentialité</span>
+        </div>
+        <h1>Politique de<br/>confidentialité.</h1>
+      </div>
+      <div>
+        <p>
+          La protection de vos données personnelles est une priorité. Cette page
+          décrit quelles informations nous collectons, pourquoi, et comment exercer
+          vos droits, conformément au Règlement (UE) 2016/679 (RGPD).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="container legal">
+      <p class="legal-updated">Dernière mise à jour : {updated}</p>
+
+      <h2>1. Responsable du traitement</h2>
+      <p>
+        Le responsable du traitement des données collectées sur ce site est&nbsp;:
+      </p>
+      <ul>
+        <li><strong>CooksBrad</strong> — Atelier culinaire &amp; bar mobile événementiel</li>
+        <li>Adresse&nbsp;: <em>[à compléter — adresse du siège]</em></li>
+        <li>E-mail&nbsp;: <a href="mailto:cooksbrad.pro@gmail.com">cooksbrad.pro@gmail.com</a></li>
+        <li>SIRET&nbsp;: <em>[à compléter]</em></li>
+      </ul>
+
+      <h2>2. Données collectées</h2>
+      <p>
+        Nous collectons uniquement les données que vous nous transmettez volontairement
+        via notre formulaire de contact&nbsp;:
+      </p>
+      <ul>
+        <li>Identité&nbsp;: nom, prénom&nbsp;;</li>
+        <li>Coordonnées&nbsp;: adresse e-mail, numéro de téléphone&nbsp;;</li>
+        <li>Détails de votre projet&nbsp;: date, lieu, nombre d'invités, type d'événement, message libre.</li>
+      </ul>
+      <p>
+        Aucune donnée n'est collectée à votre insu. Le site n'utilise <strong>aucun cookie
+        de mesure d'audience, de publicité ou de traçage</strong>, et n'intègre aucun
+        outil d'analyse tiers.
+      </p>
+
+      <h2>3. Finalités et base légale</h2>
+      <ul>
+        <li>
+          <strong>Traiter votre demande de devis et vous recontacter</strong> —
+          base légale&nbsp;: votre consentement (art. 6.1.a RGPD) et l'exécution de
+          mesures précontractuelles prises à votre demande (art. 6.1.b RGPD).
+        </li>
+      </ul>
+      <p>
+        Vos données ne sont jamais vendues ni utilisées à des fins de prospection
+        commerciale non sollicitée.
+      </p>
+
+      <h2>4. Destinataires et sous-traitants</h2>
+      <p>
+        Les données du formulaire sont transmises à notre prestataire d'envoi de
+        formulaires <strong>Formspree, Inc.</strong> (États-Unis), qui agit en qualité
+        de sous-traitant. Ce transfert hors Union européenne est encadré par les
+        <strong>clauses contractuelles types</strong> de la Commission européenne.
+        L'hébergement du site est assuré par <strong>Vercel Inc.</strong>
+      </p>
+
+      <h2>5. Durée de conservation</h2>
+      <p>
+        Vos données sont conservées le temps nécessaire au traitement de votre demande,
+        puis archivées pendant une durée maximale de <strong>3 ans</strong> à compter de
+        notre dernier contact, avant suppression.
+      </p>
+
+      <h2>6. Vos droits</h2>
+      <p>
+        Conformément au RGPD, vous disposez des droits d'accès, de rectification,
+        d'effacement, de limitation, d'opposition et de portabilité de vos données,
+        ainsi que du droit de retirer votre consentement à tout moment.
+      </p>
+      <p>
+        Pour exercer ces droits, écrivez-nous à
+        <a href="mailto:cooksbrad.pro@gmail.com">cooksbrad.pro@gmail.com</a>.
+        Vous pouvez également introduire une réclamation auprès de la
+        <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a>
+        (Commission nationale de l'informatique et des libertés).
+      </p>
+
+      <h2>7. Sécurité</h2>
+      <p>
+        Les échanges avec le site sont chiffrés via HTTPS. Nous mettons en œuvre des
+        mesures techniques et organisationnelles appropriées pour protéger vos données
+        contre tout accès, altération ou divulgation non autorisés.
+      </p>
+
+      <p class="legal-back">
+        <a href="/contact" class="link-ul">← Retour au formulaire de contact</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal {
+    max-width: 760px;
+    color: #2a2724;
+  }
+  .legal-updated {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(42, 39, 36, 0.5);
+    margin-bottom: 2.5rem;
+  }
+  .legal h2 {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #1b1c1c;
+    margin: 2.5rem 0 0.75rem;
+  }
+  .legal p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0 0 1rem;
+  }
+  .legal ul {
+    margin: 0 0 1rem 1.1rem;
+    padding: 0;
+  }
+  .legal li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+  }
+  .legal a {
+    color: #004734;
+    text-decoration: underline;
+  }
+  .legal-back {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(42, 39, 36, 0.12);
+  }
+</style>

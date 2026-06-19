@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Mentions légales — CooksBrad"
+  description="Mentions légales du site CooksBrad, conformément à la loi pour la confiance dans l'économie numérique (LCEN)."
+  current=""
+>
+  <section class="page-banner">
+    <div class="container page-banner-inner">
+      <div>
+        <div class="breadcrumbs">
+          <a href="/">Maison</a>
+          <span style="color:#D4AF37;font-family:'Noto Serif',serif">✦</span>
+          <span style="color:#D4AF37">Mentions légales</span>
+        </div>
+        <h1>Mentions<br/>légales.</h1>
+      </div>
+      <div>
+        <p>
+          Informations légales relatives à l'éditeur et à l'hébergeur de ce site,
+          conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans
+          l'économie numérique (LCEN).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="container legal">
+
+      <h2>Éditeur du site</h2>
+      <ul>
+        <li><strong>CooksBrad</strong> — Atelier culinaire &amp; bar mobile événementiel</li>
+        <li>Forme juridique&nbsp;: <em>[à compléter — ex. micro-entreprise / SAS]</em></li>
+        <li>Adresse&nbsp;: <em>[à compléter — adresse du siège]</em></li>
+        <li>SIRET&nbsp;: <em>[à compléter]</em></li>
+        <li>Numéro de TVA intracommunautaire&nbsp;: <em>[à compléter le cas échéant]</em></li>
+        <li>E-mail&nbsp;: <a href="mailto:cooksbrad.pro@gmail.com">cooksbrad.pro@gmail.com</a></li>
+        <li>Directeur·rice de la publication&nbsp;: <em>[à compléter — nom du responsable]</em></li>
+      </ul>
+
+      <h2>Hébergeur</h2>
+      <ul>
+        <li><strong>Vercel Inc.</strong></li>
+        <li>340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis</li>
+        <li>Site&nbsp;: <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a></li>
+      </ul>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus présents sur ce site (textes, photographies, logos,
+        éléments graphiques, mise en page) est la propriété exclusive de CooksBrad,
+        sauf mention contraire. Toute reproduction, représentation ou diffusion, totale
+        ou partielle, sans autorisation écrite préalable est interdite et constituerait
+        une contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété
+        intellectuelle.
+      </p>
+
+      <h2>Données personnelles</h2>
+      <p>
+        Le traitement des données personnelles collectées via ce site est détaillé dans
+        notre <a href="/confidentialite">politique de confidentialité</a>, conforme au
+        Règlement (UE) 2016/679 (RGPD) et à la loi Informatique et Libertés.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Ce site n'utilise aucun cookie de traçage, de mesure d'audience ou de publicité.
+        Seules les fonctionnalités strictement nécessaires à l'affichage des pages sont
+        mises en œuvre.
+      </p>
+
+      <h2>Responsabilité</h2>
+      <p>
+        CooksBrad s'efforce d'assurer l'exactitude des informations diffusées sur ce
+        site mais ne saurait être tenue responsable des erreurs, omissions ou d'une
+        indisponibilité des informations. Les liens vers des sites tiers n'engagent pas
+        la responsabilité de CooksBrad quant à leur contenu.
+      </p>
+
+      <p class="legal-back">
+        <a href="/" class="link-ul">← Retour à l'accueil</a>
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal {
+    max-width: 760px;
+    color: #2a2724;
+  }
+  .legal h2 {
+    font-family: 'Noto Serif', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #1b1c1c;
+    margin: 2.5rem 0 0.75rem;
+  }
+  .legal h2:first-child { margin-top: 0; }
+  .legal p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0 0 1rem;
+  }
+  .legal ul {
+    margin: 0 0 1rem 1.1rem;
+    padding: 0;
+  }
+  .legal li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+  }
+  .legal a {
+    color: #004734;
+    text-decoration: underline;
+  }
+  .legal-back {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(42, 39, 36, 0.12);
+  }
+</style>
