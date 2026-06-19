@@ -225,27 +225,33 @@ body::after {
 
 /* Hamburger spans */
 .nav-gh-burger-bars {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
+  position: relative;
+  display: block;
   width: 18px;
+  height: 16px;
+  flex: 0 0 18px;
 }
-.nav-gh-burger span {
+.nav-gh-burger-bars span {
+  position: absolute;
+  left: 0;
   display: block; width: 18px; height: 2px; background: #F7F5EF;
   border-radius: 2px;
   transform-origin: center;
-  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease), width 0.3s var(--ease);
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease), width 0.3s var(--ease), top 0.3s var(--ease);
 }
-/* Barre du milieu plus courte → touche d'élégance au repos */
-.nav-gh-burger span:nth-child(2) { width: 12px; }
+.nav-gh-burger-bars span:first-child { top: 1px; }
+.nav-gh-burger-bars span:nth-child(2) { top: 7px; width: 12px; }
+.nav-gh-burger-bars span:last-child { top: 13px; }
 .nav-gh-burger-label {
   font-family: 'Playfair Display', serif; font-size: 0.6rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase; color: #F7F5EF;
   white-space: nowrap;
 }
 /* Transformation propre en croix « Fermer » */
-.nav-gh-burger span.open { width: 18px; }
-.nav-gh-burger span.open:first-child { transform: translateY(7px) rotate(45deg); }
-.nav-gh-burger span.open:nth-child(2) { opacity: 0; }
-.nav-gh-burger span.open:last-child  { transform: translateY(-7px) rotate(-45deg); }
+.nav-gh-burger-bars span.open { top: 7px; width: 18px; }
+.nav-gh-burger-bars span.open:first-child { transform: rotate(45deg); }
+.nav-gh-burger-bars span.open:nth-child(2) { opacity: 0; }
+.nav-gh-burger-bars span.open:last-child  { transform: rotate(-45deg); }
 
 @media (max-width: 900px) {
   .nav-gh-links, .nav-gh-cta { display: none; }
@@ -332,8 +338,14 @@ body::after {
 
 /* Affichage du bouton Menu sur mobile/tablette — placé APRES la règle
    de base pour qu'il l'emporte (sinon display:none ci-dessus l'annule) */
-@media (max-width: 900px) {
-  .nav-gh-burger { display: flex; }
+@media (max-width: 480px) {
+  .nav-gh-burger {
+    width: 48px;
+    min-width: 48px;
+    padding: 0;
+    gap: 0;
+  }
+  .nav-gh-burger-label { display: none; }
 }
 
 /* ============================================
