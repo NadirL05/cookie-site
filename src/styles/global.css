@@ -70,6 +70,15 @@
 
 html { scroll-behavior: smooth; }
 
+/* ── Garde-fou anti débordement horizontal (mobile) ── */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, svg, video, canvas, iframe {
+  max-width: 100%;
+}
+
 body {
   background: #F7F5EF;
   color: #1b1c1c;
@@ -1716,4 +1725,35 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 @media (max-height: 720px) {
   .bk-hero-title { font-size: clamp(2.5rem, 6vw, 6rem); line-height: 1.0; }
   .bk-hero-body { padding-bottom: clamp(1.5rem, 5vw, 4rem); }
+}
+
+/* ═════════════════════════════════════════════════
+   OPTIMISATION MOBILE — typographie titres (≤ 600px)
+   Réduit les grands titres script/display qui paraissaient trop
+   grands sur téléphone.
+   ═════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .bk-hero-title { font-size: clamp(2.4rem, 11vw, 3.2rem); line-height: 1.08; }
+  .bk-services-title,
+  .bk-story-title,
+  .bk-cta-title,
+  .bk-events-title { font-size: clamp(2.2rem, 10vw, 3rem); line-height: 1.08; }
+  .page-banner h1 { font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.1; }
+  .section-head h2,
+  .cta-band h2 { font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.12; }
+  .histoire-text h2 { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .hero-title { font-size: clamp(2.2rem, 11vw, 3.2rem); line-height: 1.08; }
+  .footer-wordmark { font-size: clamp(2.4rem, 12vw, 3.4rem); }
+
+  /* Sous-titres / accroches plus compacts */
+  .bk-services-sub,
+  .page-banner p { font-size: 0.95rem; line-height: 1.6; }
+}
+
+/* Tès petits écrans */
+@media (max-width: 380px) {
+  .bk-hero-title { font-size: 2.2rem; }
+  .bk-services-title,
+  .bk-story-title,
+  .bk-cta-title { font-size: 2rem; }
 }
