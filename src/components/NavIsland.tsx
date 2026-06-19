@@ -60,18 +60,17 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
 
         {/* Bouton hamburger : visible uniquement sur mobile */}
         <button
-          className="nav-gh-burger"
+          className={`nav-gh-burger${open ? " is-open" : ""}`}
           onClick={() => setOpen(!open)}
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           aria-controls="nav-mobile-menu"
         >
-          <span className="nav-gh-burger-bars">
-            <span className={open ? "open" : ""}></span>
-            <span className={open ? "open" : ""}></span>
-            <span className={open ? "open" : ""}></span>
+          <span className="nav-gh-burger-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
-          <span className="nav-gh-burger-label">{open ? "Fermer" : "Menu"}</span>
         </button>
       </div>
 
