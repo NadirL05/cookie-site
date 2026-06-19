@@ -309,6 +309,12 @@ body::after {
 }
 .nav-gh-burger:hover { border-color: #D4AF37; }
 
+/* Affichage du bouton Menu sur mobile/tablette — placé APRES la règle
+   de base pour qu'il l'emporte (sinon display:none ci-dessus l'annule) */
+@media (max-width: 900px) {
+  .nav-gh-burger { display: flex; }
+}
+
 /* ============================================
    Buttons
    ============================================ */
