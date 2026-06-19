@@ -1374,7 +1374,7 @@ body::after {
   min-height: clamp(420px, 55vw, 680px);
 }
 @media (max-width: 768px) {
-  .bk-story { grid-template-columns: 1fr; }
+  .bk-story { grid-template-columns: 1fr; min-height: auto; }
   .bk-story-right { min-height: 300px; }
 }
 .bk-story-left {
@@ -1419,6 +1419,7 @@ body::after {
 @media (max-width: 900px) {
   .bk-events {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
   .bk-events-center { min-height: 280px; }
 }
