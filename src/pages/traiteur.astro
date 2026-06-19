@@ -98,7 +98,7 @@ const brunchOptions = [
     <div class="container">
       <div style="text-align:center;margin-bottom:56px" class="reveal">
         <span class="eyebrow" style="display:block;margin-bottom:12px">Nos Collections</span>
-        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#002f21;letter-spacing:-0.02em">
+        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#1b1c1c;letter-spacing:-0.02em">
           Créations pour tous vos événements
         </h2>
         <div style="width:48px;height:1px;background:#D4AF37;margin:16px auto 0"></div>
@@ -123,8 +123,8 @@ const brunchOptions = [
                 ))}
               </div>
               <div class="collection-footer">
-                <p style="font-family:'Noto Serif',serif;font-style:italic;color:#404944;font-size:1rem;margin:0 0 4px">{cat.price}</p>
-                <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#707974;margin:0">{cat.note}</p>
+                <p style="font-family:'Noto Serif',serif;font-style:italic;color:#454340;font-size:1rem;margin:0 0 4px">{cat.price}</p>
+                <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#736f6a;margin:0">{cat.note}</p>
               </div>
             </div>
           </div>
@@ -140,8 +140,8 @@ const brunchOptions = [
         {values.map((v) => (
           <div class="value-process-item">
             <span class="value-process-icon">{v.icon}</span>
-            <h4 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#002f21;margin:0 0 8px">{v.title}</h4>
-            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#404944;line-height:1.65;margin:0">{v.text}</p>
+            <h4 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#1b1c1c;margin:0 0 8px">{v.title}</h4>
+            <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.88rem;color:#454340;line-height:1.65;margin:0">{v.text}</p>
           </div>
         ))}
       </div>
@@ -197,7 +197,7 @@ const brunchOptions = [
             {brunchOptions.map(opt => (
               <div class="unit-row">
                 <span class="unit-name">{opt.label}</span>
-                <span style="flex:1;height:1px;background:repeating-linear-gradient(90deg,rgba(0,71,52,0.15) 0,rgba(0,71,52,0.15) 3px,transparent 3px,transparent 8px);margin:0 12px;align-self:center;min-width:20px"></span>
+                <span style="flex:1;height:1px;background:repeating-linear-gradient(90deg,rgba(42, 39, 36,0.15) 0,rgba(42, 39, 36,0.15) 3px,transparent 3px,transparent 8px);margin:0 12px;align-self:center;min-width:20px"></span>
                 <span class="unit-price">{opt.price}</span>
               </div>
             ))}
@@ -216,15 +216,15 @@ const brunchOptions = [
       <div style="max-width:680px;margin:0 auto">
         <div style="text-align:center;margin-bottom:48px" class="reveal">
           <span class="eyebrow" style="display:block;margin-bottom:12px">Votre Demande</span>
-          <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#002f21;letter-spacing:-0.02em">
+          <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#1b1c1c;letter-spacing:-0.02em">
             Parlons de votre projet.
           </h2>
-          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;color:#404944;margin:12px 0 0">
+          <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;color:#454340;margin:12px 0 0">
             Devis gratuit · Réponse sous 24h
           </p>
           <div style="width:48px;height:1px;background:#D4AF37;margin:16px auto 0"></div>
         </div>
-        <div style="background:#fff;border:1px solid rgba(0,71,52,0.1);padding:40px;border-radius:0.25rem">
+        <div style="background:#fff;border:1px solid rgba(42, 39, 36,0.1);padding:40px;border-radius:0.25rem">
           <ContactForm client:load />
         </div>
       </div>
@@ -266,7 +266,7 @@ const brunchOptions = [
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.65rem; font-weight: 700;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: #002f21; text-decoration: none; opacity: 0.65;
+    color: #1b1c1c; text-decoration: none; opacity: 0.65;
     padding: 6px 0; position: relative;
     transition: opacity 0.25s, color 0.25s;
   }
@@ -292,7 +292,7 @@ const brunchOptions = [
     border-radius: 0.25rem; overflow: hidden;
     transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.5s cubic-bezier(0.16,1,0.3,1);
   }
-  .collection-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px -16px rgba(0,47,33,0.18); }
+  .collection-card:hover { transform: translateY(-6px); box-shadow: 0 24px 56px -16px rgba(27, 28, 28,0.18); }
 
   .collection-img {
     height: 300px; overflow: hidden; position: relative;
@@ -305,7 +305,7 @@ const brunchOptions = [
   .collection-card:hover .collection-img img { transform: scale(1.07); filter: saturate(1) contrast(1.04); }
   .collection-badge {
     position: absolute; bottom: 16px; left: 16px;
-    background: #004734; color: #fcf9f8;
+    background: #2a2724; color: #fcf9f8;
     padding: 4px 12px;
     font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.58rem;
     font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
@@ -318,22 +318,22 @@ const brunchOptions = [
   }
   .collection-title {
     font-family: 'Noto Serif', serif; font-style: italic; font-weight: 500;
-    font-size: 1.4rem; color: #002f21; margin: 0;
+    font-size: 1.4rem; color: #1b1c1c; margin: 0;
   }
   .collection-tags {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
   }
   .collection-footer {
     margin-top: auto; padding-top: 16px;
-    border-top: 1px solid rgba(0,71,52,0.08);
+    border-top: 1px solid rgba(42, 39, 36,0.08);
   }
 
   /* Values process */
   .values-process {
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 48px; padding: 56px 0; text-align: center;
-    border-top: 1px solid rgba(0,71,52,0.08);
-    border-bottom: 1px solid rgba(0,71,52,0.08);
+    border-top: 1px solid rgba(42, 39, 36,0.08);
+    border-bottom: 1px solid rgba(42, 39, 36,0.08);
   }
   @media (max-width: 900px) { .values-process { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
   @media (max-width: 560px) { .values-process { grid-template-columns: 1fr; } }

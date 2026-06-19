@@ -19,7 +19,7 @@ export default function CookieCardShadcn({
   badge,
 }: Props) {
   return (
-    <Card className="group overflow-hidden border-0 bg-card shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#1C3A2A]/8">
+    <Card className="group overflow-hidden border-0 bg-card shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#23211e]/8">
       {/* Image */}
       <div className="aspect-square w-full overflow-hidden bg-[#EDE5CC]">
         <img
@@ -36,13 +36,13 @@ export default function CookieCardShadcn({
         {badge && (
           <Badge
             variant="secondary"
-            className="mb-2 rounded-none bg-[#1C3A2A] px-2 py-0.5 text-[9px] font-normal uppercase tracking-[0.18em] text-[#F5EFE0] hover:bg-[#2E5040]"
+            className="mb-2 rounded-none bg-[#23211e] px-2 py-0.5 text-[9px] font-normal uppercase tracking-[0.18em] text-[#F5EFE0] hover:bg-[#383430]"
           >
             {badge}
           </Badge>
         )}
 
-        <p className="font-display italic text-[15px] leading-snug text-[#1C3A2A]">
+        <p className="font-display italic text-[15px] leading-snug text-[#23211e]">
           {name}
         </p>
 
