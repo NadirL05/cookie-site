@@ -118,6 +118,7 @@ body::after {
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --gold: #D4AF37;
   --forest: #2a2724;
+  --brand-green: #3F6B3A;
   --forest-deep: #1b1c1c;
   --cream: #F7F5EF;
   --border-forest: rgba(42, 39, 36, 0.12);
@@ -639,7 +640,7 @@ body::after {
 /* ============================================
    Footer
    ============================================ */
-.footer-rich { padding: 80px 0 40px; background: #2a2724; color: #F7F5EF; }
+.footer-rich { padding: 80px 0 40px; background: var(--brand-green); color: #F7F5EF; }
 .footer-top { display: grid; grid-template-columns: 1.2fr 2fr; gap: 80px; }
 @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 48px; } }
 .footer-wordmark {
@@ -1543,6 +1544,12 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 /* ── 6. CTA FINAL ────────────────────────────────────────── */
 .bk-cta {
   padding: clamp(4rem,7vw,6rem) 0 clamp(3rem,5vw,4.5rem);
+}
+/* Sections finales noires de bas de page → vert */
+.bk-cta.bg-forest,
+.cta-band.bg-forest {
+  background: var(--brand-green);
+  color: #F7F5EF;
 }
 .bk-cta-title {
   font-family: 'Alex Brush', cursive;
