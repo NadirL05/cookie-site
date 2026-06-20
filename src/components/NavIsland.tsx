@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { id: "bar-mobile",  label: "Bar Mobile",      href: "/bar-mobile" },
-  { id: "creations",   label: "Nos Créations",   href: "/creations" },
-  { id: "histoire",    label: "Notre Histoire",  href: "/histoire" },
+  { id: "bar-mobile", label: "Bar mobile", href: "/bar-mobile" },
+  { id: "creations", label: "Créations", href: "/creations" },
+  { id: "traiteur", label: "Traiteur & box", href: "/traiteur" },
+  { id: "histoire", label: "Histoire", href: "/histoire" },
 ];
 
 type NavIslandProps = {
@@ -25,6 +26,16 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  // Close with Escape for a cleaner mobile dialog behavior
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
   const handleClose = () => setOpen(false);
@@ -56,7 +67,7 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
         </ul>
 
         {/* CTA desktop : caché sur mobile */}
-        <a href="/contact" className="nav-gh-cta">Réserver</a>
+        <a href="/contact" className="nav-gh-cta">Demander un devis</a>
 
         {/* Bouton hamburger : visible uniquement sur mobile */}
         <button
@@ -80,27 +91,33 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
           id="nav-mobile-menu"
           className="nav-gh-mobile"
           role="dialog"
+          aria-modal="true"
           aria-label="Menu de navigation"
         >
-          <nav className="nav-gh-mobile-inner">
-            {links.map((l) => (
+          <nav className="nav-gh-mobile-inner" aria-label="Menu mobile">
+            <span className="nav-gh-mobile-kicker">Découvrir</span>
+            <div className="nav-gh-mobile-links">
+              {links.map((l) => (
+                <a
+                  key={l.id}
+                  href={l.href}
+                  className={`nav-gh-mobile-link${current === l.id ? " active" : ""}`}
+                  onClick={handleClose}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+            <div className="nav-gh-mobile-action">
+              <span className="nav-gh-mobile-kicker">Action</span>
               <a
-                key={l.id}
-                href={l.href}
-                className={`nav-gh-mobile-link${current === l.id ? " active" : ""}`}
+                href="/contact"
+                className="nav-gh-mobile-cta"
                 onClick={handleClose}
               >
-                {l.label}
+                Demander un devis
               </a>
-            ))}
-            {/* Bouton Réserver bien visible dans le menu mobile */}
-            <a
-              href="/contact"
-              className="nav-gh-mobile-cta"
-              onClick={handleClose}
-            >
-              Réserver
-            </a>
+            </div>
           </nav>
         </div>
       )}

@@ -90,7 +90,13 @@ const events = [
         de partager,<br/>
         l'art de recevoir.
       </h1>
-      <a href="/contact" class="bk-hero-btn">Demander un devis →</a>
+      <p class="bk-hero-sub">
+        Cookies artisanaux, bars gourmands et animations événementielles en région PACA.
+      </p>
+      <div class="bk-hero-actions">
+        <a href="/contact" class="bk-hero-btn bk-hero-btn-primary">Demander un devis</a>
+        <a href="#prestations" class="bk-hero-btn bk-hero-btn-secondary">Découvrir nos prestations</a>
+      </div>
     </div>
   </section>
 
@@ -176,7 +182,7 @@ const events = [
   <!-- ══════════════════════════════════════
        NOS PRESTATIONS
        ══════════════════════════════════════ -->
-  <section class="bk-services">
+  <section id="prestations" class="bk-services">
     <div class="container">
       <div class="bk-services-head reveal-up">
         <h2 class="bk-services-title">Deux univers, une même passion</h2>
@@ -366,13 +372,29 @@ const events = [
       margin-bottom: 28px;
       max-width: 100%;
     }
+    .bk-hero-sub {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 23rem;
+      margin: -10px 0 24px;
+    }
+    .bk-hero-actions {
+      width: 100%;
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
     .bk-hero-btn {
       /* Touch target: ensure at least 44px height */
       min-height: 44px;
-      padding: 13px 24px;
-      font-size: 0.75rem;
+      padding: 13px 20px;
+      font-size: 0.68rem;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 340px;
+      text-align: center;
     }
 
     /* ── Marquee — prevent horizontal bleed ────────────────── */
