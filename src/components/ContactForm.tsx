@@ -11,6 +11,9 @@ const labelClass =
 const selectClass =
   "rounded-none border border-forest/20 bg-transparent h-12 w-full px-3 font-sans text-[#2C1810] focus:outline-none focus:ring-1 focus:ring-forest/30 focus:border-forest/50 cursor-pointer [font-size:16px]";
 
+const FORMSPREE_ID = import.meta.env.PUBLIC_FORMSPREE_ID || "xzdqnlkb";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
+
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [consent, setConsent] = useState(false);
@@ -22,7 +25,7 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch(`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_ID}`, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
