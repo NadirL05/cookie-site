@@ -232,8 +232,8 @@ body::after {
   display: none;
   align-items: center;
   justify-content: center;
-  background: #2a2724;
-  border: 1px solid rgba(212, 175, 55, 0.28);
+  background: #6e5d04;
+  border: 1px solid rgba(212, 175, 55, 0.45);
   border-radius: 999px;
   cursor: pointer;
   padding: 0;
@@ -241,6 +241,7 @@ body::after {
   transition: transform 0.15s var(--ease), background 0.2s var(--ease);
 }
 .nav-gh-burger:active { transform: scale(0.96); }
+.nav-gh-burger:hover { background: #5d4f03; }
 .nav-gh-burger-icon {
   position: relative;
   display: block;
@@ -291,7 +292,7 @@ body::after {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-size: 2rem;
-  color: rgba(27, 28, 28, 0.80);
+  color: #6e5d04;
   text-decoration: none;
   /* touch target : min-height 44px garantie + padding confortable */
   min-height: 44px;
@@ -302,7 +303,7 @@ body::after {
   transition: color 0.2s;
 }
 .nav-gh-mobile-link:hover,
-.nav-gh-mobile-link.active { color: #1b1c1c; }
+.nav-gh-mobile-link.active { color: #4f4303; }
 /* Bouton Réserver dans le menu mobile — pleinement visible + touch target ≥ 44px */
 .nav-gh-mobile-cta {
   display: inline-flex;
