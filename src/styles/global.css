@@ -232,8 +232,8 @@ body::after {
   display: none;
   align-items: center;
   justify-content: center;
-  background: #6e5d04;
-  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: #3F6B3A;
+  border: 1px solid rgba(63, 107, 58, 0.65);
   border-radius: 999px;
   cursor: pointer;
   padding: 0;
@@ -241,7 +241,7 @@ body::after {
   transition: transform 0.15s var(--ease), background 0.2s var(--ease);
 }
 .nav-gh-burger:active { transform: scale(0.96); }
-.nav-gh-burger:hover { background: #5d4f03; }
+.nav-gh-burger:hover { background: #345a30; }
 .nav-gh-burger-icon {
   position: relative;
   display: block;
