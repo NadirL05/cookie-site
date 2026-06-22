@@ -136,7 +136,7 @@ const commandes = [
         <div class="section-head-left reveal">
           <span class="eyebrow"><span style="color:#ceb85c">N° 03</span> &nbsp;·&nbsp; Commandes Personnalisées</span>
           <hr class="hairline" />
-          <h2>Vente sur<br/>commande.</h2>
+          <h2 style="text-align:center">Vente sur<br/>commandes</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
           Vous souhaitez offrir ou partager nos cookies lors d'un événement particulier ?
@@ -157,7 +157,7 @@ const commandes = [
   </section>
 
   <!-- Fabrication artisanale -->
-  <section class="pull-quote bg-cream" style="border-top:1px solid rgba(12, 57, 45,0.08)">
+  <section class="pull-quote pull-quote-glass" style="border-top:1px solid rgba(12, 57, 45,0.08)">
     <div class="container reveal">
       <span style="font-family:'Noto Serif',serif;font-style:italic;color:#ceb85c;font-size:1.8rem;display:block;margin-bottom:20px">✦</span>
       <blockquote>
@@ -182,71 +182,6 @@ const commandes = [
     </div>
   </section>
 
-  <!-- Box Collections -->
-  <section class="section bg-cream" style="padding-top:0;border-top:1px solid rgba(12, 57, 45,0.08)">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:48px" class="reveal">
-        <span class="eyebrow" style="display:block;margin-bottom:12px"><span style="color:#ceb85c">N° 04</span> &nbsp;·&nbsp; Nos Box</span>
-        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(1.8rem,3vw,2.8rem);color:#1b1c1c;letter-spacing:-0.02em">
-          Créations pour tous vos événements
-        </h2>
-        <div style="width:48px;height:1px;background:#ceb85c;margin:16px auto 0"></div>
-      </div>
-      <div class="box-collections-grid reveal reveal-delay-1">
-        <div class="box-card">
-          <div class="box-card-img">
-            <img src="/cookies-kitkat.jpeg" alt="Box Sucrées CooksBrad" loading="lazy" />
-            <div class="box-card-badge">Artisanal</div>
-          </div>
-          <div class="box-card-body">
-            <h3 class="box-card-title">Box Sucrées</h3>
-            <div class="box-card-tags">
-              <span class="box-tag">Fruits</span>
-              <span class="box-tag">Cookies et Brownies</span>
-              <span class="box-tag">Verrines</span>
-            </div>
-            <div class="box-card-price">A partir de 45 euros</div>
-            <div class="box-card-note">Personnalisable sur devis</div>
-          </div>
-        </div>
-        <div class="box-card">
-          <div class="box-card-img">
-            <img src="/mini-pancakes-box.jpeg" alt="Box Salées CooksBrad" loading="lazy" />
-            <div class="box-card-badge">Signature</div>
-          </div>
-          <div class="box-card-body">
-            <h3 class="box-card-title">Box Salées</h3>
-            <div class="box-card-tags">
-              <span class="box-tag">Chaude</span>
-              <span class="box-tag">Froide</span>
-              <span class="box-tag">Mixte</span>
-            </div>
-            <div class="box-card-price">A partir de 55 euros</div>
-            <div class="box-card-note">Personnalisable sur devis</div>
-          </div>
-        </div>
-        <div class="box-card">
-          <div class="box-card-img">
-            <img src="/cookies-pecan.jpeg" alt="Nos Planches CooksBrad" loading="lazy" />
-            <div class="box-card-badge">Terroir</div>
-          </div>
-          <div class="box-card-body">
-            <h3 class="box-card-title">Nos Planches</h3>
-            <div class="box-card-tags">
-              <span class="box-tag">Fromage</span>
-              <span class="box-tag">Charcuterie</span>
-              <span class="box-tag">Crudités</span>
-            </div>
-            <div class="box-card-price">A partir de 65 euros</div>
-            <div class="box-card-note">Personnalisable sur devis</div>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:40px" class="reveal">
-        <a href="/contact" class="btn btn-primary">Demander un devis <span class="arrow">&#x2192;</span></a>
-      </div>
-    </div>
-  </section>
 
   <!-- Avis clients -->
   <section class="section bg-forest" style="padding-top:56px;padding-bottom:56px">
@@ -497,6 +432,26 @@ const commandes = [
   @media (max-width: 480px) {
     .cookie-presence { padding: 32px 0; }
     .cookie-presence h3 { font-size: 1.4rem; }
+  }
+
+  /* ============================================================
+     Pull quote — glassmorphism variant
+     ============================================================ */
+  .pull-quote-glass {
+    background: linear-gradient(135deg, rgba(247,245,239,0.55) 0%, rgba(255,255,255,0.35) 100%);
+    backdrop-filter: blur(18px) saturate(1.6);
+    -webkit-backdrop-filter: blur(18px) saturate(1.6);
+    border-top: 1px solid rgba(206,184,92,0.2);
+    border-bottom: 1px solid rgba(206,184,92,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .pull-quote-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(206,184,92,0.06) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   /* ============================================================
