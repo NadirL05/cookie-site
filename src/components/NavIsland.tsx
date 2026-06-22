@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 const links = [
   { id: "bar-mobile", label: "Bar mobile", href: "/bar-mobile" },
   { id: "creations", label: "Créations", href: "/creations" },
-  { id: "traiteur", label: "Traiteur & box", href: "/traiteur" },
   { id: "histoire", label: "Histoire", href: "/histoire" },
 ];
 
