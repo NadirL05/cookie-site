@@ -94,7 +94,6 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
           aria-label="Menu de navigation"
         >
           <nav className="nav-gh-mobile-inner" aria-label="Menu mobile">
-            <span className="nav-gh-mobile-kicker">Découvrir</span>
             <div className="nav-gh-mobile-links">
               {links.map((l) => (
                 <a
@@ -108,7 +107,6 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
               ))}
             </div>
             <div className="nav-gh-mobile-action">
-              <span className="nav-gh-mobile-kicker">Action</span>
               <a
                 href="/contact"
                 className="nav-gh-mobile-cta"
