@@ -679,7 +679,7 @@ body::after {
 /* ============================================
    Footer
    ============================================ */
-.footer-rich { padding: 80px 0 40px; background: var(--brand-green); color: #f7f5ef; }
+.footer-rich { padding: 80px 0 40px; background: #f0eded; color: #1b1c1c; }
 .footer-top { display: grid; grid-template-columns: 1.2fr 2fr; gap: 80px; }
 @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; gap: 48px; } }
 .footer-wordmark {
@@ -693,7 +693,7 @@ body::after {
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .footer-col a, .footer-col li {
   font-family: 'Playfair Display', serif; font-size: 0.9rem;
-  color: rgba(247,245,239,0.75); text-decoration: none;
+  color: rgba(27,28,28,0.7); text-decoration: none;
 }
 /* Touch targets ≥ 44px pour les liens footer */
 .footer-col a {
@@ -705,9 +705,9 @@ body::after {
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center;
   gap: 24px; font-size: 0.65rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: rgba(247,245,239,0.5);
+  text-transform: uppercase; color: rgba(27,28,28,0.45);
   font-family: 'Playfair Display', serif;
-  border-top: 1px solid rgba(206,184,92,0.15); margin-top: 56px; padding-top: 28px;
+  border-top: 1px solid rgba(12,57,45,0.12); margin-top: 56px; padding-top: 28px;
 }
 @media (max-width: 700px) { .footer-bottom { flex-direction: column; text-align: center; } }
 
