@@ -379,6 +379,8 @@ body::after {
 }
 .btn-primary { background: #ceb85c; color: #0c392d; border-color: #ceb85c; }
 .btn-primary:hover { opacity: 0.88; }
+.cta-band .btn-primary { background: #0c392d; color: #f7f5ef; border-color: #0c392d; }
+.cta-band .btn-primary:hover { opacity: 0.88; }
 .btn-ghost { color: inherit; border-color: currentColor; opacity: 0.9; }
 .btn-ghost:hover { opacity: 1; background: rgba(0,0,0,0.04); }
 .bg-forest .btn-ghost { color: #f7f5ef; border-color: rgba(206,184,92,0.5); }
