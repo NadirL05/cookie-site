@@ -289,24 +289,41 @@ const events = [
   <!-- ══════════════════════════════════════
        CTA FINAL
        ══════════════════════════════════════ -->
-  <section class="bk-cta bg-surface" style="border-top:1px solid rgba(12,57,45,0.08)">
+  <section class="bk-cta" style="background:#ede9df">
     <div class="container" style="text-align:center">
-      <span class="eyebrow" style="color:rgba(12,57,45,0.45);display:block;margin-bottom:16px">Organisons votre événement</span>
-      <h2 class="bk-cta-title" style="color:#1b1c1c">
-        Votre événement mérite<br/>une animation mémorable.
-      </h2>
-      <p class="bk-cta-sub" style="color:rgba(27,28,28,0.65)">
-        Contactez-nous pour obtenir un devis gratuit adapté à votre projet.
-      </p>
-      <a href="/contact" class="btn btn-primary" style="border-radius:0.125rem">
-        Recevoir mon devis gratuit →
-      </a>
+      <div class="bk-cta-frame">
+        <span class="eyebrow" style="color:rgba(12,57,45,0.55);display:block;margin-bottom:16px">Organisons votre événement</span>
+        <h2 class="bk-cta-title" style="color:#1b1c1c">
+          Votre événement mérite<br/>une animation mémorable.
+        </h2>
+        <p class="bk-cta-sub" style="color:rgba(27,28,28,0.65)">
+          Contactez-nous pour obtenir un devis gratuit adapté à votre projet.
+        </p>
+        <a href="/contact" class="btn btn-primary" style="border-radius:0.125rem">
+          Recevoir mon devis gratuit →
+        </a>
+      </div>
     </div>
   </section>
 
 </Layout>
 
 <style>
+  /* ── CTA encadré ──────────────────────────────────────────── */
+  .bk-cta-frame {
+    display: inline-block;
+    width: 100%;
+    max-width: 640px;
+    border: 1.5px solid rgba(12, 57, 45, 0.22);
+    padding: 48px 48px 44px;
+    background: #f7f5ef;
+  }
+  @media (max-width: 640px) {
+    .bk-cta-frame {
+      padding: 36px 24px 32px;
+    }
+  }
+
   /* ── Why grid ─────────────────────────────────────────────── */
   .why-grid {
     display: grid;
