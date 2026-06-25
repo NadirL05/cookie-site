@@ -17,7 +17,7 @@ import Layout from '../layouts/Layout.astro';
           <span style="color:#ceb85c;font-family:'Noto Serif',serif">✦</span>
           <span style="color:#ceb85c">Notre Histoire</span>
         </div>
-        <h1>Nés d'une amitié<br/>et d'une Braderie.</h1>
+        <h1 style="color:#0c392d">Nés d'une amitié<br/>et d'une Braderie.</h1>
       </div>
       <p>
         L'aventure CooksBrad est née d'une amitié, d'une passion commune pour
@@ -57,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="section-head-left reveal">
           <span class="eyebrow"><span style="color:#ceb85c">N° 02</span> &nbsp;·&nbsp; Notre Nom</span>
           <hr class="hairline" style="background:#ceb85c;opacity:0.4" />
-          <h2>Cookies + Braderie<br/>= CooksBrad.</h2>
+          <h2 class="histoire-h2-vert">Cookies + Braderie<br/>= CooksBrad.</h2>
         </div>
         <div class="reveal reveal-delay-1">
           <p class="body-text" style="margin-bottom:18px">
@@ -187,6 +187,11 @@ import Layout from '../layouts/Layout.astro';
     .section-head h2 {
       font-size: clamp(2rem, 9vw, 3rem);
       line-height: 1.15;
+    }
+
+    /* Titre "Cookies + Braderie = CooksBrad." en vert visible */
+    .histoire-h2-vert {
+      color: #1a5c3a;
     }
 
     /* h2 du CTA band */
