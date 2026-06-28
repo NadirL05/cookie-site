@@ -11,8 +11,16 @@ const pathname = Astro.url.pathname;
 <nav id="main-nav" class="sticky top-0 z-50 bg-forest transition-all duration-300" aria-label="Navigation principale">
   <div class="flex items-center justify-between px-8 py-5">
     <!-- Brand logo -->
-    <a href="/" class="font-display italic text-cream text-[22px] leading-none tracking-wide">
-      Cooksbrad
+    <a href="/" class="flex items-center" aria-label="Cooksbrad – Accueil">
+      <img
+        src="/logo-cooksbrad.png"
+        alt="Cooksbrad"
+        width="56"
+        height="56"
+        class="h-14 w-14 object-contain"
+        loading="eager"
+        fetchpriority="high"
+      />
     </a>
 
     <!-- Desktop links -->
