@@ -47,9 +47,9 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
           <img
             src="/logo-cooksbrad.png"
             alt="CooksBrad"
-            width="56"
-            height="56"
-            style={{ height: "56px", width: "56px", objectFit: "contain" }}
+            width="72"
+            height="72"
+            style={{ height: "72px", width: "72px", objectFit: "contain" }}
           />
         </a>
 
