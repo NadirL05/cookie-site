@@ -42,13 +42,15 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
   return (
     <nav className={`nav-gh${scrolled ? " nav-gh-scrolled" : ""}`}>
       <div className="nav-gh-inner">
-        {/* Logo — taille contrôlée via CSS, compact sur mobile */}
+        {/* Logo */}
         <a href="/" className="nav-logo" aria-label="CooksBrad — retour à l'accueil">
-          <span className="nav-logo-mono">CB</span>
-          <div className="nav-logo-text">
-            <span className="nav-logo-brand">CooksBrad</span>
-            <span className="nav-logo-sub">PACA</span>
-          </div>
+          <img
+            src="/logo-cooksbrad.png"
+            alt="CooksBrad"
+            width="56"
+            height="56"
+            style={{ height: "56px", width: "56px", objectFit: "contain" }}
+          />
         </a>
 
         {/* Liens desktop : cachés sur mobile */}
