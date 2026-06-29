@@ -45,11 +45,11 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
         {/* Logo */}
         <a href="/" className="nav-logo" aria-label="CooksBrad — retour à l'accueil">
           <img
-            src="/logo-cooksbrad.png"
+            src="/IMG_3220.png"
             alt="CooksBrad"
             width="72"
             height="72"
-            style={{ height: "72px", width: "72px", objectFit: "contain" }}
+            style={{ height: "72px", width: "72px", objectFit: "cover", borderRadius: "50%" }}
           />
         </a>
 
