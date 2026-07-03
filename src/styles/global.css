@@ -89,6 +89,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Paragraphes de contenu justifiés par défaut (toutes les pages) */
+p {
+  text-align: justify;
+  text-align-last: left;
+}
+
 /* Grain texture */
 body::after {
   content: '';
@@ -1497,7 +1503,7 @@ body::after {
   font-style: normal;
   font-weight: 400;
   font-size: clamp(4rem, 7vw, 6.5rem);
-  color: #1b1c1c;
+  color: #1a5c3a;
   letter-spacing: -0.03em;
   margin: 0 0 24px;
   line-height: 0.95;
