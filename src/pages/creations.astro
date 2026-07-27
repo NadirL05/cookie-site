@@ -1,22 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const incontournables = [
-  {
-    emoji: "🍪",
-    name: "Cookie Triple Chocolat",
-    desc: "Un cookie généreux fondant à cœur, garni de pépites de chocolat noir, au lait et blanc.",
-  },
-  {
-    emoji: "🍪",
-    name: "Cookie Caramel Beurre Salé",
-    desc: "La douceur du caramel maison rencontre le croustillant d'une pincée de fleur de sel. Un classique indémodable.",
-  },
-  {
-    emoji: "🍪",
-    name: "Cookie Spéculoos",
-    desc: "L'arôme envoûtant des épices de Noël dans un cookie moelleux qui plaît à tous les palais.",
-  },
+const cookies = [
+  { name: "Chocolat noir & fleur de sel", price: "3,50\u00a0€", badge: "Best seller", image: "/cookies/chocolat-noir-fleur-de-sel.jpeg" },
+  { name: "Chocolat au lait", price: "3,50\u00a0€", badge: null, image: "/cookies/chocolat-au-lait.jpeg" },
+  { name: "Trois chocolats", price: "3,50\u00a0€", badge: null, image: "/cookies/trois-chocolats.jpeg" },
+  { name: "Spéculoos", price: "3,50\u00a0€", badge: null, image: "/cookies/speculoos.jpeg" },
+  { name: "Pistache", price: "3,60\u00a0€", badge: "Nouveauté", image: "/cookies/pistache.jpeg" },
+  { name: "Praliné noisette", price: "3,60\u00a0€", badge: null, image: "/cookies/praline-noisette.jpeg" },
+  { name: "Chocolat blanc & noix de macadamia", price: "3,60\u00a0€", badge: null, image: "/cookies/chocolat-blanc-macadamia.jpeg" },
+  { name: "Caramel, fleur de sel & cacahuète", price: "3,60\u00a0€", badge: "Édition limitée", image: "/cookies/caramel-cacahuete.jpeg" },
+  { name: "Mini-boîte personnalisable", sub: "Boîte de 50 mini-cookies", price: "35\u00a0€", badge: null, image: "/cookies/mini-boite.jpeg" },
 ];
 
 const collections = [
@@ -72,7 +66,7 @@ const commandes = [
         <div class="section-head-left reveal">
           <span class="eyebrow"><span style="color:#ceb85c">N° 01</span> &nbsp;·&nbsp; Nos Incontournables</span>
           <hr class="hairline" />
-          <h2>Nos cookies<br/>classiques.</h2>
+          <h2>Notre carte<br/>de cookies.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
           Préparés de manière artisanale, nos cookies sont généreux, moelleux à cœur
@@ -81,14 +75,36 @@ const commandes = [
         </p>
       </div>
 
-      <div class="cookie-cards">
-        {incontournables.map((c, i) => (
-          <div class={`cookie-card reveal${i > 0 ? " reveal-delay-" + i : ""}`}>
-            <span class="cookie-card-emoji">{c.emoji}</span>
-            <h3 class="cookie-card-name">{c.name}</h3>
-            <p class="cookie-card-desc body-text">{c.desc}</p>
-          </div>
+      <div class="cookie-shop">
+        {cookies.map((c, i) => (
+          <article class={`cookie-prod reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
+            <div class="cookie-prod-photo">
+              {c.badge && (
+                <span class={`cookie-prod-badge cookie-prod-badge--${c.badge === "Best seller" ? "best" : c.badge === "Nouveauté" ? "new" : "limited"}`}>{c.badge}</span>
+              )}
+              <img src={c.image} alt={`Cookie ${c.name}`} loading="lazy" />
+            </div>
+            <div class="cookie-prod-info">
+              <h3 class="cookie-prod-name">{c.name}</h3>
+              {c.sub && <span class="cookie-prod-sub">{c.sub}</span>}
+              <span class="cookie-prod-price">{c.price}</span>
+            </div>
+          </article>
         ))}
+      </div>
+
+      <div class="cookie-tip reveal reveal-delay-2">
+        <span class="cookie-tip-mark" aria-hidden="true">✦</span>
+        <div>
+          <h3 class="cookie-tip-title">Pour une dégustation réussie…</h3>
+          <p class="cookie-tip-text">
+            Pour préserver toute la fraîcheur et la gourmandise de vos cookies, conservez-les
+            dans leur emballage d'origine, bien fermé, à température ambiante. Ils se dégustent
+            idéalement jusqu'à 5 jours après réception de votre commande. Pour une expérience
+            encore plus fondante, réchauffez-les délicatement 5 minutes à 100 °C dans un
+            four à chaleur tournante.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -102,7 +118,7 @@ const commandes = [
           <hr class="hairline" style="background:#ceb85c;opacity:0.4" />
           <h2 style="color:#f7f5ef">Les cookies<br/>des fêtes.</h2>
         </div>
-        <p class="body-text reveal reveal-delay-1" style="color:rgba(247,245,239,0.75)">
+        <p class="body-text reveal reveal-delay-1" style="color:rgba(247,245,239,0.75);text-align:justify">
           Parce que chaque saison mérite sa gourmandise, nous proposons des collections
           éphémères tout au long de l'année, avec des saveurs, décorations et
           présentations exclusives.
@@ -240,46 +256,98 @@ const commandes = [
   }
 
   /* ============================================================
-     Incontournables — cards
+     Carte cookies — grille boutique (façon krokme)
      ============================================================ */
-  .cookie-cards {
+  .cookie-shop {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 24px;
     margin-top: 56px;
   }
-  @media (max-width: 760px) {
-    .cookie-cards {
-      grid-template-columns: 1fr;
-      margin-top: 32px;
-      gap: 16px;
-    }
+  @media (max-width: 900px) {
+    .cookie-shop { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; margin-top: 36px; }
+  }
+  @media (max-width: 420px) {
+    .cookie-shop { gap: 22px 12px; }
   }
 
-  .cookie-card {
-    padding: 36px 32px;
-    border: 1px solid rgba(12, 57, 45,0.1);
-    background: #ffffff;
+  .cookie-prod { display: flex; flex-direction: column; }
+  .cookie-prod-photo {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
     border-radius: 0.25rem;
-    transition: box-shadow 0.3s;
+    background: #f1ede6;
+    border: 1px solid rgba(12, 57, 45, 0.08);
   }
-  .cookie-card:hover { box-shadow: 0 8px 32px rgba(12, 57, 45,0.08); }
-  .cookie-card-emoji { font-size: 2rem; display: block; margin-bottom: 20px; }
-  .cookie-card-name {
-    font-family: 'Noto Serif', serif;
-    font-style: italic;
-    font-size: 1.25rem;
-    color: #1b1c1c;
-    margin: 0 0 12px;
-    font-weight: 600;
+  .cookie-prod-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.55s ease;
   }
-  .cookie-card-desc { margin: 0; }
+  .cookie-prod:hover .cookie-prod-photo img { transform: scale(1.05); }
 
-  /* Padding réduit sur mobile */
+  .cookie-prod-badge {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    font-family: var(--font-sans);
+    font-size: 0.55rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 6px 10px; border-radius: 2px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(12, 57, 45, 0.18);
+  }
+  .cookie-prod-badge--best    { background: #ceb85c; color: #1b1c1c; }
+  .cookie-prod-badge--new     { background: #30804e; }
+  .cookie-prod-badge--limited { background: #0c392d; }
+
+  .cookie-prod-info { padding: 16px 4px 0; text-align: center; }
+  .cookie-prod-name {
+    font-family: 'Noto Serif', serif;
+    font-size: 1rem; font-weight: 600;
+    color: #1b1c1c; margin: 0; line-height: 1.4;
+  }
+  .cookie-prod-sub {
+    display: block; font-family: var(--font-sans);
+    font-size: 0.7rem; letter-spacing: 0.02em;
+    color: rgba(12, 57, 45, 0.55); margin-top: 5px;
+  }
+  .cookie-prod-price {
+    display: block; font-family: var(--font-sans);
+    font-size: 0.92rem; font-weight: 600;
+    color: #30804e; margin-top: 8px;
+  }
   @media (max-width: 480px) {
-    .cookie-card { padding: 24px 20px; }
-    .cookie-card-emoji { font-size: 1.6rem; margin-bottom: 12px; }
-    .cookie-card-name { font-size: 1.1rem; }
+    .cookie-prod-name { font-size: 0.92rem; }
+    .cookie-prod-price { font-size: 0.85rem; }
+  }
+
+  /* ============================================================
+     Encadré conservation
+     ============================================================ */
+  .cookie-tip {
+    display: flex; gap: 20px; align-items: flex-start;
+    margin-top: 56px; padding: 32px 36px;
+    background: #ffffff;
+    border: 1px solid rgba(12, 57, 45, 0.1);
+    border-left: 3px solid #ceb85c;
+    border-radius: 0.25rem;
+  }
+  .cookie-tip-mark { color: #ceb85c; font-size: 1.35rem; line-height: 1; flex-shrink: 0; }
+  .cookie-tip-title {
+    font-family: 'Noto Serif', serif; font-style: italic;
+    font-size: 1.25rem; font-weight: 600;
+    color: #30804e; margin: 0 0 12px;
+  }
+  .cookie-tip-text {
+    margin: 0; font-family: var(--font-sans);
+    font-size: 0.92rem; line-height: 1.75;
+    color: rgba(12, 57, 45, 0.78);
+    text-align: justify;
+  }
+  @media (max-width: 480px) {
+    .cookie-tip { padding: 24px 20px; gap: 14px; margin-top: 40px; }
+    .cookie-tip-title { font-size: 1.1rem; }
+    .cookie-tip-text { font-size: 0.86rem; }
   }
 
   /* ============================================================
