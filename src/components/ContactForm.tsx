@@ -20,9 +20,15 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
+    // Sécurité : bloque l'envoi si un champ obligatoire est vide (date incluse)
+    // et affiche le message de validation natif du navigateur.
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     if (!consent) return;
     setStatus("sending");
-    const form = e.currentTarget;
     const data = new FormData(form);
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
