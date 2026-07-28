@@ -51,7 +51,7 @@ const events = [
   },
   {
     title: 'Corporate',
-    desc: 'Fédérez vos équipes autour d\'une animation culinaire prestige lors de vos séminaires et lancements.',
+    desc: 'Fédérez vos équipes autour d\'une animation culinaire lors de vos séminaires et lancements.',
     icon: '◈',
     image: '/mini-pancakes-box.jpeg',
   },
@@ -93,9 +93,9 @@ const events = [
       <div class="hero-title-wrap">
         <h1 class="bar-hero-title" style="animation: titleSlideUp 1.3s cubic-bezier(0.16,1,0.3,1) 0.32s forwards; opacity:0; transform:translateY(105%)">Bar Mobile</h1>
       </div>
-      <p class="bar-hero-sub hero-animate hero-animate-2">Chic, Événementiel, Gourmand</p>
+      <p class="bar-hero-sub hero-animate hero-animate-2">Chic, élégant et gourmand</p>
       <div class="hero-animate hero-animate-3" style="margin-top:32px">
-        <a href="/contact" class="btn btn-primary">
+        <a href="/contact" class="btn btn-beige">
           Demander un devis <span class="arrow">→</span>
         </a>
       </div>
@@ -257,15 +257,15 @@ const events = [
   </section>
 
   <!-- CTA -->
-  <section class="cta-band bg-cream" style="border-top:2px solid rgba(12,57,45,0.18);border-bottom:2px solid rgba(12,57,45,0.18)">
+  <section class="cta-band bg-forest">
     <div class="container reveal">
-      <span class="eyebrow" style="color:#30804e;display:block;margin-bottom:8px">Votre Événement</span>
-      <h2 style="color:#1b1c1c">Prêt à sublimer<br/>votre événement ?</h2>
+      <span class="eyebrow" style="display:block;margin-bottom:8px">Votre Événement</span>
+      <h2>Prêt à sublimer<br/>votre événement ?</h2>
       <p class="body-text">
         Nos équipes étudient chaque projet pour vous proposer une expérience sur mesure,
         adaptée à vos envies et à votre lieu, partout en région PACA.
       </p>
-      <a href="/contact" class="btn btn-primary">
+      <a href="/contact" class="btn btn-beige">
         Planifier mon événement <span class="arrow">→</span>
       </a>
     </div>
@@ -339,6 +339,8 @@ const events = [
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     color: rgba(247,245,239,0.8);
     margin: 0;
+    /* neutralise le `p { text-align: justify }` global sur cette baseline de hero */
+    text-align: center;
   }
 
   /* ─── Concept grid ─── */
@@ -613,6 +615,9 @@ const events = [
 
     /* Bento : padding réduit */
     .atelier-content {
+      /* en colonne unique la carte n'a plus de voisine à égaliser :
+         le height:100% ne servirait qu'à créer du vide sous la liste */
+      height: auto;
       padding: 20px;
     }
     .atelier-large {

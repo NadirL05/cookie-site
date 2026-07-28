@@ -387,6 +387,10 @@ body::after {
 .btn-primary:hover { opacity: 0.88; }
 .cta-band .btn-primary { background: #0c392d; color: #f7f5ef; border-color: #0c392d; }
 .cta-band .btn-primary:hover { opacity: 0.88; }
+/* Variante beige — pour les boutons posés sur un fond sombre (photo ou .bg-forest) */
+.btn-beige { background: #f0ece4; color: #0c392d; border-color: #f0ece4; }
+.btn-beige:hover { opacity: 0.88; }
+.cta-band .btn-beige { background: #f0ece4; color: #0c392d; border-color: #f0ece4; }
 .btn-ghost { color: inherit; border-color: currentColor; opacity: 0.9; }
 .btn-ghost:hover { opacity: 1; background: rgba(0,0,0,0.04); }
 .bg-forest .btn-ghost { color: #f7f5ef; border-color: rgba(206,184,92,0.5); }
@@ -1427,7 +1431,7 @@ body::after {
 /* ── 3b. PULL QUOTE interlude ────────────────────────────── */
 .bk-pull {
   background: #0c392d;
-  padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+  padding: clamp(2.5rem, 4.5vw, 4rem) clamp(1.5rem, 6vw, 5rem);
   text-align: center;
   position: relative;
   overflow: hidden;
