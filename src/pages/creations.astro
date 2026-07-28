@@ -2,15 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 
 const cookies = [
-  { name: "Chocolat noir & fleur de sel", price: "3,50\u00a0€", badge: "Best seller", image: "/cookies/chocolat-noir-fleur-de-sel.jpeg" },
-  { name: "Chocolat au lait", price: "3,50\u00a0€", badge: null, image: "/cookies/chocolat-au-lait.jpeg" },
-  { name: "Trois chocolats", price: "3,50\u00a0€", badge: null, image: "/cookies/trois-chocolats.jpeg" },
-  { name: "Spéculoos", price: "3,50\u00a0€", badge: null, image: "/cookies/speculoos.jpeg" },
-  { name: "Pistache", price: "3,60\u00a0€", badge: "Nouveauté", image: "/cookies/pistache.jpeg" },
-  { name: "Praliné noisette", price: "3,60\u00a0€", badge: null, image: "/cookies/praline-noisette.jpeg" },
-  { name: "Chocolat blanc & noix de macadamia", price: "3,60\u00a0€", badge: null, image: "/cookies/chocolat-blanc-macadamia.jpeg" },
-  { name: "Caramel, fleur de sel & cacahuète", price: "3,60\u00a0€", badge: "Édition limitée", image: "/cookies/caramel-cacahuete.jpeg" },
-  { name: "Mini-boîte personnalisable", sub: "Boîte de 50 mini-cookies", price: "35\u00a0€", badge: null, image: "/cookies/mini-boite.jpeg" },
+  { name: "Chocolat noir & fleur de sel", price: "3,50\u00a0€", badge: "Best seller", image: "/cookies/chocolat-noir-fleur-de-sel.webp" },
+  { name: "Chocolat au lait", price: "3,50\u00a0€", badge: null, image: "/cookies/chocolat-au-lait.webp" },
+  { name: "Trois chocolats", price: "3,50\u00a0€", badge: null, image: "/cookies/trois-chocolats.webp" },
+  { name: "Spéculoos", price: "3,50\u00a0€", badge: null, image: "/cookies/speculoos.webp" },
+  { name: "Pistache", price: "3,60\u00a0€", badge: "Nouveauté", image: "/cookies/pistache.webp" },
+  { name: "Praliné noisette", price: "3,60\u00a0€", badge: null, image: "/cookies/praline-noisette.webp" },
+  { name: "Chocolat blanc & noix de macadamia", price: "3,60\u00a0€", badge: null, image: "/cookies/chocolat-blanc-macadamia.webp" },
+  { name: "Caramel, fleur de sel & cacahuète", price: "3,60\u00a0€", badge: "Édition limitée", image: "/cookies/caramel-cacahuete.webp" },
+  { name: "Mini-boîte personnalisable", sub: "Boîte de 50 mini-cookies", price: "35\u00a0€", badge: null, image: "/cookies/mini-boite.webp", fit: "cover" },
 ];
 
 const collections = [
@@ -78,7 +78,7 @@ const commandes = [
       <div class="cookie-shop">
         {cookies.map((c, i) => (
           <article class={`cookie-prod reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
-            <div class="cookie-prod-photo">
+            <div class={`cookie-prod-photo${c.fit === "cover" ? " cookie-prod-photo--cover" : ""}`}>
               {c.badge && (
                 <span class={`cookie-prod-badge cookie-prod-badge--${c.badge === "Best seller" ? "best" : c.badge === "Nouveauté" ? "new" : "limited"}`}>{c.badge}</span>
               )}
@@ -260,8 +260,8 @@ const commandes = [
      ============================================================ */
   .cookie-shop {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 28px;
     margin-top: 56px;
   }
   @media (max-width: 900px) {
@@ -277,14 +277,17 @@ const commandes = [
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: 0.25rem;
-    background: #f1ede6;
+    background: #f0ece4;
     border: 1px solid rgba(12, 57, 45, 0.08);
   }
   .cookie-prod-photo img {
     width: 100%; height: 100%;
-    object-fit: cover; display: block;
+    /* Visuels détourés (fond transparent) : on montre la plaque entière */
+    object-fit: contain; display: block;
     transition: transform 0.55s ease;
   }
+  /* Photos non détourées (coffret) : remplissage plein cadre */
+  .cookie-prod-photo--cover img { object-fit: cover; }
   .cookie-prod:hover .cookie-prod-photo img { transform: scale(1.05); }
 
   .cookie-prod-badge {
