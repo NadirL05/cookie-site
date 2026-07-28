@@ -339,8 +339,11 @@ const events = [
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     color: rgba(247,245,239,0.8);
     margin: 0;
-    /* neutralise le `p { text-align: justify }` global sur cette baseline de hero */
+    /* neutralise le `p { text-align: justify; text-align-last: left }` global.
+       text-align-last est indispensable : sur un paragraphe d'une seule ligne,
+       cette ligne est aussi la dernière, donc c'est elle qui l'emporte. */
     text-align: center;
+    text-align-last: center;
   }
 
   /* ─── Concept grid ─── */
