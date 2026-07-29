@@ -397,6 +397,9 @@ body::after {
 .cta-band .btn-primary { background: #0c392d; color: #f7f5ef; border-color: #0c392d; }
 .cta-band .btn-primary:hover { opacity: 0.88; }
 /* Variante beige — pour les boutons posés sur un fond sombre (photo ou .bg-forest) */
+/* Variante vert forêt — bouton posé sur une surface claire (photo éclaircie) */
+.btn-forest { background: #0c392d; color: #f7f5ef; border-color: #0c392d; }
+.btn-forest:hover { opacity: 0.88; }
 .btn-beige { background: #f7f5ef; color: #0c392d; border-color: #f7f5ef; }
 .btn-beige:hover { opacity: 0.88; }
 .cta-band .btn-beige { background: #f7f5ef; color: #0c392d; border-color: #f7f5ef; }
