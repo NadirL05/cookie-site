@@ -95,6 +95,15 @@ p {
   text-align-last: left;
 }
 
+/* En largeur mobile, la justification n'a plus assez de mots par ligne :
+   elle creuse des « rivières » de blanc entre les mots (constaté sur
+   iPhone dans le hero et les avis). On repasse au fil de l'eau. */
+@media (max-width: 640px) {
+  p {
+    text-align: left;
+  }
+}
+
 /* Grain texture */
 body::after {
   content: '';
@@ -388,9 +397,9 @@ body::after {
 .cta-band .btn-primary { background: #0c392d; color: #f7f5ef; border-color: #0c392d; }
 .cta-band .btn-primary:hover { opacity: 0.88; }
 /* Variante beige — pour les boutons posés sur un fond sombre (photo ou .bg-forest) */
-.btn-beige { background: #f0ece4; color: #0c392d; border-color: #f0ece4; }
+.btn-beige { background: #f7f5ef; color: #0c392d; border-color: #f7f5ef; }
 .btn-beige:hover { opacity: 0.88; }
-.cta-band .btn-beige { background: #f0ece4; color: #0c392d; border-color: #f0ece4; }
+.cta-band .btn-beige { background: #f7f5ef; color: #0c392d; border-color: #f7f5ef; }
 .btn-ghost { color: inherit; border-color: currentColor; opacity: 0.9; }
 .btn-ghost:hover { opacity: 1; background: rgba(0,0,0,0.04); }
 .bg-forest .btn-ghost { color: #f7f5ef; border-color: rgba(206,184,92,0.5); }
@@ -493,7 +502,7 @@ body::after {
   color: #1b1c1c;
 }
 .bg-forest .section-head h2 { color: #f7f5ef; }
-.section-head p { max-width: 500px; margin-left: auto; }
+.section-head p { max-width: 680px; margin-left: auto; }
 
 /* ============================================
    Cookie grid & cards (creations page)
@@ -566,7 +575,12 @@ body::after {
   margin: 16px auto 12px; letter-spacing: 0.01em; line-height: 1.15;
   color: #1b1c1c;
 }
-.bg-forest .cta-band h2 { color: #f7f5ef; }
+/* `.cta-band.bg-forest` : la bande EST elle-même la surface sombre.
+   Le sélecteur descendant seul ne matchait pas et laissait un titre
+   quasi noir sur fond vert. */
+.bg-forest .cta-band h2,
+.cta-band.bg-forest h2 { color: #f7f5ef; }
+.cta-band.bg-forest .eyebrow { color: rgba(247, 245, 239, 0.6); }
 .cta-band p { max-width: 480px; margin: 0 auto 36px; }
 
 /* ============================================
@@ -1431,7 +1445,7 @@ body::after {
 /* ── 3b. PULL QUOTE interlude ────────────────────────────── */
 .bk-pull {
   background: #0c392d;
-  padding: clamp(2.5rem, 4.5vw, 4rem) clamp(1.5rem, 6vw, 5rem);
+  padding: clamp(1.75rem, 3vw, 2.75rem) clamp(1.5rem, 6vw, 5rem);
   text-align: center;
   position: relative;
   overflow: hidden;

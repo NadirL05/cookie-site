@@ -14,19 +14,19 @@ const cookies = [
 ];
 
 const collections = [
-  { emoji: "🎄", label: "Collection de Noël" },
-  { emoji: "❤️", label: "Collection Saint-Valentin" },
-  { emoji: "🐣", label: "Collection de Pâques" },
-  { emoji: "🎃", label: "Collection Halloween" },
-  { emoji: "☀️", label: "Éditions spéciales été" },
+  "Collection de Noël",
+  "Collection Saint-Valentin",
+  "Collection de Pâques",
+  "Collection Halloween",
+  "Éditions spéciales été",
 ];
 
 const commandes = [
-  { emoji: "🎉", label: "Anniversaires" },
-  { emoji: "💍", label: "Mariages" },
-  { emoji: "🏢", label: "Événements professionnels" },
-  { emoji: "🎁", label: "Cadeaux gourmands" },
-  { emoji: "👨‍👩‍👧‍👦", label: "Réunions familiales" },
+  "Anniversaires",
+  "Mariages",
+  "Événements professionnels",
+  "Cadeaux gourmands",
+  "Réunions familiales",
 ];
 ---
 
@@ -114,22 +114,23 @@ const commandes = [
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#ceb85c">N° 02</span> &nbsp;·&nbsp; Éditions Limitées</span>
+          <span class="eyebrow"><span style="color:#ceb85c">N° 02</span> &nbsp;—&nbsp; Éditions limitées</span>
           <hr class="hairline" style="background:#ceb85c;opacity:0.4" />
-          <h2 style="color:#f7f5ef">Les cookies<br/>des fêtes.</h2>
+          <h2 style="color:#f7f5ef">Les collections<br/>saisonnières.</h2>
         </div>
-        <p class="body-text reveal reveal-delay-1" style="color:rgba(247,245,239,0.75);text-align:justify">
-          Parce que chaque saison mérite sa gourmandise, nous proposons des collections
-          éphémères tout au long de l'année, avec des saveurs, décorations et
-          présentations exclusives.
+        <p class="body-text reveal reveal-delay-1" style="color:rgba(247,245,239,0.75)">
+          Parce que chaque saison inspire de nouvelles créations, Cooksbrad imagine des
+          collections éphémères aux saveurs raffinées. Chaque édition est pensée pour
+          célébrer les plus beaux moments de l'année, avec des recettes exclusives et
+          une présentation soignée.
         </p>
       </div>
 
       <div class="collections-grid">
-        {collections.map((c, i) => (
+        {collections.map((label, i) => (
           <div class={`collection-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
-            <span class="collection-emoji">{c.emoji}</span>
-            <span class="collection-label">{c.label}</span>
+            <span class="collection-mark" aria-hidden="true">✦</span>
+            <span class="collection-label">{label}</span>
           </div>
         ))}
       </div>
@@ -141,22 +142,23 @@ const commandes = [
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#ceb85c">N° 03</span> &nbsp;·&nbsp; Commandes Personnalisées</span>
+          <span class="eyebrow"><span style="color:#ceb85c">N° 03</span> &nbsp;—&nbsp; Commandes personnalisées</span>
           <hr class="hairline" />
-          <h2 style="text-align:center">Vente sur<br/>commandes</h2>
+          <h2>Commandes<br/>sur mesure.</h2>
         </div>
         <p class="body-text reveal reveal-delay-1">
-          Vous souhaitez offrir ou partager nos cookies lors d'un événement particulier ?
-          Nos cookies peuvent être adaptés selon vos envies, le nombre de personnes
-          et le thème de votre événement.
+          Qu'il s'agisse d'une réception intime ou d'un événement d'envergure, nos créations
+          sont réalisées sur commande afin de s'adapter à vos envies, au nombre de convives
+          et à l'univers de votre événement. Chaque commande est préparée avec le plus grand
+          soin pour offrir une expérience aussi élégante que gourmande.
         </p>
       </div>
 
       <div class="commandes-grid">
-        {commandes.map((c, i) => (
+        {commandes.map((label, i) => (
           <div class={`commande-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
-            <span class="commande-emoji">{c.emoji}</span>
-            <span class="commande-label">{c.label}</span>
+            <span class="commande-mark" aria-hidden="true">✦</span>
+            <span class="commande-label">{label}</span>
           </div>
         ))}
       </div>
@@ -351,7 +353,13 @@ const commandes = [
     border-radius: 0.25rem;
     flex: 1 1 180px;
   }
-  .collection-emoji { font-size: 1.4rem; }
+  .collection-mark {
+    color: #ceb85c;
+    font-family: 'Noto Serif', serif;
+    font-size: 0.8rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
   .collection-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
@@ -392,7 +400,13 @@ const commandes = [
     border-radius: 0.25rem;
     flex: 1 1 180px;
   }
-  .commande-emoji { font-size: 1.4rem; }
+  .commande-mark {
+    color: #ceb85c;
+    font-family: 'Noto Serif', serif;
+    font-size: 0.8rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
   .commande-label {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
