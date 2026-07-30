@@ -3,6 +3,7 @@ import '../styles/fonts.css';
 import '../styles/global.css';
 import NavIsland from '../components/NavIsland';
 import Footer from '../components/Footer.astro';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -27,6 +28,7 @@ const { title = 'Cooksbrad · Atelier Culinaire & Bar Mobile', description = '',
     <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico?v=3" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
     <title>{title}</title>
+    <Analytics />
     <style>
       .skip-link {
         position: absolute;
