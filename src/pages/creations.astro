@@ -126,13 +126,26 @@ const commandes = [
         </p>
       </div>
 
-      <div class="collections-grid">
-        {collections.map((label, i) => (
-          <div class={`collection-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
-            <span class="collection-mark" aria-hidden="true">✦</span>
-            <span class="collection-label">{label}</span>
-          </div>
-        ))}
+      <div class="collections-block">
+        <figure class="collections-photo reveal">
+          <img
+            src="/cookies/collection-noel.webp"
+            alt="Cookies pécan et chocolat de la collection de Noël CooksBrad"
+            width="1200"
+            height="900"
+            loading="lazy"
+          />
+          <figcaption>Collection de Noël</figcaption>
+        </figure>
+
+        <div class="collections-grid">
+          {collections.map((label, i) => (
+            <div class={`collection-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
+              <span class="collection-mark" aria-hidden="true">✦</span>
+              <span class="collection-label">{label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -337,11 +350,45 @@ const commandes = [
   /* ============================================================
      Collections saisonnières
      ============================================================ */
+  /* Bloc éditorial : visuel de la collection + liste des éditions */
+  .collections-block {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 48px;
+  }
+  .collections-photo {
+    margin: 0;
+    position: relative;
+    border: 1px solid rgba(206, 184, 92, 0.28);
+    border-radius: 0.25rem;
+    overflow: hidden;
+  }
+  .collections-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .collections-photo figcaption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 26px 20px 14px;
+    background: linear-gradient(180deg, transparent, rgba(12, 57, 45, 0.82));
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ceb85c;
+  }
+
   .collections-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    margin-top: 48px;
   }
   .collection-item {
     display: flex;
@@ -367,12 +414,19 @@ const commandes = [
     font-weight: 500;
   }
 
+  @media (max-width: 900px) {
+    .collections-block {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-top: 32px;
+    }
+  }
+
   /* Sur mobile : items pleine largeur */
   @media (max-width: 480px) {
     .collections-grid {
       flex-direction: column;
       gap: 10px;
-      margin-top: 28px;
     }
     .collection-item {
       flex: 1 1 100%;
