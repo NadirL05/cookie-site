@@ -1506,7 +1506,7 @@ body::after {
   .bk-story-right { min-height: 300px; }
 }
 .bk-story-left {
-  background: #f0ece4;
+  background: #f7f5ef;
   display: flex;
   flex-direction: column;
   justify-content: center;

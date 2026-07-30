@@ -204,7 +204,7 @@ export default function ContactForm() {
         disabled={status === "sending" || !consent}
         className="w-full mt-2 rounded-none bg-forest text-cream hover:bg-[#383430] uppercase tracking-[0.18em] text-[10px] h-12 font-normal disabled:opacity-50 transition-colors duration-200"
       >
-        {status === "sending" ? "Envoi en cours…" : "Recevoir mon devis gratuit →"}
+        {status === "sending" ? "Envoi en cours…" : "Recevoir mon devis →"}
       </Button>
 
       {status === "error" && (
