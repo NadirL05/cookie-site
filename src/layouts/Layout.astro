@@ -10,9 +10,19 @@ interface Props {
   description?: string;
   current?: string;
   forestTop?: boolean;
+  image?: string;
 }
 
-const { title = 'Cooksbrad · Atelier Culinaire & Bar Mobile', description = '', current = 'home', forestTop = false } = Astro.props;
+const {
+  title = 'Cooksbrad · Atelier Culinaire & Bar Mobile',
+  description = '',
+  current = 'home',
+  forestTop = false,
+  image = '/garden-party.jpeg',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -23,11 +33,25 @@ const { title = 'Cooksbrad · Atelier Culinaire & Bar Mobile', description = '',
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     <meta name="theme-color" content="#0c392d" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=3" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3" />
     <link rel="icon" type="image/x-icon" sizes="48x48" href="/favicon.ico?v=3" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
     <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CooksBrad" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageURL} />
+
     <Analytics />
     <style>
       .skip-link {

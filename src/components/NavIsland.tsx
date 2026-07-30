@@ -45,7 +45,7 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
         {/* Logo */}
         <a href="/" className="nav-logo" aria-label="CooksBrad — retour à l'accueil">
           <img
-            src="/IMG_3220.png"
+            src="/logo-nav.webp"
             alt="CooksBrad"
             width="72"
             height="72"
