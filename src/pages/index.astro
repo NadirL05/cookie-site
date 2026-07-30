@@ -209,6 +209,37 @@ const events = [
   </section>
 
   <!-- ══════════════════════════════════════
+       VOS ÉVÉNEMENTS
+       ══════════════════════════════════════ -->
+  <section class="bk-events">
+    <div class="bk-events-left">
+      <h2 class="bk-events-title">Vos événements</h2>
+      <p class="bk-events-sub">
+        Quel que soit votre événement, CooksBrad s'adapte pour créer une expérience gourmande sur mesure.
+      </p>
+    </div>
+    <div class="bk-events-center">
+      <img
+        src="/cookies-pecan.jpeg"
+        alt="Assortiment de cookies artisanaux CooksBrad pour événements"
+        class="bk-events-photo"
+        loading="lazy"
+      />
+    </div>
+    <div class="bk-events-right">
+      {events.map((e, i) => (
+        <details class="bk-accord" open={i === 0}>
+          <summary class="bk-accord-sum">
+            {e.title}
+            <span class="bk-accord-icon" aria-hidden="true"></span>
+          </summary>
+          <p class="bk-accord-body">{e.body}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
        PULL QUOTE
        ══════════════════════════════════════ -->
   <div class="bk-pull">
