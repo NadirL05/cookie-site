@@ -28,6 +28,28 @@ const commandes = [
   "Cadeaux gourmands",
   "Réunions familiales",
 ];
+
+const productListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: cookies.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Product',
+      name: c.name,
+      description: c.sub || `Cookie artisanal ${c.name}, préparé par CooksBrad`,
+      image: new URL(c.image, Astro.site).toString(),
+      offers: {
+        '@type': 'Offer',
+        price: c.price.replace(' €', '').replace(',', '.'),
+        priceCurrency: 'EUR',
+        availability: 'https://schema.org/InStock',
+        url: new URL('/creations', Astro.site).toString(),
+      },
+    },
+  })),
+};
 ---
 
 <Layout
@@ -35,6 +57,8 @@ const commandes = [
   description="Découvrez nos cookies artisanaux : incontournables, collections saisonnières et commandes personnalisées."
   current="creations"
 >
+
+  <script type="application/ld+json" set:html={JSON.stringify(productListSchema)} />
 
   <!-- Page banner -->
   <section class="page-banner">

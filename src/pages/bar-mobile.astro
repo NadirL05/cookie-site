@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { reviews } from '../data/reviews';
+
+const barMobileReviews = reviews.filter(r => r.product === 'Bar à Crêpes');
 
 const ateliers = [
   {
@@ -251,6 +254,31 @@ const events = [
               />
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Avis clients -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px" class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:12px">Avis clients</span>
+        <h2 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:clamp(2rem,4vw,3.4rem);color:#1b1c1c;letter-spacing:-0.02em">
+          Ils ont vécu<br/>l'expérience Bar à Crêpes
+        </h2>
+      </div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;justify-content:center">
+        {barMobileReviews.map(r => (
+          <article class="bk-review-card" style="flex:0 1 320px">
+            <p class="bk-review-quote">« {r.quote} »</p>
+            <footer class="bk-review-footer">
+              <span class="bk-stars-gold" style="font-size:0.85rem">★★★★★</span>
+              <strong class="bk-review-name">{r.name}</strong>
+              <span class="bk-review-event">{r.event}</span>
+              <span class="bk-review-product">{r.product}</span>
+            </footer>
+          </article>
         ))}
       </div>
     </div>
