@@ -23,6 +23,29 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'CooksBrad',
+  description:
+    "Bar mobile événementiel et atelier de cookies artisanaux, basé à Aubagne, intervenant dans toute la région Provence-Alpes-Côte d'Azur pour mariages, événements d'entreprise et soirées privées.",
+  url: Astro.site,
+  logo: new URL('/logo-cooksbrad-square.png', Astro.site),
+  image: new URL('/garden-party.jpeg', Astro.site),
+  email: 'cooksbrad.pro@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Aubagne',
+    addressRegion: 'Provence-Alpes-Côte d’Azur',
+    addressCountry: 'FR',
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: "Provence-Alpes-Côte d'Azur",
+  },
+  sameAs: ['https://www.instagram.com/maison.cooksbrad/', 'https://www.tiktok.com/@cooksbrad'],
+};
 ---
 
 <!doctype html>
@@ -51,6 +74,8 @@ const ogImageURL = new URL(image, Astro.site);
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
     <Analytics />
     <style>
