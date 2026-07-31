@@ -4,47 +4,6 @@ import { reviews } from '../data/reviews';
 
 const barMobileReviews = reviews.filter(r => r.product === 'Bar à Crêpes');
 
-const ateliers = [
-  {
-    id: 'crepes',
-    span: 'large',
-    label: 'Tradition & Modernité',
-    title: 'Bar à Crêpes',
-    desc: 'Ingrédients soigneusement sélectionnés, garnitures maison et show-cooking. Une animation conviviale et gourmande préparée devant vos invités.',
-    items: ['Caramel au beurre salé maison', 'Fruits frais de saison', 'Chocolat artisanal'],
-    image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&q=80&auto=format&fit=crop',
-  },
-  {
-    id: 'focaccia',
-    span: 'small',
-    label: 'L\'Italie à l\'Honneur',
-    title: 'Bar à focaccia',
-    desc: 'Inspiré de l\'art de vivre italien, notre bar à focaccia propose une expérience sur mesure autour de pains artisanaux généreux et de garnitures soigneusement sélectionnées. Une animation élégante qui transforme chaque réception en un véritable voyage gourmand.',
-    items: ['Burrata crémeuse', 'Bresaola de bœuf', 'Pesto maison et légumes marinés'],
-    gold: true,
-    image: null,
-  },
-  {
-    id: 'refraichissant',
-    span: 'small',
-    label: 'Bar Rafraîchissant',
-    title: 'Bar rafraîchissant',
-    desc: 'Une expérience élégante autour de boissons préparées à la minute, imaginées pour offrir à vos invités un moment de fraîcheur et de partage.',
-    items: ['Fruits frais sélectionnés', 'Herbes aromatiques et garnitures raffinées', 'Créations personnalisées selon votre événement'],
-    image: null,
-  },
-  {
-    id: 'custom',
-    span: 'large',
-    label: 'Sur Mesure',
-    title: 'Créations Sur Mesure',
-    desc: 'Un projet unique ? Nous créons le bar de vos rêves, adapté à votre lieu et à votre ambiance.',
-    items: [],
-    image: null,
-    cta: true,
-  },
-];
-
 const events = [
   {
     title: 'Mariages',
@@ -164,7 +123,14 @@ const events = [
 
       <div class="ateliers-bento reveal reveal-delay-1">
         <!-- Bar à Crêpes — large -->
-        <div class="atelier-card atelier-large">
+        <div class="atelier-card atelier-large atelier-has-photo">
+          <div class="atelier-photo-frame">
+            <img
+              src="https://images.unsplash.com/photo-1637036124732-cb0fab13bb15?w=1200&q=80&auto=format&fit=crop"
+              alt="Crêpes garnies, façon bar à crêpes CooksBrad"
+              loading="lazy"
+            />
+          </div>
           <div class="atelier-content">
             <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#30804e;display:block;margin-bottom:12px">Tradition & Modernité</span>
             <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:1.75rem;color:#1b1c1c;margin:0 0 12px">Bar à Crêpes</h3>
@@ -180,7 +146,14 @@ const events = [
         </div>
 
         <!-- Bar à focaccia — light -->
-        <div class="atelier-card atelier-gold">
+        <div class="atelier-card atelier-gold atelier-has-photo">
+          <div class="atelier-photo-frame">
+            <img
+              src="https://images.unsplash.com/photo-1619452357216-e88ca8119eeb?w=1200&q=80&auto=format&fit=crop"
+              alt="Focaccia artisanale aux tomates confites, façon bar à focaccia CooksBrad"
+              loading="lazy"
+            />
+          </div>
           <div class="atelier-content">
             <span style="font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#30804e;display:block;margin-bottom:12px">L'Italie à l'Honneur</span>
             <h3 style="font-family:'Noto Serif',serif;font-style:italic;font-weight:600;font-size:1.5rem;color:#1b1c1c;margin:0 0 12px">Bar à focaccia</h3>
@@ -291,7 +264,8 @@ const events = [
       <h2>Prêt à sublimer<br/>votre événement ?</h2>
       <p class="body-text">
         Nous étudions chaque projet pour vous proposer une expérience sur mesure,
-        adaptée à vos envies et à votre lieu, partout en région PACA.
+        adaptée à vos envies et à votre lieu, dans toute la région Provence-Alpes-Côte d'Azur
+        (Bouches-du-Rhône, Var, Vaucluse, Alpes-Maritimes, Alpes-de-Haute-Provence, Hautes-Alpes).
       </p>
       <a href="/contact" class="btn btn-beige">
         Planifier mon événement <span class="arrow">→</span>
@@ -501,6 +475,27 @@ const events = [
     background: #ffffff;
     border: 1px solid rgba(27, 28, 28,0.12);
     cursor: pointer;
+  }
+
+  /* Photo variant (Bar à Crêpes / Bar à focaccia) */
+  .atelier-has-photo {
+    display: flex;
+    flex-direction: column;
+  }
+  .atelier-photo-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .atelier-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .atelier-has-photo .atelier-content {
+    height: auto;
   }
 
   /* ─── Events timeline ─── */

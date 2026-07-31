@@ -40,10 +40,15 @@ const localBusinessSchema = {
     addressRegion: 'Provence-Alpes-Côte d’Azur',
     addressCountry: 'FR',
   },
-  areaServed: {
-    '@type': 'AdministrativeArea',
-    name: "Provence-Alpes-Côte d'Azur",
-  },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: "Provence-Alpes-Côte d'Azur" },
+    { '@type': 'AdministrativeArea', name: 'Bouches-du-Rhône' },
+    { '@type': 'AdministrativeArea', name: 'Var' },
+    { '@type': 'AdministrativeArea', name: 'Vaucluse' },
+    { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
+    { '@type': 'AdministrativeArea', name: 'Alpes-de-Haute-Provence' },
+    { '@type': 'AdministrativeArea', name: 'Hautes-Alpes' },
+  ],
   sameAs: ['https://www.instagram.com/maison.cooksbrad/', 'https://www.tiktok.com/@cooksbrad'],
 };
 ---
