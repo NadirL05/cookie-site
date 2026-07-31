@@ -651,7 +651,7 @@ body::after {
    Hero
    ============================================ */
 .hero {
-  position: relative; min-height: calc(100vh - 76px);
+  position: relative; min-height: calc(100svh - 76px);
   display: flex; align-items: flex-start; justify-content: center;
   overflow: hidden; color: #f7f5ef; margin-top: 76px;
 }
@@ -1015,7 +1015,7 @@ body::after {
 /* ── 1. HERO ──────────────────────────────────────────────── */
 .bk-hero {
   position: relative;
-  height: 100vh;
+  height: 100svh;
   min-height: 580px;
   overflow: hidden;
 }
@@ -1342,6 +1342,11 @@ body::after {
   border-bottom: 1.5px solid #0c392d;
   padding-bottom: 3px;
   transition: opacity 200ms;
+  /* zone tactile >= 44px sans épaissir le trait : la marge est prise
+     au-dessus/en-dessous du texte, le soulignement reste collé au mot */
+  min-height: 44px;
+  box-sizing: border-box;
+  align-items: flex-end !important;
 }
 .bk-services-link:hover { opacity: 0.6; }
 
@@ -1679,6 +1684,19 @@ details[open] .bk-accord-icon::after { opacity: 0; }
   border-bottom: 1.5px solid #0c392d;
   padding-bottom: 3px;
   transition: opacity 200ms;
+  /* le lien ne fait que 24px de haut : sous les 44px recommandés
+     (Apple HIG, WCAG 2.5.5). On étend la zone tactile par pseudo-élément
+     pour ne pas décoller le soulignement du texte. */
+  position: relative;
+}
+.dual-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
 }
 .dual-link:hover { opacity: 0.55; }
 .bg-forest .dual-link { color: #f7f5ef; border-bottom-color: rgba(247,245,239,0.5); }

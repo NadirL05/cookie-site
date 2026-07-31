@@ -36,7 +36,7 @@ import ContactForm from '../components/ContactForm';
 
         <!-- Form -->
         <div class="contact-form-col reveal">
-          <span class="eyebrow" style="display:block;margin-bottom:24px"><span style="color:#ceb85c">N° 01</span> &nbsp;·&nbsp; Votre Demande</span>
+          <span class="eyebrow" style="display:block;margin-bottom:24px"><span class="eyebrow-num" style="color:#ceb85c">N° 01</span><span class="eyebrow-sep"> &nbsp;·&nbsp; </span>Votre Demande</span>
           <div class="contact-form-box">
             <ContactForm client:load />
           </div>
@@ -44,7 +44,7 @@ import ContactForm from '../components/ContactForm';
 
         <!-- Info sidebar -->
         <div class="contact-info-col reveal reveal-delay-1">
-          <span class="eyebrow" style="display:block;margin-bottom:24px"><span style="color:#ceb85c">N° 02</span> &nbsp;·&nbsp; Retrouvez-nous</span>
+          <span class="eyebrow" style="display:block;margin-bottom:24px"><span class="eyebrow-num" style="color:#ceb85c">N° 02</span><span class="eyebrow-sep"> &nbsp;·&nbsp; </span>Retrouvez-nous</span>
 
           <!-- Coordinates card -->
           <div class="contact-coords">
@@ -109,6 +109,9 @@ import ContactForm from '../components/ContactForm';
     /* Coordonnées (2e col dans le DOM) affichées en 1er sur mobile */
     .contact-info-col  { order: 1; }
     .contact-form-col  { order: 2; }
+    /* ...ce qui ferait lire « N° 02 » avant « N° 01 » : on retire la
+       numérotation à cette largeur plutôt que de casser cet ordre. */
+    .eyebrow-num, .eyebrow-sep { display: none; }
   }
 
   /* ── Form box ── */

@@ -106,7 +106,7 @@ const productListSchema = {
               {c.badge && (
                 <span class={`cookie-prod-badge cookie-prod-badge--${c.badge === "Best seller" ? "best" : c.badge === "Nouveauté" ? "new" : "limited"}`}>{c.badge}</span>
               )}
-              <img src={c.image} alt={`Cookie ${c.name}`} loading="lazy" />
+              <img src={c.image} alt={`Cookie ${c.name}`} width="720" height="960" loading="lazy" />
             </div>
             <div class="cookie-prod-info">
               <h3 class="cookie-prod-name">{c.name}</h3>
