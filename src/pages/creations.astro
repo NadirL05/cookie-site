@@ -13,13 +13,6 @@ const cookies = [
   { name: "Mini-boîte personnalisable", sub: "Boîte de 50 mini-cookies", price: "35\u00a0€", badge: null, image: "/cookies/mini-boite.webp", fit: "cover" },
 ];
 
-const collections = [
-  "Collection de Noël",
-  "Collection Saint-Valentin",
-  "Collection de Pâques",
-  "Collection Halloween",
-  "Éditions spéciales été",
-];
 
 const commandes = [
   "Anniversaires",
@@ -54,7 +47,7 @@ const productListSchema = {
 
 <Layout
   title="Nos Créations — Cooksbrad"
-  description="Découvrez nos cookies artisanaux : incontournables, collections saisonnières et commandes personnalisées."
+  description="Découvrez nos cookies artisanaux : notre carte de cookies et nos commandes sur mesure pour vos événements."
   current="creations"
 >
 
@@ -133,53 +126,12 @@ const productListSchema = {
     </div>
   </section>
 
-  <!-- Collections saisonnières -->
-  <section class="section bg-forest">
-    <div class="container">
-      <div class="section-head">
-        <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#ceb85c">N° 02</span> &nbsp;—&nbsp; Éditions limitées</span>
-          <hr class="hairline" style="background:#ceb85c;opacity:0.4" />
-          <h2 style="color:#f7f5ef">Les collections<br/>saisonnières.</h2>
-        </div>
-        <p class="body-text reveal reveal-delay-1" style="color:rgba(247,245,239,0.75)">
-          Parce que chaque saison inspire de nouvelles créations, Cooksbrad imagine des
-          collections éphémères aux saveurs raffinées. Chaque édition est pensée pour
-          célébrer les plus beaux moments de l'année, avec des recettes exclusives et
-          une présentation soignée.
-        </p>
-      </div>
-
-      <div class="collections-block">
-        <figure class="collections-photo reveal">
-          <img
-            src="/cookies/collection-noel.webp"
-            alt="Cookies pécan et chocolat de la collection de Noël CooksBrad"
-            width="1200"
-            height="900"
-            loading="lazy"
-          />
-          <figcaption>Collection de Noël</figcaption>
-        </figure>
-
-        <div class="collections-grid">
-          {collections.map((label, i) => (
-            <div class={`collection-item reveal${i > 0 ? " reveal-delay-" + Math.min(i, 3) : ""}`}>
-              <span class="collection-mark" aria-hidden="true">✦</span>
-              <span class="collection-label">{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Vente sur commande -->
   <section class="section bg-cream">
     <div class="container">
       <div class="section-head">
         <div class="section-head-left reveal">
-          <span class="eyebrow"><span style="color:#ceb85c">N° 03</span> &nbsp;—&nbsp; Commandes personnalisées</span>
+          <span class="eyebrow"><span style="color:#ceb85c">N° 02</span> &nbsp;—&nbsp; Commandes personnalisées</span>
           <hr class="hairline" />
           <h2>Commandes<br/>sur mesure.</h2>
         </div>
@@ -381,94 +333,6 @@ const productListSchema = {
      ============================================================ */
   @media (max-width: 600px) {
     .section-head { margin-bottom: 32px; }
-  }
-
-  /* ============================================================
-     Collections saisonnières
-     ============================================================ */
-  /* Bloc éditorial : visuel de la collection + liste des éditions */
-  .collections-block {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 40px;
-    align-items: center;
-    margin-top: 48px;
-  }
-  .collections-photo {
-    margin: 0;
-    position: relative;
-    border: 1px solid rgba(206, 184, 92, 0.28);
-    border-radius: 0.25rem;
-    overflow: hidden;
-  }
-  .collections-photo img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-  .collections-photo figcaption {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    padding: 26px 20px 14px;
-    background: linear-gradient(180deg, transparent, rgba(12, 57, 45, 0.82));
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #ceb85c;
-  }
-
-  .collections-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .collection-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 24px;
-    background: rgba(247,245,239,0.08);
-    border: 1px solid rgba(206,184,92,0.25);
-    border-radius: 0.25rem;
-    flex: 1 1 180px;
-  }
-  .collection-mark {
-    color: #ceb85c;
-    font-family: 'Noto Serif', serif;
-    font-size: 0.8rem;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .collection-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
-    color: #f7f5ef;
-    font-weight: 500;
-  }
-
-  @media (max-width: 900px) {
-    .collections-block {
-      grid-template-columns: 1fr;
-      gap: 28px;
-      margin-top: 32px;
-    }
-  }
-
-  /* Sur mobile : items pleine largeur */
-  @media (max-width: 480px) {
-    .collections-grid {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .collection-item {
-      flex: 1 1 100%;
-      padding: 14px 16px;
-    }
-    .collection-label { font-size: 0.85rem; }
   }
 
   /* ============================================================
