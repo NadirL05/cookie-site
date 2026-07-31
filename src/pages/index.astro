@@ -19,24 +19,6 @@ const services = [
   },
 ];
 
-const events = [
-  {
-    title: "Mariages",
-    body: "Une animation gourmande qui ravira petits et grands. Bar à crêpes ou tiramisu pour votre vin d'honneur ou soirée dansante.",
-  },
-  {
-    title: "Anniversaires",
-    body: "Pour célébrer vos moments importants avec originalité. Une expérience mémorable et conviviale pour tous vos invités.",
-  },
-  {
-    title: "Entreprises",
-    body: "Séminaires, inaugurations, soirées d'entreprise, journées clients : une animation culinaire prestige pour fédérer vos équipes.",
-  },
-  {
-    title: "Événements Privés",
-    body: "Baptêmes, baby showers, EVJF, fêtes familiales. Nous nous déplaçons sur votre lieu de réception en région PACA.",
-  },
-];
 ---
 
 <Layout
@@ -181,39 +163,6 @@ const events = [
       <div class="bk-services-cta">
         <a href="/contact" class="bk-services-link">Demander un devis →</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════
-       VOS ÉVÉNEMENTS
-       ══════════════════════════════════════ -->
-  <section class="bk-events">
-    <div class="bk-events-left">
-      <h2 class="bk-events-title">Vos événements</h2>
-      <p class="bk-events-sub">
-        Quel que soit votre événement, CooksBrad s'adapte pour créer une expérience gourmande sur mesure.
-      </p>
-    </div>
-    <div class="bk-events-center">
-      <img
-        src="/cookies-pecan.jpeg"
-        width="1500"
-        height="1000"
-        alt="Assortiment de cookies artisanaux CooksBrad pour événements"
-        class="bk-events-photo"
-        loading="lazy"
-      />
-    </div>
-    <div class="bk-events-right">
-      {events.map((e, i) => (
-        <details class="bk-accord" open={i === 0}>
-          <summary class="bk-accord-sum">
-            {e.title}
-            <span class="bk-accord-icon" aria-hidden="true"></span>
-          </summary>
-          <p class="bk-accord-body">{e.body}</p>
-        </details>
-      ))}
     </div>
   </section>
 
@@ -521,38 +470,6 @@ const events = [
     .section-head {
       margin-bottom: 32px;
       gap: 14px;
-    }
-
-    /* ── Events accordion ──────────────────────────────────── */
-    .bk-events {
-      grid-template-columns: 1fr;
-      min-height: unset;
-    }
-    .bk-events-left {
-      /* Reduce side padding drastically on 390px */
-      padding: 2.5rem 1.25rem 1.5rem;
-    }
-    .bk-events-title {
-      font-size: clamp(2.6rem, 13vw, 4rem);
-    }
-    .bk-events-sub {
-      font-size: 0.88rem;
-    }
-    .bk-events-center {
-      min-height: 220px;
-    }
-    .bk-events-right {
-      padding: 1.5rem 1.25rem;
-      border-left: none;
-      border-top: 1px solid rgba(12, 57, 45,0.08);
-    }
-    .bk-accord-sum {
-      padding: 16px 0;
-      font-size: 0.95rem;
-    }
-    .bk-accord-body {
-      font-size: 0.875rem;
-      line-height: 1.65;
     }
 
     /* ── CTA final ─────────────────────────────────────────── */

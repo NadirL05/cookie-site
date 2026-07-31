@@ -1541,109 +1541,6 @@ body::after {
   font-size: 0.95rem;
 }
 
-/* ── 5. ÉVÉNEMENTS ACCORDION ─────────────────────────────── */
-.bk-events {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  background: #f7f5ef;
-  border-top: 1px solid rgba(12, 57, 45,0.07);
-  min-height: clamp(380px, 50vw, 640px);
-}
-@media (max-width: 900px) {
-  .bk-events {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .bk-events-center { min-height: 280px; }
-}
-.bk-events-left {
-  padding: clamp(3rem, 7vw, 6rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.bk-events-title {
-  font-family: 'Alex Brush', cursive;
-  font-style: normal;
-  font-weight: 400;
-  font-size: clamp(3.2rem, 5.5vw, 5rem);
-  color: #1b1c1c;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin: 0 0 20px;
-}
-.bk-events-sub {
-  color: rgba(27, 28, 28,0.6);
-  font-size: 0.95rem;
-  line-height: 1.65;
-  margin: 0;
-}
-.bk-events-center { overflow: hidden; }
-.bk-events-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.bk-events-right {
-  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-  border-left: 1px solid rgba(12, 57, 45,0.08);
-}
-.bk-accord {
-  border-bottom: 1px solid rgba(12, 57, 45,0.1);
-}
-.bk-accord:first-child { border-top: 1px solid rgba(12, 57, 45,0.1); }
-.bk-accord-sum {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
-  cursor: pointer;
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #1b1c1c;
-  user-select: none;
-}
-.bk-accord-sum::-webkit-details-marker { display: none; }
-.bk-accord-icon {
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid rgba(12, 57, 45,0.3);
-  border-radius: 50%;
-  flex-shrink: 0;
-  position: relative;
-  transition: background 200ms, border-color 200ms;
-}
-.bk-accord-icon::before,
-.bk-accord-icon::after {
-  content: '';
-  position: absolute;
-  background: #0c392d;
-  border-radius: 2px;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-}
-.bk-accord-icon::before { width: 10px; height: 1.5px; }
-.bk-accord-icon::after  { width: 1.5px; height: 10px; transition: opacity 200ms; }
-details[open] .bk-accord-icon { background: #0c392d; border-color: #0c392d; }
-details[open] .bk-accord-icon::before,
-details[open] .bk-accord-icon::after { background: #f7f5ef; }
-details[open] .bk-accord-icon::after { opacity: 0; }
-
-.bk-accord-body {
-  font-size: 0.88rem;
-  color: rgba(27, 28, 28,0.62);
-  line-height: 1.7;
-  padding: 0 0 20px;
-  margin: 0;
-}
-
 /* ── 6. CTA FINAL ────────────────────────────────────────── */
 .bk-cta {
   padding: clamp(4rem,7vw,6rem) 0 clamp(3rem,5vw,4.5rem);
@@ -1842,7 +1739,6 @@ details[open] .bk-accord-icon::after { opacity: 0; }
 @media (max-width: 640px) {
   .bk-hero-title { font-size: clamp(2.5rem, 13vw, 4.5rem); line-height: 1.05; }
   .bk-prod-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .bk-events-right { border-left: none; border-top: 1px solid rgba(12, 57, 45,0.08); }
 }
 
 /* Short viewports (DevTools open, laptop with toolbar) */
@@ -1860,8 +1756,7 @@ details[open] .bk-accord-icon::after { opacity: 0; }
   .bk-hero-title { font-size: clamp(2.4rem, 11vw, 3.2rem); line-height: 1.08; }
   .bk-services-title,
   .bk-story-title,
-  .bk-cta-title,
-  .bk-events-title { font-size: clamp(2.2rem, 10vw, 3rem); line-height: 1.08; }
+  .bk-cta-title { font-size: clamp(2.2rem, 10vw, 3rem); line-height: 1.08; }
   .page-banner h1 { font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.1; }
   .section-head h2,
   .cta-band h2 { font-size: clamp(2rem, 9vw, 2.8rem); line-height: 1.12; }
