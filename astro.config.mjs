@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://cooksbrad.fr',
+  site: 'https://www.cooksbrad.fr',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

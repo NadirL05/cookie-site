@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cooksbrad.fr/sitemap-index.xml
+Sitemap: https://www.cooksbrad.fr/sitemap-index.xml
