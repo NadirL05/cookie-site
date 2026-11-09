@@ -1,0 +1,24 @@
+# CooksBrad
+
+> CooksBrad est un bar mobile événementiel et un atelier de cookies artisanaux basé à Aubagne (Bouches-du-Rhône). Il intervient dans toute la région Provence-Alpes-Côte d'Azur pour des mariages, des événements d'entreprise et des soirées privées.
+
+## Pages principales
+
+- [Accueil](https://www.cooksbrad.fr/) : présentation de CooksBrad, cookies artisanaux, bar à crêpes, bar à tiramisu.
+- [Bar mobile](https://www.cooksbrad.fr/bar-mobile/) : bar à crêpes, bar à focaccia et animations sur mesure pour vos événements.
+- [Créations](https://www.cooksbrad.fr/creations/) : carte de cookies artisanaux et commandes sur mesure.
+- [Notre histoire](https://www.cooksbrad.fr/histoire/) : l'aventure CooksBrad, née d'une amitié et d'une Braderie de Lille.
+- [Contact et devis](https://www.cooksbrad.fr/contact/) : demande de devis, réponse sous 72 h.
+
+## Informations pratiques
+
+- Zone d'intervention : région Provence-Alpes-Côte d'Azur (Bouches-du-Rhône, Var, Vaucluse, Alpes-Maritimes, Alpes-de-Haute-Provence, Hautes-Alpes).
+- Réservation : 72 h à l'avance.
+- Contact : cooksbrad.pro@gmail.com
+- Instagram : https://www.instagram.com/maison.cooksbrad/
+- TikTok : https://www.tiktok.com/@cooksbrad
+
+## Mentions
+
+- [Mentions légales](https://www.cooksbrad.fr/mentions-legales/)
+- [Politique de confidentialité](https://www.cooksbrad.fr/confidentialite/)

@@ -195,7 +195,7 @@ export default function ContactForm() {
           traiter ma demande de devis et me recontacter. Conformément au RGPD, vous
           disposez d'un droit d'accès, de rectification et de suppression de vos données.
           Pour en savoir plus, consultez notre{" "}
-          <a href="/confidentialite" className="underline hover:text-forest">politique de confidentialité</a>.
+          <a href="/confidentialite/" className="underline hover:text-forest">politique de confidentialité</a>.
         </label>
       </div>
 

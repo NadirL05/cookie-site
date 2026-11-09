@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { id: "bar-mobile", label: "Bar mobile", href: "/bar-mobile" },
-  { id: "creations", label: "Créations", href: "/creations" },
-  { id: "histoire", label: "Histoire", href: "/histoire" },
+  { id: "bar-mobile", label: "Bar mobile", href: "/bar-mobile/" },
+  { id: "creations", label: "Créations", href: "/creations/" },
+  { id: "histoire", label: "Histoire", href: "/histoire/" },
 ];
 
 type NavIslandProps = {
@@ -68,7 +68,7 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
         </ul>
 
         {/* CTA desktop : caché sur mobile */}
-        <a href="/contact" className="nav-gh-cta">Demander un devis</a>
+        <a href="/contact/" className="nav-gh-cta">Demander un devis</a>
 
         {/* Bouton hamburger : visible uniquement sur mobile */}
         <button
@@ -110,7 +110,7 @@ export default function NavIsland({ current = "home" }: NavIslandProps) {
             </div>
             <div className="nav-gh-mobile-action">
               <a
-                href="/contact"
+                href="/contact/"
                 className="nav-gh-mobile-cta"
                 onClick={handleClose}
               >

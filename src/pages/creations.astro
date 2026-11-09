@@ -38,7 +38,7 @@ const productListSchema = {
         price: c.price.replace(' €', '').replace(',', '.'),
         priceCurrency: 'EUR',
         availability: 'https://schema.org/InStock',
-        url: new URL('/creations', Astro.site).toString(),
+        url: new URL('/creations/', Astro.site).toString(),
       },
     },
   })),
@@ -46,7 +46,7 @@ const productListSchema = {
 ---
 
 <Layout
-  title="Nos Créations — Cooksbrad"
+  title="Cookies artisanaux et commandes sur mesure — CooksBrad"
   description="Découvrez nos cookies artisanaux : notre carte de cookies et nos commandes sur mesure pour vos événements."
   current="creations"
 >
@@ -70,7 +70,7 @@ const productListSchema = {
           simplicité, qualité et générosité.
         </p>
         <div style="margin-top:28px">
-          <a href="/contact" class="btn btn-gold">Commander mes cookies →</a>
+          <a href="/contact/" class="btn btn-gold">Commander mes cookies →</a>
         </div>
       </div>
     </div>
@@ -192,7 +192,7 @@ const productListSchema = {
       <p class="body-text">
         Commande personnalisée, devis événementiel ou renseignement : contactez-nous.
       </p>
-      <a href="/contact" class="btn btn-primary">
+      <a href="/contact/" class="btn btn-primary">
         Nous contacter <span class="arrow">→</span>
       </a>
     </div>
