@@ -3,7 +3,6 @@ import '../styles/fonts.css';
 import '../styles/global.css';
 import NavIsland from '../components/NavIsland';
 import Footer from '../components/Footer.astro';
-import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -82,7 +81,6 @@ const localBusinessSchema = {
 
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
-    <Analytics />
     <style>
       .skip-link {
         position: absolute;
