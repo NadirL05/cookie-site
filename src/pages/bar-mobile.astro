@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Faq from '../components/Faq.astro';
 import { reviews } from '../data/reviews';
 
 const barMobileReviews = reviews.filter(r => r.product === 'Bar à Crêpes');
@@ -250,6 +251,35 @@ const events = [
       </div>
     </div>
   </section>
+
+  <Faq
+    items={[
+      {
+        q: 'Où intervient CooksBrad ?',
+        a: "CooksBrad est basé à Aubagne et se déplace dans toute la région Provence-Alpes-Côte d'Azur : Bouches-du-Rhône, Var, Vaucluse, Alpes-Maritimes, Alpes-de-Haute-Provence et Hautes-Alpes.",
+      },
+      {
+        q: 'Quelles animations gourmandes proposez-vous ?',
+        a: "Nous proposons un bar à crêpes, un bar à gaufres, un bar à tiramisu, un bar à focaccia et un bar rafraîchissant, ainsi que des cookies artisanaux. Les préparations se font sur place, devant vos invités.",
+      },
+      {
+        q: 'Pour quels événements ?',
+        a: "Pour les mariages, les événements d'entreprise et les soirées privées.",
+      },
+      {
+        q: 'Les prestations sont-elles personnalisables ?',
+        a: "Oui. Nous étudions chaque projet pour proposer une expérience sur mesure, adaptée à vos envies et à votre lieu.",
+      },
+      {
+        q: 'Comment obtenir un devis, et sous quel délai ?',
+        a: "Utilisez le formulaire de la page Contact : vous recevez votre devis sous 72 h.",
+      },
+      {
+        q: "Combien de temps à l'avance faut-il réserver ?",
+        a: "Les réservations se font par Instagram ou par e-mail, 72 h à l'avance.",
+      },
+    ]}
+  />
 
   <!-- CTA -->
   <section class="cta-band bg-forest">
