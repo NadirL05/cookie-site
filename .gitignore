@@ -27,3 +27,8 @@ pnpm-debug.log*
 .superpowers/
 .aider*
 .vercel
+
+# Wrangler local state and protected configuration
+.wrangler/
+.dev.vars*
+.env.*
