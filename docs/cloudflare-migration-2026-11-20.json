@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-20",
+  "status": "prepared-not-deployed",
+  "coordination": "NADIR-58",
+  "owner": "ChatGPT/Codex cooksbrad_worker; next: root for Cloudflare account inspection and cutover",
+  "source": {
+    "repository": "NadirL05/cookie-site",
+    "baseCommit": "b970852a2d19289d1e6faf90b16475e1e817294a",
+    "branch": "codex/cooksbrad-cloudflare-20261120",
+    "latestVercelProduction": {
+      "id": "dpl_5b3NcLAcDw7ovmGUVcitD5TH7MxV",
+      "state": "BLOCKED",
+      "commit": "b970852a2d19289d1e6faf90b16475e1e817294a"
+    },
+    "lastVercelReadyCommit": "2f2be24767bfc1c32c1e766954cae5167aa45e22",
+    "priorCloudflarePagesMigrationMentionedByCommit": "b4f166d774b30f1cfef0086d5d9484c87da69413"
+  },
+  "reference": {
+    "repository": "NadirL05/mont-dor-paysage",
+    "commit": "ad8ec585c5fb0174c3dfa0e7f47cb2f836cb0c9c",
+    "model": "Workers with static assets; SSR adapter required there for /api/devis only"
+  },
+  "architecture": {
+    "framework": "Astro 6.1.7 static",
+    "pages": [
+      "/",
+      "/bar-mobile/",
+      "/creations/",
+      "/histoire/",
+      "/contact/",
+      "/mentions-legales/",
+      "/confidentialite/"
+    ],
+    "custom404": true,
+    "canonical": "https://www.cooksbrad.fr/",
+    "serverRuntime": false,
+    "accounts": false,
+    "payments": false,
+    "database": false,
+    "contact": "Existing browser-to-Formspree flow, PUBLIC_FORMSPREE_ID public build override; versioned fallback xzdqnlkb",
+    "serverSecretsRequired": [],
+    "analytics": "Existing versioned public Cloudflare Web Analytics snippet preserved"
+  },
+  "cloudflare": {
+    "workerName": "cooksbrad",
+    "domains": [
+      "cooksbrad.fr",
+      "www.cooksbrad.fr"
+    ],
+    "assets": "dist/",
+    "htmlHandling": "force-trailing-slash",
+    "notFoundHandling": "404-page",
+    "workersDev": false,
+    "previewUrls": false,
+    "bindings": [],
+    "workerCreated": false,
+    "deployExecuted": false,
+    "dnsModified": false,
+    "paidServicesActivated": false
+  },
+  "verification": {
+    "runtime": "Node 22.23.4, npm 10.9.9, Wrangler 4.166.0, Playwright 1.64.1 Chromium",
+    "cleanNpmCi": true,
+    "build": {
+      "passed": true,
+      "pages": 8
+    },
+    "dryRun": {
+      "passed": true,
+      "assetEntries": 84,
+      "bindings": 0
+    },
+    "workerTest": {
+      "passed": true,
+      "routes": 7,
+      "redirects": 6,
+      "assets": 31,
+      "protectedPaths": 6,
+      "browserPages": 14,
+      "formScenarios": [
+        "required-date-and-consent",
+        "success-mocked",
+        "server-error-mocked",
+        "network-error-mocked"
+      ],
+      "mobileMenu": true,
+      "externalRequestsSent": 0
+    },
+    "serviceContextLimitation": "Wrangler dev cannot enumerate interfaces in restricted Superset service (system error 97); no service controls changed. Build/dry-run passed there, runtime/browser verification passed via authorized Ubuntu SSH operator.",
+    "logs": [
+      "/tmp/cooksbrad-operator-npm.log",
+      "/tmp/cooksbrad-operator-build-dry-run.log",
+      "/tmp/cooksbrad-operator-tests-final.log"
+    ]
+  },
+  "artifact": {
+    "path": "/srv/agentimpact-dev/jobs/cooksbrad-worker-20261120/cooksbrad-worker-dist.tgz",
+    "sha256": "a2af7b07e4b579b51b55bc4be60f96a39446d1f1046c200ecd60987a7ee32f50",
+    "files": 75,
+    "bytes": 5785189,
+    "largestFileBytes": 1466678,
+    "manifest": "/srv/agentimpact-dev/jobs/cooksbrad-worker-20261120/asset-manifest.json"
+  },
+  "publicReadOnly": {
+    "checkedAt": "2026-11-20T21:49:41.918975+00:00",
+    "apexStatus": 301,
+    "apexRedirect": "https://www.cooksbrad.fr/",
+    "wwwStatus": 403,
+    "server": "cloudflare",
+    "contentType": "text/plain; charset=UTF-8",
+    "vercelHeadersPresent": false,
+    "contentMarkersPresent": false,
+    "explicitChallengeMarkersPresent": false,
+    "furtherRequestsAttempted": false,
+    "interpretation": "Cloudflare front door and canonical redirect already exist; origin cannot be identified behind the 403. Check existing Pages/Workers/DNS in the owning account before deployment.",
+    "report": "/srv/agentimpact-dev/jobs/cooksbrad-worker-20261120/public-readonly.json"
+  },
+  "remaining": [
+    "Root must inspect existing Cloudflare zone/account and Pages project before creating or attaching a Worker.",
+    "Preserve existing apex-to-www 301 and query/path behavior, mail records and unrelated DNS.",
+    "Confirm only any public Formspree build override if one exists; do not retrieve server secrets.",
+    "Root deploys tested artifact/source only after authorized Cloudflare authentication; then verify public HTTPS/routes/assets/404/menu.",
+    "Formspree delivery and analytics ingestion were not exercised; no real form, email, payment, webhook or external analytics request was sent."
+  ]
+}

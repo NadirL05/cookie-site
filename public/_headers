@@ -13,21 +13,21 @@
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
 
-/creations
+/creations/
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
-/contact
+/contact/
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
-/bar-mobile
+/bar-mobile/
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
-/histoire
+/histoire/
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
-/confidentialite
+/confidentialite/
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
-/mentions-legales
+/mentions-legales/
   Cache-Control: no-store, no-cache, must-revalidate, max-age=0
   Pragma: no-cache
